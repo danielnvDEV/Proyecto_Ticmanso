@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\NavacerradaVaronDaniel_TFG.props" />
+</Project>

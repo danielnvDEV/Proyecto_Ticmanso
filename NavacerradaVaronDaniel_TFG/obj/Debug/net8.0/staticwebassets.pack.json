@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\obj\\Debug\\net8.0\\compressed\\b5d9p9w8dl.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\obj\\Debug\\net8.0\\scopedcss\\bundle\\NavacerradaVaronDaniel_TFG.styles.css",
+      "PackagePath": "staticwebassets\\NavacerradaVaronDaniel_TFG.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\obj\\Debug\\net8.0\\service-worker-assets.js",
+      "PackagePath": "staticwebassets\\service-worker-assets.js"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\obj\\Debug\\net8.0\\service-worker\\service-worker.published.js",
+      "PackagePath": "staticwebassets\\service-worker.js"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\wwwroot\\icon-512.png",
+      "PackagePath": "staticwebassets\\icon-512.png"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\wwwroot\\manifest.webmanifest",
+      "PackagePath": "staticwebassets\\manifest.webmanifest"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\source\\repos\\NavacerradaVaronDaniel_TFG\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NavacerradaVaronDaniel_TFG.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.NavacerradaVaronDaniel_TFG.props",
+      "PackagePath": "build\\NavacerradaVaronDaniel_TFG.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.NavacerradaVaronDaniel_TFG.props",
+      "PackagePath": "buildMultiTargeting\\NavacerradaVaronDaniel_TFG.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.NavacerradaVaronDaniel_TFG.props",
+      "PackagePath": "buildTransitive\\NavacerradaVaronDaniel_TFG.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
