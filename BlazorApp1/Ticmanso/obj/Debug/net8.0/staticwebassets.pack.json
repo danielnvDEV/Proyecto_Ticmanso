@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\BlazorApp1\\Ticmanso\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Ticmanso.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Ticmanso.bundle.scp.css"
+    },
+    {
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\BlazorApp1\\Ticmanso\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\BlazorApp1\\Ticmanso\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\BlazorApp1\\Ticmanso\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\BlazorApp1\\Ticmanso\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Ticmanso.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Ticmanso.props",
+      "PackagePath": "build\\Ticmanso.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Ticmanso.props",
+      "PackagePath": "buildMultiTargeting\\Ticmanso.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Ticmanso.props",
+      "PackagePath": "buildTransitive\\Ticmanso.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ticmano.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a8e05fa15a91bffd1f2cf10ae810d57fe90ce78")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+293a5950d55e8dab96cfd380e3201b02d5b553a1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ticmano.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ticmano.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

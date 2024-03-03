@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\NavacerradaVaronDaniel_TFG.props" />
-</Project>
