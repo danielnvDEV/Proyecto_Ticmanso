@@ -4,10 +4,10 @@ namespace Ticmanso.Data
 {
     public class Status
     {
-        [Key]  // Indica que es la llave primaria
-        public int id { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
 
-        [MaxLength(20)] // Longitud máxima
-        public string name { get; set; }
+        public ICollection<Ticket> Tickets { get; set; }
     }
+
 }

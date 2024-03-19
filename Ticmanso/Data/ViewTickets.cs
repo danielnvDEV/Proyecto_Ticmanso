@@ -12,10 +12,5 @@
         public string priority { get; set; }
         public string status { get; set; }
 
-
-
-
-
-        //title,description,creation_date,chat_id,creation_user_id,priority_id,status_id
     }
 }

@@ -5,20 +5,14 @@ namespace Ticmanso.Data
 {
     public class Chat
     {
-        [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
+        public string Messages { get; set; }
+        public int CreationUserId { get; set; }
+        public int? SupportUserId { get; set; }
 
-        public string messages { get; set; }
+        public Ticket Ticket { get; set; } // Propiedad "Ticket" añadida
 
-        [Required]
-        public int user_id { get; set; }
-        [ForeignKey("user_id")]
-        public User User { get; set; }
-
-        [Required]
-        public int user_id1 { get; set; }
-        [ForeignKey("user_id1")]
-        public User User1 { get; set; }
+        public User CreationUser { get; set; }
+        public User SupportUser { get; set; }
     }
-
 }

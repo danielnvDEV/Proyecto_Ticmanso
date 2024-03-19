@@ -4,12 +4,11 @@ namespace Ticmanso.Data
 {
     public class Priority
     {
-        [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
 
-        [Required]
-        [MaxLength(25)]
-        public string name { get; set; }
+        public ICollection<Ticket> Tickets { get; set; }
     }
+
 
 }

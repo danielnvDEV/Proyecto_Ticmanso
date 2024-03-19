@@ -7,32 +7,23 @@ namespace Ticmanso.Data
 {
     public class User
     {
-        [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Surnames { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public int CompanyId { get; set; }
+        public int RoleId { get; set; }
 
-        [Required]
-        [MaxLength(30)]
-        public string name { get; set; }
-
-        [MaxLength(50)]
-        public string surnames { get; set; }
-
-        [Required]
-        [MaxLength(75)]
-        public string mail { get; set; }
-
-        [Required]
-        [MaxLength(40)]
-        public string password { get; set; }
-
-        [Required]
-        public int company_id { get; set; }
-        [ForeignKey("company_id")] // Indica la relación  
         public Company Company { get; set; }
-
-        [Required]
-        public int role_id { get; set; }
-        [ForeignKey("role_id")]
         public Role Role { get; set; }
+        public ICollection<Signin> Signins { get; set; }
+        public ICollection<Ticket> CreatedTickets { get; set; }
+        public ICollection<Ticket> AssignedTickets { get; set; }
+        public ICollection<Chat> CreatedChats { get; set; } // Propiedad "CreatedChats" añadida
+        public ICollection<Chat> AssignedChats { get; set; } // Propiedad "CreatedChats" añadida
+
     }
+
+
 }

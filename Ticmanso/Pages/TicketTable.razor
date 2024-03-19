@@ -1,57 +1,24 @@
 ﻿@page "/TicketTable"
-@inject ApplicationDbContext dbContext
-@using Ticmanso.Data
-@using Microsoft.EntityFrameworkCore
+@using Ticmanso.Data;
 
+@inject TicketService TicketService
 
-<h3>Tickets Table</h3>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Título</th>
-            <th>Descripción</th>
-            <th>Fecha de Creación</th>
-            <th>Usuario de Creación</th>
-            <th>Prioridad</th>
-            <th>Estado</th>
-            <th>Chat</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (tickets != null)
-        {
-            @foreach (var ticket in tickets)
-            {
-                <tr>
-                    <td>@ticket.Id</td>
-                    <td>@ticket.Title</td>
-                    <td>@ticket.Description</td>
-                    <td>@ticket.creation_date</td>
-                    <td>@ticket.status</td>
-                    <td>@ticket.chat_id</td>
-                    <td>@ticket.creation_user</td>
-                    <td>@ticket.priority</td>
-                </tr>
-            }
-        }
-        else
-        {
-            <tr>
-                <td colspan="5">Cargando tickets...</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<ul>
+    @foreach (var ticket in viewTickets)
+    {
+        <li>
+            <strong>@ticket.Title</strong> -
+            Creado por: @ticket.creation_user -
+            Estado: @ticket.status
+        </li>
+    }
+</ul>
 
 @code {
-
-    private List<ViewTickets> tickets;
+    private List<ViewTickets> viewTickets;
 
     protected override async Task OnInitializedAsync()
     {
-
-        tickets = await dbContext.viewTickets.ToListAsync();
+        viewTickets = await TicketService.GetTicketsForView();
     }
 }

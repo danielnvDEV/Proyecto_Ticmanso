@@ -4,11 +4,10 @@ namespace Ticmanso.Data
 {
     public class Role
     {
-        [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
 
-        [Required]
-        [MaxLength(25)]
-        public string name { get; set; }
+        public ICollection<User> Users { get; set; }
     }
+
 }

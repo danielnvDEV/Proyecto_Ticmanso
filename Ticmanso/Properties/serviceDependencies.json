@@ -5,7 +5,7 @@
     },
     "ConnectionStrings": {
       "type": "mssql",
-      "connectionId": "ConnectionStrings",
+      "connectionId": "Pooling=false;Data Source=DESKTOP-LUFTS9G;UID=sa;PWD=Dnavacerrad@2023;Initial Catalog=Ticmanso;",
       "dynamicId": null
     }
 
