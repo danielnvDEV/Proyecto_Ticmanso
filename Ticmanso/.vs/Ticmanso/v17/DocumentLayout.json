@@ -3,13 +3,43 @@
   "WorkspaceRootPath": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\chat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\ticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\priority.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\viewtickets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\properties\\servicedependencies.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\pages\\tickettable.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,11 +49,167 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "User.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\User.cs",
+              "RelativeDocumentMoniker": "Data\\User.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\User.cs",
+              "RelativeToolTip": "Data\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T18:10:31.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Status.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Status.cs",
+              "RelativeDocumentMoniker": "Data\\Status.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Status.cs",
+              "RelativeToolTip": "Data\\Status.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T18:10:22.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Signin.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Signin.cs",
+              "RelativeDocumentMoniker": "Data\\Signin.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Signin.cs",
+              "RelativeToolTip": "Data\\Signin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T18:10:14.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Role.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Role.cs",
+              "RelativeDocumentMoniker": "Data\\Role.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Role.cs",
+              "RelativeToolTip": "Data\\Role.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T18:10:06.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Priority.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Priority.cs",
+              "RelativeDocumentMoniker": "Data\\Priority.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Priority.cs",
+              "RelativeToolTip": "Data\\Priority.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T18:10:00.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Company.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Company.cs",
+              "RelativeDocumentMoniker": "Data\\Company.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Company.cs",
+              "RelativeToolTip": "Data\\Company.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T18:09:52.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-19T17:53:34.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TicketTable.razor",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\TicketTable.razor",
+              "RelativeDocumentMoniker": "Pages\\TicketTable.razor",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\TicketTable.razor",
+              "RelativeToolTip": "Pages\\TicketTable.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-19T17:52:36.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T17:47:38.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TicketService.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\TicketService.cs",
+              "RelativeDocumentMoniker": "Data\\TicketService.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\TicketService.cs",
+              "RelativeToolTip": "Data\\TicketService.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T17:46:55.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "serviceDependencies.json",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Properties\\serviceDependencies.json",
+              "RelativeDocumentMoniker": "Properties\\serviceDependencies.json",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Properties\\serviceDependencies.json",
+              "RelativeToolTip": "Properties\\serviceDependencies.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-19T17:53:45.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T17:47:02.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ViewTickets.cs",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\ViewTickets.cs",
               "RelativeDocumentMoniker": "Data\\ViewTickets.cs",
@@ -32,32 +218,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-18T19:27:34.546Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Ticket.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Ticket.cs",
-              "RelativeDocumentMoniker": "Data\\Ticket.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Ticket.cs",
-              "RelativeToolTip": "Data\\Ticket.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T19:27:33.251Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Chat.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Chat.cs",
-              "RelativeDocumentMoniker": "Data\\Chat.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Data\\Chat.cs",
-              "RelativeToolTip": "Data\\Chat.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-18T19:27:28.843Z",
               "EditorCaption": ""
             }
           ]

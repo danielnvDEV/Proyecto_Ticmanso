@@ -13,10 +13,11 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Pooling=false;Data Source=DESKTOP-LUFTS9G;UID=sa;PWD=Dnavacerrad@2023;Initial Catalog=Ticmanso;"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 }
 
 );
+builder.Services.AddScoped<TicketService>();
 
 await builder.Build().RunAsync();
 
