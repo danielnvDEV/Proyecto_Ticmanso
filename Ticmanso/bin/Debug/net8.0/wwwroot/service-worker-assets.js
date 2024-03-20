@@ -1233,17 +1233,25 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-nFXn3z0qG0wkhMB0zx78L+cNYXb8LWU8j6L4V9ljILE=",
+      "hash": "sha256-3XbyPpYwlcZ23pQ4K+hcKM91azOBbEVz\/ygArjiHHeo=",
+      "url": "_framework\/TicmansoCrud.Shared.wasm"
+    },
+    {
+      "hash": "sha256-ymd4D2bL7Q+zl1VBMHT7wBxtAv6cLUjDWsO8islRp0U=",
+      "url": "_framework\/TicmansoCrud.Shared.pdb"
+    },
+    {
+      "hash": "sha256-nIXZs5l9WUlx8HqbFb1Wqi4gtcyBEsPe6OO31kcpURE=",
       "url": "_framework\/Ticmanso.wasm"
     },
     {
-      "hash": "sha256-p+CnPBj7qqjzxCMIdzlHxUGecnvNw2nocnGdqCJ9nsE=",
+      "hash": "sha256-UzZeUC6eWeCc7666ERi5XmSrpUyswpgALQY329DHb90=",
       "url": "_framework\/Ticmanso.pdb"
     },
     {
-      "hash": "sha256-9LTgMX7FV53mtXnWNTqEdv7kCdl3Zbeo7B6NEQrMn9k=",
+      "hash": "sha256-bN4LGu0B6AqqIuRr4Xv4MutbjhLwf2uIjQK5ulB8a+8=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "3gFl1FL5"
+  "version": "YOMHns6i"
 };

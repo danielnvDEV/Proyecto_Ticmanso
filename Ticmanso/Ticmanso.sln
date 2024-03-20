@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticmanso", "Ticmanso.csproj", "{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicmansoWebAPI", "..\TicmansoWebAPI\TicmansoWebAPI.csproj", "{CFDD8791-A5D5-45F5-90D6-A4714BB03460}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicmansoWebAPI", "..\TicmansoWebAPI\TicmansoWebAPI.csproj", "{CFDD8791-A5D5-45F5-90D6-A4714BB03460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicmansoCrud.Shared", "..\TicmansoCrud.Shared\TicmansoCrud.Shared.csproj", "{E581DC09-D28D-4AB7-BAB6-5BAD34BD50FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CFDD8791-A5D5-45F5-90D6-A4714BB03460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFDD8791-A5D5-45F5-90D6-A4714BB03460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFDD8791-A5D5-45F5-90D6-A4714BB03460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E581DC09-D28D-4AB7-BAB6-5BAD34BD50FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E581DC09-D28D-4AB7-BAB6-5BAD34BD50FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E581DC09-D28D-4AB7-BAB6-5BAD34BD50FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E581DC09-D28D-4AB7-BAB6-5BAD34BD50FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

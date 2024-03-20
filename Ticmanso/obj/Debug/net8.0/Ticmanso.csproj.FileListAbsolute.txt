@@ -1519,6 +1519,15 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\refint\Ticmanso.dll
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.pdb
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\ref\Ticmanso.dll
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.Extensions.wasm.gz
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Xml.XDocument.wasm.gz
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.csproj.AssemblyReference.cache
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.GeneratedMSBuildEditorConfig.editorconfig
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.AssemblyInfoInputs.cache
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.AssemblyInfo.cs
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.csproj.CoreCompileInputs.cache
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.MvcApplicationPartsAssemblyInfo.cache
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.sourcelink.json
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Azure.Core.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Azure.Identity.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\blazor.boot.json
@@ -1807,6 +1816,8 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Xml.XPath.XDocument.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Ticmanso.pdb
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Ticmanso.wasm
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\TicmansoCrud.Shared.pdb
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\TicmansoCrud.Shared.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\tr\Microsoft.CodeAnalysis.CSharp.resources.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\tr\Microsoft.CodeAnalysis.resources.wasm
@@ -1964,6 +1975,7 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Composition.TypedParts.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Xml.Serialization.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.InteropServices.RuntimeInformation.wasm.gz
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\TicmansoCrud.Shared.pdb.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Microsoft.IdentityModel.JsonWebTokens.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Data.DataSetExtensions.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Bcl.AsyncInterfaces.wasm.gz
@@ -2070,7 +2082,6 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Formats.Asn1.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Windows.Extensions.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Xml.XmlDocument.wasm.gz
-\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.Extensions.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Text.Encodings.Web.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Xml.XPath.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.Serialization.Primitives.wasm.gz
@@ -2087,6 +2098,7 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.IO.Pipelines.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Net.NameResolution.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Net.Mail.wasm.gz
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\TicmansoCrud.Shared.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.ServiceProcess.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Transactions.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Memory.wasm.gz
@@ -2099,7 +2111,6 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\mscorlib.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Microsoft.JSInterop.WebAssembly.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Win32.SystemEvents.wasm.gz
-\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Xml.XDocument.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Collections.Specialized.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Reflection.Metadata.wasm.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\System.Text.Encoding.CodePages.wasm.gz
@@ -2423,13 +2434,8 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\icudt_CJK.dat
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\icudt_EFIGS.dat
 \\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\icudt_no_CJK.dat
-\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.csproj.AssemblyReference.cache
-\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.GeneratedMSBuildEditorConfig.editorconfig
-\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.AssemblyInfoInputs.cache
-\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.AssemblyInfo.cs
-\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.csproj.CoreCompileInputs.cache
-\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.MvcApplicationPartsAssemblyInfo.cache
-\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.sourcelink.json
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\TicmansoCrud.Shared.dll
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\TicmansoCrud.Shared.pdb
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\webcil\Azure.Core.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\webcil\Azure.Identity.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\webcil\EntityFramework.SqlServer.wasm
@@ -2718,6 +2724,7 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\webcil\mscorlib.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\webcil\netstandard.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Private.CoreLib.wasm
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\webcil\TicmansoCrud.Shared.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\webcil\Ticmanso.wasm
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\blazor.build.boot-extension.json
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\blazor.boot.json
@@ -3030,6 +3037,8 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\compressed\jstsbkxywd.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\compressed\5ux8ql4ho3.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\compressed\ra7i2zljza.gz
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\compressed\vwb2oi32mq.gz
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\compressed\iniuc2frun.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\compressed\2x3p9ze6i4.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\compressed\a4ptzm7osb.gz
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\compressed\fveyapdap7.gz
