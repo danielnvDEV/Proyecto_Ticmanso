@@ -1,28 +1,20 @@
 ﻿@page "/TicketTable"
-@using Ticmanso.Data;
-
-@inject TicketService TicketService
 
 
 
 <h1>TABLA DE TICKETS</h1>
 <ul>
-   @foreach (var ticket in viewTickets)
+   @* @foreach (var ticket in viewTickets)
 {
     <li>
         <strong>@(ticket.Title ?? "Título no disponible")</strong> -
         Creado por: @(ticket.creation_user ?? "Usuario no disponible") -
         Estado: @(ticket.status ?? "Estado no disponible")
     </li>
-}
+} *@
 </ul>
 
 @code {
-    private List<ViewTickets> viewTickets = new List<ViewTickets>();
+    //private List<ViewTickets> viewTickets = new List<ViewTickets>();
 
-
-  protected override async Task OnInitializedAsync()
-  {
-    viewTickets = await TicketService.GetTicketsForView();
-  }
 }
