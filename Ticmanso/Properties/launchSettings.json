@@ -60,9 +60,6 @@
     "iisExpress": {
       "applicationUrl": "http://localhost:57191",
       "sslPort": 44329
-    },
-    "ConnectionStrings": {
-      "StringSQL": "Server=SRV-DN;DataBase=TicmansoPRO;Persist Security Info=True;User ID=BlazorAdmin;Password=m#Ilw8g35p>FJ&0;Trust Server Certificate=True;"
     }
   }
 }
