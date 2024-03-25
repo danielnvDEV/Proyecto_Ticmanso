@@ -61,7 +61,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        ticket = await httpClient.GetFromJsonAsync<List<TicketDTO>>("api/[controller]");
+        ticket = await httpClient.GetFromJsonAsync<List<TicketDTO>>("api/Ticmanso/Tickets");
     }
 
     private bool FilterFunc1(TicketDTO element) => FilterFunc(element, searchString1);

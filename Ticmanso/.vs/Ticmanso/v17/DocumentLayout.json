@@ -3,31 +3,28 @@
   "WorkspaceRootPath": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\pages\\tickettable.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E581DC09-D28D-4AB7-BAB6-5BAD34BD50FD}|..\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansocrud.shared\\ticketdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\pages\\infopanel.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\wwwroot\\manifest.webmanifest||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFDD8791-A5D5-45F5-90D6-A4714BB03460}|..\\TicmansoWebAPI\\TicmansoWebAPI.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\wwwroot\\service-worker.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFDD8791-A5D5-45F5-90D6-A4714BB03460}|..\\TicmansoWebAPI\\TicmansoWebAPI.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapi\\ticmansowebapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\services\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFDD8791-A5D5-45F5-90D6-A4714BB03460}|..\\TicmansoWebAPI\\TicmansoWebAPI.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapi\\controllers\\ticmanso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,123 +34,111 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Program.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoWebAPI\\Program.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Program.cs",
-              "RelativeToolTip": "..\\TicmansoWebAPI\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T21:00:41.793Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\_Imports.razor",
-              "RelativeDocumentMoniker": "_Imports.razor",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\_Imports.razor",
-              "RelativeToolTip": "_Imports.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Layout\\MainLayout.razor",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Layout\\MainLayout.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-20T20:59:18.685Z",
+              "WhenOpened": "2024-03-25T17:10:36.441Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-03-20T20:59:00.856Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "service-worker.js",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\wwwroot\\service-worker.js",
-              "RelativeDocumentMoniker": "wwwroot\\service-worker.js",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\wwwroot\\service-worker.js",
-              "RelativeToolTip": "wwwroot\\service-worker.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-03-20T20:58:56.854Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "App.razor",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\App.razor",
-              "RelativeDocumentMoniker": "App.razor",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\App.razor",
-              "RelativeToolTip": "App.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-20T20:56:23.476Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TicmansoWebAPI.http",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\TicmansoWebAPI.http",
-              "RelativeDocumentMoniker": "..\\TicmansoWebAPI\\TicmansoWebAPI.http",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\TicmansoWebAPI.http",
-              "RelativeToolTip": "..\\TicmansoWebAPI\\TicmansoWebAPI.http",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-03-20T20:51:44.391Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Ticmanso.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Controllers\\Ticmanso.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoWebAPI\\Controllers\\Ticmanso.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Controllers\\Ticmanso.cs",
-              "RelativeToolTip": "..\\TicmansoWebAPI\\Controllers\\Ticmanso.cs",
-              "ViewState": "AQIAAK8CAAAAAAAAAAAswMkCAAAFAAAA",
+              "DocumentIndex": 1,
+              "Title": "TicketDTO.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicketDTO.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoCrud.Shared\\TicketDTO.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicketDTO.cs",
+              "RelativeToolTip": "..\\TicmansoCrud.Shared\\TicketDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T20:36:36.768Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IUser.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Services\\IUser.cs",
-              "RelativeDocumentMoniker": "Services\\IUser.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Services\\IUser.cs",
-              "RelativeToolTip": "Services\\IUser.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T20:33:01.354Z",
+              "WhenOpened": "2024-03-25T20:59:04.386Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TicketTable.razor",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\TicketTable.razor",
+              "RelativeDocumentMoniker": "Pages\\TicketTable.razor",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\TicketTable.razor",
+              "RelativeToolTip": "Pages\\TicketTable.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-25T20:46:41.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "manifest.webmanifest",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\wwwroot\\manifest.webmanifest",
+              "RelativeDocumentMoniker": "wwwroot\\manifest.webmanifest",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\wwwroot\\manifest.webmanifest",
+              "RelativeToolTip": "wwwroot\\manifest.webmanifest",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-25T20:02:05.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "app.css",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\wwwroot\\css\\app.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\app.css",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\wwwroot\\css\\app.css",
+              "RelativeToolTip": "wwwroot\\css\\app.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-25T19:58:48.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "index.html",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "wwwroot\\index.html",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\wwwroot\\index.html",
+              "RelativeToolTip": "wwwroot\\index.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-03-25T19:36:19.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InfoPanel.razor",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\InfoPanel.razor",
+              "RelativeDocumentMoniker": "Pages\\InfoPanel.razor",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\InfoPanel.razor",
+              "RelativeToolTip": "Pages\\InfoPanel.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-25T17:05:10.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T20:08:33.205Z",
+              "WhenOpened": "2024-03-25T17:00:06.328Z",
               "EditorCaption": ""
             }
           ]
