@@ -1,7 +1,10 @@
 ﻿@inherits LayoutComponentBase
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
+    <div class="sidebar" heigth="@mudPaperStyle">
+        <NavMenu/>
     </div>
 
     <main>
@@ -14,3 +17,18 @@
         </article>
     </main>
 </div>
+
+@inject IJSRuntime JSRuntime
+@code {
+    private string mudPaperStyle = "";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            int screenHeight = await JSRuntime.InvokeAsync<int>("eval", "window.innerHeight");
+            mudPaperStyle = $"height: {screenHeight}px;";
+            StateHasChanged();
+        }
+    }
+}

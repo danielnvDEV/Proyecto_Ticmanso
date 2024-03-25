@@ -1,39 +1,51 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Ticmanso</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+        <button title="Navigation menu" class="navbar-toggler">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
 </div>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="TicketTable">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> TicketTable
-            </NavLink>
-        </div>
-    </nav>
+<div Width="200px" Height="@mudPaperStyle">
+    <MudPaper Width="200px" Height="@mudPaperStyle" Class="d-inline-flex py-3" Elevation="0">
+        <MudNavMenu Class="mud-width-full mud-height-full">
+             <MudText Typo="Typo.h6" Class="px-4">Indice</MudText>
+            @*<MudText Typo="Typo.body2" Class="px-4 mud-text-secondary">Icons</MudText> *@
+            <MudDivider Class="my-2" />
+            <MudNavLink Href="/InfoPanel" Icon="fas fa-chart-line">Dashboard</MudNavLink>
+            <MudNavLink Href="/servers" Icon="fas fa-server">Servers</MudNavLink>
+            <MudNavGroup Title="Settings" Icon="fas fa-cogs" Expanded="true">
+                <MudNavLink Href="/users" Icon="fas fa-users" IconColor="Color.Success">Users</MudNavLink>
+                <MudNavLink Href="/security" Icon="fas fa-user-shield" IconColor="Color.Info">Security</MudNavLink>
+            </MudNavGroup>
+            <MudNavGroup Title="Settings" Icon="fas fa-cogs" Expanded="true">
+                <MudNavLink Href="/users" Icon="fas fa-users" IconColor="Color.Success">Users</MudNavLink>
+                <MudNavLink Href="/security" Icon="fas fa-user-shield" IconColor="Color.Info">Security</MudNavLink>
+            </MudNavGroup>
+            <MudNavGroup Title="Settings" Icon="fas fa-cogs" Expanded="true">
+                <MudNavLink Href="/users" Icon="fas fa-users" IconColor="Color.Success">Users</MudNavLink>
+                <MudNavLink Href="/security" Icon="fas fa-user-shield" IconColor="Color.Info">Security</MudNavLink>
+            </MudNavGroup>
+            <MudNavGroup Title="Settings" Icon="fas fa-cogs" Expanded="true">
+                <MudNavLink Href="/users" Icon="fas fa-users" IconColor="Color.Success">Users</MudNavLink>
+                <MudNavLink Href="/security" Icon="fas fa-user-shield" IconColor="Color.Info">Security</MudNavLink>
+            </MudNavGroup>
+            <MudNavLink></MudNavLink><MudNavLink></MudNavLink><MudNavLink></MudNavLink><MudNavLink></MudNavLink><MudNavLink></MudNavLink>
+        </MudNavMenu>
+    </MudPaper>
 </div>
-
+@inject IJSRuntime JSRuntime
 @code {
-    private bool collapseNavMenu = true;
+    private string mudPaperStyle = "";
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        collapseNavMenu = !collapseNavMenu;
+        if (firstRender)
+        {
+            int screenHeight = await JSRuntime.InvokeAsync<int>("eval", "window.innerHeight");
+            mudPaperStyle = $"height: {screenHeight}px;";
+            StateHasChanged();
+        }
     }
 }
