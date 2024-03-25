@@ -1,28 +1,81 @@
-﻿@page "/TicketTable"
-@using Ticmanso.Data;
+﻿@using System.Net.Http.Json
+@using TicmansoCrud.Shared
+@using TicmansoWebAPI.Models
+@using TicmansoWebAPI
 
-@inject TicketService TicketService
+@inject HttpClient httpClient
+
+@page "/TicketTable"
 
 
+<MudTable Items="@ticket" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" Filter="new Func<TicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Tickets</MudText>
+        <MudSpacer />
+        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>NumTicket</MudTh>
+        <MudTh>Usuario</MudTh>
+        <MudTh>Titulo</MudTh>
+        <MudTh>Descripcion</MudTh>        
+        <MudTh>Agente</MudTh>
+        <MudTh>Prioridad</MudTh>
+        <MudTh>Estado</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="NumTicket">@context.Id</MudTd>
+        <MudTd DataLabel="Titulo">@context.Title</MudTd>
+        <MudTd DataLabel="Descripcion">@context.Description</MudTd>
+        <MudTd DataLabel="Usuario">@context.CreationUserId</MudTd>
+        <MudTd DataLabel="Agente">@context.SopportUserId</MudTd>
+        <MudTd DataLabel="Prioridad">@context.PriorityId</MudTd>
+        <MudTd DataLabel="Estado">@context.StatusId</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager />
+    </PagerContent>
+</MudTable>
 
-<h1>TABLA DE TICKETS</h1>
-<ul>
-   @foreach (var ticket in viewTickets)
-{
-    <li>
-        <strong>@(ticket.Title ?? "Título no disponible")</strong> -
-        Creado por: @(ticket.creation_user ?? "Usuario no disponible") -
-        Estado: @(ticket.status ?? "Estado no disponible")
-    </li>
-}
-</ul>
-
+@* BOTONES FILTRO PARA LA TABLA EN LAS PAGINAS
+    <div class="d-flex flex-wrap mt-4">
+    <MudSwitch @bind-Checked="@hover" Color="Color.Primary">Hover</MudSwitch>
+    <MudSwitch @bind-Checked="@dense" Color="Color.Secondary">Dense</MudSwitch>
+    <MudSwitch @bind-Checked="@striped" Color="Color.Tertiary">Striped</MudSwitch>
+    <MudSwitch @bind-Checked="@bordered" Color="Color.Warning">Bordered</MudSwitch>
+    <MudSpacer />
+    <div style="min-width:200px;">
+        <MudText Inline="true" Class="align-self-center">Selected1: @selectedItem1?.Id</MudText>
+    </div>
+</div> *@
 @code {
-    private List<ViewTickets> viewTickets = new List<ViewTickets>();
+    private bool dense = false;
+    private bool hover = true;
+    private bool striped = false;
+    private bool bordered = false;
+    private string searchString1 = "";
+    private TicketDTO selectedItem1 = null;
+    private HashSet<TicketDTO> selectedItems = new HashSet<TicketDTO>();
 
+    private IEnumerable<TicketDTO> ticket = new List<TicketDTO>();
 
-  protected override async Task OnInitializedAsync()
-  {
-    viewTickets = await TicketService.GetTicketsForView();
-  }
+    protected override async Task OnInitializedAsync()
+    {
+        ticket = await httpClient.GetFromJsonAsync<List<TicketDTO>>("api/[controller]");
+    }
+
+    private bool FilterFunc1(TicketDTO element) => FilterFunc(element, searchString1);
+
+    private bool FilterFunc(TicketDTO element, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (element.Title.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        // if (element.CreationUserId.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+        //     return true;
+        // if ($"{element.Number} {element.Position} {element.Molar}".Contains(searchString))
+        //     return true;
+        return false;
+    }
 }

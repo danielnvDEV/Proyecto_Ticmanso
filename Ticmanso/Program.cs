@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.EntityFrameworkCore;
+using MudBlazor.Services;
 using Ticmanso;
 using Ticmanso.Data;
 
@@ -17,8 +18,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 }
 
 );
+builder.Services.AddMudServices();
 builder.Services.AddScoped<TicketService>();
-
 await builder.Build().RunAsync();
 
 

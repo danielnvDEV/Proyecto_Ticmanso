@@ -10,3 +10,16 @@
 \\192.168.1.100\2tb\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\refint\TicmansoCrud.Shared.dll
 \\192.168.1.100\2tb\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.pdb
 \\192.168.1.100\2tb\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\ref\TicmansoCrud.Shared.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\bin\Debug\net8.0\TicmansoCrud.Shared.deps.json
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\bin\Debug\net8.0\TicmansoCrud.Shared.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\bin\Debug\net8.0\TicmansoCrud.Shared.pdb
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.csproj.AssemblyReference.cache
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.AssemblyInfoInputs.cache
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.AssemblyInfo.cs
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.csproj.CoreCompileInputs.cache
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.sourcelink.json
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\refint\TicmansoCrud.Shared.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.pdb
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\ref\TicmansoCrud.Shared.dll
