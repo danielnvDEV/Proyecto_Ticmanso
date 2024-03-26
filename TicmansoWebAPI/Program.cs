@@ -1,9 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 using TicmansoWebAPI.Models;
+using Microsoft.Net.Http.Headers;
 
+var MyAllowSpecificOrigins = "_MyAllowSubdomainPolicy";
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+       policy =>
+       {
+           policy.WithOrigins("http://localhost:5130", "https://localhost:7144/api/Ticmanso/users")
+                 .AllowAnyHeader()
+                 .AllowAnyOrigin()
+                 .AllowAnyMethod();
+       });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -21,10 +33,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseHttpsRedirection(); 
 
-app.UseHttpsRedirection();
+app.UseRouting();  
 
-app.UseAuthorization();
+app.UseCors(MyAllowSpecificOrigins); 
+
+app.UseAuthorization(); 
 
 app.MapControllers();
 

@@ -1,0 +1,106 @@
+﻿@using System.Net.Http.Json
+@using TicmansoCrud.Shared
+@using TicmansoWebAPI.Models
+@using TicmansoWebAPI
+
+@inject HttpClient httpClient
+@inject IDialogService DialogService
+
+@page "/ControlUser"
+<PageTitle>Administrar usuarios</PageTitle>
+<MudDataGrid T="UserDTO" Items="@users" ReadOnly="@_readOnly" EditMode="@(_isCellEditMode ? DataGridEditMode.Cell : DataGridEditMode.Form)"
+              StartedEditingItem="StartedEditingItem" CanceledEditingItem="CanceledEditingItem" CommittedItemChanges="CommittedItemChanges"
+             Bordered="true" Dense="true" EditTrigger="@(_editTriggerRowClick ? DataGridEditTrigger.OnRowClick : DataGridEditTrigger.Manual)">
+    <Columns>
+        <PropertyColumn Property="x => x.Id" Title="ID" IsEditable="false" />
+        <PropertyColumn Property="x => x.Name" />
+        <PropertyColumn Property="x => x.Surnames" />
+        <PropertyColumn Property="x => x.Mail" />
+        <PropertyColumn Property="x => x.RoleId" Title="Role"/>
+        <PropertyColumn Property="x => x.CompanyId" Title="Company"/>
+        <TemplateColumn Hidden="@(_isCellEditMode || _readOnly || _editTriggerRowClick)" CellClass="d-flex justify-end">
+            <CellTemplate>
+                <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.Delete" OnClick="@(() => OnDeleteButtonClicked(context.Item.Id, context.Item.Mail))" Color="@Color.Error" />
+                <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.Edit" OnClick="@context.Actions.StartEditingItemAsync" />
+            </CellTemplate>
+        </TemplateColumn>
+    </Columns>
+</MudDataGrid>
+
+
+@code {
+    private IEnumerable<UserDTO> users = new List<UserDTO>();
+    private bool _readOnly;
+    private bool _isCellEditMode;
+    private List<string> _events = new();
+    private bool _editTriggerRowClick;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        users = await httpClient.GetFromJsonAsync<List<UserDTO>>("https://localhost:7144/api/Ticmanso/users");
+
+    }
+
+    async Task DeleteUserAsync(long userId) {
+        var result = await httpClient.DeleteAsync($"https://localhost:7144/api/users/{userId}");
+
+        if (result.IsSuccessStatusCode) {
+
+             bool? result1 = await DialogService.ShowMessageBox(
+            "Warning", 
+            "Se ha borrado exitosamente el usuario", 
+            yesText:"Aceptar", cancelText:"Cancel");
+        state = result1 == null ? "Canceled" : "Deleted!";
+        StateHasChanged();
+
+
+        } else {
+
+            bool? result2 = await DialogService.ShowMessageBox(
+            "Warning", 
+            "No se ha podido borrar el usuario", 
+            yesText:"Aceptar!", cancelText:"Cancel");
+        state = result2 == null ? "Canceled" : "Deleted!";
+        StateHasChanged();
+
+        }
+    }
+    string state ="";
+    long userIdToDelete; 
+
+    private async void OnDeleteButtonClicked(long userId,string mail)
+    {
+        userIdToDelete = userId; 
+        bool? result3 = await DialogService.ShowMessageBox(
+            "Warning", 
+            "Estas seguro de que desear eliminar al usuario: " + mail, 
+            yesText:"Delete!", cancelText:"Cancel");
+
+        if (result3 == true) 
+        {
+            await DeleteUserAsync(userIdToDelete);
+            state = "Deleted!";
+        }
+        else
+        {
+            state = "Canceled"; 
+        }
+
+        StateHasChanged();
+    }
+
+    public void StartedEditingItem(UserDTO item)
+    {
+        _events.Insert(0, $"Event = StartedEditingItem, Data = {System.Text.Json.JsonSerializer.Serialize(item)}");
+    }
+
+    void CanceledEditingItem(UserDTO item)
+    {
+        _events.Insert(0, $"Event = CanceledEditingItem, Data = {System.Text.Json.JsonSerializer.Serialize(item)}");
+    }
+
+    void CommittedItemChanges(UserDTO item)
+    {
+        _events.Insert(0, $"Event = CommittedItemChanges, Data = {System.Text.Json.JsonSerializer.Serialize(item)}");
+    }
+}
