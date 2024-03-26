@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticmanso", "Ticmanso.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicmansoWebAPI", "..\TicmansoWebAPI\TicmansoWebAPI.csproj", "{CFDD8791-A5D5-45F5-90D6-A4714BB03460}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicmansoCrud.Shared", "..\TicmansoCrud.Shared\TicmansoCrud.Shared.csproj", "{E581DC09-D28D-4AB7-BAB6-5BAD34BD50FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicmansoCrud.Shared", "..\TicmansoCrud.Shared\TicmansoCrud.Shared.csproj", "{E581DC09-D28D-4AB7-BAB6-5BAD34BD50FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

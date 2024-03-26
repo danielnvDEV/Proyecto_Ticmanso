@@ -1,0 +1,48 @@
+﻿@page "/Settings"
+<PageTitle>Ajustes de usuario</PageTitle>
+
+<div class="pagearea" id="Pagearea">
+    <div class="profile-edit">
+        <div class="greyImage profile-leftcontent">
+            @* Display Profile Picture or Placeholder Here *@
+            <img src="@ProfileImageUrl" alt="Profile Picture" class="profile-image" />
+        </div>
+        <div class="profile-rightcontent">
+            <EditForm Model="@profile" OnValidSubmit="@HandleValidSubmit">
+                <DataAnnotationsValidator />
+                <div class="profile-form-container">
+                    @* Replace with your profile edit fields *@
+                    <div class="profile-form-section">
+                        <label for="name">Full Name:</label>
+                        <InputText id="name" class="form-control" @bind-Value="profile.FullName" />
+                        <ValidationMessage For="(() => profile.FullName)" />
+                    </div>
+                    <div class="profile-form-section">
+                        <label for="email">Email:</label>
+                        <InputText id="email" class="form-control" @bind-Value="profile.Email" />
+                        <ValidationMessage For="(() => profile.Email)" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code {
+    private Profile profile = new Profile();
+    private string ProfileImageUrl = "https://www.example.com/default_profile.jpg"; // Replace with actual image logic
+
+    private async Task HandleValidSubmit()
+    {
+        // Update profile logic here (e.g., call an API)
+        Console.WriteLine("Profile updated!"); // Placeholder
+    }
+
+    private class Profile
+    {
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        // Add other properties as needed
+    }
+}

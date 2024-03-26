@@ -4,7 +4,7 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 <div class="page">
-        <MudLayout>
+    <MudLayout class="p-0">
             <MudAppBar Elevation="1">
                 <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
                 <MudSpacer />
@@ -17,19 +17,18 @@
                 <MudNavMenu>
                     <MudNavLink Href="/InfoPanel">Dashboard</MudNavLink>
                     <MudNavLink Href="/TicketTable">Tickets</MudNavLink>
-                    <MudNavLink Match="NavLinkMatch.All">Community</MudNavLink>
+                    <MudNavLink Href="/InfoPanel">Dashboard</MudNavLink>
+                    <MudNavLink Href="/Settings">Settings</MudNavLink>
+                    <MudNavLink Href="/LogOut">LogOut</MudNavLink>
                 </MudNavMenu>
             </MudDrawer>
-            <MudMainContent Class="pt-16 px-16">
-                <MudContainer Class="mt-6">
+            <MudMainContent Class="">
+                <MudContainer Class="mt-2">
                    @Body
-                </MudContainer>
+                </MudContainer> 
             </MudMainContent>
         </MudLayout>
 </div>
-@*         <article class="content px-4"   >
-            @Body
-        </article> *@
 @code{
     bool open = false;
 

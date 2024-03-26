@@ -6,7 +6,7 @@
 @inject HttpClient httpClient
 
 @page "/TicketTable"
-
+<PageTitle>Tickets</PageTitle>
 
 <MudTable Items="@ticket" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" Filter="new Func<TicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
     <ToolBarContent>
