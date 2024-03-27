@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TicmansoWebAPI.Models;
-using TicmansoCrud.Shared; // Asumiendo que aquí se encuentran los DTOs
+using TicmansoCrud.Shared; 
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.Design;
 using Microsoft.AspNetCore.Cors;
@@ -51,7 +51,7 @@ namespace TicmansoWebAPI.Controllers
                 .Where(u => u.Id == id)
                 .Select(u => new UserDTO
                 {
-                    // ...map properties
+                   
                 })
                 .FirstOrDefaultAsync();
 
@@ -68,11 +68,11 @@ namespace TicmansoWebAPI.Controllers
             // Consider input validation and password hashing
 
             var user = new User
-            {
+            {  
                 Name = UserDTO.Name,
                 Surnames = UserDTO.Surnames,
                 Mail = UserDTO.Mail,
-                Password = UserDTO.Password, // Hash password in a production environment
+                Password = UserDTO.Password, 
                 RoleId = UserDTO.RoleId,
                 CompanyId = UserDTO.CompanyId,
             };

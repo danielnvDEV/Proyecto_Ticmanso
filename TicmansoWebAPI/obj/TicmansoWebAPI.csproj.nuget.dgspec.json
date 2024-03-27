@@ -1,27 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\TicmansoWebAPI.csproj": {}
+    "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebAPI\\TicmansoWebAPI.csproj": {}
   },
   "projects": {
-    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj": {
+    "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj",
         "projectName": "TicmansoCrud.Shared",
-        "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj",
-        "packagesPath": "C:\\Users\\dani\\.nuget\\packages\\",
-        "outputPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\obj\\",
+        "projectPath": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj",
+        "packagesPath": "C:\\Users\\DanielNavacerrada\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoCrud.Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DanielNavacerrada\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +45,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -70,36 +76,47 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\TicmansoWebAPI.csproj": {
+    "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebAPI\\TicmansoWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\TicmansoWebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebAPI\\TicmansoWebAPI.csproj",
         "projectName": "TicmansoWebAPI",
-        "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\TicmansoWebAPI.csproj",
-        "packagesPath": "C:\\Users\\dani\\.nuget\\packages\\",
-        "outputPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\obj\\",
+        "projectPath": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebAPI\\TicmansoWebAPI.csproj",
+        "packagesPath": "C:\\Users\\DanielNavacerrada\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DanielNavacerrada\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj": {
-                "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj"
+              "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj": {
+                "projectPath": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj"
               }
             }
           }
@@ -108,11 +125,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -169,7 +181,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

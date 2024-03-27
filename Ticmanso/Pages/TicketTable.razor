@@ -7,36 +7,54 @@
 
 @page "/TicketTable"
 <PageTitle>Tickets</PageTitle>
+    <MudGrid>
+        <MudItem xs="9" > 
+            <MudTable style="max-width: calc(100% - 20px);" Items="@ticket" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" Filter="new Func<TicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
+                <ToolBarContent>
+                        <MudText Typo="Typo.h6">Tickets</MudText>
+                        <MudSpacer />
+                        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                </ToolBarContent>
 
-<MudTable Items="@ticket" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" Filter="new Func<TicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
-    <ToolBarContent>
-        <MudText Typo="Typo.h6">Tickets</MudText>
-        <MudSpacer />
-        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
-    </ToolBarContent>
-    <HeaderContent>
-        <MudTh>NumTicket</MudTh>
-        <MudTh>Usuario</MudTh>
-        <MudTh>Titulo</MudTh>
-        <MudTh>Descripcion</MudTh>        
-        <MudTh>Agente</MudTh>
-        <MudTh>Prioridad</MudTh>
-        <MudTh>Estado</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="NumTicket">@context.Id</MudTd>
-        <MudTd DataLabel="Titulo">@context.Title</MudTd>
-        <MudTd DataLabel="Descripcion">@context.Description</MudTd>
-        <MudTd DataLabel="Usuario">@context.CreationUserId</MudTd>
-        <MudTd DataLabel="Agente">@context.SopportUserId</MudTd>
-        <MudTd DataLabel="Prioridad">@context.PriorityId</MudTd>
-        <MudTd DataLabel="Estado">@context.StatusId</MudTd>
-    </RowTemplate>
-    <PagerContent>
-        <MudTablePager />
-    </PagerContent>
-</MudTable>
-
+                <HeaderContent>
+                        <MudTh>NumTicket</MudTh>
+                        <MudTh>Usuario</MudTh>
+                        <MudTh>Titulo</MudTh>
+                        <MudTh>Descripcion</MudTh>        
+                        <MudTh>Agente</MudTh>
+                        <MudTh>Prioridad</MudTh>
+                        <MudTh>Estado</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                        <MudTd DataLabel="NumTicket">@context.Id</MudTd>
+                        <MudTd DataLabel="Titulo">@context.Title</MudTd>
+                        <MudTd DataLabel="Descripcion">@context.Description</MudTd>
+                        <MudTd DataLabel="Usuario">@context.CreationUserId</MudTd>
+                        <MudTd DataLabel="Agente">@context.SopportUserId</MudTd>
+                        <MudTd DataLabel="Prioridad">@context.PriorityId</MudTd>
+                        <MudTd DataLabel="Estado">@context.StatusId</MudTd>
+                </RowTemplate>
+                <PagerContent>
+                        <MudTablePager/>
+                    </PagerContent>
+                </MudTable>
+        </MudItem>
+        <MudItem xs="3" pl-0 ml-0>
+            <MudCard>
+                <MudCardHeader><CardHeaderContent><MudText>Filters</MudText></CardHeaderContent></MudCardHeader>
+                <MudCardContent>
+                    <MudTextField @bind-Value="filterCriteria.Title" Label="Title" />
+                    <MudTextField @bind-Value="filterCriteria.CreationDate" Label="User ID" />
+                    <MudSelect @bind-Value="filterCriteria.PriorityId" Label="Priority">
+                        @* ... populate select options *@
+                    </MudSelect>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Filled" OnClick="ApplyFilters">Apply</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
 @* BOTONES FILTRO PARA LA TABLA EN LAS PAGINAS
     <div class="d-flex flex-wrap mt-4">
     <MudSwitch @bind-Checked="@hover" Color="Color.Primary">Hover</MudSwitch>
@@ -77,5 +95,14 @@
         // if ($"{element.Number} {element.Position} {element.Molar}".Contains(searchString))
         //     return true;
         return false;
+    }
+
+    private TicketDTO filterCriteria = new TicketDTO();
+
+    [Parameter] public EventCallback<TicketDTO> OnFilterChanged { get; set; }
+
+    async Task ApplyFilters()
+    {
+        await OnFilterChanged.InvokeAsync(filterCriteria);
     }
 }
