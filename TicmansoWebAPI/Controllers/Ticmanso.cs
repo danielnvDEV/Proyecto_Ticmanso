@@ -51,7 +51,11 @@ namespace TicmansoWebAPI.Controllers
                 .Where(u => u.Id == id)
                 .Select(u => new UserDTO
                 {
-                   
+                    Name = u.Name,
+                    Surnames = u.Surnames,
+                    Mail = u.Mail,
+                    CompanyId = u.CompanyId,
+                    RoleId = u.Role.Id
                 })
                 .FirstOrDefaultAsync();
 
@@ -104,21 +108,35 @@ namespace TicmansoWebAPI.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Users/5
+        // DELETE: api/Users/id
         [HttpDelete("users/{id}")]
         [Produces("application/json")]
         public async Task<IActionResult> DeleteUser(long id)
         {
-            var user = await _dbContext.Users.FindAsync((int)id);
-            if (user == null) return NotFound();
+            if (id <= 0)
+            {
+                return BadRequest("Invalid user ID.");
+            }
+            var user = await _dbContext.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+            try
+            {
+                _dbContext.Users.Remove(user);
+                await _dbContext.SaveChangesAsync();
 
-            _dbContext.Users.Remove(user);
-            await _dbContext.SaveChangesAsync();
+                return NoContent(); 
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
 
-            return NoContent();
+                return Conflict("A concurrency error occurred. The user may have been modified or deleted.");
+            }
         }
         #endregion
 
-       
+
     }
 }

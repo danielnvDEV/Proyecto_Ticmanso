@@ -48,14 +48,11 @@ public partial class TicmansoProContext : DbContext
             entity.HasIndex(e => e.UserId1, "fk_chat_user2_idx").HasFillFactor(99);
 
             entity.Property(e => e.Id)
-                .HasComment("TRIAL")
                 .HasColumnName("id");
             entity.Property(e => e.Messages)
-                .HasComment("TRIAL")
                 .HasColumnType("text")
                 .HasColumnName("messages");
             entity.Property(e => e.UserId)
-                .HasComment("TRIAL")
                 .HasColumnName("user_id");
             entity.Property(e => e.UserId1)
                 .HasComment("TRIAL")
@@ -147,7 +144,6 @@ public partial class TicmansoProContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(25)
                 .IsUnicode(false)
-                .HasComment("TRIAL")
                 .HasColumnName("name");
         });
 
@@ -291,33 +287,27 @@ public partial class TicmansoProContext : DbContext
             entity.HasIndex(e => e.RoleId, "fk_user_role1_idx").HasFillFactor(99);
 
             entity.Property(e => e.Id)
-                .HasComment("TRIAL")
-                .HasColumnName("id");
+                .HasColumnName("id")
+                .HasColumnType("bigint");
             entity.Property(e => e.CompanyId)
-                .HasComment("TRIAL")
                 .HasColumnName("company_id");
             entity.Property(e => e.Mail)
                 .HasMaxLength(75)
                 .IsUnicode(false)
-                .HasComment("TRIAL")
                 .HasColumnName("mail");
             entity.Property(e => e.Name)
                 .HasMaxLength(30)
                 .IsUnicode(false)
-                .HasComment("TRIAL")
                 .HasColumnName("name");
             entity.Property(e => e.Password)
                 .HasMaxLength(40)
                 .IsUnicode(false)
-                .HasComment("TRIAL")
                 .HasColumnName("password");
             entity.Property(e => e.RoleId)
-                .HasComment("TRIAL")
                 .HasColumnName("role_id");
             entity.Property(e => e.Surnames)
                 .HasMaxLength(50)
                 .IsUnicode(false)
-                .HasComment("TRIAL")
                 .HasColumnName("surnames");
 
             entity.HasOne(d => d.Company).WithMany(p => p.Users)
