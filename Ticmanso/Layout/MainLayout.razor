@@ -9,7 +9,7 @@
             <MudAppBar Elevation="1">
                 <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
                 <MudSpacer />
-                <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor" Target="_blank" />
+                <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Href="/" />
             </MudAppBar>
             <MudDrawer @bind-Open="@open" Elevation="1">
                 <MudDrawerHeader>
@@ -24,12 +24,12 @@
                     <MudNavLink Href="/LogOut">LogOut</MudNavLink>
                 </MudNavMenu>
             </MudDrawer>
-        <MudMainContent Class="d-flex">
-            <MudContainer Class="mud-container-maxwidth-xl mud-container mt-2">
+            <MudMainContent Class="d-flex">
+                <MudContainer Class="mud-container-maxwidth-xl mud-container mt-2">
                    @Body
                 </MudContainer> 
             </MudMainContent>
-        </MudLayout>
+    </MudLayout>
 </div>
 @code{
     bool open = false;

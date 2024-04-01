@@ -2,6 +2,7 @@
 @using TicmansoCrud.Shared
 @using TicmansoWebAPI.Models
 @using TicmansoWebAPI
+@using MudBlazor
 
 @inject HttpClient httpClient
 @inject IDialogService DialogService
@@ -20,7 +21,7 @@
         <PropertyColumn Property="x => x.CompanyId" Title="Company"/>
             <TemplateColumn Hidden="@(_isCellEditMode || _readOnly || _editTriggerRowClick)" CellClass="d-flex justify-end">
                 <HeaderTemplate>
-                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" OnClick="@AbrirDialogo"/>
+                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/createUsers"/>
                 </HeaderTemplate>
                 <CellTemplate>
                     <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.Delete" OnClick="@(() => OnDeleteButtonClicked(context.Item.Id, context.Item.Mail))" Color="@Color.Error" />
@@ -30,27 +31,7 @@
     </Columns>
 </MudDataGrid>
 
-<MudDialog @bind-Open="@dialogOpen">
-  <MudDialogTitle>Crear usuario</MudDialogTitle>
-  <MudDialogContent>
-    <MudForm>
-      <MudTextField Label="Nombre" @bind-Value="nombre" Required="true" />
-      <MudTextField Label="Apellidos" @bind-Value="apellidos" Required="true" />
-      <MudTextField Label="Correo electrónico" @bind-Value="email" Required="true" />
-      <MudTextField Label="Company ID" @bind-Value="company_id" Required="true" />
-      <MudSelect Label="Rol" @bind-Value="role_id" Required="true">
-@*         @foreach (var rol in roles)
-        {
-          <MudSelectItem Value="@rol.Id">@rol.Nombre</MudSelectItem>
-        } *@
-      </MudSelect>
-    </MudForm>
-  </MudDialogContent>
-  <MudDialogActions>
-    <MudButton Variant="Variant.Filled" OnClick="@Cancel">Cancelar</MudButton>
-    <MudButton Variant="Variant.Filled" Color="@Color.Success" OnClick="@Crear">Crear</MudButton>
-  </MudDialogActions>
-</MudDialog>
+
 
 
 @code {
@@ -129,41 +110,5 @@
         _events.Insert(0, $"Event = CommittedItemChanges, Data = {System.Text.Json.JsonSerializer.Serialize(item)}");
     }
     
-      bool dialogOpen = false;
 
-    private void AbrirDialogo() 
-    {
-        dialogOpen = true;
-        StateHasChanged();
-    }
-      string nombre;
-      string apellidos;
-      string email;
-      int company_id;
-      int role_id;
-     // List<Role> roles; // Lista de roles disponibles
-
-      // protected override async Task OnInitializedAsync()
-      // {
-      //   roles = await _rolService.GetRolesAsync();
-      // }
-
-      void Cancel()
-      {
-        dialogOpen = false;
-      }
-
-      async void Crear()
-      {
-        // Validar datos
-
-        // Enviar datos al servidor para crear el usuario
-
-        dialogOpen = false;
-
-        bool? result4 = await DialogService.ShowMessageBox(
-            "Info", 
-            "Usuario creado exitosamente", 
-            yesText:"Aceptar!", cancelText:"Cancel");
-      }
 }

@@ -23,12 +23,13 @@ namespace TicmansoWebAPI.Controllers
 
         #region User
         // GET: api/Users
+        [Tags("Users")]
         [HttpGet("users")]
         [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()
         {
             return await _dbContext.Users
-                .Include(u => u.Role) 
+                .Include(u => u.Role)
                 .Select(u => new UserDTO
                 {
                     Id = u.Id,
@@ -42,6 +43,7 @@ namespace TicmansoWebAPI.Controllers
         }
 
         // GET: api/Users/5
+        [Tags("Users")]
         [HttpGet("users/{id}")]
         [Produces("application/json")]
         public async Task<ActionResult<UserDTO>> GetUser(int id)
@@ -65,6 +67,7 @@ namespace TicmansoWebAPI.Controllers
         }
 
         // POST: api/Users
+        [Tags("Users")]
         [HttpPost("users")]
         [Produces("application/json")]
         public async Task<ActionResult<UserDTO>> CreateUser(UserDTO UserDTO)
@@ -72,11 +75,11 @@ namespace TicmansoWebAPI.Controllers
             // Consider input validation and password hashing
 
             var user = new User
-            {  
+            {
                 Name = UserDTO.Name,
                 Surnames = UserDTO.Surnames,
                 Mail = UserDTO.Mail,
-                Password = UserDTO.Password, 
+                Password = UserDTO.Password,
                 RoleId = UserDTO.RoleId,
                 CompanyId = UserDTO.CompanyId,
             };
@@ -88,6 +91,7 @@ namespace TicmansoWebAPI.Controllers
         }
 
         // PUT: api/Users/5
+        [Tags("Users")]
         [HttpPut("users/{id}")]
         [Produces("application/json")]
         public async Task<IActionResult> UpdateUser(int id, UserDTO UserDTO)
@@ -109,6 +113,7 @@ namespace TicmansoWebAPI.Controllers
         }
 
         // DELETE: api/Users/id
+        [Tags("Users")]
         [HttpDelete("users/{id}")]
         [Produces("application/json")]
         public async Task<IActionResult> DeleteUser(long id)
@@ -127,7 +132,7 @@ namespace TicmansoWebAPI.Controllers
                 _dbContext.Users.Remove(user);
                 await _dbContext.SaveChangesAsync();
 
-                return NoContent(); 
+                return NoContent();
             }
             catch (DbUpdateConcurrencyException ex)
             {
@@ -135,6 +140,78 @@ namespace TicmansoWebAPI.Controllers
                 return Conflict("A concurrency error occurred. The user may have been modified or deleted.");
             }
         }
+        #endregion
+
+        #region Role
+        [Tags("Role")]
+        [HttpGet("role")]
+        [Produces("application/json")]
+        public async Task<ActionResult<IEnumerable<RoleDTO>>> GetRole()
+        {
+            return await _dbContext.Roles
+                .Select(u => new RoleDTO
+                {
+                    Id = u.Id,
+                    Name = u.Name
+                })
+                .ToListAsync();
+        }
+        [Tags("Role")]
+        [HttpGet("role/{id}")]
+        [Produces("application/json")]
+        public async Task<ActionResult<RoleDTO>> GetRole(long id)
+        {
+            var role = await _dbContext.Roles
+                .Where(u => u.Id == id)
+                .Select(u => new RoleDTO
+                {
+                    Id = u.Id,
+                    Name = u.Name,
+
+                })
+                .FirstOrDefaultAsync();
+
+            if (role == null) return NotFound();
+
+            return role;
+        }
+
+        #endregion
+
+        #region Status
+        [Tags("Status")]
+        [HttpGet("status")]
+        [Produces("application/json")]
+        public async Task<ActionResult<IEnumerable<StatusDTO>>> GetStatus()
+        {
+            return await _dbContext.Statuses
+                .Select(u => new StatusDTO
+                {
+                    Id = u.Id,
+                    Name = u.Name
+                })
+                .ToListAsync();
+        }
+
+        [Tags("Status")]
+        [HttpGet("status/{id}")]
+        [Produces("application/json")]
+        public async Task<ActionResult<StatusDTO>> GetStatus(long id)
+        {
+            var status = await _dbContext.Statuses
+                .Where(u => u.Id == id)
+                .Select(u => new StatusDTO
+                {
+                    Id = u.Id,
+                    Name = u.Name
+                })
+                .FirstOrDefaultAsync();
+
+            if (status == null) return NotFound();
+
+            return status;
+        }
+
         #endregion
 
 
