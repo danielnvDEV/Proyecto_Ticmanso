@@ -61,7 +61,7 @@
     string userEmail;
     long userRole;
     long userCompany;
-
+    long Id;
 
     private void GeneratePass()
     {
@@ -91,7 +91,7 @@
 
             try
             {
-                var response = await httpClient.PostAsJsonAsync("users", userDto);
+                var response = await httpClient.PostAsJsonAsync("https://localhost:7144/api/Ticmanso/users", userDto);
 
                 if (response.IsSuccessStatusCode)
                 {

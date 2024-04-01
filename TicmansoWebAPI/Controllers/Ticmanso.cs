@@ -36,6 +36,7 @@ namespace TicmansoWebAPI.Controllers
                     Name = u.Name,
                     Surnames = u.Surnames,
                     Mail = u.Mail,
+                    Password = u.Password,
                     CompanyId = u.CompanyId,
                     RoleId = u.Role.Id
                 })
@@ -94,18 +95,20 @@ namespace TicmansoWebAPI.Controllers
         [Tags("Users")]
         [HttpPut("users/{id}")]
         [Produces("application/json")]
-        public async Task<IActionResult> UpdateUser(int id, UserDTO UserDTO)
+        public async Task<IActionResult> UpdateUser(long id, UserDTO UserDTO)
         {
             var user = await _dbContext.Users.FindAsync(id);
             if (user == null) return NotFound();
 
-            // Consider input validation and password hashing
-
+            
+            user.Id = id;
             user.Name = UserDTO.Name;
             user.Surnames = UserDTO.Surnames;
             user.Mail = UserDTO.Mail;
             user.Password = UserDTO.Password;
             user.RoleId = UserDTO.RoleId;
+
+            _dbContext.Users.Update(user);
 
             await _dbContext.SaveChangesAsync();
 
@@ -214,6 +217,40 @@ namespace TicmansoWebAPI.Controllers
 
         #endregion
 
+        #region Company
+        [Tags("Company")]
+        [HttpGet("company")]
+        [Produces("application/json")]
+        public async Task<ActionResult<IEnumerable<CompanyDTO>>> GetCompany()
+        {
+            return await _dbContext.Companies
+                .Select(u => new CompanyDTO
+                {
+                    Id = u.Id,
+                    Name = u.Name
+                })
+                .ToListAsync();
+        }
 
+        [Tags("Company")]
+        [HttpGet("company/{id}")]
+        [Produces("application/json")]
+        public async Task<ActionResult<CompanyDTO>> GetCompany(long id)
+        {
+            var company = await _dbContext.Companies
+                .Where(u => u.Id == id)
+                .Select(u => new CompanyDTO
+                {
+                    Id = u.Id,
+                    Name = u.Name
+                })
+                .FirstOrDefaultAsync();
+
+            if (company == null) return NotFound();
+
+            return company;
+        }
+
+        #endregion
     }
 }

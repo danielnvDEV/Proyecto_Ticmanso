@@ -17,6 +17,7 @@
         <PropertyColumn Property="x => x.Name" />
         <PropertyColumn Property="x => x.Surnames" />
         <PropertyColumn Property="x => x.Mail" />
+        <PropertyColumn Property="x => x.Password" />
         <PropertyColumn Property="x => x.RoleId" Title="Role"/>
         <PropertyColumn Property="x => x.CompanyId" Title="Company"/>
             <TemplateColumn Hidden="@(_isCellEditMode || _readOnly || _editTriggerRowClick)" CellClass="d-flex justify-end">
@@ -48,7 +49,7 @@
     }
 
     async Task DeleteUserAsync(long userId) {
-        var result = await httpClient.DeleteAsync($"https://localhost:7144/api/users/{userId}");
+        var result = await httpClient.DeleteAsync($"https://localhost:7144/api/Ticmanso/users/{userId}");
 
         if (result.IsSuccessStatusCode) {
 
@@ -95,20 +96,45 @@
         StateHasChanged();
     }
 
-    public void StartedEditingItem(UserDTO item)
+    public void StartedEditingItem(UserDTO user)
     {
-        _events.Insert(0, $"Event = StartedEditingItem, Data = {System.Text.Json.JsonSerializer.Serialize(item)}");
+        _events.Insert(0, $"Event = StartedEditingItem, Data = {System.Text.Json.JsonSerializer.Serialize(user)}");
     }
 
-    void CanceledEditingItem(UserDTO item)
+    void CanceledEditingItem(UserDTO user)
     {
-        _events.Insert(0, $"Event = CanceledEditingItem, Data = {System.Text.Json.JsonSerializer.Serialize(item)}");
+        _events.Insert(0, $"Event = CanceledEditingItem, Data = {System.Text.Json.JsonSerializer.Serialize(user)}");
     }
 
-    void CommittedItemChanges(UserDTO item)
+   async void CommittedItemChanges(UserDTO user)
     {
-        _events.Insert(0, $"Event = CommittedItemChanges, Data = {System.Text.Json.JsonSerializer.Serialize(item)}");
-    }
+        _events.Insert(0, $"Event = CommittedItemChanges, Data = {System.Text.Json.JsonSerializer.Serialize(user)}");
+
+        // Llamada a la API para actualizar
+            var response = await httpClient.PutAsJsonAsync<UserDTO>($"https://localhost:7144/api/Ticmanso/users/{user.Id}", user);
+
+
+        // Mostrar diálogo según el resultado
+        if (response.IsSuccessStatusCode)
+        {
+            // Mostrar diálogo de éxito
+            var dialogResult = await DialogService.ShowMessageBox(
+                "Actualización exitosa",
+                $"Se ha actualizado el usuario {user.Name} {user.Surnames}",
+                yesText: "Aceptar");
+                StateHasChanged();
+
+        }
+        else
+        {
+            // Mostrar diálogo de error
+            var errorContent = await response.Content.ReadAsStringAsync();
+            var dialogResult = await DialogService.ShowMessageBox(
+                "Error al actualizar",
+                errorContent,
+                yesText: "Aceptar");
+        }
+     }
     
 
 }
