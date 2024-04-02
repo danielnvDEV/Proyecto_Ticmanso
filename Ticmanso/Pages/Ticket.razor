@@ -1,0 +1,92 @@
+﻿
+@using TicmansoCrud.Shared
+@using TicmansoWebAPI.Models
+@using TicmansoWebAPI
+
+@inject HttpClient httpClient
+
+@page "/ticket/{TicketId:int}"
+<PageTitle>Ticket @TicketId</PageTitle>
+@if (ticket == null)
+{
+<MudGrid>
+    <MudItem xs="9" > 
+        <MudCard Style="background-color: #f5f5f5;" xs="9">
+            <MudCardHeader Style="background-color: #e0e0e0;">
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6" Style="color: #333;">Ticket #12345</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText><b>Descripción:</b> Error al cargar la página principal</MudText>
+                <MudChip Color="Color.Primary" Style="margin-right: 4px;">Alta</MudChip>
+                <MudChip Color="Color.Success" Style="margin-right: 4px;">Abierto</MudChip>
+                <MudText><b>Asignado a:</b> Juan Pérez</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Primary">Editar</MudButton>
+                <MudButton Variant="Variant.Text" Color="Color.Error">Cerrar</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+     <MudItem xs="3">
+        <MudCard>
+            <MudCardHeader Style="background-color: #e0e0e0;">
+                <CardHeaderContent>
+                        <MudText Typo="Typo.h6" Style="color: #333;">Informacion</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                    <MudText><b>PROPIEDADES</b></MudText>
+                    <MudText><b>Tipo</b>
+                        <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+                            <MudSelectItem Value="@("Cappuccino")" />
+                            <MudSelectItem Value="@("Cafe Latte")" />
+                            <MudSelectItem Value="@("Espresso")" />
+                        </MudSelect>
+                    </MudText>
+                    <MudText><b>Estado</b>
+                        <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+                            <MudSelectItem Value="@("Cappuccino")" />
+                            <MudSelectItem Value="@("Cafe Latte")" />
+                            <MudSelectItem Value="@("Espresso")" />
+                        </MudSelect>
+                    </MudText>
+                    <MudText><b>Prioridad</b>
+                        <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+                            <MudSelectItem Value="@("Cappuccino")" />
+                            <MudSelectItem Value="@("Cafe Latte")" />
+                            <MudSelectItem Value="@("Espresso")" />
+                        </MudSelect>
+                    </MudText>
+                    <MudText><b>Agente</b>
+                        <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+                            <MudSelectItem Value="@("Cappuccino")" />
+                            <MudSelectItem Value="@("Cafe Latte")" />
+                            <MudSelectItem Value="@("Espresso")" />
+                        </MudSelect>
+                    </MudText>
+            </MudCardContent>
+            <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Actualizar</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+}
+else
+{
+    <p>Loading ticket details...</p>
+}
+
+@code {
+    [Parameter]
+    public int TicketId { get; set; }
+
+    private TicketDTO ticket;
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     ticket = await httpClient.GetFromJsonAsync<TicketDTO>($"api/Ticmanso/Tickets/{TicketId}");
+    // }
+}

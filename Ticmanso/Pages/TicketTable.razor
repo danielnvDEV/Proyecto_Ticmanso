@@ -3,6 +3,8 @@
 @using TicmansoWebAPI.Models
 @using TicmansoWebAPI
 
+
+@inject NavigationManager NavigationManager
 @inject HttpClient httpClient
 
 @page "/TicketTable"
@@ -26,7 +28,9 @@
                         <MudTh>Estado</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                        <MudTd DataLabel="NumTicket">@context.Id</MudTd>
+                <MudButton Variant="Variant.Text" Size="Size.Small" OnClick="@(() => ShowTicketDetails(context.Id))">
+                    @context.Id
+                </MudButton>
                         <MudTd DataLabel="Titulo">@context.Title</MudTd>
                         <MudTd DataLabel="Descripcion">@context.Description</MudTd>
                         <MudTd DataLabel="Usuario">@context.CreationUserId</MudTd>
@@ -104,5 +108,10 @@
     async Task ApplyFilters()
     {
         await OnFilterChanged.InvokeAsync(filterCriteria);
+    }
+
+    private void ShowTicketDetails(long ticketId)
+    {
+        NavigationManager.NavigateTo($"/ticket/{ticketId}");
     }
 }
