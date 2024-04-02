@@ -425,7 +425,7 @@ namespace TicmansoWebAPI.Controllers
                     CloseDate = t.CloseDate,
                     ChatId = t.ChatId,
                     CreationUserId = t.CreationUserId,
-                    SopportUserId = t.SopportUserId,
+                    SopportUserId = t.SopportUserId ?? 0,
                     PriorityId = t.PriorityId,
                     StatusId = t.StatusId
                 })
@@ -449,7 +449,7 @@ namespace TicmansoWebAPI.Controllers
                     CloseDate = t.CloseDate,
                     ChatId = t.ChatId,
                     CreationUserId = t.CreationUserId,
-                    SopportUserId = t.SopportUserId,
+                    SopportUserId = t.SopportUserId ?? 0,
                     PriorityId = t.PriorityId,
                     StatusId = t.StatusId
                 })
@@ -474,7 +474,7 @@ namespace TicmansoWebAPI.Controllers
                 CloseDate = ticketDTO.CloseDate,
                 ChatId = ticketDTO.ChatId,
                 CreationUserId = ticketDTO.CreationUserId,
-                SopportUserId = ticketDTO.SopportUserId,
+                SopportUserId = ticketDTO.SopportUserId ?? 0,
                 PriorityId = ticketDTO.PriorityId,
                 StatusId = ticketDTO.StatusId
             };
@@ -482,7 +482,7 @@ namespace TicmansoWebAPI.Controllers
             _dbContext.Tickets.Add(ticket);
             await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
+            return CreatedAtAction(nameof(GetTicket), new { id = ticket.Id }, ticket);
         }
 
         [Tags("Ticket")]
@@ -495,16 +495,14 @@ namespace TicmansoWebAPI.Controllers
 
             ticket.Title = ticketDTO.Title;
             ticket.Description = ticketDTO.Description;
-            ticket.CreationDate = ticketDTO.CreationDate;
             ticket.ChangedDate = ticketDTO.ChangedDate;
             ticket.CloseDate = ticketDTO.CloseDate;
             ticket.ChatId = ticketDTO.ChatId;
             ticket.CreationUserId = ticketDTO.CreationUserId;
-            ticket.SopportUserId = ticketDTO.SopportUserId;
+            ticket.SopportUserId = ticketDTO.SopportUserId ?? 0;
             ticket.PriorityId = ticketDTO.PriorityId;
             ticket.StatusId = ticketDTO.StatusId;
 
-            _dbContext.Tickets.Update(ticket);
             await _dbContext.SaveChangesAsync();
 
             return NoContent();

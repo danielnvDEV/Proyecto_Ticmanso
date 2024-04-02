@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TicmansoCrud.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a993a6d615f7f90163bc7dd5c047c6cddb265f3f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+abc3c93ae109b20c20de954763f27443fd3ff791")]
 [assembly: System.Reflection.AssemblyProductAttribute("TicmansoCrud.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TicmansoCrud.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

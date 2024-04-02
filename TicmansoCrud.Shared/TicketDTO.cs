@@ -21,7 +21,7 @@ public partial class TicketDTO
 
     public long CreationUserId { get; set; }
 
-    public long SopportUserId { get; set; }
+    public long? SopportUserId { get; set; }
 
     public long PriorityId { get; set; }
 

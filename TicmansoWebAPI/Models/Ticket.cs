@@ -20,7 +20,7 @@ public partial class Ticket
     public int? ChatId { get; set; }
 
     public long CreationUserId { get; set; }
-    public long SopportUserId { get; set; }
+    public long? SopportUserId { get; set; }
 
     public long PriorityId { get; set; }
 

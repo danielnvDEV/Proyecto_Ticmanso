@@ -11,7 +11,7 @@ public partial class GeneralViewTicket
 
     public string Description { get; set; } = null!;
 
-    public string CreationUser { get; set; } = null!;
+    public long CreationUser { get; set; }
 
     public string? Status { get; set; }
 
