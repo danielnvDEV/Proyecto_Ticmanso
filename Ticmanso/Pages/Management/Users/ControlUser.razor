@@ -7,7 +7,7 @@
 @inject HttpClient httpClient
 @inject IDialogService DialogService
 
-@page "/ControlUser"
+@page "/management/controlUser"
 <PageTitle>Administrar usuarios</PageTitle>
 <MudDataGrid T="UserDTO" Items="@users" ReadOnly="@_readOnly" EditMode="@(_isCellEditMode ? DataGridEditMode.Cell : DataGridEditMode.Form)"
               StartedEditingItem="StartedEditingItem" CanceledEditingItem="CanceledEditingItem" CommittedItemChanges="CommittedItemChanges"
@@ -22,7 +22,7 @@
         <PropertyColumn Property="x => x.CompanyId" Title="Company"/>
             <TemplateColumn Hidden="@(_isCellEditMode || _readOnly || _editTriggerRowClick)" CellClass="d-flex justify-end">
                 <HeaderTemplate>
-                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/createUsers"/>
+                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/management/controlUser/createUsers"/>
                 </HeaderTemplate>
                 <CellTemplate>
                     <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.Delete" OnClick="@(() => OnDeleteButtonClicked(context.Item.Id, context.Item.Mail))" Color="@Color.Error" />

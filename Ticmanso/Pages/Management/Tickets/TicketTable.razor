@@ -11,11 +11,14 @@
 <PageTitle>Tickets</PageTitle>
     <MudGrid>
         <MudItem xs="9" > 
-            <MudTable style="max-width: calc(100% - 20px);" Items="@ticket" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" Filter="new Func<GeneralViewTicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
+            <MudTable Items="@ticket" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" 
+                         Filter="new Func<GeneralViewTicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
                 <ToolBarContent>
                         <MudText Typo="Typo.h6">Tickets</MudText>
                         <MudSpacer />
-                        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" 
+                            IconSize="Size.Medium" Class="mt-0">
+                        </MudTextField>
                 </ToolBarContent>
 
                 <HeaderContent>
@@ -66,17 +69,19 @@
 
     }
 
-    private bool FilterFunc1(GeneralViewTicketDTO element) => FilterFunc(element, searchString1);
 
-    private bool FilterFunc(GeneralViewTicketDTO element, string searchString)
-    {
-        if (string.IsNullOrWhiteSpace(searchString))
-            return true;
-        if (element.Tittle.Contains(searchString, StringComparison.OrdinalIgnoreCase))
-            return true;
- 
-        return false;
-    }
+
+    private bool FilterFunc1(GeneralViewTicketDTO element) =>
+        string.IsNullOrWhiteSpace(searchString1) ||
+        element.NumTicket.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+        element.Tittle?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+        element.Description?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+        element.CreationUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+        element.SuportUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+        element.Priority?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+        element.Status?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true;
+
+
 
     private GeneralViewTicketDTO filterCriteria = new GeneralViewTicketDTO();
 

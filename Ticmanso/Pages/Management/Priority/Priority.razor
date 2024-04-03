@@ -1,0 +1,112 @@
+﻿@using System.Net.Http.Json
+@using TicmansoCrud.Shared
+@using TicmansoWebAPI.Models
+@using TicmansoWebAPI
+@using MudBlazor
+
+
+@page "/management/priorities"
+@inject HttpClient HttpClient
+@inject ISnackbar Snackbar
+
+<PageTitle>Administrar prioridad</PageTitle>
+
+<MudTable Items="@priorities" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Info">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Priorities</MudText>
+        <MudSpacer />
+        <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" OnClick="OpenCreateForm">Crear Priority</MudButton>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Nombre</MudTh>
+        <MudTh>Acciones</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Id">@context.Id</MudTd>
+        <MudTd DataLabel="Nombre">@context.Name</MudTd>
+        <MudTd DataLabel="Acciones">
+            <MudButton Color="Color.Default" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Edit" OnClick="@(() => OpenEditForm(context.Id))">Editar</MudButton>
+            <MudButton Color="Color.Error" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Delete" OnClick="@(() => DeletePriority(context.Id))">Borrar</MudButton>
+        </MudTd>
+    </RowTemplate>
+</MudTable>
+
+<MudDialog @bind-IsVisible="showForm">
+    <TitleContent>
+        <MudText Typo="Typo.h6">@(editingPriorityId == 0 ? "Crear Priority" : "Editar Priority")</MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudForm Model="@priority" @ref="form">
+            <MudTextField @bind-Value="priority.Name" Label="Nombre" Required="true" RequiredError="El nombre es requerido"/>
+        </MudForm>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="CloseForm">Cancelar</MudButton>
+        <MudButton Color="Color.Primary" OnClick="SavePriority">Guardar</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    private List<PriorityDTO> priorities = new List<PriorityDTO>();
+    private PriorityDTO priority = new PriorityDTO();
+    private bool loading = true;
+    private bool showForm = false;
+    private long editingPriorityId = 0;
+    private MudForm form;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPriorities();
+    }
+
+    private async Task LoadPriorities()
+    {
+        loading = true;
+        priorities = await HttpClient.GetFromJsonAsync<List<PriorityDTO>>("https://localhost:7144/api/Ticmanso/priority");
+        loading = false;
+    }
+
+    private void OpenCreateForm()
+    {
+        priority = new PriorityDTO();
+        editingPriorityId = 0;
+        showForm = true;
+    }
+
+    private async Task OpenEditForm(long id)
+    {
+        priority = await HttpClient.GetFromJsonAsync<PriorityDTO>($"https://localhost:7144/api/Ticmanso/priority/{id}");
+        editingPriorityId = id;
+        showForm = true;
+    }
+
+    private void CloseForm()
+    {
+        showForm = false;
+    }
+
+    private async Task SavePriority()
+    {
+        if (editingPriorityId == 0)
+        {
+            await HttpClient.PostAsJsonAsync("https://localhost:7144/api/Ticmanso/priority", priority);
+            Snackbar.Add("Priority creado", Severity.Success);
+        }
+        else
+        {
+            await HttpClient.PutAsJsonAsync($"https://localhost:7144/api/Ticmanso/priority/{editingPriorityId}", priority);
+            Snackbar.Add("Priority actualizado", Severity.Info);
+        }
+
+        showForm = false;
+        await LoadPriorities();
+    }
+
+    private async Task DeletePriority(long id)
+    {
+        await HttpClient.DeleteAsync($"https://localhost:7144/api/Ticmanso/priority/{id}");
+        Snackbar.Add("Priority eliminado", Severity.Warning);
+        await LoadPriorities();
+    }
+}
