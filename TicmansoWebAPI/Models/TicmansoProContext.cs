@@ -265,8 +265,8 @@ public partial class TicmansoProContext : DbContext
                 .HasConstraintName("fk_ticket_priority1");
 
 
-            //entity.HasOne(d => d.SopportUserId) 
-            //    .HasForeignKey(d => d.SopportUserId) 
+            //entity.HasOne(d => d.SopportUserId)
+            //    .HasForeignKey(d => d.SopportUserId)
             //    .HasConstraintName("fk_ticket_user2")
             //    .IsRequired(false);
 

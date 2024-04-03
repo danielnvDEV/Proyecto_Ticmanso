@@ -14,7 +14,7 @@ public partial class TicketDTO
     public DateTime CreationDate { get; set; }
 
     public DateTime? ChangedDate { get; set; }
-
+    
     public DateTime? CloseDate { get; set; }
 
     public int? ChatId { get; set; }

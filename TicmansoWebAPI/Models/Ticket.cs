@@ -29,6 +29,7 @@ public partial class Ticket
     public virtual Chat? Chat { get; set; }
 
     public virtual User CreationUser { get; set; } = null!;
+    public virtual User SopportUser { get; set; } = null!;
 
     public virtual Priority Priority { get; set; } = null!;
 

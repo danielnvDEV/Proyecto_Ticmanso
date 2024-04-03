@@ -4,6 +4,7 @@
 @using TicmansoWebAPI
 
 @inject HttpClient httpClient
+@inject ISnackbar Snackbar
 
 @page "/ticket/{ticketId:long}"
 <PageTitle>Ticket</PageTitle>
@@ -14,15 +15,16 @@
         <MudCard Style="background-color: #f5f5f5;" xs="9">
             <MudCardHeader Style="background-color: #e0e0e0;">
                 <CardHeaderContent>
-                    <MudText Typo="Typo.h6" Style="color: #333;">Ticket @ticket.Id</MudText>
+                        <MudText Typo="Typo.h6" Style="color: #333;">Ticket @ticket.Id    Usuario: @CreationUserName.Name @CreationUserName.Surnames</MudText>
                 </CardHeaderContent>
             </MudCardHeader>
             <MudCardContent>
+
+                <MudText><b>Titulo:</b>@ticket.Title</MudText>
                 <MudText><b>Descripción:</b>
                     @ticket.Description
                 </MudText>
-                
-                <MudText><b>Asignado a:</b> Juan Pérez</MudText>
+                               
             </MudCardContent>
             <MudCardActions>
                 <MudButton Variant="Variant.Text" Color="Color.Primary">Responder</MudButton>
@@ -62,15 +64,16 @@
                         </MudSelect>
                     </MudText>
                     <MudText><b>Agente</b>
-                        <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
-                            <MudSelectItem Value="@("Cappuccino")" />
-                            <MudSelectItem Value="@("Cafe Latte")" />
-                            <MudSelectItem Value="@("Espresso")" />
+                        <MudSelect T="UserDTO" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedAgent">
+                            @foreach (var u in User.Where(u => u.RoleId == 2))
+                            {
+                                <MudSelectItem Value="@u">@u.Name</MudSelectItem>
+                            }
                         </MudSelect>
                     </MudText>
             </MudCardContent>
             <MudCardActions>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary">Actualizar</MudButton>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="UpdateTicketAsync">Actualizar</MudButton>
             </MudCardActions>
         </MudCard>
     </MudItem>
@@ -84,32 +87,81 @@ else
 @code {
     [Parameter]
     public long ticketId { get; set; }
+
     private string selectedPriority;
     private string selectedStatus;
+    
+    private UserDTO selectedAgent;
+    private UserDTO CreationUserName;
+
+    private string selectedAgentName;
     private TicketDTO ticket = new TicketDTO();
 
     private List<PriorityDTO> Priorities { get; set; } = new List<PriorityDTO>();
     private List<StatusDTO> Statuses { get; set; } = new List<StatusDTO>();
+    private List<UserDTO> User { get; set; } = new List<UserDTO>();
+
 
     protected override async Task OnInitializedAsync()
     {
+        ticket = await httpClient.GetFromJsonAsync<TicketDTO>($"https://localhost:7144/api/Ticmanso/ticket/{ticketId}");
+
         Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("https://localhost:7144/api/Ticmanso/status");
 
         Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("https://localhost:7144/api/Ticmanso/priority");
 
-        ticket = await httpClient.GetFromJsonAsync<TicketDTO>($"https://localhost:7144/api/Ticmanso/ticket/{ticketId}");
-        
-        if (ticket != null)
-    {
-        var priority = await httpClient.GetFromJsonAsync<PriorityDTO>($"https://localhost:7144/api/Ticmanso/priority/{ticket.PriorityId}");
-        var status = await httpClient.GetFromJsonAsync<StatusDTO>($"https://localhost:7144/api/Ticmanso/status/{ticket.StatusId}");
+        User = await httpClient.GetFromJsonAsync<List<UserDTO>>("https://localhost:7144/api/Ticmanso/users");
 
-        if (priority != null && status != null)
+        
+
+        if (ticket != null)
         {
-            selectedPriority = priority.Name;
-            selectedStatus = status.Name;
+            CreationUserName = await httpClient.GetFromJsonAsync<UserDTO>($"https://localhost:7144/api/Ticmanso/users/{ticket.CreationUserId}");
+
+            var priority = await httpClient.GetFromJsonAsync<PriorityDTO>($"https://localhost:7144/api/Ticmanso/priority/{ticket.PriorityId}");
+
+            var status = await httpClient.GetFromJsonAsync<StatusDTO>($"https://localhost:7144/api/Ticmanso/status/{ticket.StatusId}");
+
+            if (ticket.SopportUserId != 0)
+            {
+                var user = await httpClient.GetFromJsonAsync<UserDTO>($"https://localhost:7144/api/Ticmanso/users/{ticket.SopportUserId}");
+                if (user != null)
+                {
+                    selectedAgent = user;
+                    selectedAgentName = user.Name; 
+                }
+            }
+
+            if (priority != null && status != null)
+            {
+                selectedPriority = priority.Name;
+                selectedStatus = status.Name;
+
+            }
+        }
+
+    }
+
+    private async Task UpdateTicketAsync()
+    {
+
+        var currentDateTime = DateTime.Now;
+
+        ticket.ChangedDate = currentDateTime;
+        ticket.StatusId = Statuses.FirstOrDefault(s => s.Name == selectedStatus)?.Id ?? ticket.StatusId;
+        ticket.PriorityId = Priorities.FirstOrDefault(p => p.Name == selectedPriority)?.Id ?? ticket.PriorityId;
+        ticket.SopportUserId = selectedAgent?.Id;
+
+        var response = await httpClient.PutAsJsonAsync($"https://localhost:7144/api/Ticmanso/ticket/{ticketId}", ticket);
+
+        if (response.IsSuccessStatusCode)
+        {
+            Snackbar.Add("Ticket actualizado correctamente.", Severity.Success);
+        }
+        else
+        {
+            string errorMessage = await response.Content.ReadAsStringAsync();
+            Snackbar.Add($"Error al actualizar el ticket: {errorMessage}", Severity.Error);
         }
     }
-    }
-
 }

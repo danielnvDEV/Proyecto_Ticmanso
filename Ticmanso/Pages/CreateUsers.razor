@@ -28,10 +28,22 @@
                 <MudTextField T="string" Label="Password" @ref="pwField1"
                               InputType="InputType.Password" Required="true"
                               RequiredError="Password is required!" @bind-Value="pwd"/>
-                <MudTextField T="long" Label="Role" Required="true"
-                              RequiredError="Role ID is required!" @bind-Value="@userRole" />
-                <MudTextField T="long" Label="Company" Required="true"
-                              RequiredError="Company ID is required!" @bind-Value="@userCompany" />
+                <MudText Required="true" RequiredError="Role is required!">
+                    <MudSelect T="long" Label="Role" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="userRole">
+                        @foreach (var rol in role)
+                        {
+                            <MudSelectItem Value="@rol.Id">@rol.Name</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudText>
+                <MudText Required="true" RequiredError="Comnpany is required!">
+                    <MudSelect T="long" Label="Company" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="userCompany">
+                        @foreach (var c in company)
+                        {
+                            <MudSelectItem Value="@c.Id">@c.Name</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudText>
 
                 <div class="d-flex align-center justify-space-between mt-4">
                     <MudButton Variant="Variant.Filled" Color="Color.Primary"  Class="ml-auto" OnClick="GeneratePass">Generate Password</MudButton>
@@ -112,5 +124,18 @@
                 Snackbar.Add($"Error contacting the server: {ex.Message}", Severity.Error);
             }
         }
+    }
+
+
+    private string selectedRole;
+    private string selectedCompany;
+
+    private List<RoleDTO> role { get; set; } = new List<RoleDTO>();
+    private List<CompanyDTO> company { get; set; } = new List<CompanyDTO>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        role = await httpClient.GetFromJsonAsync<List<RoleDTO>>("https://localhost:7144/api/Ticmanso/role");
+        company = await httpClient.GetFromJsonAsync<List<CompanyDTO>>("https://localhost:7144/api/Ticmanso/company");
     }
 }

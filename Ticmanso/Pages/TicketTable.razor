@@ -51,6 +51,8 @@
     private bool striped = false;
     private bool bordered = false;
     private string searchString1 = "";
+    private UserDTO selectedSuportUser;
+    private List<UserDTO> User { get; set; } = new List<UserDTO>();
     private GeneralViewTicketDTO selectedItem1 = null;
     private HashSet<GeneralViewTicketDTO> selectedItems = new HashSet<GeneralViewTicketDTO>();
 
@@ -59,6 +61,9 @@
     protected override async Task OnInitializedAsync()
     {
         ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>("https://localhost:7144/api/Ticmanso/generalviewticket");
+
+        User = await httpClient.GetFromJsonAsync<List<UserDTO>>("https://localhost:7144/api/Ticmanso/users");
+
     }
 
     private bool FilterFunc1(GeneralViewTicketDTO element) => FilterFunc(element, searchString1);

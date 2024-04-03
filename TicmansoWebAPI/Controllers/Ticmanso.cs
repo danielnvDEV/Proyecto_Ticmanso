@@ -496,7 +496,7 @@ namespace TicmansoWebAPI.Controllers
             ticket.Title = ticketDTO.Title;
             ticket.Description = ticketDTO.Description;
             ticket.ChangedDate = ticketDTO.ChangedDate;
-            ticket.CloseDate = ticketDTO.CloseDate;
+            ticket.CloseDate = ticketDTO.CloseDate ?? ticket.CloseDate; ;
             ticket.ChatId = ticketDTO.ChatId;
             ticket.CreationUserId = ticketDTO.CreationUserId;
             ticket.SopportUserId = ticketDTO.SopportUserId ?? 0;
@@ -609,100 +609,100 @@ namespace TicmansoWebAPI.Controllers
         #endregion
 
         #region Signing
-        [Tags("Signing")]
-        [HttpGet("signing")]
-        [Produces("application/json")]
-        public async Task<ActionResult<IEnumerable<SigningDTO>>> GetSignings()
-        {
-            return await _dbContext.Signings
-                .Select(s => new SigningDTO
-                {
-                    Date = s.Date,
-                    EntryTime = s.EntryTime,
-                    DepartureTime = s.DepartureTime,
-                    UserId = s.UserId
-                })
-                .ToListAsync();
-        }
+        //[Tags("Signing")]
+        //[HttpGet("signing")]
+        //[Produces("application/json")]
+        //public async Task<ActionResult<IEnumerable<SigningDTO>>> GetSignings()
+        //{
+        //    return await _dbContext.Signings
+        //        .Select(s => new SigningDTO
+        //        {
+        //            Date = s.Date,
+        //            EntryTime = s.EntryTime,
+        //            DepartureTime = s.DepartureTime,
+        //            UserId = s.Id
+        //        })
+        //        .ToListAsync();
+        //}
 
-        [Tags("Signing")]
-        [HttpGet("signing/{id}")]
-        [Produces("application/json")]
-        public async Task<ActionResult<SigningDTO>> GetSigning(long id)
-        {
-            var signing = await _dbContext.Signings
-                .Where(s => s.UserId == id)
-                .Select(s => new SigningDTO
-                {
-                    Date = s.Date,
-                    EntryTime = s.EntryTime,
-                    DepartureTime = s.DepartureTime,
-                    UserId = s.UserId
-                })
-                .FirstOrDefaultAsync();
+        //[Tags("Signing")]
+        //[HttpGet("signing/{id}")]
+        //[Produces("application/json")]
+        //public async Task<ActionResult<SigningDTO>> GetSigning(long id)
+        //{
+        //    var signing = await _dbContext.Signings
+        //        .Where(s => s.Id == id)
+        //        .Select(s => new SigningDTO
+        //        {
+        //            Date = s.Date,
+        //            EntryTime = s.EntryTime,
+        //            DepartureTime = s.DepartureTime,
+        //            UserId = s.Id
+        //        })
+        //        .FirstOrDefaultAsync();
 
-            if (signing == null) return NotFound();
+        //    if (signing == null) return NotFound();
 
-            return signing;
-        }
+        //    return signing;
+        //}
 
-        [Tags("Signing")]
-        [HttpPost("signing")]
-        [Produces("application/json")]
-        public async Task<ActionResult<SigningDTO>> CreateSigning(SigningDTO signingDTO)
-        {
-            var signing = new Signing
-            {
-                Date = signingDTO.Date,
-                EntryTime = signingDTO.EntryTime,
-                DepartureTime = signingDTO.DepartureTime,
-                UserId = signingDTO.UserId
-            };
+        //[Tags("Signing")]
+        //[HttpPost("signing")]
+        //[Produces("application/json")]
+        //public async Task<ActionResult<SigningDTO>> CreateSigning(SigningDTO signingDTO)
+        //{
+        //    var signing = new Signing
+        //    {
+        //        Date = signingDTO.Date,
+        //        EntryTime = signingDTO.EntryTime,
+        //        DepartureTime = signingDTO.DepartureTime,
+        //        UserId = signingDTO.UserId
+        //    };
 
-            _dbContext.Signings.Add(signing);
-            await _dbContext.SaveChangesAsync();
+        //    _dbContext.Signings.Add(signing);
+        //    await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction("GetSigning", new { id = signing.UserId }, new SigningDTO
-            {
-                Date = signing.Date,
-                EntryTime = signing.EntryTime,
-                DepartureTime = signing.DepartureTime,
-                UserId = signing.UserId
-            });
-        }
+        //    return CreatedAtAction("GetSigning", new { id = signing.UserId }, new SigningDTO
+        //    {
+        //        Date = signing.Date,
+        //        EntryTime = signing.EntryTime,
+        //        DepartureTime = signing.DepartureTime,
+        //        UserId = signing.UserId
+        //    });
+        //}
 
-        [Tags("Signing")]
-        [HttpPut("signing/{id}")]
-        [Produces("application/json")]
-        public async Task<IActionResult> UpdateSigning(long id, SigningDTO signingDTO)
-        {
-            var signing = await _dbContext.Signings.FindAsync(id);
-            if (signing == null) return NotFound();
+        //[Tags("Signing")]
+        //[HttpPut("signing/{id}")]
+        //[Produces("application/json")]
+        //public async Task<IActionResult> UpdateSigning(long id, SigningDTO signingDTO)
+        //{
+        //    var signing = await _dbContext.Signings.FindAsync(id);
+        //    if (signing == null) return NotFound();
 
-            signing.Date = signingDTO.Date;
-            signing.EntryTime = signingDTO.EntryTime;
-            signing.DepartureTime = signingDTO.DepartureTime;
-            signing.UserId = signingDTO.UserId;
+        //    signing.Date = signingDTO.Date;
+        //    signing.EntryTime = signingDTO.EntryTime;
+        //    signing.DepartureTime = signingDTO.DepartureTime;
+        //    signing.UserId = signingDTO.UserId;
 
-            _dbContext.Signings.Update(signing);
-            await _dbContext.SaveChangesAsync();
+        //    _dbContext.Signings.Update(signing);
+        //    await _dbContext.SaveChangesAsync();
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        [Tags("Signing")]
-        [HttpDelete("signing/{id}")]
-        [Produces("application/json")]
-        public async Task<IActionResult> DeleteSigning(long id)
-        {
-            var signing = await _dbContext.Signings.FindAsync(id);
-            if (signing == null) return NotFound();
+        //[Tags("Signing")]
+        //[HttpDelete("signing/{id}")]
+        //[Produces("application/json")]
+        //public async Task<IActionResult> DeleteSigning(long id)
+        //{
+        //    var signing = await _dbContext.Signings.FindAsync(id);
+        //    if (signing == null) return NotFound();
 
-            _dbContext.Signings.Remove(signing);
-            await _dbContext.SaveChangesAsync();
+        //    _dbContext.Signings.Remove(signing);
+        //    await _dbContext.SaveChangesAsync();
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
         #endregion
 
         #region GeneralViewTicket
