@@ -23,11 +23,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<TicmansoProContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL"));
 });
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
