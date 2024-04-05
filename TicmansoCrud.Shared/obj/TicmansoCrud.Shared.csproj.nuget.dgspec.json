@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj": {}
+    "C:\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj": {}
   },
   "projects": {
-    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj": {
+    "C:\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj",
+        "projectUniqueName": "C:\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj",
         "projectName": "TicmansoCrud.Shared",
-        "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj",
-        "packagesPath": "C:\\Users\\dani\\.nuget\\packages\\",
-        "outputPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\obj\\",
+        "projectPath": "C:\\TFG\\TicmansoCrud.Shared\\TicmansoCrud.Shared.csproj",
+        "packagesPath": "C:\\Users\\DANI\\.nuget\\packages\\",
+        "outputPath": "C:\\TFG\\TicmansoCrud.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DANI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

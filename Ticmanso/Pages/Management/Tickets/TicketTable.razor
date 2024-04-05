@@ -7,7 +7,7 @@
 @inject NavigationManager NavigationManager
 @inject HttpClient httpClient
 
-@page "/TicketTable"
+@page "/tickets"
 <PageTitle>Tickets</PageTitle>
     <MudGrid>
         <MudItem xs="9" > 
@@ -23,8 +23,8 @@
 
                 <HeaderContent>
                         <MudTh>NumTicket</MudTh>
-                        <MudTh>Descripcion</MudTh>
                         <MudTh>Titulo</MudTh>
+                        <MudTh>Descripcion</MudTh>
                         <MudTh>Usuario</MudTh>        
                         <MudTh>Agente</MudTh>
                         <MudTh>Prioridad</MudTh>
@@ -104,6 +104,6 @@
     private void HandleTicketSelected(long ticketId)
     {
         selectedTicketId = ticketId;
-        NavigationManager.NavigateTo($"/ticket/{ticketId}");
+        NavigationManager.NavigateTo($"/tickets/ticket/{ticketId}");
     }
 }

@@ -19,20 +19,19 @@ public partial class Ticket
 
     public int? ChatId { get; set; }
 
-    public long CreationUserId { get; set; }
-    public long? SopportUserId { get; set; }
-
     public long PriorityId { get; set; }
 
     public int StatusId { get; set; }
 
     public virtual Chat? Chat { get; set; }
 
-    public virtual User CreationUser { get; set; } = null!;
-    public virtual User SopportUser { get; set; } = null!;
+    public long CreationUserId { get; set; }
+    public virtual User CreationUser { get; set; }
+
+    public long? SupportUserId { get; set; }
+    public virtual User? SupportUser { get; set; } = null!;
 
     public virtual Priority Priority { get; set; } = null!;
-
 
     public virtual Status Status { get; set; } = null!;
 }

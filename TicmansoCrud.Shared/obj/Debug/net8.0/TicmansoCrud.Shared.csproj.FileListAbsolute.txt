@@ -24,3 +24,16 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoCrud.Sh
 \\192.168.1.100\2tb\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\refint\TicmansoCrud.Shared.dll
 \\192.168.1.100\2tb\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.pdb
 \\192.168.1.100\2tb\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\ref\TicmansoCrud.Shared.dll
+C:\TFG\TicmansoCrud.Shared\bin\Debug\net8.0\TicmansoCrud.Shared.deps.json
+C:\TFG\TicmansoCrud.Shared\bin\Debug\net8.0\TicmansoCrud.Shared.dll
+C:\TFG\TicmansoCrud.Shared\bin\Debug\net8.0\TicmansoCrud.Shared.pdb
+C:\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.csproj.AssemblyReference.cache
+C:\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.AssemblyInfoInputs.cache
+C:\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.AssemblyInfo.cs
+C:\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.csproj.CoreCompileInputs.cache
+C:\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.sourcelink.json
+C:\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.dll
+C:\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\refint\TicmansoCrud.Shared.dll
+C:\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\TicmansoCrud.Shared.pdb
+C:\TFG\TicmansoCrud.Shared\obj\Debug\net8.0\ref\TicmansoCrud.Shared.dll

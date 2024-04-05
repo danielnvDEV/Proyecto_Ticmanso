@@ -425,7 +425,7 @@ namespace TicmansoWebAPI.Controllers
                     CloseDate = t.CloseDate,
                     ChatId = t.ChatId,
                     CreationUserId = t.CreationUserId,
-                    SopportUserId = t.SopportUserId ?? 0,
+                    SupportUserId = t.SupportUserId ?? 0,
                     PriorityId = t.PriorityId,
                     StatusId = t.StatusId
                 })
@@ -449,7 +449,7 @@ namespace TicmansoWebAPI.Controllers
                     CloseDate = t.CloseDate,
                     ChatId = t.ChatId,
                     CreationUserId = t.CreationUserId,
-                    SopportUserId = t.SopportUserId ?? 0,
+                    SupportUserId = t.SupportUserId ?? 0,
                     PriorityId = t.PriorityId,
                     StatusId = t.StatusId
                 })
@@ -470,11 +470,10 @@ namespace TicmansoWebAPI.Controllers
                 Title = ticketDTO.Title,
                 Description = ticketDTO.Description,
                 CreationDate = ticketDTO.CreationDate,
-                ChangedDate = ticketDTO.ChangedDate,
-                CloseDate = ticketDTO.CloseDate,
+                ChangedDate = ticketDTO.ChangedDate ?? ticketDTO.ChangedDate ,
+                CloseDate = ticketDTO.CloseDate ?? ticketDTO.CloseDate,
                 ChatId = ticketDTO.ChatId,
                 CreationUserId = ticketDTO.CreationUserId,
-                SopportUserId = ticketDTO.SopportUserId ?? 0,
                 PriorityId = ticketDTO.PriorityId,
                 StatusId = ticketDTO.StatusId
             };
@@ -499,7 +498,7 @@ namespace TicmansoWebAPI.Controllers
             ticket.CloseDate = ticketDTO.CloseDate ?? ticket.CloseDate; ;
             ticket.ChatId = ticketDTO.ChatId;
             ticket.CreationUserId = ticketDTO.CreationUserId;
-            ticket.SopportUserId = ticketDTO.SopportUserId ?? 0;
+            ticket.SupportUserId = ticketDTO.SupportUserId ?? 0;
             ticket.PriorityId = ticketDTO.PriorityId;
             ticket.StatusId = ticketDTO.StatusId;
 

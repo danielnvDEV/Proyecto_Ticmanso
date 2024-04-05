@@ -239,8 +239,8 @@ public partial class TicmansoProContext : DbContext
             entity.Property(e => e.PriorityId)
                 .HasColumnName("priority_id");
 
-            entity.Property(e => e.SopportUserId)
-                .HasColumnName("sopport_user_id");
+            entity.Property(e => e.SupportUserId)
+                .HasColumnName("Support_user_id");
 
             entity.Property(e => e.StatusId)
                 .HasColumnName("status_id");
@@ -259,16 +259,17 @@ public partial class TicmansoProContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_ticket_user1");
 
+            entity.HasOne(d => d.SupportUser).WithMany(p => p.TicketSupportUsers)
+                .HasForeignKey(d => d.SupportUserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_ticket_user2");
+
+
             entity.HasOne(d => d.Priority).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.PriorityId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_ticket_priority1");
 
-
-            //entity.HasOne(d => d.SopportUserId)
-            //    .HasForeignKey(d => d.SopportUserId)
-            //    .HasConstraintName("fk_ticket_user2")
-            //    .IsRequired(false);
 
             entity.HasOne(d => d.Status).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.StatusId)

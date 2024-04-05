@@ -23,7 +23,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<TicmansoProContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2"));
 });
 var app = builder.Build();
 

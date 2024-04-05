@@ -9,7 +9,8 @@
             <MudAppBar Elevation="1">
                 <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
                 <MudSpacer />
-                <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Href="/" />
+                <MudIconButton Icon="@Icons.Material.Filled.InsertComment" Color="Color.Inherit" Href="/management/tickets/newTicket" />
+            <MudIconButton ml-2 Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Href="/" />
             </MudAppBar>
             <MudDrawer @bind-Open="@open" Elevation="1">
                 <MudDrawerHeader>
@@ -17,7 +18,7 @@
                 </MudDrawerHeader>
                 <MudNavMenu>
                     <MudNavLink Href="/InfoPanel">Dashboard</MudNavLink>
-                    <MudNavLink Href="/TicketTable">Tickets</MudNavLink>
+                    <MudNavLink Href="/tickets">Tickets</MudNavLink>
                     <MudNavLink Href="/dashboard">Dashboard</MudNavLink>
                     <MudNavGroup Title="Management" Expanded="true">
                         <MudNavLink Href="/management/controlUser">Users</MudNavLink>

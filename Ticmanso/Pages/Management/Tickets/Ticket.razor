@@ -6,7 +6,7 @@
 @inject HttpClient httpClient
 @inject ISnackbar Snackbar
 
-@page "/ticket/{ticketId:long}"
+@page "/tickets/ticket/{ticketId:long}"
 <PageTitle>Ticket</PageTitle>
 @if (ticket != null)
 {
@@ -131,9 +131,9 @@ else
 
             var status = await httpClient.GetFromJsonAsync<StatusDTO>($"https://localhost:7144/api/Ticmanso/status/{ticket.StatusId}");
 
-            if (ticket.SopportUserId != 0)
+            if (ticket.SupportUserId != 0)
             {
-                var user = await httpClient.GetFromJsonAsync<UserDTO>($"https://localhost:7144/api/Ticmanso/users/{ticket.SopportUserId}");
+                var user = await httpClient.GetFromJsonAsync<UserDTO>($"https://localhost:7144/api/Ticmanso/users/{ticket.SupportUserId}");
                 if (user != null)
                 {
                     selectedAgent = user;
@@ -159,7 +159,7 @@ else
         ticket.ChangedDate = currentDateTime;
         ticket.StatusId = Statuses.FirstOrDefault(s => s.Name == selectedStatus)?.Id ?? ticket.StatusId;
         ticket.PriorityId = Priorities.FirstOrDefault(p => p.Name == selectedPriority)?.Id ?? ticket.PriorityId;
-        ticket.SopportUserId = selectedAgent?.Id;
+        ticket.SupportUserId = selectedAgent?.Id;
 
         var response = await httpClient.PutAsJsonAsync($"https://localhost:7144/api/Ticmanso/ticket/{ticketId}", ticket);
 
