@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 
 namespace TicmansoWebAPI.Models;
 
 
-public partial class User
+public partial class User : IdentityUser
 {
     public long Id { get; set; }
 

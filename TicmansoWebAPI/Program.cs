@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using TicmansoWebAPI.Models;
 using Microsoft.Net.Http.Headers;
+using TicmansoWebAPI.Identity;
+using Microsoft.AspNetCore.Identity;
 
 var MyAllowSpecificOrigins = "_MyAllowSubdomainPolicy";
 var builder = WebApplication.CreateBuilder(args);
@@ -25,7 +27,14 @@ builder.Services.AddDbContext<TicmansoProContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2"));
 });
+
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<TicmansoProContext>()
+    .AddDefaultTokenProviders();
+
 var app = builder.Build();
+
 
 if (app.Environment.IsDevelopment())
 {
