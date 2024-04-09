@@ -20,8 +20,6 @@ public partial class User : AspNetUser
 
     public virtual Company Company { get; set; } = null!;
 
-    public virtual Role Role { get; set; } = null!;
-
     public virtual ICollection<Signing> Signings { get; set; } = new List<Signing>();
 
     public virtual ICollection<Ticket> TicketCreationUsers { get; set; } = new List<Ticket>();

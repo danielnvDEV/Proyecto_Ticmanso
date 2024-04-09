@@ -1,27 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using TicmansoWebAPI.Identity;
 
-namespace TicmansoWebAPI.Model;
-
-/// <summary>
-/// TRIAL
-/// </summary>
-public partial class Chat
+namespace TicmansoWebAPI.Model
 {
-    public int Id { get; set; }
+    public class Chat
+    {
+        public int Id { get; set; }
+        public string User1Id { get; set; }
+        public string User2Id { get; set; }
+        public int? TicketId { get; set; }
 
-    public string? Messages { get; set; }
-
-    public long UserId { get; set; }
-
-    /// <summary>
-    /// TRIAL
-    /// </summary>
-    public long UserId1 { get; set; }
-
-    public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
-
-    public virtual User User { get; set; } = null!;
-
-    public virtual User UserId1Navigation { get; set; } = null!;
+        public virtual ApplicationUser User1 { get; set; }
+        public virtual ApplicationUser User2 { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Message> Messages { get; set; }
+    }
 }

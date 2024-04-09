@@ -3096,11 +3096,6 @@ C:\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.dll
 C:\TFG\Ticmanso\obj\Debug\net8.0\refint\Ticmanso.dll
 C:\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.pdb
 C:\TFG\Ticmanso\obj\Debug\net8.0\ref\Ticmanso.dll
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Reflection.Metadata.wasm
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Text.Encoding.CodePages.wasm
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Threading.Tasks.Parallel.wasm
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Transactions.Local.wasm
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Windows.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Azure.Core.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Azure.Identity.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\blazor.boot.json
@@ -4267,6 +4262,7 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Reflection.Emit.Lightweight.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Reflection.Emit.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Reflection.Extensions.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Reflection.Metadata.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Reflection.Primitives.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Reflection.TypeExtensions.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Reflection.wasm
@@ -4305,6 +4301,7 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Security.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.ServiceModel.Web.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.ServiceProcess.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Text.Encoding.CodePages.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Text.Encoding.Extensions.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Text.Encoding.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Text.Encodings.Web.wasm
@@ -4314,15 +4311,18 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Threading.Overlapped.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Threading.Tasks.Dataflow.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Threading.Tasks.Extensions.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Threading.Tasks.Parallel.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Threading.Tasks.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Threading.Thread.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Threading.ThreadPool.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Threading.Timer.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Threading.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Transactions.Local.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Transactions.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.ValueTuple.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Web.HttpUtility.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Web.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Windows.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Xml.Linq.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Xml.ReaderWriter.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\Debug\net8.0\webcil\System.Xml.Serialization.wasm

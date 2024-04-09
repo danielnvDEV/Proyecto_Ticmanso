@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Identity;
 
-namespace TicmansoWebAPI.Model;
-
-/// <summary>
-/// TRIAL
-/// </summary>
-public partial class Role : AspNetRole
+namespace TicmansoWebAPI.Model
 {
-
+    public class Role : IdentityRole
+    {
+    }
 }

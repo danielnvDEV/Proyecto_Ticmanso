@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 
 namespace TicmansoWebAPI.Model;
 
-public partial class AspNetRole
+public partial class AspNetRole : IdentityRole
 {
     public string Id { get; set; } = null!;
 

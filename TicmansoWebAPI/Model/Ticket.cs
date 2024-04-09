@@ -26,9 +26,9 @@ public partial class Ticket
 
     public int StatusId { get; set; }
 
-    public long CreationUserId { get; set; }
+    public string AspNetUserCreationId { get; set; }
 
-    public long? SupportUserId { get; set; }
+    public string AspNetUserSupportId { get; set; }
 
     public virtual Chat? Chat { get; set; }
 
