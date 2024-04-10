@@ -1,6 +1,6 @@
+using Blazored.SessionStorage;
 using Microsoft.EntityFrameworkCore;
 using TicmansoWebAPI.Models;
-using Microsoft.Net.Http.Headers;
 
 var MyAllowSpecificOrigins = "_MyAllowSubdomainPolicy";
 var builder = WebApplication.CreateBuilder(args);
@@ -25,8 +25,8 @@ builder.Services.AddDbContext<TicmansoProContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2"));
 });
-var app = builder.Build();
 
+var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -34,8 +34,11 @@ if (app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection(); 
 
-app.UseRouting();  
+app.UseRouting();
 
+//builder.Services.AddScoped<SessionStorageService>();
+
+//builder.Services.AddBlazoredSessionStorage();
 app.UseCors(MyAllowSpecificOrigins); 
 
 app.UseAuthorization(); 
@@ -43,4 +46,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
 //https://ebuah.uah.es/dspace/bitstream/handle/10017/53453/TFG_Garcia_Lopez_2022.pdf?sequence=1&isAllowed=y
