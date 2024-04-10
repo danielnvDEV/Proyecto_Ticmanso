@@ -146,6 +146,30 @@
   },
   {
     "ContainingType": "TicmansoWebAPI.Controllers.TicmansoController",
+    "Method": "Login",
+    "RelativePath": "api/Ticmanso/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "TicmansoWebAPI.Models.Login",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TicmansoWebAPI.Controllers.TicmansoController",
     "Method": "GetPriorities",
     "RelativePath": "api/Ticmanso/priority",
     "HttpMethod": "GET",

@@ -22,21 +22,37 @@
 </MudContainer>
 
 @code {
+
+     protected override async Task OnInitializedAsync()
+    {
+        var token = await SessionStorage.GetItemAsync<string>("token");
+        if (!string.IsNullOrEmpty(token))
+        {
+            NavigationManager.NavigateTo("/dashboard");
+        }
+    }
+
     private string Username { get; set; }
     private string Password { get; set; }
 
     private async Task LoginAsync()
     {
         var httpClient = HttpClientFactory.CreateClient();
-        var loginData = new { Username, Password };
 
-        var response = await httpClient.PostAsJsonAsync("https://api.example.com/login", loginData);
+        LoginDTO requestData = new LoginDTO();
+
+                requestData.Email = Username;
+                requestData.password = Password;
+
+
+        var response = await httpClient.PostAsJsonAsync("https://localhost:7144/api/Ticmanso/login", requestData);
 
         if (response.IsSuccessStatusCode)
         {
             var token = await response.Content.ReadAsStringAsync();
+
             await SessionStorage.SetItemAsync("token", token);
-            NavigationManager.NavigateTo("/");
+            NavigationManager.NavigateTo("/dashboard");
         }
         else
         {

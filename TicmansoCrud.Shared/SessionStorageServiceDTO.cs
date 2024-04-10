@@ -1,5 +1,5 @@
-﻿namespace TicmansoWebAPI.Models
-{
+﻿namespace TicmansoWebAPI.Models;
+
     using Microsoft.JSInterop;
     using System.Text.Json;
     using System.Threading.Tasks;
@@ -34,4 +34,4 @@
             await _jsRuntime.InvokeVoidAsync("sessionStorage.clear");
         }
     }
-}
+

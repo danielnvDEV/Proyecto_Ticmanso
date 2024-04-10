@@ -9,6 +9,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Configuration;
+using Azure;
 
 namespace TicmansoWebAPI.Controllers
 {
@@ -20,60 +21,63 @@ namespace TicmansoWebAPI.Controllers
     {
         private readonly TicmansoProContext _dbContext;
         private readonly IConfiguration _configuration;
+
         public TicmansoController(TicmansoProContext dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;
-            _configuration = configuration;
+            _configuration = configuration;       
         }
-
+        #region Session
         [HttpPost("login")]
         [Produces("application/json")]
-        public async Task<ActionResult<UserDTO>> GetUserLogin(string mail,string password)
+        public async Task<ActionResult<string>> Login([FromBody] Login model)
         {
-            // Buscar al usuario por su nombre de usuario
+            // Buscar al usuario por su email
             var user = await _dbContext.Users
-                
-                .Where(u => u.Mail == mail)
-                .Where(u => u.Password == password)
-                .Select(u => new UserDTO
-                {
-                    Id= u.Id,
-                    Name = u.Name,
-                    Surnames = u.Surnames,
-                    Mail = u.Mail,
-                    CompanyId = u.CompanyId,
-                    RoleId = u.Role.Id
-                })
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(u => u.Mail == model.Email);
 
             // Verificar si el usuario existe y si la contraseña es correcta
-            if (user == null)
+            if (user == null || !VerifyPassword(model.password, user.Password))
             {
-                return Unauthorized("Invalid username or password");
+                return Unauthorized("Invalid email or password");
             }
-            return user;
-            //// Generar el token JWT
-            //var token = GenerateJwtToken(user);
 
-            //return Ok(new { Token = token });
+            // Generar el token JWT
+            var token = GenerateJwtToken(user);
+
+            return Ok(new { Token = token });
         }
-        private string GenerateJwtToken(UserDTO user)
+
+        private bool VerifyPassword(string enteredPassword, string storedPassword)
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["JwtSecret"]);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.Mail)
-        }),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+            return enteredPassword == storedPassword; 
         }
+
+        private string GenerateJwtToken(User user)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecretKey"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Email, user.Mail),
+                new Claim(ClaimTypes.Role, user.RoleId.ToString())
+            };
+
+            var token = new JwtSecurityToken(
+                _configuration["Jwt:Issuer"],
+                _configuration["Jwt:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddMinutes(15),
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        #endregion
+
         #region User
         // GET: api/Users
         [Tags("Users")]
