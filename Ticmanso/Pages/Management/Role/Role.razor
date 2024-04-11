@@ -31,7 +31,23 @@
         </MudTd>
     </RowTemplate>
 </MudTable>
-
+<MudGrid>
+    <MudItem xs="12" sm="4">
+        <MudPaper Style="height: 350px;">
+            &nbsp;
+        </MudPaper>
+    </MudItem>
+     <MudItem xs="12" sm="4">
+            <MudPaper Style="height: 350px;">
+            &nbsp;
+        </MudPaper>
+    </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudPaper Style="height: 350px;">
+                &nbsp;
+            </MudPaper>
+        </MudItem>
+</MudGrid>
 <MudDialog @bind-IsVisible="showForm">
     <TitleContent>
         <MudText Typo="Typo.h6">@(editingRoleId == 0 ? "Crear Rol" : "Editar Rol")</MudText>

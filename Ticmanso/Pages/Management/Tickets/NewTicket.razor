@@ -6,6 +6,8 @@
 @using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
 @using System.Text;
+@using Blazored.SessionStorage
+@using System.IdentityModel.Tokens.Jwt;
 
 
 
@@ -37,7 +39,7 @@
         </MudCardActions>
     </MudCard>
 </EditForm>
-
+@inject SessionStorageServiceDTO SessionStorage
 @code {
     private TicketDTO ticket = new TicketDTO();
     private List<PriorityDTO> priorities = new List<PriorityDTO>();
@@ -51,8 +53,15 @@
 
     private async Task HandleSubmit()
     {
+        var token = await SessionStorage.GetItemAsync<string>("token");
+        var handler = new JwtSecurityTokenHandler();
+        var jwtToken = handler.ReadJwtToken(token);
+        long userId = long.Parse(jwtToken.Claims.First(c => c.Type == "NameIdentifier").Value);
+        string username = jwtToken.Claims.First(c => c.Type == "name").Value;
+        List<string> roles = jwtToken.Claims.Where(c => c.Type == "role").Select(c => c.Value).ToList();
+
         ticket.CreationDate = DateTime.Now;
-        ticket.CreationUserId = 1;
+        ticket.CreationUserId = userId;
         ticket.ChatId = 1;
         ticket.StatusId = 1;
 

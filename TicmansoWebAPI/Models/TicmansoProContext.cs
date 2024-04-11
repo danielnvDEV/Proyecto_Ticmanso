@@ -41,7 +41,7 @@ public partial class TicmansoProContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("pk_chat");
 
-            entity.ToTable("chat", tb => tb.HasComment("TRIAL"));
+          
 
             entity.HasIndex(e => e.UserId, "fk_chat_user1_idx").HasFillFactor(99);
 
