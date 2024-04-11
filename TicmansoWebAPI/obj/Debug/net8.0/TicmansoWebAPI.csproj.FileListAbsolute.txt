@@ -487,3 +487,4 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\
 \\192.168.1.100\2tb\TFG\TicmansoWebAPI\obj\Debug\net8.0\TicmansoWebAPI.pdb
 \\192.168.1.100\2tb\TFG\TicmansoWebAPI\obj\Debug\net8.0\TicmansoWebAPI.genruntimeconfig.cache
 \\192.168.1.100\2tb\TFG\TicmansoWebAPI\obj\Debug\net8.0\ref\TicmansoWebAPI.dll
+\\192.168.1.100\2tb\TFG\TicmansoWebAPI\bin\Debug\net8.0\Newtonsoft.Json.dll

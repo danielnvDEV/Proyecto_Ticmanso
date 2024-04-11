@@ -33,10 +33,16 @@ public partial class TicmansoProContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
+   
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
+       
+
+
+
         modelBuilder.Entity<Chat>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("pk_chat");

@@ -4705,3 +4705,8 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\Ticmanso\obj\De
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\refint\Ticmanso.dll
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\Ticmanso.pdb
 \\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\ref\Ticmanso.dll
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Newtonsoft.Json.wasm
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\wwwroot\_framework\Newtonsoft.Json.wasm.gz
+\\192.168.1.100\2tb\TFG\Ticmanso\bin\Debug\net8.0\Newtonsoft.Json.dll
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\webcil\Newtonsoft.Json.wasm
+\\192.168.1.100\2tb\TFG\Ticmanso\obj\Debug\net8.0\compressed\aykdd7ixhh.gz
