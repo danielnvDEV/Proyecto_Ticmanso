@@ -76,6 +76,7 @@
     private async Task OpenEditForm(int id)
     {
         status = await HttpClient.GetFromJsonAsync<StatusDTO>($"https://localhost:7144/api/Ticmanso/status/{id}");
+
         editingStatusId = id;
         showForm = true;
     }

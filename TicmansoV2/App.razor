@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using TicmansoV2.Pages
+@inject NavigationManager NavManager
+
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                <Authorizing><h2>Please wait...</h2></Authorizing>
+                <NotAuthorized>
+                    @{
+                        var authState = context.User;
+                        if (authState?.Identity?.IsAuthenticated != true)
+                        {
+                            NavManager.NavigateTo("/");
+                        }
+                        else
+                        {
+                            <p class="alert alert-danger">Not authorized</p>
+                        }
+                    }
+                </NotAuthorized>
+            </AuthorizeRouteView>
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p role="alert">Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>

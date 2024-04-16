@@ -33,4 +33,12 @@ public partial class User
     public virtual ICollection<Ticket> TicketCreationUsers { get; set; } = new List<Ticket>();
 
     public virtual ICollection<Ticket> TicketSupportUsers { get; set; } = new List<Ticket>();
+
+    public virtual ICollection<ChatMessage> ChatMessagesFromUsers { get; set; }
+    public virtual ICollection<ChatMessage> ChatMessagesToUsers { get; set; }
+    public User()
+    {
+        ChatMessagesFromUsers = new HashSet<ChatMessage>();
+        ChatMessagesToUsers = new HashSet<ChatMessage>();
+    }
 }

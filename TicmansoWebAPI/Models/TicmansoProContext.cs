@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace TicmansoWebAPI.Models;
@@ -33,14 +34,28 @@ public partial class TicmansoProContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-   
+    public virtual DbSet<ChatMessage> ChatMessages { get; set; }
+
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 
-       
 
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<ChatMessage>(entity =>
+        {
+            entity.HasOne(d => d.FromUser)
+                .WithMany(p => p.ChatMessagesFromUsers)
+                .HasForeignKey(d => d.FromUserId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            entity.HasOne(d => d.ToUser)
+                .WithMany(p => p.ChatMessagesToUsers)
+                .HasForeignKey(d => d.ToUserId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+        });
 
 
         modelBuilder.Entity<Chat>(entity =>

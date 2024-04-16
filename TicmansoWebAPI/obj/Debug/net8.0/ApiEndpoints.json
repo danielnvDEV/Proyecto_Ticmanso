@@ -1,5 +1,79 @@
 [
   {
+    "ContainingType": "TicmansoWebAPI.Models.OidcConfigurationController",
+    "Method": "GetClientRequestParameters",
+    "RelativePath": "_configuration",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Authorization",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicmansoWebAPI.Models.ChatController",
+    "Method": "SaveMessageAsync",
+    "RelativePath": "api/Chat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "TicmansoWebAPI.Models.ChatMessage",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicmansoWebAPI.Models.ChatController",
+    "Method": "GetConversationAsync",
+    "RelativePath": "api/Chat/{contactId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contactId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicmansoWebAPI.Models.ChatController",
+    "Method": "GetUsersAsync",
+    "RelativePath": "api/Chat/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicmansoWebAPI.Models.ChatController",
+    "Method": "GetUserDetailsAsync",
+    "RelativePath": "api/Chat/users/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TicmansoWebAPI.Controllers.TicmansoController",
     "Method": "GetCompanies",
     "RelativePath": "api/Ticmanso/company",

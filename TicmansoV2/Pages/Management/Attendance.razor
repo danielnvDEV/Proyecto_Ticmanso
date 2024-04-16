@@ -1,0 +1,128 @@
+﻿@page "/attendance"
+@using System.IdentityModel.Tokens.Jwt
+@using System.Security.Claims
+@using TicmansoV2.Shared
+@using System.Globalization;
+
+@inject HttpClient HttpClient
+@inject IJSRuntime JSRuntime
+
+<h3>Fichar</h3>
+
+<p>Fecha: @currentDate.ToString("yyyy-MM-dd")</p>
+<p>Hora de entrada: @entryTime?.ToString("HH:mm:ss")</p>
+<p>Hora de salida: @departureTime?.ToString("HH:mm:ss")</p>
+
+@if (entryTime == null)
+{
+    <button class="btn btn-primary" @onclick="StartWorkday">Iniciar jornada</button>
+        <button class="btn btn-primary" @onclick="EndWorkday">Finalizar jornada</button>
+
+}
+else if (departureTime == null)
+{
+    <button class="btn btn-primary" @onclick="EndWorkday">Finalizar jornada</button>
+}
+else
+{
+    <p>Jornada finalizada.</p>
+}
+
+@code {
+    private DateTime currentDate = DateTime.Today;
+    private DateTime? entryTime;
+    private DateTime? departureTime;
+    private string userId;
+    private AttendanceDTO attendace = new AttendanceDTO();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetUserId();
+        await LoadAttendance();
+    }
+
+    private async Task GetUserId()
+    {
+        var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
+        var handler = new JwtSecurityTokenHandler();
+        var jwtToken = handler.ReadJwtToken(token);
+        var claims = jwtToken.Claims;
+        userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+    }
+
+    private async Task LoadAttendance()
+    {
+        try
+        {
+            var response = await HttpClient.GetAsync($"api/Attendance?date={currentDate:yyyy-MM-dd}&userId={userId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                attendace = System.Text.Json.JsonSerializer.Deserialize<AttendanceDTO>(json);
+                entryTime = attendace.EntryTime;
+                departureTime = attendace.DepartureTime;
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                // Manejar el caso cuando no se encuentra la asistencia
+                Console.WriteLine("No se encontró la asistencia para la fecha y el usuario especificados.");
+            }
+            else
+            {
+                // Manejar otros códigos de estado de error
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Error al cargar la asistencia: {errorMessage}");
+            }
+        }
+        catch (Exception ex)
+        {
+            // Manejar cualquier excepción durante la deserialización
+            Console.WriteLine($"Error al procesar la respuesta: {ex.Message}");
+        }
+    }
+
+    private async Task StartWorkday()
+    {
+        var attendance = new AttendanceDTO
+        {
+            Date = currentDate,
+            EntryTime = DateTime.Now,
+            UserId = userId
+        };
+
+        var response = await HttpClient.PostAsJsonAsync("api/Attendance", attendance);
+        if (response.IsSuccessStatusCode)
+        {
+            entryTime = attendance.EntryTime;
+        }
+        else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
+        {
+            // Manejar el caso de un registro de asistencia duplicado
+            // Puedes mostrar un mensaje de error o realizar alguna acción específica
+            Console.WriteLine("Ya existe un registro de asistencia para la fecha y el usuario especificados.");
+        }
+        else
+        {
+            // Manejar otros errores de la API si es necesario
+            Console.WriteLine("Error al crear el registro de asistencia.");
+        }
+    }
+
+    private async Task EndWorkday()
+    {
+        var attendance = new AttendanceDTO
+        {
+            Date = currentDate,
+            EntryTime = entryTime.Value,
+            DepartureTime = DateTime.Now,
+            UserId = userId
+        };
+
+        var response = await HttpClient.PutAsJsonAsync($"api/Attendance/{currentDate:yyyy-MM-dd}/{userId}", attendance);
+        if (response.IsSuccessStatusCode)
+        {
+            departureTime = attendance.DepartureTime;
+        }
+    }
+}

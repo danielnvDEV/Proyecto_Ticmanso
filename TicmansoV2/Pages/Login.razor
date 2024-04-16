@@ -1,0 +1,75 @@
+﻿@page "/"
+@layout LoginLayout
+
+@using Microsoft.AspNetCore.Components.Authorization
+@using TicmansoV2.Authentication
+@using TicmansoV2.Shared.Contracts
+@using MudBlazor
+@using System.Security.Claims
+@using System.IdentityModel.Tokens.Jwt
+
+@inject IUserAccount AccountService
+@inject IJSRuntime JSRuntime
+@inject AuthenticationStateProvider AuthStateProvider
+@inject NavigationManager NavManager
+
+<PageTitle>Login</PageTitle>
+
+<MudContainer>
+    <MudGrid>
+        <MudItem xs="12" sm="6">
+            <EditForm Enhance Model="User" OnValidSubmit="HandleLogin">
+                <DataAnnotationsValidator />
+                <MudCard>
+                    <MudCardHeader>
+                        <MudText Typo="Typo.h6">Login An Account</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudTextField @bind-Value="User.Email"
+                                      Label="Email Address"
+                                      Variant="Variant.Outlined"
+                                      Class="mb-3" />
+
+                        <MudTextField @bind-Value="User.Password"
+                                      Label="Password"
+                                      Variant="Variant.Outlined"
+                                      InputType="InputType.Password" />
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Login</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </EditForm>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code {
+    public LoginDTO User { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
+        if (!string.IsNullOrEmpty(token))
+        {
+            NavigationManager.NavigateTo("/dashboard");
+        }
+    }
+    async Task HandleLogin()
+    {
+        var (flag, token, message) = await AccountService.LoginAccount(User);
+        if (flag)
+        {
+            string customMessage = $"{message}{Environment.NewLine}{token}";
+            await JSRuntime.InvokeVoidAsync("alert", customMessage);
+            User = new();
+
+            var customAuthStateProvider = (CustomAuthenticationStateProvider)AuthStateProvider;
+            await customAuthStateProvider.UpdateAuthenticationState(token);
+            NavManager.NavigateTo("/dashboard", forceLoad: true);
+        }
+
+        await JSRuntime.InvokeVoidAsync("alert", message);
+        return;
+    }
+}

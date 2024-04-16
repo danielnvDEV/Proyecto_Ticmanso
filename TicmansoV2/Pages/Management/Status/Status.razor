@@ -1,0 +1,120 @@
+﻿@using System.Net.Http.Json
+@using TicmansoV2.Shared
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Components.Authorization;
+@using MudBlazor
+
+
+
+@page "/management/statuses"
+@inject HttpClient HttpClient
+@inject ISnackbar Snackbar
+@attribute [Authorize]
+
+
+<PageTitle>Administrar statuses</PageTitle>
+<AuthorizeView>
+    <Authorized Context="authContext">
+        <MudTable Items="@statuses" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Info">
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">Statuses</MudText>
+                <MudSpacer />
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" OnClick="OpenCreateForm">Crear Status</MudButton>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>Id</MudTh>
+                <MudTh>Nombre</MudTh>
+                <MudTh>Acciones</MudTh>
+            </HeaderContent>
+            <RowTemplate Context="statusContext">
+                <MudTd DataLabel="Id">@statusContext.Id</MudTd>
+                <MudTd DataLabel="Nombre">@statusContext.Name</MudTd>
+                <MudTd DataLabel="Acciones">
+                    <MudButton Color="Color.Default" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Edit" OnClick="@(() => OpenEditForm(statusContext.Id))">Editar</MudButton>
+                    <MudButton Color="Color.Error" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Delete" OnClick="@(() => DeleteStatus(statusContext.Id))">Borrar</MudButton>
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+
+        <MudDialog @bind-IsVisible="showForm">
+            <TitleContent>
+                <MudText Typo="Typo.h6">@(editingStatusId == 0 ? "Crear Status" : "Editar Status")</MudText>
+            </TitleContent>
+            <DialogContent>
+                <MudForm Model="@status" @ref="form">
+                    <MudTextField @bind-Value="status.Name" Label="Nombre" Required="true" RequiredError="El nombre es requerido"/>
+                </MudForm>
+            </DialogContent>
+            <DialogActions>
+                <MudButton OnClick="CloseForm">Cancelar</MudButton>
+                <MudButton Color="Color.Primary" OnClick="SaveStatus">Guardar</MudButton>
+            </DialogActions>
+        </MudDialog>
+    </Authorized>
+</AuthorizeView>
+
+
+@code {
+    private List<StatusDTO> statuses = new List<StatusDTO>();
+    private StatusDTO status = new StatusDTO();
+    private bool loading = true;
+    private bool showForm = false;
+    private int editingStatusId = 0;
+    private MudForm form;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadStatuses();
+    }
+
+    private async Task LoadStatuses()
+    {
+        loading = true;
+        statuses = await HttpClient.GetFromJsonAsync<List<StatusDTO>>("https://localhost:7291/api/Status");
+        loading = false;
+    }
+
+    private void OpenCreateForm()
+    {
+        status = new StatusDTO();
+        editingStatusId = 0;
+        showForm = true;
+    }
+
+    private async Task OpenEditForm(int id)
+    {
+        status = await HttpClient.GetFromJsonAsync<StatusDTO>($"https://localhost:7291/api/Status/{id}");
+
+        editingStatusId = id;
+        showForm = true;
+    }
+
+    private void CloseForm()
+    {
+        showForm = false;
+    }
+
+    private async Task SaveStatus()
+    {
+        if (editingStatusId == 0)
+        {
+            await HttpClient.PostAsJsonAsync("https://localhost:7291/api/Status", status);
+            Snackbar.Add("Status creado", Severity.Success);
+        }
+        else
+        {
+            await HttpClient.PutAsJsonAsync($"https://localhost:7291/api/Status/{editingStatusId}", status);
+            Snackbar.Add("Status actualizado", Severity.Info);
+        }
+
+        showForm = false;
+        await LoadStatuses();
+    }
+
+    private async Task DeleteStatus(int id)
+    {
+        await HttpClient.DeleteAsync($"https://localhost:7291/api/Status/{id}");
+        Snackbar.Add("Status eliminado", Severity.Warning);
+        await LoadStatuses();
+    }
+}

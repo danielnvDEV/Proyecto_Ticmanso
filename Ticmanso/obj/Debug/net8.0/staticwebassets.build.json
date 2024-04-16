@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wgO9Z0p1dSenN0UEasPnBVirtcQCd0iZLKDiWRdorHc=",
+  "Hash": "zoHSfQGFaZ5T6AbY0nfvVnMsG1d3eUxsYndiinOzB8s=",
   "Source": "Ticmanso",
   "BasePath": "/",
   "Mode": "Root",
@@ -318,7 +318,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.2\\runtimes\\browser-wasm\\native\\dotnet.js"
+      "OriginalItemSpec": "C:\\Users\\dani\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.4\\runtimes\\browser-wasm\\native\\dotnet.js"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
@@ -337,15 +337,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.2\\runtimes\\browser-wasm\\native\\dotnet.js.map"
+      "OriginalItemSpec": "C:\\Users\\dani\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.4\\runtimes\\browser-wasm\\native\\dotnet.js.map"
     },
     {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.2.deknxu92gu.js",
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.4.ok8n35cfm2.js",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
       "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.8.0.2.deknxu92gu.js",
+      "RelativePath": "_framework/dotnet.native.8.0.4.ok8n35cfm2.js",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -356,7 +356,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.2\\runtimes\\browser-wasm\\native\\dotnet.native.js"
+      "OriginalItemSpec": "C:\\Users\\dani\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.4\\runtimes\\browser-wasm\\native\\dotnet.native.js"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
@@ -375,15 +375,15 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.2\\runtimes\\browser-wasm\\native\\dotnet.native.wasm"
+      "OriginalItemSpec": "C:\\Users\\dani\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.4\\runtimes\\browser-wasm\\native\\dotnet.native.wasm"
     },
     {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.2.8j60y5zbay.js",
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.4.zkrt7h44v1.js",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
       "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.8.0.2.8j60y5zbay.js",
+      "RelativePath": "_framework/dotnet.runtime.8.0.4.zkrt7h44v1.js",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -394,7 +394,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.2\\runtimes\\browser-wasm\\native\\dotnet.runtime.js"
+      "OriginalItemSpec": "C:\\Users\\dani\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.4\\runtimes\\browser-wasm\\native\\dotnet.runtime.js"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
@@ -413,7 +413,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.2\\runtimes\\browser-wasm\\native\\dotnet.runtime.js.map"
+      "OriginalItemSpec": "C:\\Users\\dani\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.4\\runtimes\\browser-wasm\\native\\dotnet.runtime.js.map"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\EntityFramework.SqlServer.wasm",
@@ -641,7 +641,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.2\\runtimes\\browser-wasm\\native\\icudt_CJK.dat"
+      "OriginalItemSpec": "C:\\Users\\dani\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.4\\runtimes\\browser-wasm\\native\\icudt_CJK.dat"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
@@ -660,7 +660,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.2\\runtimes\\browser-wasm\\native\\icudt_EFIGS.dat"
+      "OriginalItemSpec": "C:\\Users\\dani\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.4\\runtimes\\browser-wasm\\native\\icudt_EFIGS.dat"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
@@ -679,7 +679,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.2\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
+      "OriginalItemSpec": "C:\\Users\\dani\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.4\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\it\\Microsoft.CodeAnalysis.CSharp.resources.wasm",
@@ -929,6 +929,25 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Authorization.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.wasm",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Authorization.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Components.Authorization.wasm"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.wasm",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -1005,6 +1024,63 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Components.WebAssembly.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Connections.Abstractions.wasm",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Connections.Abstractions.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Connections.Abstractions.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Connections.Client.wasm",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.Connections.Client.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Http.Connections.Client.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Connections.Common.wasm",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.Connections.Common.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Http.Connections.Common.wasm"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.wasm",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -1022,6 +1098,82 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Metadata.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Client.Core.wasm",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.SignalR.Client.Core.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.SignalR.Client.Core.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Client.wasm",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.SignalR.Client.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.SignalR.Client.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Common.wasm",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.SignalR.Common.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.SignalR.Common.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Protocols.Json.wasm",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.SignalR.Protocols.Json.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.SignalR.Protocols.Json.wasm"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Bcl.AsyncInterfaces.wasm",
@@ -1478,6 +1630,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.Extensions.Diagnostics.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Features.wasm",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Features.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\webcil\\Microsoft.Extensions.Features.wasm"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.FileProviders.Abstractions.wasm",
@@ -6420,6 +6591,25 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\ja\\Microsoft.CodeAnalysis.Workspaces.resources.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\2w45k74jay.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.Connections.Client.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Connections.Client.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Connections.Client.wasm"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\2wsu95h6nz.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -6629,6 +6819,25 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Threading.Timer.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\3vw2cj9y82.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.SignalR.Common.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Common.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Common.wasm"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\3y88x8czk5.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -6743,6 +6952,25 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\zh-Hans\\Microsoft.CodeAnalysis.CSharp.resources.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\58q7ut9x9g.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.native.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\5avhlr6nxg.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -6760,25 +6988,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.wasm"
-    },
-    {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\5ux8ql4ho3.gz",
-      "SourceId": "Ticmanso",
-      "SourceType": "Computed",
-      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_EFIGS.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\5x4uiqsdn4.gz",
@@ -7292,25 +7501,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.Numerics.wasm"
-    },
-    {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\8j60y5zbay.gz",
-      "SourceId": "Ticmanso",
-      "SourceType": "Computed",
-      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.8.0.2.8j60y5zbay.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.2.8j60y5zbay.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.2.8j60y5zbay.js"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\8kfpazhhur.gz",
@@ -7959,25 +8149,6 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\MudBlazor.wasm"
     },
     {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\deknxu92gu.gz",
-      "SourceId": "Ticmanso",
-      "SourceType": "Computed",
-      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.8.0.2.deknxu92gu.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.2.deknxu92gu.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.2.deknxu92gu.js"
-    },
-    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\dfqxzqzfmo.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -8185,25 +8356,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Dynamic.Runtime.wasm"
-    },
-    {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\el7hyfth7u.gz",
-      "SourceId": "Ticmanso",
-      "SourceType": "Computed",
-      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.wasm.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\f2vpddoz0v.gz",
@@ -8700,6 +8852,25 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Composition.Convention.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\hkm6rqh613.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.SignalR.Protocols.Json.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Protocols.Json.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Protocols.Json.wasm"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\hla2qk5gks.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -8738,6 +8909,25 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Diagnostics.Abstractions.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\hnp3pniso9.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_EFIGS.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\hqnvmdqnlq.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -8774,6 +8964,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\hyui0sek9b.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Connections.Abstractions.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Connections.Abstractions.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Connections.Abstractions.wasm"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\i6m4p8kpgi.gz",
@@ -9004,6 +9213,44 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.FileProviders.Abstractions.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\j4jj6ttgy6.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.js.map.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\j5txjgirzi.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.runtime.js.map.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\j882oldbs4.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -9040,25 +9287,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.SqlServer.wasm"
-    },
-    {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\jstsbkxywd.gz",
-      "SourceId": "Ticmanso",
-      "SourceType": "Computed",
-      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_CJK.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\jt6bxqkyhw.gz",
@@ -9118,6 +9346,25 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Net.HttpListener.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\k2oe1f87fz.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Http.Connections.Common.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Connections.Common.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Http.Connections.Common.wasm"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\kgssel8bex.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -9175,23 +9422,23 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Numerics.wasm"
     },
     {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\kqtmz2s8bb.gz",
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\kkxqv8y2lx.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
       "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.js.map.gz",
+      "RelativePath": "_framework/Microsoft.Extensions.Features.wasm.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Features.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map"
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Features.wasm"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\ktorh4xdg1.gz",
@@ -9384,25 +9631,6 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Net.Security.wasm"
     },
     {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\m8r7f6o2w4.gz",
-      "SourceId": "Ticmanso",
-      "SourceType": "Computed",
-      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js"
-    },
-    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\mamrcg4bpz.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -9479,25 +9707,6 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\ja\\Microsoft.CodeAnalysis.CSharp.resources.wasm"
     },
     {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\mkalzfz05e.gz",
-      "SourceId": "Ticmanso",
-      "SourceType": "Computed",
-      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.js.map.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map"
-    },
-    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\mmpmqon9vx.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -9515,6 +9724,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Security.Cryptography.Csp.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\mpphxctevr.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_CJK.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\mq0bcj6dbb.gz",
@@ -9859,6 +10087,25 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.ComponentModel.EventBasedAsync.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\oj75e2m1kn.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Authorization.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.wasm"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\ojho1aywmx.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -9876,6 +10123,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.Serialization.Xml.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\ok8n35cfm2.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.native.8.0.4.ok8n35cfm2.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.4.ok8n35cfm2.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.4.ok8n35cfm2.js"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\olq8k6uw31.gz",
@@ -10296,6 +10562,25 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Configuration.ConfigurationManager.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\qa1yn8w3ql.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_no_CJK.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\qda3elcox8.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -10467,25 +10752,6 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.wasm"
     },
     {
-      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\ra7i2zljza.gz",
-      "SourceId": "Ticmanso",
-      "SourceType": "Computed",
-      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_no_CJK.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
-    },
-    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\rem6lm0eoh.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -10579,6 +10845,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "false",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\ko\\Microsoft.CodeAnalysis.resources.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\rvubzvwg0i.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.SignalR.Client.Core.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Client.Core.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Client.Core.wasm"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\rz3pl0vrrb.gz",
@@ -10978,6 +11263,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Text.Encodings.Web.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\ubgdgln5or.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\uecnt4cq3l.gz",
@@ -11740,6 +12044,25 @@
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\it\\Microsoft.CodeAnalysis.resources.wasm"
     },
     {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\yoj7jkg18t.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.SignalR.Client.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Client.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.SignalR.Client.wasm"
+    },
+    {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\ysrivm2lws.gz",
       "SourceId": "Ticmanso",
       "SourceType": "Computed",
@@ -11890,6 +12213,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Configuration.wasm"
+    },
+    {
+      "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\zkrt7h44v1.gz",
+      "SourceId": "Ticmanso",
+      "SourceType": "Computed",
+      "ContentRoot": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.runtime.8.0.4.zkrt7h44v1.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.4.zkrt7h44v1.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.4.zkrt7h44v1.js"
     },
     {
       "Identity": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\obj\\Debug\\net8.0\\compressed\\znqbx3ailx.gz",
