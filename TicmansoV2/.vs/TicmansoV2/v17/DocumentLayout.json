@@ -3,31 +3,13 @@
   "WorkspaceRootPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansov2\\pages\\management\\attendance.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansov2\\pages\\management\\users\\userstable.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapiv2\\controllers\\attendancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapiv2\\context\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansov2\\pages\\management\\tickets\\newticket.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D90CAB23-A192-4849-86CA-B2F89EC4C2ED}|..\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansov2.shared\\attendancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansov2\\pages\\management\\status\\status.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapiv2\\controllers\\prioritiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansov2\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapiv2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapiv2\\context\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapiv2\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,118 +24,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Attendance.razor",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\Pages\\Management\\Attendance.razor",
-              "RelativeDocumentMoniker": "Pages\\Management\\Attendance.razor",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\Pages\\Management\\Attendance.razor",
-              "RelativeToolTip": "Pages\\Management\\Attendance.razor",
-              "ViewState": "AQIAABkAAAAAAAAAAAAYwD8AAAASAAAA",
+              "Title": "UsersTable.razor",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\Pages\\Management\\Users\\UsersTable.razor",
+              "RelativeDocumentMoniker": "Pages\\Management\\Users\\UsersTable.razor",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\Pages\\Management\\Users\\UsersTable.razor",
+              "RelativeToolTip": "Pages\\Management\\Users\\UsersTable.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-16T19:25:04.039Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Status.razor",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\Pages\\Management\\Status\\Status.razor",
-              "RelativeDocumentMoniker": "Pages\\Management\\Status\\Status.razor",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\Pages\\Management\\Status\\Status.razor",
-              "RelativeToolTip": "Pages\\Management\\Status\\Status.razor",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAAEgAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-16T18:47:08.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Program.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Program.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Program.cs",
-              "RelativeToolTip": "..\\TicmansoWebApiV2\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T17:27:08.741Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PrioritiesController.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Controllers\\PrioritiesController.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Controllers\\PrioritiesController.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Controllers\\PrioritiesController.cs",
-              "RelativeToolTip": "..\\TicmansoWebApiV2\\Controllers\\PrioritiesController.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAowDIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T14:08:50.556Z",
+              "WhenOpened": "2024-04-18T19:57:42.021Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AttendancesController.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
-              "RelativeToolTip": "..\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAIwB0AAAAuAAAA",
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Context\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Context\\ApplicationUser.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Context\\ApplicationUser.cs",
+              "RelativeToolTip": "..\\TicmansoWebApiV2\\Context\\ApplicationUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T13:55:24.888Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "Layout\\MainLayout.razor",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "Layout\\MainLayout.razor",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACAAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-16T13:23:33.23Z",
+              "WhenOpened": "2024-04-18T19:57:00.347Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "NewTicket.razor",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\NewTicket.razor",
-              "RelativeDocumentMoniker": "Pages\\Management\\Tickets\\NewTicket.razor",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\NewTicket.razor",
-              "RelativeToolTip": "Pages\\Management\\Tickets\\NewTicket.razor",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAADgAAABxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-16T11:41:33.692Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AttendanceDTO.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\AttendanceDTO.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoV2.Shared\\AttendanceDTO.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\AttendanceDTO.cs",
-              "RelativeToolTip": "..\\TicmansoV2.Shared\\AttendanceDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAfAAAA",
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Controllers\\UsersController.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "..\\TicmansoWebApiV2\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAYwHoAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T11:36:56.411Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Attendance.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Context\\Attendance.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Context\\Attendance.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\Context\\Attendance.cs",
-              "RelativeToolTip": "..\\TicmansoWebApiV2\\Context\\Attendance.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T11:36:51.213Z",
+              "WhenOpened": "2024-04-18T19:55:39.675Z",
               "EditorCaption": ""
             }
           ]

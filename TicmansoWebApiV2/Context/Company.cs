@@ -10,7 +10,6 @@
         public string City { get; set; }
         public string Cif { get; set; }
 
-        public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
+        public virtual ICollection<ApplicationUser> Users { get; set; } = new List<ApplicationUser>();
     }
 }

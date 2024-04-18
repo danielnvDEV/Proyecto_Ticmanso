@@ -36,9 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Management\Company\" />
     <Folder Include="Pages\Management\Role\" />
-    <Folder Include="Pages\Management\Users\" />
   </ItemGroup>
 
   <ItemGroup>

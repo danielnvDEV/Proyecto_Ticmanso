@@ -15,6 +15,5 @@ namespace TicmansoV2.Shared
         public string PostalCode { get; set; }
         public string City { get; set; }
         public string Cif { get; set; }
-        public string UserId { get; set; }
     }
 }

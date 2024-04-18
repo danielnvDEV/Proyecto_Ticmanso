@@ -1,102 +1,122 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using TicmansoV2.Shared;
 using TicmansoWebApiV2.Context;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TicmansoWebApiV2.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
-    public class CompaniesController : ControllerBase
+    public class CompanyController : ControllerBase
     {
-        private readonly TicmansoDbContext _context;
+        private readonly TicmansoDbContext _dbContext;
+        private readonly IConfiguration _configuration;
 
-        public CompaniesController(TicmansoDbContext context)
+        public CompanyController(TicmansoDbContext dbContext, IConfiguration configuration)
         {
-            _context = context;
+            _dbContext = dbContext;
+            _configuration = configuration;
         }
-
-        // GET: api/Companies
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Company>>> GetCompanies()
+        [Produces("application/json")]
+        public async Task<ActionResult<IEnumerable<CompanyDTO>>> GetCompanies()
         {
-            return await _context.Companies.Include(c => c.User).ToListAsync();
+            return await _dbContext.Companies
+                .Select(c => new CompanyDTO
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Country = c.Country,
+                    Address = c.Address,
+                    PostalCode = c.PostalCode,
+                    City = c.City,
+                    Cif = c.Cif
+                })
+                .ToListAsync();
         }
-
-        // GET: api/Companies/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Company>> GetCompany(int id)
+        [Produces("application/json")]
+        public async Task<ActionResult<CompanyDTO>> GetCompany(int id)
         {
-            var company = await _context.Companies.Include(c => c.User).FirstOrDefaultAsync(c => c.Id == id);
+            var company = await _dbContext.Companies
+                .Where(c => c.Id == id)
+                .Select(c => new CompanyDTO
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Country = c.Country,
+                    Address = c.Address,
+                    PostalCode = c.PostalCode,
+                    City = c.City,
+                    Cif = c.Cif
+                })
+                .FirstOrDefaultAsync();
 
-            if (company == null)
-            {
-                return NotFound();
-            }
+            if (company == null) return NotFound();
 
             return company;
         }
 
-        // PUT: api/Companies/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCompany(int id, Company company)
-        {
-            if (id != company.Id)
-            {
-                return BadRequest();
-            }
 
-            _context.Entry(company).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CompanyExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Companies
         [HttpPost]
-        public async Task<ActionResult<Company>> PostCompany(Company company)
+        [Produces("application/json")]
+        public async Task<ActionResult<CompanyDTO>> CreateCompany(CompanyDTO companyDTO)
         {
-            _context.Companies.Add(company);
-            await _context.SaveChangesAsync();
+            var company = new Company
+            {
+                Name = companyDTO.Name,
+                Country = companyDTO.Country,
+                Address = companyDTO.Address,
+                PostalCode = companyDTO.PostalCode,
+                City = companyDTO.City,
+                Cif = companyDTO.Cif
+            };
+
+            _dbContext.Companies.Add(company);
+            await _dbContext.SaveChangesAsync();
 
             return CreatedAtAction("GetCompany", new { id = company.Id }, company);
         }
 
-        // DELETE: api/Companies/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCompany(int id)
+        [HttpPut("{id}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> UpdateCompany(int id, CompanyDTO companyDTO)
         {
-            var company = await _context.Companies.FindAsync(id);
-            if (company == null)
-            {
-                return NotFound();
-            }
+            var company = await _dbContext.Companies.FindAsync(id);
+            if (company == null) return NotFound();
 
-            _context.Companies.Remove(company);
-            await _context.SaveChangesAsync();
+            company.Name = companyDTO.Name;
+            company.Country = companyDTO.Country;
+            company.Address = companyDTO.Address;
+            company.PostalCode = companyDTO.PostalCode;
+            company.City = companyDTO.City;
+            company.Cif = companyDTO.Cif;
+
+            _dbContext.Companies.Update(company);
+            await _dbContext.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CompanyExists(int id)
+        [HttpDelete("{id}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> DeleteCompany(int id)
         {
-            return _context.Companies.Any(e => e.Id == id);
+            var company = await _dbContext.Companies.FindAsync(id);
+            if (company == null) return NotFound();
+
+            _dbContext.Companies.Remove(company);
+            await _dbContext.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 

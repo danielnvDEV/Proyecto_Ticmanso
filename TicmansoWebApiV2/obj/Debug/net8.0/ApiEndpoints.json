@@ -241,55 +241,51 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TicmansoWebApiV2.Controllers.CompaniesController",
+    "ContainingType": "TicmansoWebApiV2.Controllers.CompanyController",
     "Method": "GetCompanies",
-    "RelativePath": "api/Companies",
+    "RelativePath": "api/Company",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TicmansoWebApiV2.Context.Company, TicmansoWebApiV2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TicmansoV2.Shared.CompanyDTO, TicmansoV2.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "StatusCode": 200
       }
     ]
   },
   {
-    "ContainingType": "TicmansoWebApiV2.Controllers.CompaniesController",
-    "Method": "PostCompany",
-    "RelativePath": "api/Companies",
+    "ContainingType": "TicmansoWebApiV2.Controllers.CompanyController",
+    "Method": "CreateCompany",
+    "RelativePath": "api/Company",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "company",
-        "Type": "TicmansoWebApiV2.Context.Company",
+        "Name": "companyDTO",
+        "Type": "TicmansoV2.Shared.CompanyDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TicmansoWebApiV2.Context.Company",
+        "Type": "TicmansoV2.Shared.CompanyDTO",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "StatusCode": 200
       }
     ]
   },
   {
-    "ContainingType": "TicmansoWebApiV2.Controllers.CompaniesController",
+    "ContainingType": "TicmansoWebApiV2.Controllers.CompanyController",
     "Method": "GetCompany",
-    "RelativePath": "api/Companies/{id}",
+    "RelativePath": "api/Company/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -302,20 +298,18 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TicmansoWebApiV2.Context.Company",
+        "Type": "TicmansoV2.Shared.CompanyDTO",
         "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
+          "application/json"
         ],
         "StatusCode": 200
       }
     ]
   },
   {
-    "ContainingType": "TicmansoWebApiV2.Controllers.CompaniesController",
-    "Method": "PutCompany",
-    "RelativePath": "api/Companies/{id}",
+    "ContainingType": "TicmansoWebApiV2.Controllers.CompanyController",
+    "Method": "UpdateCompany",
+    "RelativePath": "api/Company/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -326,17 +320,17 @@
         "IsRequired": true
       },
       {
-        "Name": "company",
-        "Type": "TicmansoWebApiV2.Context.Company",
+        "Name": "companyDTO",
+        "Type": "TicmansoV2.Shared.CompanyDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TicmansoWebApiV2.Controllers.CompaniesController",
+    "ContainingType": "TicmansoWebApiV2.Controllers.CompanyController",
     "Method": "DeleteCompany",
-    "RelativePath": "api/Companies/{id}",
+    "RelativePath": "api/Company/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -674,7 +668,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TicmansoWebApiV2.Context.ApplicationUser, TicmansoWebApiV2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TicmansoV2.Shared.ApplicationUserDTO, TicmansoV2.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -693,14 +687,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "TicmansoWebApiV2.Context.ApplicationUser",
+        "Name": "userDTO",
+        "Type": "TicmansoV2.Shared.ApplicationUserDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TicmansoWebApiV2.Context.ApplicationUser",
+        "Type": "TicmansoV2.Shared.ApplicationUserDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -726,7 +720,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TicmansoWebApiV2.Context.ApplicationUser",
+        "Type": "TicmansoV2.Shared.ApplicationUserDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -750,8 +744,8 @@
         "IsRequired": true
       },
       {
-        "Name": "user",
-        "Type": "TicmansoWebApiV2.Context.ApplicationUser",
+        "Name": "userDTO",
+        "Type": "TicmansoV2.Shared.ApplicationUserDTO",
         "IsRequired": true
       }
     ],

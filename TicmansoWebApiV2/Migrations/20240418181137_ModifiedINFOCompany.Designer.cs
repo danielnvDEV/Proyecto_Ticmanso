@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TicmansoWebApiV2.Context;
 
@@ -11,9 +12,11 @@ using TicmansoWebApiV2.Context;
 namespace TicmansoWebApiV2.Migrations
 {
     [DbContext(typeof(TicmansoDbContext))]
-    partial class TicmansoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240418181137_ModifiedINFOCompany")]
+    partial class ModifiedINFOCompany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

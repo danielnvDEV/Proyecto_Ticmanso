@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TicmansoWebApiV2.Context;
+using TicmansoV2.Shared;
 
 namespace TicmansoWebApiV2.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -20,14 +23,24 @@ namespace TicmansoWebApiV2.Controllers
 
         // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<ApplicationUserDTO>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            var users = await _context.Users.ToListAsync();
+            var userDTOs = users.Select(user => new ApplicationUserDTO
+            {
+                Id = user.Id,
+                CompanyId = user.Companyid,
+                Name = user.Name,
+                Email = user.Email,
+                UserName = user.UserName
+            });
+
+            return Ok(userDTOs);
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ApplicationUser>> GetUser(string id)
+        public async Task<ActionResult<ApplicationUserDTO>> GetUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
 
@@ -36,23 +49,42 @@ namespace TicmansoWebApiV2.Controllers
                 return NotFound();
             }
 
-            return user;
+            var userDTO = new ApplicationUserDTO
+            {
+                Id = user.Id,
+                CompanyId = user.Companyid,
+                Name = user.Name,
+                Email = user.Email,
+                UserName = user.UserName
+            };
+
+            return userDTO;
         }
 
         // PUT: api/Users/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(string id, ApplicationUser user)
+        public async Task<IActionResult> PutUser(string id, ApplicationUserDTO userDTO)
         {
-            if (id != user.Id)
+            if (id != userDTO.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.Companyid = userDTO.CompanyId;
+            user.Name = userDTO.Name;
+            user.Email = userDTO.Email;
+            user.UserName = userDTO.UserName;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _userManager.UpdateAsync(user);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -71,13 +103,30 @@ namespace TicmansoWebApiV2.Controllers
 
         // POST: api/Users
         [HttpPost]
-        public async Task<ActionResult<ApplicationUser>> PostUser(ApplicationUser user)
+        public async Task<ActionResult<ApplicationUserDTO>> PostUser(ApplicationUserDTO userDTO)
         {
+            var user = new ApplicationUser
+            {
+                Companyid = userDTO.CompanyId,
+                Name = userDTO.Name,
+                Email = userDTO.Email,
+                UserName = userDTO.UserName
+            };
+
             var result = await _userManager.CreateAsync(user);
 
             if (result.Succeeded)
             {
-                return CreatedAtAction("GetUser", new { id = user.Id }, user);
+                var createdUserDTO = new ApplicationUserDTO
+                {
+                    Id = user.Id,
+                    CompanyId = user.Companyid,
+                    Name = user.Name,
+                    Email = user.Email,
+                    UserName = user.UserName
+                };
+
+                return CreatedAtAction("GetUser", new { id = user.Id }, createdUserDTO);
             }
 
             return BadRequest(result.Errors);

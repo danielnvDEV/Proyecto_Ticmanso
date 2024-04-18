@@ -1,0 +1,58 @@
+﻿@page "/management/controlUser"
+@using TicmansoV2.Shared
+@inject HttpClient HttpClient
+@inject ISnackbar Snackbar
+
+<MudTable Items="@users" Hover="true" Striped="true" Loading="@loading">
+    <HeaderContent>
+        <MudTh>Nombre</MudTh>
+        <MudTh>Email</MudTh>
+        <MudTh>Teléfono</MudTh>
+        <MudTh>Acciones</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Nombre">@context.Name</MudTd>
+        <MudTd DataLabel="Email">@context.Email</MudTd>
+        <MudTd DataLabel="Teléfono">@context.PhoneNumber</MudTd>
+        <MudTd>
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(()=>EditUser(context))">Editar</MudButton>
+            <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(()=>DeleteUser(context))">Borrar</MudButton>
+        </MudTd>
+    </RowTemplate>
+</MudTable>
+
+@code {
+    private List<ApplicationUserDTO> users = new List<ApplicationUserDTO>();
+    private bool loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadUsers();
+    }
+
+    private async Task LoadUsers()
+    {
+        loading = true;
+        users = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("https://localhost:7291/api/Users");
+        loading = false;
+    }
+
+    private async Task DeleteUser(ApplicationUserDTO user)
+    {
+        var result = await HttpClient.DeleteAsync($"https://localhost:7291/api/Users/{user.Id}");
+        if (result.IsSuccessStatusCode)
+        {
+            Snackbar.Add("Usuario eliminado correctamente", Severity.Success);
+            await LoadUsers();
+        }
+        else
+        {
+            Snackbar.Add("Error al eliminar el usuario", Severity.Error);
+        }
+    }
+
+    private void EditUser(ApplicationUserDTO user)
+    {
+        
+    }
+}

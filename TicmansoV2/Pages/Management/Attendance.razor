@@ -6,31 +6,40 @@
 
 @inject HttpClient HttpClient
 @inject IJSRuntime JSRuntime
-
-<h3>Fichar</h3>
-
-<p>Fecha: @currentDate.ToString("yyyy-MM-dd")</p>
-<p>Hora de entrada: @entryTime?.ToString("HH:mm:ss")</p>
-<p>Hora de salida: @departureTime?.ToString("HH:mm:ss")</p>
-
-@if (entryTime == null)
-{
-    <button class="btn btn-primary" @onclick="StartWorkday">Iniciar jornada</button>
-        <button class="btn btn-primary" @onclick="EndWorkday">Finalizar jornada</button>
-
-}
-else if (departureTime == null)
-{
-    <button class="btn btn-primary" @onclick="EndWorkday">Finalizar jornada</button>
-}
-else
-{
-    <p>Jornada finalizada.</p>
-}
+<PageTitle>Attendance</PageTitle>
+<AuthorizeView>
+    <Authorized Context="authContext">
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="Typo.h6">Fichar</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>Fecha: @currentDate.ToString("yyyy-MM-dd")</MudText>
+                <MudText>Hora de entrada: @entryTime.ToString("HH:mm:ss")</MudText>
+                <MudText>Hora de salida: @departureTime?.ToString("HH:mm:ss")</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                @if (entryTime == null)
+                {
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="StartWorkday">Iniciar jornada</MudButton>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="EndWorkday">Finalizar jornada</MudButton>
+                }
+                else if (departureTime == null)
+                {
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="EndWorkday">Finalizar jornada</MudButton>
+                }
+                else
+                {
+                    <MudText>Jornada finalizada.</MudText>
+                }
+            </MudCardActions>
+        </MudCard>
+    </Authorized>
+</AuthorizeView>
 
 @code {
     private DateTime currentDate = DateTime.Today;
-    private DateTime? entryTime;
+    private DateTime entryTime;
     private DateTime? departureTime;
     private string userId;
     private AttendanceDTO attendace = new AttendanceDTO();
@@ -54,26 +63,14 @@ else
     {
         try
         {
-            var response = await HttpClient.GetAsync($"api/Attendance?date={currentDate:yyyy-MM-dd}&userId={userId}");
+           var response = await HttpClient.GetFromJsonAsync<AttendanceDTO>($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}");
 
-            if (response.IsSuccessStatusCode)
-            {
-                var json = await response.Content.ReadAsStringAsync();
-                attendace = System.Text.Json.JsonSerializer.Deserialize<AttendanceDTO>(json);
-                entryTime = attendace.EntryTime;
-                departureTime = attendace.DepartureTime;
-            }
-            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-            {
-                // Manejar el caso cuando no se encuentra la asistencia
-                Console.WriteLine("No se encontró la asistencia para la fecha y el usuario especificados.");
-            }
-            else
-            {
-                // Manejar otros códigos de estado de error
-                var errorMessage = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Error al cargar la asistencia: {errorMessage}");
-            }
+                if (response != null)
+                {                  
+                    entryTime = response.EntryTime;
+                    departureTime = response.DepartureTime;                   
+                }
+
         }
         catch (Exception ex)
         {
@@ -84,6 +81,7 @@ else
 
     private async Task StartWorkday()
     {
+
         var attendance = new AttendanceDTO
         {
             Date = currentDate,
@@ -91,7 +89,7 @@ else
             UserId = userId
         };
 
-        var response = await HttpClient.PostAsJsonAsync("api/Attendance", attendance);
+        var response = await HttpClient.PostAsJsonAsync("https://localhost:7291/api/Attendances", attendance);
         if (response.IsSuccessStatusCode)
         {
             entryTime = attendance.EntryTime;
@@ -111,15 +109,24 @@ else
 
     private async Task EndWorkday()
     {
+
+         var responseDATE = await HttpClient.GetFromJsonAsync<AttendanceDTO>($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}");
+
+                if (responseDATE != null)
+                {                  
+                    entryTime = responseDATE.EntryTime;
+                    departureTime = responseDATE.DepartureTime;                   
+                }
+
         var attendance = new AttendanceDTO
         {
             Date = currentDate,
-            EntryTime = entryTime.Value,
+            EntryTime = entryTime,
             DepartureTime = DateTime.Now,
             UserId = userId
         };
 
-        var response = await HttpClient.PutAsJsonAsync($"api/Attendance/{currentDate:yyyy-MM-dd}/{userId}", attendance);
+        var response = await HttpClient.PutAsJsonAsync($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}", attendance);
         if (response.IsSuccessStatusCode)
         {
             departureTime = attendance.DepartureTime;

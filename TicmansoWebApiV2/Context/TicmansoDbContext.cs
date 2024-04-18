@@ -31,8 +31,8 @@ namespace TicmansoWebApiV2.Context
 
             builder.Entity<ApplicationUser>()
                 .HasOne(u => u.Company)
-                .WithOne(c => c.User)
-                .HasForeignKey<Company>(c => c.UserId);
+                .WithMany(c => c.Users)
+                .HasForeignKey(c => c.Companyid);
 
             builder.Entity<Company>(entity =>
             {
@@ -68,15 +68,6 @@ namespace TicmansoWebApiV2.Context
                 entity.Property(e => e.Cif)
                     .HasColumnName("Cif")
                     .HasMaxLength(50);
-
-                entity.Property(e => e.UserId)
-                    .HasColumnName("UserId")
-                    .IsRequired();
-
-                entity.HasOne(d => d.User)
-                    .WithOne(p => p.Company)
-                    .HasForeignKey<Company>(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
             builder.Entity<Priority>(entity =>

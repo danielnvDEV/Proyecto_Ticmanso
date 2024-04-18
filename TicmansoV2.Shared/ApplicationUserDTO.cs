@@ -10,7 +10,7 @@ namespace TicmansoV2.Shared
     public class ApplicationUserDTO : IdentityUser
     {
 
-        public CompanyDTO? Company { get; set; }
+        public int? CompanyId { get; set; }
         public string Name { get; set; }
     }
 }
