@@ -3,7 +3,19 @@
   "WorkspaceRootPath": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CFDD8791-A5D5-45F5-90D6-A4714BB03460}|..\\TicmansoWebAPI\\TicmansoWebAPI.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapi\\models\\ticmansoprocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFDD8791-A5D5-45F5-90D6-A4714BB03460}|..\\TicmansoWebAPI\\TicmansoWebAPI.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapi\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFDD8791-A5D5-45F5-90D6-A4714BB03460}|..\\TicmansoWebAPI\\TicmansoWebAPI.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CFDD8791-A5D5-45F5-90D6-A4714BB03460}|..\\TicmansoWebAPI\\TicmansoWebAPI.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmansowebapi\\controllers\\ticmanso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\pages\\management\\company\\company.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BF61D9FB-B797-40B3-A0DB-CCD5E1C643F3}|Ticmanso.csproj|\\\\192.168.1.100\\2tb\\tfg\\ticmanso\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
@@ -49,37 +61,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Login.razor",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\Login.razor",
-              "RelativeDocumentMoniker": "Pages\\Login.razor",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\Login.razor",
-              "RelativeToolTip": "Pages\\Login.razor",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAABkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-15T11:15:29.317Z",
+              "Title": "Company.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Models\\Company.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebAPI\\Models\\Company.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Models\\Company.cs",
+              "RelativeToolTip": "..\\TicmansoWebAPI\\Models\\Company.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T18:04:19.137Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SessionStorageServiceDTO.cs",
-              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\SessionStorageServiceDTO.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoCrud.Shared\\SessionStorageServiceDTO.cs",
-              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\SessionStorageServiceDTO.cs",
-              "RelativeToolTip": "..\\TicmansoCrud.Shared\\SessionStorageServiceDTO.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Title": "User.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Models\\User.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebAPI\\Models\\User.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Models\\User.cs",
+              "RelativeToolTip": "..\\TicmansoWebAPI\\Models\\User.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwB4AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-15T10:39:23.772Z",
+              "WhenOpened": "2024-04-18T18:03:25.577Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "TicmansoProContext.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Models\\TicmansoProContext.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebAPI\\Models\\TicmansoProContext.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Models\\TicmansoProContext.cs",
+              "RelativeToolTip": "..\\TicmansoWebAPI\\Models\\TicmansoProContext.cs",
+              "ViewState": "AQIAANwAAAAAAAAAAAAiwCwBAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T18:02:40.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Company.razor",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\Management\\Company\\Company.razor",
+              "RelativeDocumentMoniker": "Pages\\Management\\Company\\Company.razor",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\Management\\Company\\Company.razor",
+              "RelativeToolTip": "Pages\\Management\\Company\\Company.razor",
+              "ViewState": "AQIAABsAAAAAAAAAAAAIwH8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-18T17:40:29.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "NewTicket.razor",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\Management\\Tickets\\NewTicket.razor",
               "RelativeDocumentMoniker": "Pages\\Management\\Tickets\\NewTicket.razor",
@@ -87,12 +125,11 @@
               "RelativeToolTip": "Pages\\Management\\Tickets\\NewTicket.razor",
               "ViewState": "AQIAADkAAAAAAAAAAAAAAFAAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-15T10:36:40.118Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T10:36:40.118Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Ticket.razor",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\Management\\Tickets\\Ticket.razor",
               "RelativeDocumentMoniker": "Pages\\Management\\Tickets\\Ticket.razor",
@@ -100,12 +137,11 @@
               "RelativeToolTip": "Pages\\Management\\Tickets\\Ticket.razor",
               "ViewState": "AQIAAEIAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-15T10:36:34.564Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T10:36:34.564Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "Layout\\MainLayout.razor",
@@ -113,12 +149,11 @@
               "RelativeToolTip": "Layout\\MainLayout.razor",
               "ViewState": "AQIAACEAAAAAAAAAAAAAADoAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-15T07:53:12.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-15T07:53:12.843Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "..\\TicmansoWebAPI\\appsettings.json",
@@ -130,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "ChatDTO.cs",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\ChatDTO.cs",
               "RelativeDocumentMoniker": "..\\TicmansoCrud.Shared\\ChatDTO.cs",
@@ -142,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "_Imports.razor",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\_Imports.razor",
               "RelativeDocumentMoniker": "_Imports.razor",
@@ -154,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "App.razor",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\App.razor",
               "RelativeDocumentMoniker": "App.razor",
@@ -166,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "Program.cs",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -178,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Status.razor",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\Management\\Status\\Status.razor",
               "RelativeDocumentMoniker": "Pages\\Management\\Status\\Status.razor",
@@ -186,12 +221,11 @@
               "RelativeToolTip": "Pages\\Management\\Status\\Status.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-13T15:36:41.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-13T15:36:41.716Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Program.cs",
               "RelativeDocumentMoniker": "..\\TicmansoWebAPI\\Program.cs",
@@ -199,21 +233,44 @@
               "RelativeToolTip": "..\\TicmansoWebAPI\\Program.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAAACsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T15:22:21.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-13T15:22:21.428Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Ticmanso.cs",
               "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Controllers\\Ticmanso.cs",
               "RelativeDocumentMoniker": "..\\TicmansoWebAPI\\Controllers\\Ticmanso.cs",
               "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebAPI\\Controllers\\Ticmanso.cs",
               "RelativeToolTip": "..\\TicmansoWebAPI\\Controllers\\Ticmanso.cs",
-              "ViewState": "AQIAAAUCAAAAAAAAAAAwwA0CAABTAAAA",
+              "ViewState": "AQIAANMAAAAAAAAAAAAgwCcBAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-13T15:14:20.933Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SessionStorageServiceDTO.cs",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\SessionStorageServiceDTO.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoCrud.Shared\\SessionStorageServiceDTO.cs",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoCrud.Shared\\SessionStorageServiceDTO.cs",
+              "RelativeToolTip": "..\\TicmansoCrud.Shared\\SessionStorageServiceDTO.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T10:39:23.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.razor",
+              "DocumentMoniker": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "Pages\\Login.razor",
+              "ToolTip": "\\\\192.168.1.100\\2tb\\TFG\\Ticmanso\\Pages\\Login.razor",
+              "RelativeToolTip": "Pages\\Login.razor",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-15T11:15:29.317Z"
             }
           ]
         }

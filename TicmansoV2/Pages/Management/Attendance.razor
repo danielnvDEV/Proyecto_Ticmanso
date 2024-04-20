@@ -3,9 +3,12 @@
 @using System.Security.Claims
 @using TicmansoV2.Shared
 @using System.Globalization;
+@using Microsoft.JSInterop
 
 @inject HttpClient HttpClient
 @inject IJSRuntime JSRuntime
+@inject ISnackbar Snackbar
+
 <PageTitle>Attendance</PageTitle>
 <AuthorizeView>
     <Authorized Context="authContext">
@@ -19,7 +22,7 @@
                 <MudText>Hora de salida: @departureTime?.ToString("HH:mm:ss")</MudText>
             </MudCardContent>
             <MudCardActions>
-                @if (entryTime == null)
+                @if (d == 1)
                 {
                     <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="StartWorkday">Iniciar jornada</MudButton>
                     <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="EndWorkday">Finalizar jornada</MudButton>
@@ -43,6 +46,11 @@
     private DateTime? departureTime;
     private string userId;
     private AttendanceDTO attendace = new AttendanceDTO();
+    private double entryLatitude;
+    private double entryLongitude;
+    private double? departureLatitude;
+    private double? departureLongitude;
+    private int d;
 
     protected override async Task OnInitializedAsync()
     {
@@ -63,30 +71,47 @@
     {
         try
         {
-           var response = await HttpClient.GetFromJsonAsync<AttendanceDTO>($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}");
+            var response = await HttpClient.GetAsync($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}");
 
-                if (response != null)
-                {                  
-                    entryTime = response.EntryTime;
-                    departureTime = response.DepartureTime;                   
+            if (response.IsSuccessStatusCode)
+            {
+                var attendanceDto = await response.Content.ReadFromJsonAsync<AttendanceDTO>();
+
+                if (attendanceDto != null)
+                {
+                    entryTime = attendanceDto.EntryTime;
+                    departureTime = attendanceDto.DepartureTime;
                 }
-
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                Snackbar.Add("No hay registros para la fecha y el usuario especificados.", Severity.Info);
+                d = 1;
+            }
+            else
+            {
+                Snackbar.Add("Error al cargar los registros de asistencia.", Severity.Error);
+            }
         }
         catch (Exception ex)
         {
-            // Manejar cualquier excepción durante la deserialización
             Console.WriteLine($"Error al procesar la respuesta: {ex.Message}");
+            Snackbar.Add("Error al cargar los registros de asistencia.", Severity.Error);
         }
     }
 
     private async Task StartWorkday()
     {
 
+        var position = await GetCurrentPosition();
+
         var attendance = new AttendanceDTO
         {
             Date = currentDate,
             EntryTime = DateTime.Now,
-            UserId = userId
+            UserId = userId,
+            EntryLatitude = position.Latitude,
+            EntryLongitude = position.Longitude
         };
 
         var response = await HttpClient.PostAsJsonAsync("https://localhost:7291/api/Attendances", attendance);
@@ -118,12 +143,16 @@
                     departureTime = responseDATE.DepartureTime;                   
                 }
 
+        var position = await GetCurrentPosition();
+
         var attendance = new AttendanceDTO
         {
             Date = currentDate,
             EntryTime = entryTime,
             DepartureTime = DateTime.Now,
-            UserId = userId
+            UserId = userId,
+            DepartureLatitude = position.Latitude,
+            DepartureLongitude = position.Longitude
         };
 
         var response = await HttpClient.PutAsJsonAsync($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}", attendance);
@@ -131,5 +160,32 @@
         {
             departureTime = attendance.DepartureTime;
         }
+    }
+    private async Task<(double Latitude, double Longitude)> GetCurrentPosition()
+    {
+        var options = new PositionOptions
+        {
+            EnableHighAccuracy = true,
+            Timeout = 5000,
+            MaximumAge = 0
+        };
+
+        var position = await JSRuntime.InvokeAsync<GeolocationPosition>("navigator.geolocation.getCurrentPosition", DotNetObjectReference.Create(this), options);
+        return (position.Coords.Latitude, position.Coords.Longitude);
+    }
+
+    [JSInvokable]
+    public void GeolocationSuccess(GeolocationPosition position)
+    {
+        
+        entryLatitude = position.Coords.Latitude;
+        entryLongitude = position.Coords.Longitude;
+    }
+
+    public class PositionOptions
+    {
+        public bool EnableHighAccuracy { get; set; }
+        public int Timeout { get; set; }
+        public int MaximumAge { get; set; }
     }
 }

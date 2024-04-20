@@ -163,7 +163,7 @@ namespace TicmansoWebApiV2.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("Companyid")
+                    b.Property<int?>("Companyid")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -237,8 +237,20 @@ namespace TicmansoWebApiV2.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<double?>("DepartureLatitude")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("DepartureLongitude")
+                        .HasColumnType("float");
+
                     b.Property<DateTime?>("DepartureTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("EntryLatitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("EntryLongitude")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("EntryTime")
                         .HasColumnType("datetime2");
@@ -479,9 +491,7 @@ namespace TicmansoWebApiV2.Migrations
                 {
                     b.HasOne("TicmansoWebApiV2.Context.Company", "Company")
                         .WithMany("Users")
-                        .HasForeignKey("Companyid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Companyid");
 
                     b.Navigation("Company");
                 });

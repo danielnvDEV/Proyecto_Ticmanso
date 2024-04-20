@@ -37,7 +37,7 @@ namespace TicmansoWebApiV2.Controllers
                 .AsEnumerable()
                 .FirstOrDefault();
 
-            if (attendance == null) return NotFound();
+            if (attendance == null) return NotFound("No se ha encontrado jornada para este usuario");
 
             return attendance;
         }
