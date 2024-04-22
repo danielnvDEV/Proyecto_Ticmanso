@@ -1,38 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {}
+    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
+    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
+        "projectUniqueName": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
         "projectName": "TicmansoV2.Shared",
-        "projectPath": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
-        "packagesPath": "C:\\Users\\DanielNavacerrada\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2.Shared\\obj\\",
+        "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
+        "packagesPath": "C:\\Users\\dani\\.nuget\\packages\\",
+        "outputPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\DanielNavacerrada\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

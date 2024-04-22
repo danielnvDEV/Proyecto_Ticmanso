@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Sockets;
+using TicmansoWebApiV2.Context.Views;
 
 namespace TicmansoWebApiV2.Context
 {
@@ -21,6 +22,8 @@ namespace TicmansoWebApiV2.Context
         public virtual DbSet<Attendance> Attendances { get; set; }
         public virtual DbSet<ChatMessage> ChatMessages { get; set; }
         public virtual DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public virtual DbSet<GeneralViewTicket> GeneralViewTickets { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
@@ -158,6 +161,29 @@ namespace TicmansoWebApiV2.Context
                 .IsUnique();
             });
 
+            builder.Entity<GeneralViewTicket>(entity =>
+            {
+                entity
+                    .HasNoKey()
+                    .ToView("GeneralViewTicket");
+
+                entity.Property(e => e.CreationUser)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+                entity.Property(e => e.Description).HasColumnType("text");
+                entity.Property(e => e.Priority)
+                    .HasMaxLength(25)
+                    .IsUnicode(false);
+                entity.Property(e => e.Status)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+                entity.Property(e => e.SuportUser)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+                entity.Property(e => e.Tittle)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
             OnModelCreatingPartial(builder);
         }
     }

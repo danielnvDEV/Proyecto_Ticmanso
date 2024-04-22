@@ -7,8 +7,9 @@
     <HeaderContent>
         <MudTh>Nombre</MudTh>
         <MudTh>Email</MudTh>
-        <MudTh>Teléfono</MudTh>
-        <MudTh>Acciones</MudTh>
+        <MudTh>Acciones
+            <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/management/controlUser/createUsers"/>
+        </MudTh>
     </HeaderContent>
     <RowTemplate>
         <MudTd DataLabel="Nombre">@context.Name</MudTd>
@@ -28,6 +29,7 @@
     protected override async Task OnInitializedAsync()
     {
         await LoadUsers();
+        roles = await RoleManager.Roles.ToListAsync();
     }
 
     private async Task LoadUsers()
@@ -55,4 +57,31 @@
     {
         
     }
+
+    private async Task ChangeUserRoleAsync(string userId)
+{
+    if (string.IsNullOrEmpty(selectedRole))
+    {
+        showErrorMessage = true;
+        errorMessage = "Please select a role.";
+        return;
+    }
+
+    var user = await UserManager.FindByIdAsync(userId);
+    if (user == null)
+    {
+        showErrorMessage = true;
+        errorMessage = "User not found.";
+        return;
+    }
+
+    var currentRoles = await UserManager.GetRolesAsync(user);
+    await UserManager.RemoveFromRolesAsync(user, currentRoles);
+    await UserManager.AddToRoleAsync(user, selectedRole);
+
+    showSuccessMessage = true;
+    showErrorMessage = false;
+    selectedUserId = string.Empty;
+    selectedRole = string.Empty;
+}
 }

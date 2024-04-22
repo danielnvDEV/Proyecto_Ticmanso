@@ -1,0 +1,64 @@
+﻿@using TicmansoV2.Shared
+@using TicmansoV2.Shared.Contracts
+
+@inject IUserAccount AccountRepository
+
+@page "/management/controlUser/createUsers"
+<MudCard>
+    <MudCardContent>
+        <MudTextField @bind-Value="newUser.Name" Label="Name" Variant="Variant.Outlined" />
+        <MudTextField @bind-Value="newUser.Email" Label="Email" Variant="Variant.Outlined" />
+        <MudTextField @bind-Value="password" Label="Password" Variant="Variant.Outlined" InputType="InputType.Password" />
+        <MudTextField @bind-Value="confirmPassword" Label="Confirm Password" Variant="Variant.Outlined" InputType="InputType.Password" />
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CreateUserAsync">Create User</MudButton>
+    </MudCardActions>
+</MudCard>
+
+@if (showSuccessMessage)
+{
+    <MudAlert Severity="Severity.Success">User created successfully!</MudAlert>
+}
+
+@if (showErrorMessage)
+{
+    <MudAlert Severity="Severity.Error">@errorMessage</MudAlert>
+}
+
+@code {
+    private ApplicationUserDTO newUser = new ApplicationUserDTO();
+    private string password = string.Empty;
+    private string confirmPassword = string.Empty;
+    private bool showSuccessMessage = false;
+    private bool showErrorMessage = false;
+    private string errorMessage = string.Empty;
+
+    private async Task CreateUserAsync()
+    {
+        if (password != confirmPassword)
+        {
+            showErrorMessage = true;
+            errorMessage = "Passwords do not match.";
+            return;
+        }
+
+        newUser.PasswordHash = password;
+        var response = await AccountRepository.CreateAccount(newUser);
+
+        if (response.Flag)
+        {
+            showSuccessMessage = true;
+            showErrorMessage = false;
+            newUser = new ApplicationUserDTO();
+            password = string.Empty;
+            confirmPassword = string.Empty;
+        }
+        else
+        {
+            showSuccessMessage = false;
+            showErrorMessage = true;
+            errorMessage = response.Message;
+        }
+    }
+}

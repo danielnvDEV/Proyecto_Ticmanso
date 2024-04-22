@@ -1,10 +1,11 @@
-﻿@* @using System.Net.Http.Json
+﻿@using System.Net.Http.Json
 @using TicmansoV2.Shared
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Components.Authorization
 @using System.Security.Claims
 @using System.IdentityModel.Tokens.Jwt;
 @using MudBlazor
+@using TicmansoV2.Shared.Views;
 
 
 
@@ -67,9 +68,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>("https://localhost:7144/api/Ticmanso/generalviewticket");
+        ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>("https://localhost:7291/api/GeneralTikets");
 
-        User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("https://localhost:7144/api/Ticmanso/users");
+        User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("https://localhost:7291/api/Users");
 
     }
 
@@ -110,4 +111,4 @@
         selectedTicketId = ticketId;
         NavigationManager.NavigateTo($"/tickets/ticket/{ticketId}");
     }
-} *@
+}

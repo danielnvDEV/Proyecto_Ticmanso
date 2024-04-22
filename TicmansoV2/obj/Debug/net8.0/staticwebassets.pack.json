@@ -1,67 +1,67 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\obj\\Debug\\net8.0\\compressed\\nymp0asm4l.gz",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\obj\\Debug\\net8.0\\compressed\\bjar7o85nt.gz",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TicmansoV2.styles.css",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TicmansoV2.styles.css",
       "PackagePath": "staticwebassets\\TicmansoV2.styles.css"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\obj\\Debug\\net8.0\\service-worker-assets.js",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\obj\\Debug\\net8.0\\service-worker-assets.js",
       "PackagePath": "staticwebassets\\service-worker-assets.js"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\obj\\Debug\\net8.0\\service-worker\\service-worker.published.js",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\obj\\Debug\\net8.0\\service-worker\\service-worker.published.js",
       "PackagePath": "staticwebassets\\service-worker.js"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\css\\MudBlazor.min.css",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\css\\MudBlazor.min.css",
       "PackagePath": "staticwebassets\\css\\MudBlazor.min.css"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\css\\app.css",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\favicon.png",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\geolocationInterop.js",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\geolocationInterop.js",
       "PackagePath": "staticwebassets\\geolocationInterop.js"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\icon-192.png",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\icon-192.png",
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\icon-512.png",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\icon-512.png",
       "PackagePath": "staticwebassets\\icon-512.png"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\index.html",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\manifest.webmanifest",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\manifest.webmanifest",
       "PackagePath": "staticwebassets\\manifest.webmanifest"
     },
     {
-      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\sample-data\\weather.json",
+      "Id": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },
     {

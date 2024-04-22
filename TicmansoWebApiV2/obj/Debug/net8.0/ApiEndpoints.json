@@ -344,6 +344,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TicmansoWebApiV2.Controllers.Views.GeneralTiketsController",
+    "Method": "GetGeneralViewTickets",
+    "RelativePath": "api/GeneralTikets",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TicmansoV2.Shared.Views.GeneralViewTicketDTO, TicmansoV2.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TicmansoWebApiV2.Controllers.Views.GeneralTiketsController",
+    "Method": "GetGeneralViewTicket",
+    "RelativePath": "api/GeneralTikets/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicmansoV2.Shared.Views.GeneralViewTicketDTO",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "TicmansoV2.Controllers.PriorityController",
     "Method": "GetPriorityes",
     "RelativePath": "api/Priority",
