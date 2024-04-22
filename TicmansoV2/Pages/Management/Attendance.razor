@@ -51,11 +51,14 @@
     private double? departureLatitude;
     private double? departureLongitude;
     private int d;
+    private double? latitude;
+    private double? longitude;
 
     protected override async Task OnInitializedAsync()
     {
         await GetUserId();
         await LoadAttendance();
+        await GetLocation();
     }
 
     private async Task GetUserId()
@@ -103,15 +106,14 @@
     private async Task StartWorkday()
     {
 
-        var position = await GetCurrentPosition();
 
         var attendance = new AttendanceDTO
         {
             Date = currentDate,
             EntryTime = DateTime.Now,
             UserId = userId,
-            EntryLatitude = position.Latitude,
-            EntryLongitude = position.Longitude
+            // EntryLatitude = latitude,
+            // EntryLongitude = longitude
         };
 
         var response = await HttpClient.PostAsJsonAsync("https://localhost:7291/api/Attendances", attendance);
@@ -143,16 +145,15 @@
                     departureTime = responseDATE.DepartureTime;                   
                 }
 
-        var position = await GetCurrentPosition();
-
+       
         var attendance = new AttendanceDTO
         {
             Date = currentDate,
             EntryTime = entryTime,
             DepartureTime = DateTime.Now,
             UserId = userId,
-            DepartureLatitude = position.Latitude,
-            DepartureLongitude = position.Longitude
+            // DepartureLatitude = Latitude,
+            // DepartureLongitude = Longitude
         };
 
         var response = await HttpClient.PutAsJsonAsync($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}", attendance);
@@ -161,31 +162,21 @@
             departureTime = attendance.DepartureTime;
         }
     }
-    private async Task<(double Latitude, double Longitude)> GetCurrentPosition()
+    private async Task GetLocation()
     {
-        var options = new PositionOptions
-        {
-            EnableHighAccuracy = true,
-            Timeout = 5000,
-            MaximumAge = 0
-        };
-
-        var position = await JSRuntime.InvokeAsync<GeolocationPosition>("navigator.geolocation.getCurrentPosition", DotNetObjectReference.Create(this), options);
-        return (position.Coords.Latitude, position.Coords.Longitude);
+        var location = await JSRuntime.InvokeAsync<GeolocationResult>("getLocation");
+        latitude = location.Coords.Latitude;
+        longitude = location.Coords.Longitude;
     }
 
-    [JSInvokable]
-    public void GeolocationSuccess(GeolocationPosition position)
+    private class GeolocationResult
     {
-        
-        entryLatitude = position.Coords.Latitude;
-        entryLongitude = position.Coords.Longitude;
+        public GeolocationCoordinates Coords { get; set; }
     }
 
-    public class PositionOptions
+    private class GeolocationCoordinates
     {
-        public bool EnableHighAccuracy { get; set; }
-        public int Timeout { get; set; }
-        public int MaximumAge { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }

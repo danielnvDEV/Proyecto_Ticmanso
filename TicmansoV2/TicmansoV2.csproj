@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Management\Role\**" />
+    <Content Remove="Pages\Management\Role\**" />
+    <EmbeddedResource Remove="Pages\Management\Role\**" />
+    <None Remove="Pages\Management\Role\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="8.0.4" />
@@ -36,11 +43,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Management\Role\" />
+    <ProjectReference Include="..\TicmansoV2.Shared\TicmansoV2.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TicmansoV2.Shared\TicmansoV2.Shared.csproj" />
+    <Folder Include="Components\" />
   </ItemGroup>
 
 </Project>

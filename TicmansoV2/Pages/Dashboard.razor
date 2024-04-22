@@ -6,9 +6,23 @@
 
 <PageTitle>Dashboard</PageTitle>
 
-<AuthorizeView>
-    <Authorized>
-        <h1>Bienvenido @context.User.Identity!</h1>
+<AuthorizeView Roles="Admin">
+    <Authorized >
+        <h1 class="d-flex justify-content-center mt-10">Bienvenido @context.User.Identity.Name!</h1>
+            <MudContainer class="d-flex justify-content-center">   
+                <a href="/myTickets">
+                    <MudCard Class="pa-4">
+                        <MudIcon Icon="@Icons.Material.Filled.ListAlt" Class="mr-3" />
+                        Ver todos los tickets
+                    </MudCard>
+                </a>
+                <a href="/management/tickets/newTicket">
+                    <MudCard Class="pa-4">
+                        <MudIcon Icon="@Icons.Material.Filled.Edit" Class="mr-3" />
+                        Enviar un ticket
+                    </MudCard>
+                </a>
+            </MudContainer>                
     </Authorized>
 </AuthorizeView>
 

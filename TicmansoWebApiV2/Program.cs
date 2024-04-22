@@ -6,6 +6,7 @@ using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System;
+using System.Data.Entity;
 using System.Text;
 using TicmansoV2.Shared;
 using TicmansoV2.Shared.Contracts;
@@ -37,7 +38,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL3") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 
@@ -98,31 +99,37 @@ app.MapHub<ChatHub>("/chathub");
 
 
 app.MapControllers();
+//Crear BBDD
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<TicmansoDbContext>();
+    dbContext.Database.Migrate();
 
-//using (var scope = app.Services.CreateScope())
-//{
-//    var services = scope.ServiceProvider;
-//    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-//    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+    var services = scope.ServiceProvider;
+    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
 
-//    if (!await roleManager.RoleExistsAsync("Admin"))
-//    {
-//        await roleManager.CreateAsync(new IdentityRole("Admin"));
-//    }
+    if (!await roleManager.RoleExistsAsync("Admin"))
+    {
+        await roleManager.CreateAsync(new IdentityRole("Admin"));
+    }
 
-//    var adminEmail = "admin@ticmanso.com";
-//    var adminUser = await userManager.FindByEmailAsync(adminEmail);
-//    if (adminUser == null)
-//    {
-//        adminUser = new ApplicationUser
-//        {
-//            UserName = adminEmail,
-//            Email = adminEmail
-//        };
-//        await userManager.CreateAsync(adminUser, "AdminPassword1!");
-//        await userManager.AddToRoleAsync(adminUser, "Admin");
-//    }
-//}
+    var adminEmail = "admin@ticmanso.com";
+    var adminUser = await userManager.FindByEmailAsync(adminEmail);
+    if (adminUser == null)
+    {
+        adminUser = new ApplicationUser
+        {
+            UserName = adminEmail,
+            Email = adminEmail,
+            Name = "Administrador"
+        };
+        await userManager.CreateAsync(adminUser, "AdminPassword1!");
+        await userManager.AddToRoleAsync(adminUser, "Admin");
+    }
+}
+
 
 app.Run();

@@ -122,7 +122,10 @@ namespace TicmansoWebApiV2.Context
                 entity.Property(e => e.Date).HasColumnType("date");
                 entity.Property(e => e.EntryTime).IsRequired();
                 entity.Property(e => e.DepartureTime).IsRequired(false);
-
+                entity.Property(e => e.EntryLatitude).IsRequired();
+                entity.Property(e => e.EntryLongitude).IsRequired();
+                entity.Property(e => e.DepartureLatitude).IsRequired(false);
+                entity.Property(e => e.DepartureLongitude).IsRequired(false);
                 entity.HasOne(e => e.User)
                     .WithMany()
                     .HasForeignKey(e => e.UserId)
