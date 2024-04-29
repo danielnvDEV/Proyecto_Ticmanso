@@ -1,30 +1,66 @@
 ﻿@page "/management/controlUser"
 @using TicmansoV2.Shared
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Components.Authorization;
 @inject HttpClient HttpClient
 @inject ISnackbar Snackbar
+@inject NavigationManager NavManager
+@attribute [Authorize]
+<AuthorizeView Roles="Admin">
+    <Authorized Context="authContext">
+        <MudTable Items="@users" Hover="true" Striped="true" Loading="@loading">
+            <HeaderContent>
+                <MudTh>Nombre</MudTh>
+                <MudTh>Email</MudTh>
+                <MudTh>Acciones
+                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/management/controlUser/createUsers"/>
+                </MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Nombre">@context.Name</MudTd>
+                <MudTd DataLabel="Email">@context.Email</MudTd>
+                <MudTd DataLabel="Teléfono">@context.PhoneNumber</MudTd>
+                <MudTd>
+                    <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(()=>EditUser(context))">Editar</MudButton>
+                    <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(()=>DeleteUser(context))">Borrar</MudButton>
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+        @if (showEditFields)
+        {
+            <h3>Editar Usuario</h3>
 
-<MudTable Items="@users" Hover="true" Striped="true" Loading="@loading">
-    <HeaderContent>
-        <MudTh>Nombre</MudTh>
-        <MudTh>Email</MudTh>
-        <MudTh>Acciones
-            <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/management/controlUser/createUsers"/>
-        </MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="Nombre">@context.Name</MudTd>
-        <MudTd DataLabel="Email">@context.Email</MudTd>
-        <MudTd DataLabel="Teléfono">@context.PhoneNumber</MudTd>
-        <MudTd>
-            <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(()=>EditUser(context))">Editar</MudButton>
-            <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(()=>DeleteUser(context))">Borrar</MudButton>
-        </MudTd>
-    </RowTemplate>
-</MudTable>
+            <EditForm Model="@selectedUser" OnValidSubmit="@HandleValidSubmit">
+                <DataAnnotationsValidator />
+                <MudGrid>
+                    <MudItem xs="12" sm="7">
+                        <MudCard>
+                            <MudCardContent>
+                                <MudTextField Label="Nombre" @bind-Value="selectedUser.Name" For="@(() => selectedUser.Name)" />
+                                <MudTextField Label="Email" @bind-Value="selectedUser.Email" For="@(() => selectedUser.Email)" />
+                                <MudTextField Label="Teléfono" @bind-Value="selectedUser.PhoneNumber" For="@(() => selectedUser.PhoneNumber)" />
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Guardar Cambios</MudButton>
+                                <MudButton Variant="Variant.Filled" Color="Color.Default" OnClick="@CancelEdit">Cancelar</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                </MudGrid>
+            </EditForm>
+        }
 
+    </Authorized>
+    <NotAuthorized>
+        @{NavManager.NavigateTo("/");}
+    </NotAuthorized>
+</AuthorizeView>
 @code {
     private List<ApplicationUserDTO> users = new List<ApplicationUserDTO>();
     private bool loading = true;
+    private bool showEditFields = false;
+    private ApplicationUserDTO selectedUser = new ApplicationUserDTO();
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -54,6 +90,27 @@
 
     private void EditUser(ApplicationUserDTO user)
     {
-        
+        selectedUser = user;
+        showEditFields = true;
     }
+    private async Task HandleValidSubmit()
+    {
+        var result = await HttpClient.PutAsJsonAsync($"https://localhost:7291/api/Users/{selectedUser.Id}", selectedUser);
+        if (result.IsSuccessStatusCode)
+        {
+            Snackbar.Add("Usuario actualizado correctamente", Severity.Success);
+            await LoadUsers();
+            showEditFields = false;
+        }
+        else
+        {
+            Snackbar.Add("Error al actualizar el usuario", Severity.Error);
+        }
+    }
+
+    private void CancelEdit()
+    {
+        showEditFields = false;
+    }
+
 }

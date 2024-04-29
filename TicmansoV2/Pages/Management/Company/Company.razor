@@ -2,64 +2,72 @@
 @using System.Security.Claims
 @using TicmansoV2.Shared
 @using System.Globalization;
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Components.Authorization;
 
 @page "/management/companies"
 @inject HttpClient HttpClient
 @inject ISnackbar Snackbar
-
+@inject NavigationManager NavManager
+@attribute [Authorize]
 <PageTitle>Administrar company</PageTitle>
+<AuthorizeView Roles="Admin">
+    <Authorized Context="authContext">
+        <MudTable Items="@companies" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Info">
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">Companies</MudText>
+                <MudSpacer />
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" OnClick="OpenCreateForm">Create Company</MudButton>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>Id</MudTh>
+                <MudTh>Name</MudTh>
+                <MudTh>Country</MudTh>
+                <MudTh>Address</MudTh>
+                <MudTh>Postal Code</MudTh>
+                <MudTh>City</MudTh>
+                <MudTh>CIF</MudTh>
+                <MudTh>Actions</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Id">@context.Id</MudTd>
+                <MudTd DataLabel="Name">@context.Name</MudTd>
+                <MudTd DataLabel="Country">@context.Country</MudTd>
+                <MudTd DataLabel="Address">@context.Address</MudTd>
+                <MudTd DataLabel="Postal Code">@context.PostalCode</MudTd>
+                <MudTd DataLabel="City">@context.City</MudTd>
+                <MudTd DataLabel="CIF">@context.Cif</MudTd>
+                <MudTd DataLabel="Actions">
+                    <MudButton Color="Color.Default" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Edit" OnClick="@(() => OpenEditForm(context.Id))">Edit</MudButton>
+                    <MudButton Color="Color.Error" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Delete" OnClick="@(() => DeleteCompany(context.Id))">Delete</MudButton>
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
 
-<MudTable Items="@companies" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Info">
-    <ToolBarContent>
-        <MudText Typo="Typo.h6">Companies</MudText>
-        <MudSpacer />
-        <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" OnClick="OpenCreateForm">Create Company</MudButton>
-    </ToolBarContent>
-    <HeaderContent>
-        <MudTh>Id</MudTh>
-        <MudTh>Name</MudTh>
-        <MudTh>Country</MudTh>
-        <MudTh>Address</MudTh>
-        <MudTh>Postal Code</MudTh>
-        <MudTh>City</MudTh>
-        <MudTh>CIF</MudTh>
-        <MudTh>Actions</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="Id">@context.Id</MudTd>
-        <MudTd DataLabel="Name">@context.Name</MudTd>
-        <MudTd DataLabel="Country">@context.Country</MudTd>
-        <MudTd DataLabel="Address">@context.Address</MudTd>
-        <MudTd DataLabel="Postal Code">@context.PostalCode</MudTd>
-        <MudTd DataLabel="City">@context.City</MudTd>
-        <MudTd DataLabel="CIF">@context.Cif</MudTd>
-        <MudTd DataLabel="Actions">
-            <MudButton Color="Color.Default" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Edit" OnClick="@(() => OpenEditForm(context.Id))">Edit</MudButton>
-            <MudButton Color="Color.Error" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Delete" OnClick="@(() => DeleteCompany(context.Id))">Delete</MudButton>
-        </MudTd>
-    </RowTemplate>
-</MudTable>
-
-<MudDialog @bind-IsVisible="showForm">
-    <TitleContent>
-        <MudText Typo="Typo.h6">@(editingCompanyId == 0 ? "Create Company" : "Edit Company")</MudText>
-    </TitleContent>
-    <DialogContent>
-        <MudForm Model="@company" @ref="form">
-            <MudTextField @bind-Value="company.Name" Label="Name" Required="true" RequiredError="Name is required" />
-            <MudTextField @bind-Value="company.Country" Label="Country" Required="true" RequiredError="Country is required" />
-            <MudTextField @bind-Value="company.Address" Label="Address" Required="true" RequiredError="Address is required" />
-            <MudTextField @bind-Value="company.PostalCode" Label="Postal Code" Required="true" RequiredError="Postal Code is required" />
-            <MudTextField @bind-Value="company.City" Label="City" Required="true" RequiredError="City is required" />
-            <MudTextField @bind-Value="company.Cif" Label="CIF" Required="true" RequiredError="CIF is required" />
-        </MudForm>
-    </DialogContent>
-    <DialogActions>
-        <MudButton OnClick="CloseForm">Cancel</MudButton>
-        <MudButton Color="Color.Primary" OnClick="SaveCompany">Save</MudButton>
-    </DialogActions>
-</MudDialog>
-
+        <MudDialog @bind-IsVisible="showForm">
+            <TitleContent>
+                <MudText Typo="Typo.h6">@(editingCompanyId == 0 ? "Create Company" : "Edit Company")</MudText>
+            </TitleContent>
+            <DialogContent>
+                <MudForm Model="@company" @ref="form">
+                    <MudTextField @bind-Value="company.Name" Label="Name" Required="true" RequiredError="Name is required" />
+                    <MudTextField @bind-Value="company.Country" Label="Country" Required="true" RequiredError="Country is required" />
+                    <MudTextField @bind-Value="company.Address" Label="Address" Required="true" RequiredError="Address is required" />
+                    <MudTextField @bind-Value="company.PostalCode" Label="Postal Code" Required="true" RequiredError="Postal Code is required" />
+                    <MudTextField @bind-Value="company.City" Label="City" Required="true" RequiredError="City is required" />
+                    <MudTextField @bind-Value="company.Cif" Label="CIF" Required="true" RequiredError="CIF is required" />
+                </MudForm>
+            </DialogContent>
+            <DialogActions>
+                <MudButton OnClick="CloseForm">Cancel</MudButton>
+                <MudButton Color="Color.Primary" OnClick="SaveCompany">Save</MudButton>
+            </DialogActions>
+        </MudDialog>
+    </Authorized>
+    <NotAuthorized>
+        @{NavManager.NavigateTo("/");}
+    </NotAuthorized>
+</AuthorizeView>
 @code {
     private List<CompanyDTO> companies = new List<CompanyDTO>();
     private CompanyDTO company = new CompanyDTO();

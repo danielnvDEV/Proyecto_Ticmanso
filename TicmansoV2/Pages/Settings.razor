@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authorization;
+@using TicmansoV2.Shared
+@attribute [Authorize]
+@inject UserManager<ApplicationUserDTO> UserManager
+@page "/settings"
+<AuthorizeView>
+    <Authorized>
+        <MudCard>
+            <MudCardContent>
+                <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                    <MudTextField T="string" Label="Nombre" @bind-Value="user.Name" Required="true" RequiredError="El nombre es requerido" />
+                    <MudTextField T="string" Label="Teléfono" @bind-Value="user.PhoneNumber"/>
+                    <MudTextField T="string" Label="Email" @bind-Value="user.Email" Required="true" RequiredError="El email es requerido" />
+                </MudForm>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="UpdateUser">Guardar cambios</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </Authorized>
+</AuthorizeView>
+@code {
+    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+    private ApplicationUserDTO user = new ApplicationUserDTO();
+    bool success;
+    string[] errors = { };
+    MudForm form;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authenticationStateTask;
+        var userId = authState.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        user = await UserManager.FindByIdAsync(userId);
+    }
+
+    private async Task UpdateUser()
+    {
+        await form.Validate();
+        if (success)
+        {
+            var result = await UserManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                // Mostrar mensaje de éxito
+            }
+            else
+            {
+                // Mostrar mensaje de error
+            }
+        }
+    }
+}

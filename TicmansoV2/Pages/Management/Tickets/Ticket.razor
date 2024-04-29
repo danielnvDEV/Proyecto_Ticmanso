@@ -10,94 +10,100 @@
 @inject IDialogService DialogService
 @inject ISnackbar Snackbar
 @inject IJSRuntime JSRuntime
-
+@inject NavigationManager NavManager
 @page "/tickets/ticket/{ticketId:int}"
 <PageTitle>Ticket</PageTitle>
-@if (ticket != null)
-{
-<MudGrid>
-    <MudItem xs="9" > 
-        <MudCard Style="background-color: #f5f5f5;" xs="9">
-            <MudCardHeader Style="background-color: #e0e0e0;">
-                <CardHeaderContent> 
-                    <MudGrid> 
-                        <MudItem xs="6"> 
-                            <MudText Typo="Typo.h6">@ticket.Title</MudText> 
-                        </MudItem>
-                        <MudItem xs="6" Class="d-flex justify-end"> 
-                            <MudText Typo="Typo.h6" Style="color: #333;">#@ticket.Id</MudText> 
-                        </MudItem> 
-                    </MudGrid> 
-                </CardHeaderContent>
-            </MudCardHeader>
-            <MudCardContent>
-                <MudText>
-                    Creado por: @CreationUserName.Name
-                </MudText>
-                <br>
-                <MudText><b>Descripción:</b><br>
-                    @ticket.Description
-                </MudText>
+<AuthorizeView>
+    <Authorized Context="authContext">
+        @if (ticket != null)
+        {
+        <MudGrid>
+            <MudItem xs="9" > 
+                <MudCard Style="background-color: #f5f5f5;" xs="9">
+                    <MudCardHeader Style="background-color: #e0e0e0;">
+                        <CardHeaderContent> 
+                            <MudGrid> 
+                                <MudItem xs="6"> 
+                                    <MudText Typo="Typo.h6">@ticket.Title</MudText> 
+                                </MudItem>
+                                <MudItem xs="6" Class="d-flex justify-end"> 
+                                    <MudText Typo="Typo.h6" Style="color: #333;">#@ticket.Id</MudText> 
+                                </MudItem> 
+                            </MudGrid> 
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText>
+                            Creado por: @CreationUserName.Name
+                        </MudText>
+                        <br>
+                        <MudText><b>Descripción:</b><br>
+                            @ticket.Description
+                        </MudText>
                                
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton Variant="Variant.Text" Color="Color.Primary">Responder</MudButton>
-            </MudCardActions>
-        </MudCard>
-    </MudItem>
-     <MudItem xs="3">
-        <MudCard>
-            <MudCardHeader Style="background-color: #e0e0e0;">
-                <CardHeaderContent>
-                        <MudText Typo="Typo.h6" Style="color: #333;">Informacion</MudText>
-                </CardHeaderContent>
-            </MudCardHeader>
-            <MudCardContent>
-                    <MudText><b>PROPIEDADES</b></MudText>
-                    <MudText><b>Tipo</b>
-                        <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
-                            <MudSelectItem Value="@("Cappuccino")" />
-                            <MudSelectItem Value="@("Cafe Latte")" />
-                            <MudSelectItem Value="@("Espresso")" />
-                        </MudSelect>
-                    </MudText>
-                    <MudText><b>Estado</b>
-                        <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedStatus">
-                            @foreach (var status in Statuses)
-                            {
-                                <MudSelectItem Value="@status.Name" />
-                            }
-                        </MudSelect>
-                    </MudText>
-                    <MudText><b>Prioridad</b>
-                        <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedPriority">
-                            @foreach (var priority in Priorities)
-                            {
-                                <MudSelectItem Value="@priority.Name" />
-                            }
-                        </MudSelect>
-                    </MudText>
-                    <MudText><b>Agente</b>
-                        <MudSelect T="ApplicationUserDTO" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedAgent">
-                            @foreach (var u in User)
-                            {
-                                <MudSelectItem Value="@u">@u.Name</MudSelectItem>
-                            }
-                        </MudSelect>
-                    </MudText>
-            </MudCardContent>
-            <MudCardActions>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="UpdateTicketAsync">Actualizar</MudButton>
-            </MudCardActions>
-        </MudCard>
-    </MudItem>
-</MudGrid>
-}
-else
-{
-    <p>Loading ticket details...</p>
-}
-
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary">Responder</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+             <MudItem xs="3">
+                <MudCard>
+                    <MudCardHeader Style="background-color: #e0e0e0;">
+                        <CardHeaderContent>
+                                <MudText Typo="Typo.h6" Style="color: #333;">Informacion</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                            <MudText><b>PROPIEDADES</b></MudText>
+                            <MudText><b>Tipo</b>
+                                <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+                                    <MudSelectItem Value="@("Cappuccino")" />
+                                    <MudSelectItem Value="@("Cafe Latte")" />
+                                    <MudSelectItem Value="@("Espresso")" />
+                                </MudSelect>
+                            </MudText>
+                            <MudText><b>Estado</b>
+                                <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedStatus">
+                                    @foreach (var status in Statuses)
+                                    {
+                                        <MudSelectItem Value="@status.Name" />
+                                    }
+                                </MudSelect>
+                            </MudText>
+                            <MudText><b>Prioridad</b>
+                                <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedPriority">
+                                    @foreach (var priority in Priorities)
+                                    {
+                                        <MudSelectItem Value="@priority.Name" />
+                                    }
+                                </MudSelect>
+                            </MudText>
+                            <MudText><b>Agente</b>
+                                <MudSelect T="ApplicationUserDTO" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedAgent">
+                                    @foreach (var u in User)
+                                    {
+                                        <MudSelectItem Value="@u">@u.Name</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                            <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="UpdateTicketAsync">Actualizar</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+        }
+        else
+        {
+            <p>Loading ticket details...</p>
+        }
+    </Authorized>
+    <NotAuthorized>
+        @{NavManager.NavigateTo("/");}
+    </NotAuthorized>
+</AuthorizeView>
 @code {
     [Parameter]
     public int ticketId { get; set; }

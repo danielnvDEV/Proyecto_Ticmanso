@@ -5,7 +5,7 @@
 @using System.Security.Claims
 @using System.IdentityModel.Tokens.Jwt;
 @using MudBlazor
-
+@inject NavigationManager NavManager
 @inject HttpClient httpClient
 @inject IDialogService DialogService
 @inject ISnackbar Snackbar
@@ -13,29 +13,34 @@
 
 @page "/management/tickets/newTicket"
 <PageTitle>New ticket</PageTitle>
+<AuthorizeView>
+    <Authorized Context="authContext">
+        <EditForm Model="@ticket" OnValidSubmit="HandleSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
 
-<EditForm Model="@ticket" OnValidSubmit="HandleSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField @bind-Value="ticket.Title" Label="Título" Variant="Variant.Outlined" Required="true" />
+                    <MudTextField @bind-Value="ticket.Description" Label="Descripción" Variant="Variant.Outlined" Required="true" Lines="5" />
 
-    <MudCard>
-        <MudCardContent>
-            <MudTextField @bind-Value="ticket.Title" Label="Título" Variant="Variant.Outlined" Required="true" />
-            <MudTextField @bind-Value="ticket.Description" Label="Descripción" Variant="Variant.Outlined" Required="true" Lines="5" />
-
-            <MudSelect T="int" Label="Prioridad" Variant="Variant.Outlined" Required="true" @bind-Value="ticket.PriorityId">
-                @foreach (var priority in priorities)
-                {
-                    <MudSelectItem Value="@priority.Id">@priority.Name</MudSelectItem>
-                }
-            </MudSelect>
-        </MudCardContent>
-        <MudCardActions>
-            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Crear ticket</MudButton>
-        </MudCardActions>
-    </MudCard>
-</EditForm>
-
+                    <MudSelect T="int" Label="Prioridad" Variant="Variant.Outlined" Required="true" @bind-Value="ticket.PriorityId">
+                        @foreach (var priority in priorities)
+                        {
+                            <MudSelectItem Value="@priority.Id">@priority.Name</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Crear ticket</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </EditForm>
+    </Authorized>
+    <NotAuthorized>
+        @{NavManager.NavigateTo("/");}
+    </NotAuthorized>
+</AuthorizeView>
 
 @code {
     private TicketDTO ticket = new TicketDTO();

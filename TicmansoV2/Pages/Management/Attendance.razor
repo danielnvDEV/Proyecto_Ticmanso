@@ -4,11 +4,13 @@
 @using TicmansoV2.Shared
 @using System.Globalization;
 @using Microsoft.JSInterop
-
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Components.Authorization;
 @inject HttpClient HttpClient
 @inject IJSRuntime JSRuntime
 @inject ISnackbar Snackbar
-
+@inject NavigationManager NavManager
+@attribute [Authorize]
 <PageTitle>Attendance</PageTitle>
 <AuthorizeView>
     <Authorized Context="authContext">
@@ -38,6 +40,9 @@
             </MudCardActions>
         </MudCard>
     </Authorized>
+    <NotAuthorized>
+        @{NavManager.NavigateTo("/");}
+    </NotAuthorized>
 </AuthorizeView>
 
 @code {
@@ -58,7 +63,7 @@
     {
         await GetUserId();
         await LoadAttendance();
-        await GetLocation();
+        //await GetLocation();
     }
 
     private async Task GetUserId()
@@ -162,21 +167,21 @@
             departureTime = attendance.DepartureTime;
         }
     }
-    private async Task GetLocation()
-    {
-        var location = await JSRuntime.InvokeAsync<GeolocationResult>("getLocation");
-        latitude = location.Coords.Latitude;
-        longitude = location.Coords.Longitude;
-    }
+    // private async Task GetLocation()
+    // {
+    //     var location = await JSRuntime.InvokeAsync<GeolocationResult>("getLocation");
+    //     latitude = location.Coords.Latitude;
+    //     longitude = location.Coords.Longitude;
+    // }
 
-    private class GeolocationResult
-    {
-        public GeolocationCoordinates Coords { get; set; }
-    }
+    // private class GeolocationResult
+    // {
+    //     public GeolocationCoordinates Coords { get; set; }
+    // }
 
-    private class GeolocationCoordinates
-    {
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-    }
+    // private class GeolocationCoordinates
+    // {
+    //     public double Latitude { get; set; }
+    //     public double Longitude { get; set; }
+    // }
 }

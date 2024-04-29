@@ -1,5 +1,12 @@
-﻿<h3>MyTickets</h3>
+﻿@inject NavigationManager NavManager
+<AuthorizeView>
+    <Authorized Context="authContext">
 
+    </Authorized>
+    <NotAuthorized>
+        @{NavManager.NavigateTo("/");}
+    </NotAuthorized>
+</AuthorizeView>
 @code {
 
 }

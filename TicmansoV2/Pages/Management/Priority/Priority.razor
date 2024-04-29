@@ -8,6 +8,7 @@
 @page "/management/priorities"
 @inject HttpClient HttpClient
 @inject ISnackbar Snackbar
+@inject NavigationManager NavManager
 @attribute [Authorize]
 <PageTitle>Administrar prioridad</PageTitle>
 <AuthorizeView>
@@ -48,6 +49,9 @@
             </DialogActions>
         </MudDialog>
     </Authorized>
+    <NotAuthorized>
+       @{NavManager.NavigateTo("/");}
+    </NotAuthorized>
 </AuthorizeView>
 @code {
     private List<PriorityDTO> priorities = new List<PriorityDTO>();

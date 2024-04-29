@@ -1,31 +1,40 @@
 ﻿@using TicmansoV2.Shared
 @using TicmansoV2.Shared.Contracts
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Components.Authorization;
 
 @inject IUserAccount AccountRepository
-
+@inject NavigationManager NavManager
 @page "/management/controlUser/createUsers"
-<MudCard>
-    <MudCardContent>
-        <MudTextField @bind-Value="newUser.Name" Label="Name" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="newUser.Email" Label="Email" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="password" Label="Password" Variant="Variant.Outlined" InputType="InputType.Password" />
-        <MudTextField @bind-Value="confirmPassword" Label="Confirm Password" Variant="Variant.Outlined" InputType="InputType.Password" />
-    </MudCardContent>
-    <MudCardActions>
-        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CreateUserAsync">Create User</MudButton>
-    </MudCardActions>
-</MudCard>
+@attribute [Authorize]
+<AuthorizeView Roles="Admin">
+    <Authorized Context="authContext">
+        <MudCard>
+            <MudCardContent>
+                <MudTextField @bind-Value="newUser.Name" Label="Name" Variant="Variant.Outlined" />
+                <MudTextField @bind-Value="newUser.Email" Label="Email" Variant="Variant.Outlined" />
+                <MudTextField @bind-Value="password" Label="Password" Variant="Variant.Outlined" InputType="InputType.Password" />
+                <MudTextField @bind-Value="confirmPassword" Label="Confirm Password" Variant="Variant.Outlined" InputType="InputType.Password" />
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CreateUserAsync">Create User</MudButton>
+            </MudCardActions>
+        </MudCard>
 
-@if (showSuccessMessage)
-{
-    <MudAlert Severity="Severity.Success">User created successfully!</MudAlert>
-}
+        @if (showSuccessMessage)
+        {
+            <MudAlert Severity="Severity.Success">User created successfully!</MudAlert>
+        }
 
-@if (showErrorMessage)
-{
-    <MudAlert Severity="Severity.Error">@errorMessage</MudAlert>
-}
-
+        @if (showErrorMessage)
+        {
+            <MudAlert Severity="Severity.Error">@errorMessage</MudAlert>
+        }
+    </Authorized>
+    <NotAuthorized>
+        @{NavManager.NavigateTo("/");}
+    </NotAuthorized>
+</AuthorizeView>
 @code {
     private ApplicationUserDTO newUser = new ApplicationUserDTO();
     private string password = string.Empty;
