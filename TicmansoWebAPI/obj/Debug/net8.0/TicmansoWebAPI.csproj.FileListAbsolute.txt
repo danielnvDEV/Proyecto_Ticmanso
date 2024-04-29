@@ -316,7 +316,6 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TicmansoWebAPI.props
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\obj\Debug\net8.0\scopedcss\bundle\TicmansoWebAPI.styles.css
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\obj\Debug\net8.0\TicmansoWebAPI.csproj.CopyComplete
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\obj\Debug\net8.0\TicmansoWebAPI.dll
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\obj\Debug\net8.0\refint\TicmansoWebAPI.dll
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\obj\Debug\net8.0\TicmansoWebAPI.pdb
@@ -504,3 +503,21 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\
 \\192.168.1.100\2tb\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
 \\192.168.1.100\2tb\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 \\192.168.1.100\2tb\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Duende.IdentityServer.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Duende.IdentityServer.AspNetIdentity.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Duende.IdentityServer.EntityFramework.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Duende.IdentityServer.EntityFramework.Storage.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Duende.IdentityServer.Storage.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\IdentityModel.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.ApiAuthorization.IdentityServer.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebAPI\obj\Debug\net8.0\Ticmanso.07ED3C2C.Up2Date

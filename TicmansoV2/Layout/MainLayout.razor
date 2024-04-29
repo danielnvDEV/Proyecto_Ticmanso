@@ -15,42 +15,76 @@
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
-
-<div class="page">
-    <MudLayout class="p-0">
-            <MudAppBar Elevation="1">
-                <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
-                <MudSpacer />
-                <MudIconButton Icon="@Icons.Material.Filled.InsertComment" Color="Color.Inherit" Href="/management/tickets/newTicket" />
-            <MudIconButton ml-2 Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Href="/dashboard" />
-            </MudAppBar>
-            <MudDrawer @bind-Open="@open" Elevation="1">
-                <MudDrawerHeader>
-                    <MudText Typo="Typo.h6">Ticmanso</MudText>
-                </MudDrawerHeader>
-                <MudNavMenu>
-                    <MudNavLink Href="/chat">Chats</MudNavLink>
-                    <MudNavLink Href="/attendance">Attendance</MudNavLink>
-                    <MudNavLink Href="/tickets">Tickets</MudNavLink>
-                    <MudNavLink Href="/dashboard">Dashboard</MudNavLink>
-                    <MudNavGroup Title="Management" Expanded="true">
-                        <MudNavLink Href="/management/controlUser">Users</MudNavLink>
-                        <MudNavLink Href="/management/statuses">Statuses</MudNavLink>
-                        <MudNavLink Href="/management/priorities">Priorities</MudNavLink>
-                        <MudNavLink Href="/management/companies">Companies</MudNavLink>
-                    </MudNavGroup>
-                    <MudNavLink Href="/Settings">Settings</MudNavLink>
-                    <MudNavLink OnClick="Logout">LogOut</MudNavLink>
-                </MudNavMenu>
-            </MudDrawer>
-            <MudMainContent Class="d-flex">
-                <MudContainer Class="mud-container-maxwidth-xl mud-container mt-2">
-                   @Body
-                </MudContainer> 
-            </MudMainContent>
-    </MudLayout>
-</div>
-
+<AuthorizeView Roles="Admin">
+    <Authorized >
+        <div class="page">
+            <MudLayout class="p-0">
+                    <MudAppBar Elevation="1">
+                        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
+                        <MudSpacer />
+                        <MudIconButton Icon="@Icons.Material.Filled.InsertComment" Color="Color.Inherit" Href="/management/tickets/newTicket" />
+                    <MudIconButton ml-2 Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Href="/dashboard" />
+                    </MudAppBar>
+                    <MudDrawer @bind-Open="@open" Elevation="1">
+                        <MudDrawerHeader>
+                            <MudText Typo="Typo.h6">Ticmanso</MudText>
+                        </MudDrawerHeader>
+                        <MudNavMenu>
+                            <MudNavLink Href="/chat">Chats</MudNavLink>
+                            <MudNavLink Href="/attendance">Attendance</MudNavLink>
+                            <MudNavLink Href="/tickets">Tickets</MudNavLink>
+                            <MudNavLink Href="/dashboard">Dashboard</MudNavLink>
+                            <MudNavGroup Title="Management" Expanded="true">
+                                <MudNavLink Href="/management/controlUser">Users</MudNavLink>
+                                <MudNavLink Href="/management/statuses">Statuses</MudNavLink>
+                                <MudNavLink Href="/management/priorities">Priorities</MudNavLink>
+                                <MudNavLink Href="/management/companies">Companies</MudNavLink>
+                            </MudNavGroup>
+                            <MudNavLink Href="/Settings">Settings</MudNavLink>
+                            <MudNavLink OnClick="Logout">LogOut</MudNavLink>
+                        </MudNavMenu>
+                    </MudDrawer>
+                    <MudMainContent Class="d-flex">
+                        <MudContainer Class="mud-container-maxwidth-xl mud-container mt-2">
+                           @Body
+                        </MudContainer> 
+                    </MudMainContent>
+            </MudLayout>
+        </div>
+    </Authorized>
+</AuthorizeView>
+<AuthorizeView Roles="User">
+    <Authorized>
+        <div class="page">
+            <MudLayout class="p-0">
+                <MudAppBar Elevation="1">
+                    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
+                    <MudSpacer />
+                    <MudIconButton Icon="@Icons.Material.Filled.InsertComment" Color="Color.Inherit" Href="/management/tickets/newTicket" />
+                    <MudIconButton ml-2 Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Href="/dashboard" />
+                </MudAppBar>
+                <MudDrawer @bind-Open="@open" Elevation="1">
+                    <MudDrawerHeader>
+                        <MudText Typo="Typo.h6">Ticmanso</MudText>
+                    </MudDrawerHeader>
+                    <MudNavMenu>
+                        <MudNavLink Href="/chat">Chats</MudNavLink>
+                        <MudNavLink Href="/attendance">Attendance</MudNavLink>
+                        <MudNavLink Href="/tickets">Tickets</MudNavLink>
+                        <MudNavLink Href="/dashboard">Dashboard</MudNavLink>                       
+                        <MudNavLink Href="/Settings">Settings</MudNavLink>
+                        <MudNavLink OnClick="Logout">LogOut</MudNavLink>
+                    </MudNavMenu>
+                </MudDrawer>
+                <MudMainContent Class="d-flex">
+                    <MudContainer Class="mud-container-maxwidth-xl mud-container mt-2">
+                        @Body
+                    </MudContainer>
+                </MudMainContent>
+            </MudLayout>
+        </div>
+    </Authorized>
+</AuthorizeView>
 @code
 {    bool open = false;
     private long CurrentUserId { get; set; }

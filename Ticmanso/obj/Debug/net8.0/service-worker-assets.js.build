@@ -5,7 +5,7 @@
       "url": "css\/app.css"
     },
     {
-      "hash": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
+      "hash": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7\/p4nS6D\/0=",
       "url": "css\/bootstrap\/bootstrap.min.css"
     },
     {
@@ -1289,19 +1289,19 @@
       "url": "_framework\/System.Private.CoreLib.wasm"
     },
     {
-      "hash": "sha256-Em4vSDFByVyY4UCoBjdI3NJnfZfhp+hdb+DeXpdhKS8=",
+      "hash": "sha256-6hqQRh\/r01YYgXvaxjXcMTG\/7mSmBpETScEQRjoYU4k=",
       "url": "_framework\/dotnet.js"
     },
     {
-      "hash": "sha256-geOxELySGObKTE3woQXqJOPDvKndG89tWltQbOuXmHo=",
+      "hash": "sha256-1NcQTVdXVO\/4BTDs0Savwsk37\/5E+0L6mo9ZDrORxvo=",
       "url": "_framework\/dotnet.js.map"
     },
     {
-      "hash": "sha256-C2P+OTYZAJlmqo6rc4heqwvIVVsXIF8MAxC6WRe96Eg=",
+      "hash": "sha256-U1JSgnum2OTerSq8i5Y9L17deHEWJmae0djinSPLyJM=",
       "url": "_framework\/dotnet.native.wasm"
     },
     {
-      "hash": "sha256-xwfrrQLMSHgt1BRo3XyqOUai153fscVJiT3auAkbK9w=",
+      "hash": "sha256-PTiaAjmGBvn5RjgRiuzlvM8zn5DlXMi7CG48Cy7tofM=",
       "url": "_framework\/dotnet.runtime.js.map"
     },
     {
@@ -1325,24 +1325,24 @@
       "url": "_framework\/TicmansoCrud.Shared.pdb"
     },
     {
-      "hash": "sha256-ergnr2NzNvJiMarao8IcHucFjGK3tK1khOJhCIGCXRA=",
+      "hash": "sha256-1yNYaro7tD2vkE6Xzd6EOfSlPdonShmV0HsbQ1DyWR8=",
       "url": "_framework\/Ticmanso.wasm"
     },
     {
-      "hash": "sha256-27YA7Lo7x+EAcVWh7T6Z1kSBFuDf5fX7cH3fj99G9Sw=",
+      "hash": "sha256-4zs+uJsmwwT0\/f0sgDPku1vbJBds6e1HgFqfyKcPwIA=",
       "url": "_framework\/Ticmanso.pdb"
     },
     {
-      "hash": "sha256-uyV9fRc2ZtncESgs6o1gGRZ7MT7W1Ho+GvHnJY+FN0k=",
+      "hash": "sha256-aXmpTo1RHbOuY9MTtgEdmBRwQc4IAGOEY+QO9+mvt7I=",
       "url": "_framework\/blazor.boot.json"
     },
     {
       "hash": "sha256-ju0+XWE0ihz554eKEj0HQ8Opa61xpbUIaX5\/MNo8we4=",
-      "url": "_framework\/dotnet.native.8.0.4.ok8n35cfm2.js"
+      "url": "_framework\/dotnet.native.8.0.4.hvfv86nc9h.js"
     },
     {
       "hash": "sha256-JeVsECOqOie\/Pe89n9PJNJaMmb5vJsAAxfXY8INN64A=",
-      "url": "_framework\/dotnet.runtime.8.0.4.zkrt7h44v1.js"
+      "url": "_framework\/dotnet.runtime.8.0.4.47a7k7tler.js"
     },
     {
       "hash": "sha256-rn8eNl+9uB529WfApYjM5fW3PddfCejXYcvfIgZsvkk=",
@@ -1369,5 +1369,5 @@
       "url": "_content\/BlazorJavasccriptFunctions\/styles.css"
     }
   ],
-  "version": "7euemgBI"
+  "version": "Ciw0lPKQ"
 };

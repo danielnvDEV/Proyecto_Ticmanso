@@ -25,7 +25,16 @@
         <NotFound>
             <PageTitle>Not found</PageTitle>
             <LayoutView Layout="@typeof(MainLayout)">
-                <p role="alert">Sorry, there's nothing at this address.</p>
+                <div class="content" style="position: absolute;left: 50%;transform: translate(-50%, 10%);">
+                    <h1>Parece que te has perdido</h1>
+
+                    <p class="pt-5"> La página que estas buscando no existe.</p>
+
+                    <img src="images/error404.png" />
+                    <p>
+                        <a href="/">Volver a la página principal.</a>
+                    </p>
+                </div>
             </LayoutView>
         </NotFound>
     </Router>

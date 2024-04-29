@@ -22,7 +22,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
        policy =>
        {
-           policy.WithOrigins("http://localhost:7174", "https://localhost:7291", "http://localhost:5001")
+           policy.WithOrigins("http://localhost:7174", "https://localhost:7291", "http://localhost:5001", 
+               "http://localhost:7174/chathub", "https://localhost:7291/chathub")
                  .AllowAnyHeader()
                  .AllowAnyOrigin()
                  .AllowAnyMethod();
@@ -38,7 +39,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL3") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 
@@ -131,5 +132,9 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<ChatHub>("/chathub");
+    
+});
 app.Run();

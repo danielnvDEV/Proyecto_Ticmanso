@@ -5,7 +5,7 @@
       "url": "css\/app.css"
     },
     {
-      "hash": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
+      "hash": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7\/p4nS6D\/0=",
       "url": "css\/bootstrap\/bootstrap.min.css"
     },
     {
@@ -31,6 +31,10 @@
     {
       "hash": "sha256-oEo6d+KqX5fjxTiZk\/w9NB3Mi0+ycS5yLwCKwr4IkbA=",
       "url": "icon-512.png"
+    },
+    {
+      "hash": "sha256-ZtahCzruKNoUH4u09xfmxRD0U3hX94Szkjw7OleZUFE=",
+      "url": "images\/error404.png"
     },
     {
       "hash": "sha256-46zrs0ESYPV4M8sukQofmv4gCBphcLOs6P0XUvRuBs4=",
@@ -1386,7 +1390,7 @@
     },
     {
       "hash": "sha256-ju0+XWE0ihz554eKEj0HQ8Opa61xpbUIaX5\/MNo8we4=",
-      "url": "_framework\/dotnet.native.8.0.4.ok8n35cfm2.js"
+      "url": "_framework\/dotnet.native.8.0.4.hvfv86nc9h.js"
     },
     {
       "hash": "sha256-U1JSgnum2OTerSq8i5Y9L17deHEWJmae0djinSPLyJM=",
@@ -1394,7 +1398,7 @@
     },
     {
       "hash": "sha256-JeVsECOqOie\/Pe89n9PJNJaMmb5vJsAAxfXY8INN64A=",
-      "url": "_framework\/dotnet.runtime.8.0.4.zkrt7h44v1.js"
+      "url": "_framework\/dotnet.runtime.8.0.4.47a7k7tler.js"
     },
     {
       "hash": "sha256-PTiaAjmGBvn5RjgRiuzlvM8zn5DlXMi7CG48Cy7tofM=",
@@ -1413,23 +1417,23 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-iqn0U2ltFADzvSLItGHoA6xeiixQ+f2kgd2NtTJtEBI=",
+      "hash": "sha256-MX+JLQWLS5VTVDEiwXOvq3X694RwI99yRuGRJczPaa0=",
       "url": "_framework\/TicmansoV2.Shared.wasm"
     },
     {
-      "hash": "sha256-1+yinTSOBg1c0OHWdtY0dVFiCaRyicLgAyQr\/gA\/88M=",
+      "hash": "sha256-8cdLi4gNt3XkPN7GQAsPccJOSVzzsCNBP4r1pwi48tI=",
       "url": "_framework\/TicmansoV2.Shared.pdb"
     },
     {
-      "hash": "sha256-d28FzuMzUhh2KiHOotjcfY7Xm9uQ2jAk00241c9pLM4=",
+      "hash": "sha256-yzIBqJjSfUWoYhLCnGpOvCudFWyADyDT3vo\/GtgIqPY=",
       "url": "_framework\/TicmansoV2.wasm"
     },
     {
-      "hash": "sha256-mZZp8+HcOGVUfIhdruptoyhJ2af2cI8DlgL\/1IHN46E=",
+      "hash": "sha256-LTC0C6DxJOBV+Lo1ooxOwQ6ruZsxrljpXdGJrdzPBYw=",
       "url": "_framework\/TicmansoV2.pdb"
     },
     {
-      "hash": "sha256-NC2td7OxaDcs1pX00qJb6hothPqSpI5vA0ZT1Nsl4\/o=",
+      "hash": "sha256-BJRjq1bYlLc95SfpncHt130eQiQ2v5SkkT2n29k\/Cpo=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1441,5 +1445,5 @@
       "url": "_content\/MudBlazor\/MudBlazor.min.js"
     }
   ],
-  "version": "ClvmkrvX"
+  "version": "4NSWIpnk"
 };

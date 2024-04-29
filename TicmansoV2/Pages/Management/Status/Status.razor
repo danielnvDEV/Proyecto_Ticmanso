@@ -9,11 +9,12 @@
 @page "/management/statuses"
 @inject HttpClient HttpClient
 @inject ISnackbar Snackbar
+@inject NavigationManager NavManager
 @attribute [Authorize]
 
 
 <PageTitle>Administrar statuses</PageTitle>
-<AuthorizeView>
+<AuthorizeView Roles="Admin">
     <Authorized Context="authContext">
         <MudTable Items="@statuses" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Info">
             <ToolBarContent>
@@ -51,6 +52,9 @@
             </DialogActions>
         </MudDialog>
     </Authorized>
+    <NotAuthorized>
+        @{NavManager.NavigateTo("/");}
+    </NotAuthorized>
 </AuthorizeView>
 
 

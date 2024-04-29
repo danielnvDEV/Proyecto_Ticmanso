@@ -6,7 +6,7 @@
 
 <PageTitle>Dashboard</PageTitle>
 
-<AuthorizeView Roles="Admin">
+<AuthorizeView Roles="User">
     <Authorized >
         <h1 class="d-flex justify-content-center mt-10">Bienvenido @context.User.Identity.Name!</h1>
             <MudContainer class="d-flex justify-content-center">   
@@ -25,8 +25,74 @@
             </MudContainer>                
     </Authorized>
 </AuthorizeView>
+<AuthorizeView Roles="Admin">
+    <Authorized Context="authContext">
+        <MudDropContainer context="dropcontext" T="DropItem" Items="_items" ItemsSelector="@((item,dropzone) => item.Identifier == dropzone)" ItemDropped="ItemUpdated" Class="d-flex flex-wrap flex-grow-1">
+            <ChildContent>
+                <MudDropZone T="DropItem" Identifier="Drop Zone 1" Class="dropZone rounded  pa-2 ma-4 flex-grow-1" MaxItems="1">
 
+                </MudDropZone>
 
+                <MudDropZone T="DropItem" Identifier="Drop Zone 2" Class="dropZone rounded pa-2 ma-4 flex-grow-1" MaxItems="1">
+
+                </MudDropZone>
+
+                <MudDropZone T="DropItem" Identifier="Drop Zone 3" Class="dropZone rounded pa-2 ma-4 flex-grow-1" MaxItems="1">
+
+                </MudDropZone>
+
+                <MudDropZone T="DropItem" Identifier="Drop Zone 4" Class="dropZone rounded pa-2 ma-4 flex-grow-1" MaxItems="1">
+
+                </MudDropZone>
+
+                <MudDropZone T="DropItem" Identifier="Drop Zone 5" Class="dropZone rounded pa-2 ma-4 flex-grow-1" MaxItems="1">
+
+                </MudDropZone>
+
+            </ChildContent>
+                <ItemRenderer>
+                <MudPaper Elevation="2" Class="mud-background-grey-lighten1 pa-2 ma-2 d-flex justify-center align-center" Style="border: 1px solid #ccc; border-radius: 4px;">
+                    <MudText>@context.Name</MudText>
+                    </MudPaper>
+                </ItemRenderer>
+        </MudDropContainer>
+    </Authorized>
+</AuthorizeView>
+<style>
+    .dropZone {
+        border: 1px solid #B0BEC5;
+        border-radius: 4px;
+    }
+</style>
 @code {
+    private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
+    {
+        var sourceItem = _items.FirstOrDefault(i => i.Identifier == dropItem.Item.Identifier);
+        var destinationItem = _items.FirstOrDefault(i => i.Identifier == dropItem.DropzoneIdentifier);
 
+        if (destinationItem != null)
+        {
+            var tempIdentifier = sourceItem.Identifier;
+            sourceItem.Identifier = destinationItem.Identifier;
+            destinationItem.Identifier = tempIdentifier;
+        }
+        else
+        {
+            sourceItem.Identifier = dropItem.DropzoneIdentifier;
+        }
+    }
+
+    private List<DropItem> _items = new()
+    {
+        new DropItem(){ Name = "Resueltos", Identifier = "Drop Zone 1" },
+        new DropItem(){ Name = "Abiertos", Identifier = "Drop Zone 2" },
+        new DropItem(){ Name = "Pendientes", Identifier = "Drop Zone 3" },
+        new DropItem(){ Name = "Cerrados", Identifier = "Drop Zone 4" },
+    };
+
+    public class DropItem
+    {
+        public string Name { get; init; }
+        public string Identifier { get; set; }
+    }
 }

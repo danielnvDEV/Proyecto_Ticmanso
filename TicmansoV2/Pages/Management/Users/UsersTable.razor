@@ -28,8 +28,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadUsers();
-        roles = await RoleManager.Roles.ToListAsync();
+        await LoadUsers();       
     }
 
     private async Task LoadUsers()
@@ -57,31 +56,4 @@
     {
         
     }
-
-    private async Task ChangeUserRoleAsync(string userId)
-{
-    if (string.IsNullOrEmpty(selectedRole))
-    {
-        showErrorMessage = true;
-        errorMessage = "Please select a role.";
-        return;
-    }
-
-    var user = await UserManager.FindByIdAsync(userId);
-    if (user == null)
-    {
-        showErrorMessage = true;
-        errorMessage = "User not found.";
-        return;
-    }
-
-    var currentRoles = await UserManager.GetRolesAsync(user);
-    await UserManager.RemoveFromRolesAsync(user, currentRoles);
-    await UserManager.AddToRoleAsync(user, selectedRole);
-
-    showSuccessMessage = true;
-    showErrorMessage = false;
-    selectedUserId = string.Empty;
-    selectedRole = string.Empty;
-}
 }
