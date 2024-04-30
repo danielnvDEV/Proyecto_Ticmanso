@@ -2,6 +2,14 @@
 
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Components.Authorization;
+@using System.Data;
+@using Microsoft.Data.SqlClient;
+@using System.Security.Claims
+@using System.IdentityModel.Tokens.Jwt;
+@using System.Net.Http;
+@using System.Threading.Tasks;
+@using Newtonsoft.Json.Linq;
+@inject IJSRuntime JSRuntime
 @attribute [Authorize]
 
 <PageTitle>Dashboard</PageTitle>
@@ -52,7 +60,7 @@
             </ChildContent>
                 <ItemRenderer>
                 <MudPaper Elevation="2" Class="mud-background-grey-lighten1 pa-2 ma-2 d-flex justify-center align-center" Style="border: 1px solid #ccc; border-radius: 4px;">
-                    <MudText>@context.Name</MudText>
+                    <MudText>@context.Name (@context.Count)</MudText>
                     </MudPaper>
                 </ItemRenderer>
         </MudDropContainer>
@@ -63,8 +71,31 @@
         border: 1px solid #B0BEC5;
         border-radius: 4px;
     }
-</style>
+</style> 
 @code {
+    string userId;
+    int status1Count;
+    int status2Count;
+    int status3Count;
+    protected override async Task OnInitializedAsync()
+    {
+        var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
+        var handler = new JwtSecurityTokenHandler();
+        var jwtToken = handler.ReadJwtToken(token);
+        var claims = jwtToken.Claims;
+        userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+        var (status1Count, status2Count, status3Count) = await GetTicketCountsByStatus(userId);
+
+        _items = new List<DropItem>
+    {
+        new DropItem(){ Name = "Resueltos:", Identifier = "Drop Zone 1", Count = status1Count },
+        new DropItem(){ Name = "Abiertos", Identifier = "Drop Zone 2", Count = status2Count },
+        new DropItem(){ Name = "Pendientes", Identifier = "Drop Zone 3", Count = status3Count },
+        new DropItem(){ Name = "Cerrados", Identifier = "Drop Zone 4", Count = 0 },
+    };
+
+
+    }
     private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
     {
         var sourceItem = _items.FirstOrDefault(i => i.Identifier == dropItem.Item.Identifier);
@@ -84,7 +115,7 @@
 
     private List<DropItem> _items = new()
     {
-        new DropItem(){ Name = "Resueltos", Identifier = "Drop Zone 1" },
+        new DropItem(){ Name = "Resueltos:", Identifier = "Drop Zone 1"},
         new DropItem(){ Name = "Abiertos", Identifier = "Drop Zone 2" },
         new DropItem(){ Name = "Pendientes", Identifier = "Drop Zone 3" },
         new DropItem(){ Name = "Cerrados", Identifier = "Drop Zone 4" },
@@ -94,5 +125,32 @@
     {
         public string Name { get; init; }
         public string Identifier { get; set; }
+        public int Count { get; set; }
     }
+   
+    public async Task<(int, int, int)> GetTicketCountsByStatus(string supportUserId)
+    {
+        using (var client = new HttpClient())
+        {
+            var response = await client.GetAsync($"https://localhost:7291/api/TicektsCountByStatus/tickets/count/{supportUserId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var result = JObject.Parse(json);
+
+                int status1Count = (int)result["status1Count"];
+                int status2Count = (int)result["status2Count"];
+                int status3Count = (int)result["status3Count"];
+
+                return (status1Count, status2Count, status3Count);
+            }
+            else
+            {
+                // Manejar el caso de error en la respuesta de la API
+                throw new Exception($"Error al obtener los conteos de tickets: {response.StatusCode}");
+            }
+        }
+    }
+
 }
