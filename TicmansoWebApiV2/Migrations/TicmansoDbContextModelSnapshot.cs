@@ -285,6 +285,9 @@ namespace TicmansoWebApiV2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("TicketId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
@@ -292,8 +295,7 @@ namespace TicmansoWebApiV2.Migrations
 
                     b.HasIndex("ReceiverId");
 
-                    b.HasIndex("SenderId", "ReceiverId")
-                        .IsUnique();
+                    b.HasIndex("SenderId");
 
                     b.ToTable("ChatMessages", (string)null);
                 });

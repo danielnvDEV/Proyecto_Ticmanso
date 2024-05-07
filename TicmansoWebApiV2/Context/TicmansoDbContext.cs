@@ -157,8 +157,6 @@ namespace TicmansoWebApiV2.Context
                     .HasForeignKey(e => e.ReceiverId)
                     .IsRequired()
                     .OnDelete(DeleteBehavior.Restrict);
-                entity.HasIndex(e => new { e.SenderId, e.ReceiverId })
-                .IsUnique();
             });
 
             builder.Entity<GeneralViewTicket>(entity =>

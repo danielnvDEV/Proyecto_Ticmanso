@@ -22,8 +22,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
        policy =>
        {
-           policy.WithOrigins("http://localhost:7174", "https://localhost:7291", "http://localhost:5001", 
-               "http://localhost:7174/chathub", "https://localhost:7291/chathub")
+           policy.WithOrigins("http://localhost:7174", "https://localhost:7291", "http://localhost:5001")
                  .AllowAnyHeader()
                  .AllowAnyOrigin()
                  .AllowAnyMethod();
@@ -131,10 +130,4 @@ using (var scope = app.Services.CreateScope())
         await userManager.AddToRoleAsync(adminUser, "Admin");
     }
 }
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapHub<ChatHub>("/chathub");
-    
-});
 app.Run();

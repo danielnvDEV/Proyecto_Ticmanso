@@ -1,39 +1,62 @@
-﻿@page "/chat"
-@using Microsoft.AspNetCore.SignalR.Client
+﻿@page "/teams-chat"
 @using System.Net.Http.Json
-@using TicmansoV2.Shared
-@using Microsoft.AspNetCore.Authorization
-@using Microsoft.AspNetCore.Components.Authorization
 @using System.Security.Claims
-@using System.IdentityModel.Tokens.Jwt
-@using TicmansoV2.Services
-
-@inject NavigationManager NavigationManager
+@using System.IdentityModel.Tokens.Jwt;
+@using TicmansoV2.Shared
 @inject HttpClient httpClient
-@inject IDialogService DialogService
-@inject ISnackbar Snackbar
 @inject IJSRuntime JSRuntime
-@inject ChatClient ChatClient
 
-<div>
-    <MudTextField @bind-Value="messageInput" Label="Mensaje" Variant="Variant.Outlined"></MudTextField>
-    <MudButton OnClick="SendMessage" Variant="Variant.Filled" Color="Color.Primary">Enviar</MudButton>
-</div>
-
-<MudList>
-    @foreach (var message in messages)
-    {
-        <MudListItem>
-            <MudText>@message.SenderId: @message.Content</MudText>
-            <MudText Typo="Typo.caption" Align="Align.End">@message.Timestamp</MudText>
-        </MudListItem>
-    }
-</MudList>
+<MudGrid>
+    <MudItem xs="4">
+        <MudPaper Elevation="0">
+            <MudList Clickable="true">
+                <MudListSubheader>Usuarios</MudListSubheader>
+                @foreach (var user in Users)
+                {
+                    <MudListItem OnClick="@(() => SelectUser(user))">
+                        <MudAvatar Color="Color.Primary">@user.Name.Substring(0, 1)</MudAvatar>
+                        <MudText Typo="Typo.body1" Class="ml-3">@user.Name</MudText>
+                    </MudListItem>
+                }
+            </MudList>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="8">
+        <MudPaper Elevation="0">
+            <MudToolBar>
+                <MudText Typo="Typo.h6">Conversación con @SelectedUser.Name</MudText>
+            </MudToolBar>
+            <MudList Style="height: 400px; overflow-y: scroll;">
+                @foreach (var message in ChatMessages)
+                {
+                    <MudListItem>
+                        <MudCard Outlined="true" Class="@(message.SenderId == conectedUser ? "ml-auto" : "mr-auto")">
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.body1"><strong>@GetUserName(message.SenderId)</strong></MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText Typo="Typo.body2">@message.Content</MudText>
+                            </MudCardContent>
+                        </MudCard>
+                    </MudListItem>
+                }
+            </MudList>
+            <MudPaper Elevation="0" Class="d-flex mt-4">
+                <MudTextField @bind-Value="NewMessage" Placeholder="Escribe un mensaje..." Variant="Variant.Outlined" Class="flex-grow-1"></MudTextField>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SendMessage" Class="ml-2">Enviar</MudButton>
+            </MudPaper>
+        </MudPaper>
+    </MudItem>
+</MudGrid>
 
 @code {
-    private List<ChatMessageDTO> messages = new List<ChatMessageDTO>();
-    private string messageInput;
-    private string userId;
+    private List<ApplicationUserDTO> Users { get; set; } = new List<ApplicationUserDTO>();
+    private ApplicationUserDTO SelectedUser { get; set; }
+    private List<ChatMessageDTO> ChatMessages { get; set; } = new List<ChatMessageDTO>();
+    private string NewMessage { get; set; }
+    private string conectedUser { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -41,37 +64,45 @@
         var handler = new JwtSecurityTokenHandler();
         var jwtToken = handler.ReadJwtToken(token);
         var claims = jwtToken.Claims;
-        userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+        conectedUser = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
-        ChatClient.ReceiveMessage(ReceiveMessage);
-        await ChatClient.ConnectAsync();
+        Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("https://localhost:7291/api/Users");
+        SelectedUser = Users.FirstOrDefault();
+        await LoadChatMessages();
     }
 
-    private void ReceiveMessage(ChatMessageDTO message)
+    private async Task LoadChatMessages()
     {
-        messages.Add(message);
-        StateHasChanged();
+        ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"https://localhost:7291/api/ChatMessages/user/{SelectedUser.Id}");
+    }
+
+    private void SelectUser(ApplicationUserDTO user)
+    {
+        SelectedUser = user;
+        LoadChatMessages();
+    }
+
+    private string GetUserName(string userId)
+    {
+        return Users.FirstOrDefault(u => u.Id == userId)?.Name ?? "Unknown";
     }
 
     private async Task SendMessage()
     {
-        if (!string.IsNullOrEmpty(messageInput))
+        if (!string.IsNullOrWhiteSpace(NewMessage))
         {
             var message = new ChatMessageDTO
-            {
-                Content = messageInput,
-                Timestamp = DateTime.Now,
-                SenderId = userId,
-                ReceiverId = "UsuarioDestinatarioId"
-            };
+                {
+                    Content = NewMessage,
+                    Timestamp = DateTime.Now,
+                    SenderId = conectedUser,
+                    ReceiverId = SelectedUser.Id
+                };
 
-            await ChatClient.SendMessageAsync(message);
-            messageInput = string.Empty;
+            var response = await httpClient.PostAsJsonAsync($"https://localhost:7291/api/ChatMessages", message);
+
+            NewMessage = string.Empty;
+            await LoadChatMessages();
         }
-    }
-
-    public async ValueTask DisposeAsync()
-    {
-        await ChatClient.DisconnectAsync();
     }
 }
