@@ -277,6 +277,9 @@ namespace TicmansoWebApiV2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("GroupId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ReceiverId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -285,13 +288,15 @@ namespace TicmansoWebApiV2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("TicketId")
+                    b.Property<int?>("TicketId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GroupId");
 
                     b.HasIndex("ReceiverId");
 
@@ -348,6 +353,30 @@ namespace TicmansoWebApiV2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Companies", (string)null);
+                });
+
+            modelBuilder.Entity("TicmansoWebApiV2.Context.Group", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Groups");
                 });
 
             modelBuilder.Entity("TicmansoWebApiV2.Context.Priority", b =>
@@ -436,6 +465,21 @@ namespace TicmansoWebApiV2.Migrations
                     b.HasIndex("SupportUserId");
 
                     b.ToTable("Tickets", (string)null);
+                });
+
+            modelBuilder.Entity("TicmansoWebApiV2.Context.UserGroup", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "GroupId");
+
+                    b.HasIndex("GroupId");
+
+                    b.ToTable("UserGroups");
                 });
 
             modelBuilder.Entity("TicmansoWebApiV2.Context.Views.GeneralViewTicket", b =>
@@ -554,6 +598,10 @@ namespace TicmansoWebApiV2.Migrations
 
             modelBuilder.Entity("TicmansoWebApiV2.Context.ChatMessage", b =>
                 {
+                    b.HasOne("TicmansoWebApiV2.Context.Group", "Group")
+                        .WithMany()
+                        .HasForeignKey("GroupId");
+
                     b.HasOne("TicmansoWebApiV2.Context.ApplicationUser", "Receiver")
                         .WithMany()
                         .HasForeignKey("ReceiverId")
@@ -565,6 +613,8 @@ namespace TicmansoWebApiV2.Migrations
                         .HasForeignKey("SenderId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Group");
 
                     b.Navigation("Receiver");
 
@@ -604,6 +654,25 @@ namespace TicmansoWebApiV2.Migrations
                     b.Navigation("SupportUser");
                 });
 
+            modelBuilder.Entity("TicmansoWebApiV2.Context.UserGroup", b =>
+                {
+                    b.HasOne("TicmansoWebApiV2.Context.Group", "Group")
+                        .WithMany("UserGroups")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TicmansoWebApiV2.Context.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Group");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TicmansoWebApiV2.Context.ApplicationUser", b =>
                 {
                     b.Navigation("CreatedTickets");
@@ -614,6 +683,11 @@ namespace TicmansoWebApiV2.Migrations
             modelBuilder.Entity("TicmansoWebApiV2.Context.Company", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("TicmansoWebApiV2.Context.Group", b =>
+                {
+                    b.Navigation("UserGroups");
                 });
 
             modelBuilder.Entity("TicmansoWebApiV2.Context.Priority", b =>

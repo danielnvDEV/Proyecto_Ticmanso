@@ -133,26 +133,6 @@
   },
   {
     "ContainingType": "TicmansoWebApiV2.Controllers.ChatMessagesController",
-    "Method": "GetChatMessages",
-    "RelativePath": "api/ChatMessages",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TicmansoWebApiV2.Context.ChatMessage, TicmansoWebApiV2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "TicmansoWebApiV2.Controllers.ChatMessagesController",
     "Method": "PostChatMessage",
     "RelativePath": "api/ChatMessages",
     "HttpMethod": "POST",
@@ -160,14 +140,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "chatMessage",
-        "Type": "TicmansoWebApiV2.Context.ChatMessage",
+        "Name": "chatMessageDTO",
+        "Type": "TicmansoV2.Shared.ChatMessageDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TicmansoWebApiV2.Context.ChatMessage",
+        "Type": "TicmansoV2.Shared.ChatMessageDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -179,21 +159,21 @@
   },
   {
     "ContainingType": "TicmansoWebApiV2.Controllers.ChatMessagesController",
-    "Method": "GetChatMessage",
-    "RelativePath": "api/ChatMessages/{id}",
+    "Method": "GetChatMessages",
+    "RelativePath": "api/ChatMessages/{ticketId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "ticketId",
         "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TicmansoWebApiV2.Context.ChatMessage",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TicmansoV2.Shared.ChatMessageDTO, TicmansoV2.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -205,40 +185,55 @@
   },
   {
     "ContainingType": "TicmansoWebApiV2.Controllers.ChatMessagesController",
-    "Method": "PutChatMessage",
-    "RelativePath": "api/ChatMessages/{id}",
-    "HttpMethod": "PUT",
+    "Method": "GetChatMessagesByGroup",
+    "RelativePath": "api/ChatMessages/group/{groupId}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "groupId",
         "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "chatMessage",
-        "Type": "TicmansoWebApiV2.Context.ChatMessage",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TicmansoV2.Shared.ChatMessageDTO, TicmansoV2.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TicmansoWebApiV2.Controllers.ChatMessagesController",
-    "Method": "DeleteChatMessage",
-    "RelativePath": "api/ChatMessages/{id}",
-    "HttpMethod": "DELETE",
+    "Method": "GetChatMessagesByUser",
+    "RelativePath": "api/ChatMessages/user/{userId}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "userId",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TicmansoV2.Shared.ChatMessageDTO, TicmansoV2.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "TicmansoWebApiV2.Controllers.CompanyController",
@@ -380,6 +375,58 @@
         "Type": "TicmansoV2.Shared.Views.GeneralViewTicketDTO",
         "MediaTypes": [
           "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TicmansoWebApiV2.Controllers.GroupController",
+    "Method": "CreateGroup",
+    "RelativePath": "api/Group",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupDTO",
+        "Type": "TicmansoV2.Shared.GroupDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicmansoV2.Shared.GroupDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TicmansoWebApiV2.Controllers.GroupController",
+    "Method": "GetGroup",
+    "RelativePath": "api/Group/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicmansoV2.Shared.GroupDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
         ],
         "StatusCode": 200
       }
@@ -586,6 +633,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicmansoWebApiV2.Controllers.Procedures.TicektsCountByStatus",
+    "Method": "GetTicketCountsByStatus",
+    "RelativePath": "api/TicektsCountByStatus/tickets/count/{supportUserId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "supportUserId",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

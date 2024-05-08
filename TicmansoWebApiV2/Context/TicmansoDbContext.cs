@@ -23,6 +23,8 @@ namespace TicmansoWebApiV2.Context
         public virtual DbSet<ChatMessage> ChatMessages { get; set; }
         public virtual DbSet<ApplicationUser> ApplicationUser { get; set; }
         public virtual DbSet<GeneralViewTicket> GeneralViewTickets { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<UserGroup> UserGroups { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
@@ -183,7 +185,21 @@ namespace TicmansoWebApiV2.Context
                     .HasMaxLength(255)
                     .IsUnicode(false);
             });
-            OnModelCreatingPartial(builder);
+
+            builder.Entity<UserGroup>(entity =>
+            {
+                entity.HasKey(ug => new { ug.UserId, ug.GroupId });
+
+                entity.HasOne(ug => ug.User)
+                    .WithMany()
+                    .HasForeignKey(ug => ug.UserId);
+
+                entity.HasOne(ug => ug.Group)
+                    .WithMany(g => g.UserGroups)
+                    .HasForeignKey(ug => ug.GroupId);
+            });
+            
+           OnModelCreatingPartial(builder);
         }
     }
 

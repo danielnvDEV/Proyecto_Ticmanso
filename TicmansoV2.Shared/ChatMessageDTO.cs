@@ -12,10 +12,8 @@ namespace TicmansoV2.Shared
         public string Content { get; set; }
         public int? TicketId { get; set; } 
         public DateTime Timestamp { get; set; }
-
         public string SenderId { get; set; }
-
         public string? ReceiverId { get; set; }
-
+        public int? GroupId { get; set; }
     }
 }

@@ -8,9 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Components\**" />
     <Compile Remove="Pages\Management\Role\**" />
+    <Content Remove="Components\**" />
     <Content Remove="Pages\Management\Role\**" />
+    <EmbeddedResource Remove="Components\**" />
     <EmbeddedResource Remove="Pages\Management\Role\**" />
+    <None Remove="Components\**" />
     <None Remove="Pages\Management\Role\**" />
   </ItemGroup>
 
@@ -44,10 +48,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TicmansoV2.Shared\TicmansoV2.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Components\" />
   </ItemGroup>
 
 </Project>

@@ -13,83 +13,87 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = TicmansoV2
 build_property.RootNamespace = TicmansoV2
-build_property.ProjectDir = C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\
+build_property.ProjectDir = \\192.168.1.100\2tb\TFG\TicmansoV2\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2
+build_property.MSBuildProjectDirectory = \\192.168.1.100\2tb\TFG\TicmansoV2
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/App.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Chats/Chat.razor]
-build_metadata.AdditionalFiles.TargetPath = Q2hhdHNcQ2hhdC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Layout/LoginLayout.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Layout/LoginLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Dashboard.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Chats/Chat.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhdHNcQ2hhdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Chats/CreateGroupDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhdHNcQ3JlYXRlR3JvdXBEaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Dashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Login.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Management/Attendance.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Management/Attendance.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxBdHRlbmRhbmNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Management/Company/Company.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Management/Company/Company.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxDb21wYW55XENvbXBhbnkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Management/Priority/Priority.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Management/Priority/Priority.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxQcmlvcml0eVxQcmlvcml0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Management/Status/Status.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Management/Status/Status.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxTdGF0dXNcU3RhdHVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Management/Tickets/MyTickets.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Management/Tickets/MyTickets.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxUaWNrZXRzXE15VGlja2V0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Management/Tickets/NewTicket.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Management/Tickets/NewTicket.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxUaWNrZXRzXE5ld1RpY2tldC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Management/Tickets/Ticket.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Management/Tickets/Ticket.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxUaWNrZXRzXFRpY2tldC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Management/Tickets/TicketTable.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Management/Tickets/TicketTable.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxUaWNrZXRzXFRpY2tldFRhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Management/Users/CreateUser.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Management/Users/CreateUser.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxVc2Vyc1xDcmVhdGVVc2VyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Management/Users/UsersTable.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Management/Users/UsersTable.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxVc2Vyc1xVc2Vyc1RhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Pages/Settings.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Pages/Settings.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/_Imports.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DanielNavacerrada/OneDrive - Provimad SL/Escritorio/TFG/TicmansoV2/Layout/MainLayout.razor]
+[//192.168.1.100/2tb/TFG/TicmansoV2/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-o1p8lr7qzi

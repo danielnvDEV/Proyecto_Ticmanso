@@ -3,9 +3,11 @@
 @using System.Security.Claims
 @using System.IdentityModel.Tokens.Jwt;
 @using TicmansoV2.Shared
+@using MudBlazor
 @inject HttpClient httpClient
 @inject IJSRuntime JSRuntime
-
+@inject IDialogService DialogService
+<MudDialogProvider/>
 <MudGrid>
     <MudItem xs="4">
         <MudPaper Elevation="0">
@@ -14,11 +16,25 @@
                 @foreach (var user in Users)
                 {
                     <MudListItem OnClick="@(() => SelectUser(user))">
-                        <MudAvatar Color="Color.Primary">@user.Name.Substring(0, 1)</MudAvatar>
-                        <MudText Typo="Typo.body1" Class="ml-3">@user.Name</MudText>
+                        <MudAvatar Color="Color.Primary">@user.UserName.Substring(0, 1)</MudAvatar>
+                        <MudText Typo="Typo.h3" Class="ml-3">@user.UserName</MudText>
                     </MudListItem>
                 }
             </MudList>
+            <MudList Clickable="true">
+                <MudListSubheader>Grupos</MudListSubheader>
+                @foreach (var group in Groups)
+                {
+                    <MudListItem OnClick="@(() => SelectGroup(group))">
+                        <MudAvatar Color="Color.Primary">@group.Name.Substring(0, 1)</MudAvatar>
+                        <MudText Typo="Typo.body1" Class="ml-3">@group.Name</MudText>
+                    </MudListItem>
+                }
+                <MudListItem>
+                    <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="OpenCreateGroupDialog" />
+                    <MudText Typo="Typo.body1" Class="ml-3">Crear nuevo grupo</MudText>
+                </MudListItem>
+            </MudList>  
         </MudPaper>
     </MudItem>
     <MudItem xs="8">
@@ -33,11 +49,11 @@
                         <MudCard Outlined="true" Class="@(message.SenderId == conectedUser ? "ml-auto" : "mr-auto")">
                             <MudCardHeader>
                                 <CardHeaderContent>
-                                    <MudText Typo="Typo.body1"><strong>@GetUserName(message.SenderId)</strong></MudText>
+                                    <MudText Typo="Typo.h5"><strong>@GetUserName(message.SenderId)</strong></MudText>
                                 </CardHeaderContent>
                             </MudCardHeader>
                             <MudCardContent>
-                                <MudText Typo="Typo.body2">@message.Content</MudText>
+                                <MudText Typo="Typo.h3">@message.Content</MudText>
                             </MudCardContent>
                         </MudCard>
                     </MudListItem>
@@ -57,6 +73,8 @@
     private List<ChatMessageDTO>? ChatMessages { get; set; } = new List<ChatMessageDTO>();
     private string? NewMessage { get; set; }
     private string? conectedUser { get; set; }
+    private List<GroupDTO> Groups { get; set; } = new List<GroupDTO>();
+    private GroupDTO SelectedGroup { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -68,20 +86,36 @@
 
         Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("https://localhost:7291/api/Users");
         SelectedUser = Users.FirstOrDefault();
-        await LoadChatMessages();
+        Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"https://localhost:7291/api/Groups/user/{conectedUser}");
+        SelectedGroup = Groups.FirstOrDefault();
+        await LoadUserChatMessages();
+        await LoadGroupChatMessages();
     }
 
-    private async Task LoadChatMessages()
+    private async Task LoadUserChatMessages()
     {
         ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"https://localhost:7291/api/ChatMessages/user/{SelectedUser.Id}");
     }
-
+    private async Task LoadGroupChatMessages()
+    {
+        ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"https://localhost:7291/api/ChatMessages/group/{SelectedGroup.Id}");
+    }
     private async void SelectUser(ApplicationUserDTO user)
     {
         SelectedUser = user;
-        await LoadChatMessages();
+        await LoadUserChatMessages();
     }
 
+    private async void SelectGroup(GroupDTO group)
+    {
+        SelectedGroup = group;
+       await LoadGroupChatMessages();
+    }
+
+    private async void LoadGroups()
+    {
+        Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"https://localhost:7291/api/Groups/user/{conectedUser}");
+    }
     private string GetUserName(string userId)
     {
         return Users.FirstOrDefault(u => u.Id == userId)?.Name ?? "Unknown";
@@ -91,18 +125,54 @@
     {
         if (!string.IsNullOrWhiteSpace(NewMessage))
         {
-            var message = new ChatMessageDTO
+            ChatMessageDTO message;
+
+            if (SelectedGroup != null)
+            {                
+                message = new ChatMessageDTO
+                {
+                    Content = NewMessage,
+                    Timestamp = DateTime.Now,
+                    SenderId = conectedUser,
+                    GroupId = SelectedGroup.Id
+                };
+            }
+            else
+            {               
+                message = new ChatMessageDTO
                 {
                     Content = NewMessage,
                     Timestamp = DateTime.Now,
                     SenderId = conectedUser,
                     ReceiverId = SelectedUser.Id
                 };
+            }
 
             var response = await httpClient.PostAsJsonAsync($"https://localhost:7291/api/ChatMessages", message);
 
             NewMessage = string.Empty;
-            await LoadChatMessages();
+
+            if (SelectedGroup != null)
+            {
+                await LoadGroupChatMessages();
+            }
+            else
+            {
+                await LoadUserChatMessages();
+            }
         }
     }
+    private async Task OpenCreateGroupDialog()
+    {
+        var dialog = DialogService.Show<CreateGroupDialog>("Crear nuevo grupo");
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            var newGroup = (GroupDTO)result.Data;
+            Groups.Add(newGroup);
+             LoadGroups();
+        }
+    }
+
 }

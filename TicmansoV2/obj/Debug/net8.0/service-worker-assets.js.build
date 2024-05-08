@@ -5,7 +5,7 @@
       "url": "css\/app.css"
     },
     {
-      "hash": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7\/p4nS6D\/0=",
+      "hash": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
       "url": "css\/bootstrap\/bootstrap.min.css"
     },
     {
@@ -1390,7 +1390,7 @@
     },
     {
       "hash": "sha256-ju0+XWE0ihz554eKEj0HQ8Opa61xpbUIaX5\/MNo8we4=",
-      "url": "_framework\/dotnet.native.8.0.4.hvfv86nc9h.js"
+      "url": "_framework\/dotnet.native.8.0.4.ok8n35cfm2.js"
     },
     {
       "hash": "sha256-U1JSgnum2OTerSq8i5Y9L17deHEWJmae0djinSPLyJM=",
@@ -1398,7 +1398,7 @@
     },
     {
       "hash": "sha256-JeVsECOqOie\/Pe89n9PJNJaMmb5vJsAAxfXY8INN64A=",
-      "url": "_framework\/dotnet.runtime.8.0.4.47a7k7tler.js"
+      "url": "_framework\/dotnet.runtime.8.0.4.zkrt7h44v1.js"
     },
     {
       "hash": "sha256-PTiaAjmGBvn5RjgRiuzlvM8zn5DlXMi7CG48Cy7tofM=",
@@ -1417,23 +1417,23 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-agD4Zt0fAitnWZ9TdzAeykt6t9zy+hd1Qrsbo3nR2zo=",
+      "hash": "sha256-F9zVw6Eo17n7xQiNaHmXasws+tZq3r7GBUiVcEOFNkY=",
       "url": "_framework\/TicmansoV2.Shared.wasm"
     },
     {
-      "hash": "sha256-QXnch2lJ\/6Q5mit4I8bqNGt7d95tHSSftIoGIxlWZz8=",
+      "hash": "sha256-NhwOr6qae6AYzseuWoLTfU+09fdOrGSfwC4lHIzGKIE=",
       "url": "_framework\/TicmansoV2.Shared.pdb"
     },
     {
-      "hash": "sha256-MgtCz8l4h30vpMroeuXoGOSGEt8ic3d4bAtPt700rjE=",
+      "hash": "sha256-dSIeGeYaN8h5M\/xMM6JEYbonDzn8oO1K17hTkDy3Wzg=",
       "url": "_framework\/TicmansoV2.wasm"
     },
     {
-      "hash": "sha256-jb4pZyN7QnFYw1tctYPQZxhdLIMwA6ZQKFaPMbqqV\/E=",
+      "hash": "sha256-CVfunts9s6NddMI3pyvFe4IWby1anj\/tePQvKfsZM+Q=",
       "url": "_framework\/TicmansoV2.pdb"
     },
     {
-      "hash": "sha256-bN7wj9d\/yrF5UwzHWf\/t+PmO6Cl4bkUV+RaI9uO19fE=",
+      "hash": "sha256-L7k9rccw9JRZwqfgsIgYsa25AY\/fTOJp88oI5w46U4Q=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1445,5 +1445,5 @@
       "url": "_content\/MudBlazor\/MudBlazor.min.js"
     }
   ],
-  "version": "yrxI73er"
+  "version": "mwcA7+y+"
 };

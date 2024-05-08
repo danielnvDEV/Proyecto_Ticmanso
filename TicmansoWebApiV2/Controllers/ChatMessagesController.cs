@@ -73,5 +73,23 @@ namespace TicmansoWebApiV2.Controllers
 
             return chatMessages;
         }
+        [HttpGet("group/{groupId}")]
+        public async Task<ActionResult<IEnumerable<ChatMessageDTO>>> GetChatMessagesByGroup(int groupId)
+        {
+            var chatMessages = await _context.ChatMessages
+                .Where(m => m.GroupId == groupId)
+                .Select(m => new ChatMessageDTO
+                {
+                    Id = m.Id,
+                    Content = m.Content,
+                    Timestamp = m.Timestamp,
+                    SenderId = m.SenderId,
+                    GroupId = m.GroupId
+                })
+                .ToListAsync();
+
+            return chatMessages;
+        }
+
     }
 }

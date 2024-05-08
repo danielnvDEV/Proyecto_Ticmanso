@@ -12,6 +12,9 @@
 
         public string? ReceiverId { get; set; }
         public ApplicationUser Receiver { get; set; }
+
+        public int? GroupId { get; set; }
+        public Group Group { get; set; }
     }
 
 }
