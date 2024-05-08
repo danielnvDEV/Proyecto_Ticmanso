@@ -145,6 +145,7 @@ namespace TicmansoWebApiV2.Context
 
                 entity.Property(e => e.Content).IsRequired();
                 entity.Property(e => e.Timestamp).IsRequired();
+                entity.Property(e=> e.TicketId);
 
                 entity.HasOne(e => e.Sender)
                     .WithMany()

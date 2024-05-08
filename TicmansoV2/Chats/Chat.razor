@@ -52,11 +52,11 @@
 </MudGrid>
 
 @code {
-    private List<ApplicationUserDTO> Users { get; set; } = new List<ApplicationUserDTO>();
-    private ApplicationUserDTO SelectedUser { get; set; }
-    private List<ChatMessageDTO> ChatMessages { get; set; } = new List<ChatMessageDTO>();
-    private string NewMessage { get; set; }
-    private string conectedUser { get; set; }
+    private List<ApplicationUserDTO>? Users { get; set; } = new List<ApplicationUserDTO>();
+    private ApplicationUserDTO? SelectedUser { get; set; }
+    private List<ChatMessageDTO>? ChatMessages { get; set; } = new List<ChatMessageDTO>();
+    private string? NewMessage { get; set; }
+    private string? conectedUser { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -76,10 +76,10 @@
         ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"https://localhost:7291/api/ChatMessages/user/{SelectedUser.Id}");
     }
 
-    private void SelectUser(ApplicationUserDTO user)
+    private async void SelectUser(ApplicationUserDTO user)
     {
         SelectedUser = user;
-        LoadChatMessages();
+        await LoadChatMessages();
     }
 
     private string GetUserName(string userId)

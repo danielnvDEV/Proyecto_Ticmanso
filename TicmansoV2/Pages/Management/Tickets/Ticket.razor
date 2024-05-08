@@ -14,7 +14,7 @@
 @inject NavigationManager NavManager
 @page "/tickets/ticket/{ticketId:int}"
 
-<PageTitle>Ticket</PageTitle>
+<PageTitle>Ticket @ticketId</PageTitle>
 <AuthorizeView>
     <Authorized Context="authContext">
         @if (ticket != null)
@@ -134,8 +134,6 @@
 
     private ApplicationUserDTO selectedAgent;
     private ApplicationUserDTO CreationUserName;
-
-    private string selectedAgentName;
     private TicketDTO ticket = new TicketDTO();
 
     private List<PriorityDTO> Priorities { get; set; } = new List<PriorityDTO>();
@@ -162,7 +160,7 @@
 
         await LoadChatMessages();
 
-        timer = new System.Timers.Timer(10000);
+        timer = new System.Timers.Timer(1000);
         timer.Elapsed += async (sender, e) =>
         {
             await InvokeAsync(async () =>
@@ -187,7 +185,6 @@
                 if (user != null)
                 {
                     selectedAgent = user;
-                    selectedAgentName = user.Name; 
                 }
             }
 

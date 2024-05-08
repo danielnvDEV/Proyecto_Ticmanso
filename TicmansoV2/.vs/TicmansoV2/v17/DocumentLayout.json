@@ -7,11 +7,30 @@
       "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:chats\\chat.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\pages\\management\\tickets\\ticket.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\management\\tickets\\ticket.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansowebapiv2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansowebapiv2\\controllers\\chatmessagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\pages\\management\\tickets\\ticket.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\management\\tickets\\ticket.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansowebapiv2\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansowebapiv2\\context\\ticmansodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D90CAB23-A192-4849-86CA-B2F89EC4C2ED}|..\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2.shared\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansowebapiv2\\context\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,8 +40,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Layout\\MainLayout.razor",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACgAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-08T11:19:01.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Program.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Program.cs",
+              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Program.cs",
+              "RelativeToolTip": "..\\TicmansoWebApiV2\\Program.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAAFkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T11:17:53.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Repositories\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Repositories\\AccountRepository.cs",
+              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Repositories\\AccountRepository.cs",
+              "RelativeToolTip": "..\\TicmansoWebApiV2\\Repositories\\AccountRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T11:16:32.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TicmansoDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Context\\TicmansoDbContext.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Context\\TicmansoDbContext.cs",
+              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Context\\TicmansoDbContext.cs",
+              "RelativeToolTip": "..\\TicmansoWebApiV2\\Context\\TicmansoDbContext.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAkwJMAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T11:15:00.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ChatMessageDTO.cs",
+              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2.Shared\\ChatMessageDTO.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoV2.Shared\\ChatMessageDTO.cs",
+              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2.Shared\\ChatMessageDTO.cs",
+              "RelativeToolTip": "..\\TicmansoV2.Shared\\ChatMessageDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T07:32:21.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ChatMessage.cs",
+              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Context\\ChatMessage.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Context\\ChatMessage.cs",
+              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Context\\ChatMessage.cs",
+              "RelativeToolTip": "..\\TicmansoWebApiV2\\Context\\ChatMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T07:31:01.812Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -31,33 +127,33 @@
               "RelativeDocumentMoniker": "Chats\\Chat.razor",
               "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Chats\\Chat.razor",
               "RelativeToolTip": "Chats\\Chat.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-07T13:28:16.458Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ChatMessagesController.cs",
               "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Controllers\\ChatMessagesController.cs",
               "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Controllers\\ChatMessagesController.cs",
               "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Controllers\\ChatMessagesController.cs",
               "RelativeToolTip": "..\\TicmansoWebApiV2\\Controllers\\ChatMessagesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEoAAAAJAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwD4AAABeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-07T13:37:56.697Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Ticket.razor",
               "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\Ticket.razor",
               "RelativeDocumentMoniker": "Pages\\Management\\Tickets\\Ticket.razor",
               "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\Ticket.razor",
               "RelativeToolTip": "Pages\\Management\\Tickets\\Ticket.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAALoAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-07T07:07:18.055Z",
               "EditorCaption": ""

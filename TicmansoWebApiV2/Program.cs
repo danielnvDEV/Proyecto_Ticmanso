@@ -11,7 +11,6 @@ using System.Text;
 using TicmansoV2.Shared;
 using TicmansoV2.Shared.Contracts;
 using TicmansoWebApiV2.Context;
-using TicmansoWebApiV2.Hubs;
 using TicmansoWebApiV2.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -95,7 +94,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseCors(MyAllowSpecificOrigins);
 
-app.MapHub<ChatHub>("/chathub");
 
 
 app.MapControllers();

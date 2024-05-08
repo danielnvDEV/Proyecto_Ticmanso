@@ -60,7 +60,7 @@ namespace TicmansoWebApiV2.Controllers
         public async Task<ActionResult<IEnumerable<ChatMessageDTO>>> GetChatMessagesByUser(string userId)
         {
             var chatMessages = await _context.ChatMessages
-                .Where(m => m.SenderId == userId || m.ReceiverId == userId)
+                .Where(m => m.SenderId == userId || m.ReceiverId == userId && m.TicketId==null)
                 .Select(m => new ChatMessageDTO
                 {
                     Id = m.Id,
