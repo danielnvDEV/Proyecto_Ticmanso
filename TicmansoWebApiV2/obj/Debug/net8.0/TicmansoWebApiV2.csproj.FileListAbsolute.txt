@@ -171,6 +171,14 @@
 \\192.168.1.100\2tb\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.pdb
 \\192.168.1.100\2tb\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.genruntimeconfig.cache
 \\192.168.1.100\2tb\TFG\TicmansoWebApiV2\obj\Debug\net8.0\ref\TicmansoWebApiV2.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.csproj.AssemblyReference.cache
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.AssemblyInfoInputs.cache
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.AssemblyInfo.cs
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.csproj.CoreCompileInputs.cache
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.sourcelink.json
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\bin\Debug\net8.0\appsettings.json
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\bin\Debug\net8.0\TicmansoWebApiV2.staticwebassets.runtime.json
@@ -322,14 +330,6 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\bin\Debug\net8.0\TicmansoV2.Shared.dll
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\bin\Debug\net8.0\TicmansoV2.Shared.pdb
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.csproj.AssemblyReference.cache
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.AssemblyInfoInputs.cache
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.AssemblyInfo.cs
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.csproj.CoreCompileInputs.cache
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.sourcelink.json
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\obj\Debug\net8.0\staticwebassets\msbuild.TicmansoWebApiV2.Microsoft.AspNetCore.StaticWebAssets.props

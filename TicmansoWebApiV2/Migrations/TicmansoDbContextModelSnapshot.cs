@@ -281,7 +281,6 @@ namespace TicmansoWebApiV2.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ReceiverId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("SenderId")
@@ -605,8 +604,7 @@ namespace TicmansoWebApiV2.Migrations
                     b.HasOne("TicmansoWebApiV2.Context.ApplicationUser", "Receiver")
                         .WithMany()
                         .HasForeignKey("ReceiverId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("TicmansoWebApiV2.Context.ApplicationUser", "Sender")
                         .WithMany()

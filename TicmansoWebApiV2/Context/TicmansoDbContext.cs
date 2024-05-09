@@ -157,8 +157,7 @@ namespace TicmansoWebApiV2.Context
 
                 entity.HasOne(e => e.Receiver)
                     .WithMany()
-                    .HasForeignKey(e => e.ReceiverId)
-                    .IsRequired()
+                    .HasForeignKey(e => e.ReceiverId)                   
                     .OnDelete(DeleteBehavior.Restrict);
             });
 
@@ -188,6 +187,7 @@ namespace TicmansoWebApiV2.Context
 
             builder.Entity<UserGroup>(entity =>
             {
+
                 entity.HasKey(ug => new { ug.UserId, ug.GroupId });
 
                 entity.HasOne(ug => ug.User)
@@ -198,7 +198,12 @@ namespace TicmansoWebApiV2.Context
                     .WithMany(g => g.UserGroups)
                     .HasForeignKey(ug => ug.GroupId);
             });
-            
+
+            builder.Entity<Group>(entity => {
+                entity.Property(e => e.Name).IsRequired();
+                entity.Property(e => e.Description);
+                entity.Property(e => e.CreatedAt);
+            });
            OnModelCreatingPartial(builder);
         }
     }

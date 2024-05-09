@@ -17,7 +17,7 @@
                 {
                     <MudListItem OnClick="@(() => SelectUser(user))">
                         <MudAvatar Color="Color.Primary">@user.UserName.Substring(0, 1)</MudAvatar>
-                        <MudText Typo="Typo.h3" Class="ml-3">@user.UserName</MudText>
+                        <MudText Typo="Typo.body1" Class="ml-3">@user.UserName</MudText>
                     </MudListItem>
                 }
             </MudList>
@@ -42,18 +42,18 @@
             <MudToolBar>
                 <MudText Typo="Typo.h6">Conversación con @SelectedUser.Name</MudText>
             </MudToolBar>
-            <MudList Style="height: 400px; overflow-y: scroll;">
+            <MudList Style="height: 700px; overflow-y: scroll;">
                 @foreach (var message in ChatMessages)
                 {
                     <MudListItem>
                         <MudCard Outlined="true" Class="@(message.SenderId == conectedUser ? "ml-auto" : "mr-auto")">
                             <MudCardHeader>
                                 <CardHeaderContent>
-                                    <MudText Typo="Typo.h5"><strong>@GetUserName(message.SenderId)</strong></MudText>
+                                    <MudText Typo="Typo.body1"><strong>@GetUserName(message.SenderId)</strong></MudText>
                                 </CardHeaderContent>
                             </MudCardHeader>
                             <MudCardContent>
-                                <MudText Typo="Typo.h3">@message.Content</MudText>
+                                <MudText Typo="Typo.body1">@message.Content</MudText>
                             </MudCardContent>
                         </MudCard>
                     </MudListItem>
@@ -86,7 +86,7 @@
 
         Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("https://localhost:7291/api/Users");
         SelectedUser = Users.FirstOrDefault();
-        Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"https://localhost:7291/api/Groups/user/{conectedUser}");
+        Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"https://localhost:7291/api/Group/user/{conectedUser}");
         SelectedGroup = Groups.FirstOrDefault();
         await LoadUserChatMessages();
         await LoadGroupChatMessages();
@@ -118,7 +118,7 @@
     }
     private string GetUserName(string userId)
     {
-        return Users.FirstOrDefault(u => u.Id == userId)?.Name ?? "Unknown";
+        return Users.FirstOrDefault(u => u.Id == userId)?.Email ?? "Unknown";
     }
 
     private async Task SendMessage()

@@ -56,14 +56,14 @@
     private double? departureLatitude;
     private double? departureLongitude;
     private int d;
-    private double? latitude;
-    private double? longitude;
+    private double latitude;
+    private double longitude;
 
     protected override async Task OnInitializedAsync()
     {
         await GetUserId();
         await LoadAttendance();
-        //await GetLocation();
+        await GetLocation();
     }
 
     private async Task GetUserId()
@@ -117,8 +117,8 @@
             Date = currentDate,
             EntryTime = DateTime.Now,
             UserId = userId,
-            // EntryLatitude = latitude,
-            // EntryLongitude = longitude
+             EntryLatitude = latitude,
+             EntryLongitude = longitude
         };
 
         var response = await HttpClient.PostAsJsonAsync("https://localhost:7291/api/Attendances", attendance);
@@ -157,8 +157,8 @@
             EntryTime = entryTime,
             DepartureTime = DateTime.Now,
             UserId = userId,
-            // DepartureLatitude = Latitude,
-            // DepartureLongitude = Longitude
+             DepartureLatitude = latitude,
+             DepartureLongitude = longitude
         };
 
         var response = await HttpClient.PutAsJsonAsync($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}", attendance);
@@ -167,21 +167,21 @@
             departureTime = attendance.DepartureTime;
         }
     }
-    // private async Task GetLocation()
-    // {
-    //     var location = await JSRuntime.InvokeAsync<GeolocationResult>("getLocation");
-    //     latitude = location.Coords.Latitude;
-    //     longitude = location.Coords.Longitude;
-    // }
+    private async Task GetLocation()
+    {
+        var location = await JSRuntime.InvokeAsync<GeolocationResult>("getLocation");
+        latitude = location.Coords.Latitude;
+        longitude = location.Coords.Longitude;
+    }
 
-    // private class GeolocationResult
-    // {
-    //     public GeolocationCoordinates Coords { get; set; }
-    // }
+    private class GeolocationResult
+    {
+        public GeolocationCoordinates Coords { get; set; }
+    }
 
-    // private class GeolocationCoordinates
-    // {
-    //     public double Latitude { get; set; }
-    //     public double Longitude { get; set; }
-    // }
+    private class GeolocationCoordinates
+    {
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+    }
 }

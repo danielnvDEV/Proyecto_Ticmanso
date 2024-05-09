@@ -3,6 +3,7 @@
 @using System.IdentityModel.Tokens.Jwt;
 @using TicmansoV2.Shared
 @using MudBlazor
+@inject ISnackbar Snackbar
 @inject HttpClient httpClient
 @inject IJSRuntime JSRuntime
 @inject IDialogService DialogService
@@ -12,7 +13,8 @@
         <MudText Typo="Typo.h6">Crear nuevo grupo</MudText>
     </TitleContent>
     <DialogContent>
-        <MudTextField @bind-Value="GroupName" Label="Nombre del grupo" />
+        <MudTextField Required @bind-Value="GroupName" Label="Nombre del grupo" />
+        <MudTextField Required @bind-Value="GroupDescription" Label="Descripcion del grupo" />
         <MudSelect T="string" MultiSelection="true" SelectedValues="SelectedUserIds" SelectedValuesChanged="OnSelectedValuesChanged" Label="Usuarios">
             @foreach (var user in Users)
             {
@@ -32,6 +34,9 @@
     [Parameter] public List<ApplicationUserDTO> Users { get; set; }
 
     private string GroupName { get; set; }
+    private string GroupDescription { get; set; }
+
+    
     private IEnumerable<ApplicationUserDTO> SelectedUsers { get; set; } = new List<ApplicationUserDTO>();
     private List<string> SelectedUserIds { get; set; } = new List<string>();
 
@@ -54,18 +59,20 @@
         var newGroup = new GroupDTO
         {
             Name = GroupName,
+            Description = GroupDescription,
+            CreatedAt = DateTime.Now,
             UserGroups = SelectedUsers.Select(u => new UserGroupDTO { UserId = u.Id }).ToList()
         };
 
-        var response = await httpClient.PostAsJsonAsync("https://localhost:7291/api/Groups", newGroup);
+        var response = await httpClient.PostAsJsonAsync("https://localhost:7291/api/Group", newGroup);
 
         if (response.IsSuccessStatusCode)
         {
             MudDialog.Close(DialogResult.Ok(newGroup));
         }
         else
-        {
-            // Manejar el error de creación del grupo
+        {           
+            Snackbar.Add($"Error al crear el grupo", Severity.Error);
         }
     }
 }

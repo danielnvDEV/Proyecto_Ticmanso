@@ -48,7 +48,8 @@ namespace TicmansoWebApiV2.Controllers
                 Content = chatMessageDTO.Content,
                 Timestamp = chatMessageDTO.Timestamp,
                 SenderId = chatMessageDTO.SenderId,
-                ReceiverId = chatMessageDTO.ReceiverId
+                ReceiverId = chatMessageDTO.ReceiverId,
+                GroupId = chatMessageDTO.GroupId
             };
 
             _context.ChatMessages.Add(chatMessage);
@@ -67,7 +68,8 @@ namespace TicmansoWebApiV2.Controllers
                     Content = m.Content,
                     Timestamp = m.Timestamp,
                     SenderId = m.SenderId,
-                    ReceiverId = m.ReceiverId
+                    ReceiverId = m.ReceiverId,
+                    GroupId = m.GroupId
                 })
                 .ToListAsync();
 

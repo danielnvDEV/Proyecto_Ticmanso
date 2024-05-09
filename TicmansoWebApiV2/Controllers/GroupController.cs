@@ -16,28 +16,47 @@ namespace TicmansoWebApiV2.Controllers
         {
             _context = context;
         }
-
         [HttpPost]
-        public async Task<ActionResult<GroupDTO>> CreateGroup(GroupDTO groupDTO)
+        public async Task<ActionResult<GroupDTO>> PostGroup(GroupDTO groupDTO)
         {
             var group = new Group
             {
                 Name = groupDTO.Name,
-                UserGroups = groupDTO.UserGroups.Select(ug => new UserGroup { UserId = ug.UserId }).ToList()
+                Description = groupDTO.Description,
+                CreatedAt = DateTime.UtcNow,
             };
 
             _context.Groups.Add(group);
+            await _context.SaveChangesAsync();
+
+            foreach (var userGroupDTO in groupDTO.UserGroups)
+            {
+                var userGroup = new UserGroup
+                {
+                    UserId = userGroupDTO.UserId,
+                    GroupId = group.Id
+                };
+                _context.UserGroups.Add(userGroup);
+            }
+
             await _context.SaveChangesAsync();
 
             var createdGroupDTO = new GroupDTO
             {
                 Id = group.Id,
                 Name = group.Name,
-                UserGroups = group.UserGroups.Select(ug => new UserGroupDTO { UserId = ug.UserId }).ToList()
+                Description = group.Description,
+                CreatedAt = DateTime.UtcNow,
+                UserGroups = group.UserGroups.Select(ug => new UserGroupDTO
+                {
+                    UserId = ug.UserId,
+                    GroupId = ug.GroupId
+                }).ToList()
             };
 
             return CreatedAtAction(nameof(GetGroup), new { id = group.Id }, createdGroupDTO);
         }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<GroupDTO>> GetGroup(int id)
         {
@@ -63,6 +82,26 @@ namespace TicmansoWebApiV2.Controllers
 
             return groupDTO;
         }
+
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<IEnumerable<GroupDTO>>> GetGroupsByUser(string userId)
+        {
+            var groups = await _context.Groups
+                .Where(g => g.UserGroups.Any(ug => ug.UserId == userId))
+                .Select(g => new GroupDTO
+                {
+                    Id = g.Id,
+                    Name = g.Name,
+                    UserGroups = g.UserGroups.Select(ug => new UserGroupDTO
+                    {
+                        UserId = ug.UserId,                      
+                    }).ToList()
+                })
+                .ToListAsync();
+
+            return groups;
+        }
+
 
     }
 }
