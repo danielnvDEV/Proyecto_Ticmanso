@@ -37,7 +37,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL3") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 

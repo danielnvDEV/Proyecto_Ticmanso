@@ -63,7 +63,7 @@
     {
         await GetUserId();
         await LoadAttendance();
-        await GetLocation();
+       // await GetLocation();
     }
 
     private async Task GetUserId()
@@ -117,8 +117,8 @@
             Date = currentDate,
             EntryTime = DateTime.Now,
             UserId = userId,
-             EntryLatitude = latitude,
-             EntryLongitude = longitude
+             // EntryLatitude = latitude,
+             // EntryLongitude = longitude
         };
 
         var response = await HttpClient.PostAsJsonAsync("https://localhost:7291/api/Attendances", attendance);
@@ -128,13 +128,10 @@
         }
         else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
         {
-            // Manejar el caso de un registro de asistencia duplicado
-            // Puedes mostrar un mensaje de error o realizar alguna acción específica
             Console.WriteLine("Ya existe un registro de asistencia para la fecha y el usuario especificados.");
         }
         else
         {
-            // Manejar otros errores de la API si es necesario
             Console.WriteLine("Error al crear el registro de asistencia.");
         }
     }
@@ -157,8 +154,8 @@
             EntryTime = entryTime,
             DepartureTime = DateTime.Now,
             UserId = userId,
-             DepartureLatitude = latitude,
-             DepartureLongitude = longitude
+             // DepartureLatitude = latitude,
+             // DepartureLongitude = longitude
         };
 
         var response = await HttpClient.PutAsJsonAsync($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}", attendance);
@@ -167,21 +164,21 @@
             departureTime = attendance.DepartureTime;
         }
     }
-    private async Task GetLocation()
-    {
-        var location = await JSRuntime.InvokeAsync<GeolocationResult>("getLocation");
-        latitude = location.Coords.Latitude;
-        longitude = location.Coords.Longitude;
-    }
+    // private async Task GetLocation()
+    // {
+    //     var location = await JSRuntime.InvokeAsync<GeolocationResult>("getLocation");
+    //     latitude = location.Coords.Latitude;
+    //     longitude = location.Coords.Longitude;
+    // }
 
-    private class GeolocationResult
-    {
-        public GeolocationCoordinates Coords { get; set; }
-    }
+    // private class GeolocationResult
+    // {
+    //     public GeolocationCoordinates Coords { get; set; }
+    // }
 
-    private class GeolocationCoordinates
-    {
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-    }
+    // private class GeolocationCoordinates
+    // {
+    //     public double Latitude { get; set; }
+    //     public double Longitude { get; set; }
+    // }
 }

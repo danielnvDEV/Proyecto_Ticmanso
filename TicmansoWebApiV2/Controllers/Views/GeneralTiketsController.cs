@@ -32,6 +32,7 @@ namespace TicmansoWebApiV2.Controllers.Views
                     Tittle = t.Title,
                     Description = t.Description,
                     CreationUser = t.CreationUser.Name,
+                    SuportUser = t.SupportUser.Name,
                     Status = t.Status.Name,
                     Priority = t.Priority.Name,
 
@@ -51,6 +52,7 @@ namespace TicmansoWebApiV2.Controllers.Views
                     Tittle = t.Title,
                     Description = t.Description,
                     CreationUser = t.CreationUser.Name,
+                    SuportUser = t.SupportUser.Name,
                     Status = t.Status.Name,
                     Priority = t.Priority.Name,
 

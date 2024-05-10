@@ -17,7 +17,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddMudServices();
 builder.Services.AddOptions();
-builder.Services.AddSingleton<ChatClient>();
+
 
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddAuthorizationCore();

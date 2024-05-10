@@ -7,7 +7,6 @@
 @inject HttpClient httpClient
 @inject IJSRuntime JSRuntime
 @inject IDialogService DialogService
-<MudDialogProvider/>
 <MudGrid>
     <MudItem xs="4">
         <MudPaper Elevation="0">
@@ -42,7 +41,7 @@
             <MudToolBar>
                 <MudText Typo="Typo.h6">Conversación con @SelectedUser.Name</MudText>
             </MudToolBar>
-            <MudList Style="height: 700px; overflow-y: scroll;">
+            <MudList Style="height: 500px; overflow-y: scroll;">
                 @foreach (var message in ChatMessages)
                 {
                     <MudListItem>

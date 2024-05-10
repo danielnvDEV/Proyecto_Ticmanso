@@ -7,14 +7,13 @@
 @inject HttpClient httpClient
 @inject IJSRuntime JSRuntime
 @inject IDialogService DialogService
-<MudDialogProvider/>
 <MudDialog>
     <TitleContent>
         <MudText Typo="Typo.h6">Crear nuevo grupo</MudText>
     </TitleContent>
     <DialogContent>
         <MudTextField Required @bind-Value="GroupName" Label="Nombre del grupo" />
-        <MudTextField Required @bind-Value="GroupDescription" Label="Descripcion del grupo" />
+        <MudTextField Required @bind-Value="GroupDescription" Label="Descripción del grupo" />
         <MudSelect T="string" MultiSelection="true" SelectedValues="SelectedUserIds" SelectedValuesChanged="OnSelectedValuesChanged" Label="Usuarios">
             @foreach (var user in Users)
             {

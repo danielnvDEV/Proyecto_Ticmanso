@@ -1381,7 +1381,7 @@
       "url": "_framework\/System.Private.CoreLib.wasm"
     },
     {
-      "hash": "sha256-XRJbbIo8kGIKeCz+wbs1aiCrjY5+TWBOyy4soMDhBRE=",
+      "hash": "sha256-6hqQRh\/r01YYgXvaxjXcMTG\/7mSmBpETScEQRjoYU4k=",
       "url": "_framework\/dotnet.js"
     },
     {
@@ -1390,7 +1390,7 @@
     },
     {
       "hash": "sha256-ju0+XWE0ihz554eKEj0HQ8Opa61xpbUIaX5\/MNo8we4=",
-      "url": "_framework\/dotnet.native.8.0.4.hvfv86nc9h.js"
+      "url": "_framework\/dotnet.native.8.0.4.exu8s7go9d.js"
     },
     {
       "hash": "sha256-U1JSgnum2OTerSq8i5Y9L17deHEWJmae0djinSPLyJM=",
@@ -1398,7 +1398,7 @@
     },
     {
       "hash": "sha256-JeVsECOqOie\/Pe89n9PJNJaMmb5vJsAAxfXY8INN64A=",
-      "url": "_framework\/dotnet.runtime.8.0.4.47a7k7tler.js"
+      "url": "_framework\/dotnet.runtime.8.0.4.ej2gbh8z8t.js"
     },
     {
       "hash": "sha256-PTiaAjmGBvn5RjgRiuzlvM8zn5DlXMi7CG48Cy7tofM=",
@@ -1417,23 +1417,23 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-FrsOLKtZc8trfEu4Xy6tL4weoDa9fjPrn+Jycyu8sls=",
+      "hash": "sha256-GbKUVxPixR6qpFsA+NC+SM4A3b6XqPnXMY5iQkB\/n2o=",
       "url": "_framework\/TicmansoV2.Shared.wasm"
     },
     {
-      "hash": "sha256-pkPTqLsTGXSBA\/ROTXa1s+8ILh0X4mEc+zuZftPDAIE=",
+      "hash": "sha256-2XlDY3q4EhY4\/S7+OZlGHkcCRudpT42GRXarygCsGtA=",
       "url": "_framework\/TicmansoV2.Shared.pdb"
     },
     {
-      "hash": "sha256-oJAGQLmo\/ewhSYzVWkZohjCXlzeHHBAs3+XXDazF4HI=",
+      "hash": "sha256-wBA\/ZObQ4EGZDTjLoRx4EMzJUtrT3mMOrShs7QXT7Qs=",
       "url": "_framework\/TicmansoV2.wasm"
     },
     {
-      "hash": "sha256-b17W5i9hlBPkrTA2ZVFRzJmQK4uvKkhltWH8SnmtiQc=",
+      "hash": "sha256-tuWwgndenwT7VWE6ohmfRNog5eLWIn8pwgNAjIRbTmg=",
       "url": "_framework\/TicmansoV2.pdb"
     },
     {
-      "hash": "sha256-+EasksOhl2eLi1O4KSHO7J76C122W0tiQUvtBt7u220=",
+      "hash": "sha256-T1L8MnqXRpUldk0nE0Q8I7dY5N6nDC7K7DtytAV28bk=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1445,5 +1445,5 @@
       "url": "_content\/MudBlazor\/MudBlazor.min.js"
     }
   ],
-  "version": "Qu\/nZB+j"
+  "version": "1xUexZW+"
 };

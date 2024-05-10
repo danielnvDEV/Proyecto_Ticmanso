@@ -1,21 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\",
+  "WorkspaceRootPath": "C:\\TFG\\TicmansoV2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\pages\\management\\attendance.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\management\\attendance.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\wwwroot\\geolocationinterop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:wwwroot\\geolocationinterop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D90CAB23-A192-4849-86CA-B2F89EC4C2ED}|..\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2.shared\\attendancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\tfg\\ticmansov2\\pages\\management\\tickets\\tickettable.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\management\\tickets\\tickettable.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,58 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\index.html",
-              "RelativeDocumentMoniker": "wwwroot\\index.html",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\index.html",
-              "RelativeToolTip": "wwwroot\\index.html",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-05-09T14:33:39.756Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "geolocationInterop.js",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\geolocationInterop.js",
-              "RelativeDocumentMoniker": "wwwroot\\geolocationInterop.js",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\geolocationInterop.js",
-              "RelativeToolTip": "wwwroot\\geolocationInterop.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-05-09T14:33:23.068Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AttendanceDTO.cs",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2.Shared\\AttendanceDTO.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoV2.Shared\\AttendanceDTO.cs",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2.Shared\\AttendanceDTO.cs",
-              "RelativeToolTip": "..\\TicmansoV2.Shared\\AttendanceDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T14:29:49.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Attendance.razor",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Pages\\Management\\Attendance.razor",
-              "RelativeDocumentMoniker": "Pages\\Management\\Attendance.razor",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Pages\\Management\\Attendance.razor",
-              "RelativeToolTip": "Pages\\Management\\Attendance.razor",
-              "ViewState": "AQIAAJ8AAAAAAAAAAAAAAE8AAAALAAAA",
+              "Title": "TicketTable.razor",
+              "DocumentMoniker": "C:\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\TicketTable.razor",
+              "RelativeDocumentMoniker": "Pages\\Management\\Tickets\\TicketTable.razor",
+              "ToolTip": "C:\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\TicketTable.razor",
+              "RelativeToolTip": "Pages\\Management\\Tickets\\TicketTable.razor",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAADEAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-09T14:29:04.3Z",
+              "WhenOpened": "2024-05-10T07:47:52.55Z",
               "EditorCaption": ""
             }
           ]

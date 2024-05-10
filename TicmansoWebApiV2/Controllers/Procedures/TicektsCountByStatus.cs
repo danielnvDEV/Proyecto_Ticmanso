@@ -12,7 +12,8 @@ namespace TicmansoWebApiV2.Controllers.Procedures
         [HttpGet("tickets/count/{supportUserId}")]
         public IActionResult GetTicketCountsByStatus(string supportUserId)
         {
-            using (var connection = new SqlConnection("Server=DESKTOP-LUFTS9G;DataBase=TicmansoPRO;Persist Security Info=True;User ID=BlazorAdmin;Password=m#Ilw8g35p>FJ&0;"))
+            //using (var connection = new SqlConnection("Server=DESKTOP-LUFTS9G;DataBase=TicmansoPRO;Persist Security Info=True;User ID=BlazorAdmin;Password=m#Ilw8g35p>FJ&0;"))
+            using (var connection = new SqlConnection("Server=88.12.73.60,1433;DataBase=TicmansoV2;Persist Security Info=True;User ID=BlazorAdmin;Password=m#Ilw8g35p>FJ&0;"))
             {
                 connection.Open();
                 using (var command = new SqlCommand("sp_CountTicketsByStatusAndSupportUser", connection))
