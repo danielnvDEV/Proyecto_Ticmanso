@@ -37,3 +37,16 @@ C:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\TicmansoV2.Shared.dll
 C:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\refint\TicmansoV2.Shared.dll
 C:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\TicmansoV2.Shared.pdb
 C:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\ref\TicmansoV2.Shared.dll
+Y:\TFG\TicmansoV2.Shared\bin\Debug\net8.0\TicmansoV2.Shared.deps.json
+Y:\TFG\TicmansoV2.Shared\bin\Debug\net8.0\TicmansoV2.Shared.dll
+Y:\TFG\TicmansoV2.Shared\bin\Debug\net8.0\TicmansoV2.Shared.pdb
+Y:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\TicmansoV2.Shared.csproj.AssemblyReference.cache
+Y:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\TicmansoV2.Shared.GeneratedMSBuildEditorConfig.editorconfig
+Y:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\TicmansoV2.Shared.AssemblyInfoInputs.cache
+Y:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\TicmansoV2.Shared.AssemblyInfo.cs
+Y:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\TicmansoV2.Shared.csproj.CoreCompileInputs.cache
+Y:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\TicmansoV2.Shared.sourcelink.json
+Y:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\TicmansoV2.Shared.dll
+Y:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\refint\TicmansoV2.Shared.dll
+Y:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\TicmansoV2.Shared.pdb
+Y:\TFG\TicmansoV2.Shared\obj\Debug\net8.0\ref\TicmansoV2.Shared.dll

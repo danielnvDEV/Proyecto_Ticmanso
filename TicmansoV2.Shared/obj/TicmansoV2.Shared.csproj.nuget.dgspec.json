@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {}
+    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {}
   },
   "projects": {
-    "C:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
+    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
+        "projectUniqueName": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
         "projectName": "TicmansoV2.Shared",
-        "projectPath": "C:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
-        "packagesPath": "C:\\Users\\DANI\\.nuget\\packages\\",
-        "outputPath": "C:\\TFG\\TicmansoV2.Shared\\obj\\",
+        "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
+        "packagesPath": "C:\\Users\\dani\\.nuget\\packages\\",
+        "outputPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DANI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

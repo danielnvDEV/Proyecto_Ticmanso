@@ -21,7 +21,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
        policy =>
        {
-           policy.WithOrigins("http://localhost:7174", "https://localhost:7291", "http://localhost:5001")
+           policy.WithOrigins("https://localhost:7174", "https://localhost:7291", "http://localhost:5001")
+
                  .AllowAnyHeader()
                  .AllowAnyOrigin()
                  .AllowAnyMethod();
@@ -79,21 +80,28 @@ builder.Services.AddScoped<IUserAccount, AccountRepository>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-
-}
-
 app.UseHttpsRedirection();
-
+app.UseSwagger();
+app.UseSwaggerUI(options=>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json","Production");
+    options.RoutePrefix = string.Empty;
+});
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseCors(MyAllowSpecificOrigins);
 
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path=="/") 
+    {
+        context.Response.Redirect("/swagger/index.html");
+        return;
+    }
+    await next();
+});
 
 
 app.MapControllers();

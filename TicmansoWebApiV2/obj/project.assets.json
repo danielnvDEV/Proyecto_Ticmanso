@@ -7166,19 +7166,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DANI\\.nuget\\packages\\": {}
+    "C:\\Users\\dani\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\TFG\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj",
+      "projectUniqueName": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj",
       "projectName": "TicmansoWebApiV2",
-      "projectPath": "C:\\TFG\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj",
-      "packagesPath": "C:\\Users\\DANI\\.nuget\\packages\\",
-      "outputPath": "C:\\TFG\\TicmansoWebApiV2\\obj\\",
+      "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj",
+      "packagesPath": "C:\\Users\\dani\\.nuget\\packages\\",
+      "outputPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoWebApiV2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DANI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7192,8 +7192,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
-              "projectPath": "C:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj"
+            "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
+              "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj"
             }
           }
         }

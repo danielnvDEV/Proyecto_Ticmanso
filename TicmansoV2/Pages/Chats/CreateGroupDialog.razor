@@ -68,6 +68,7 @@
         if (response.IsSuccessStatusCode)
         {
             MudDialog.Close(DialogResult.Ok(newGroup));
+             Snackbar.Add($"El grupo se ha creado correctamente", Severity.Success);
         }
         else
         {           

@@ -37,7 +37,7 @@ namespace TicmansoV2.Services
         public async Task<LoginResponse> LoginAccount(LoginDTO loginDTO)
         {
             var response = await httpClient
-               .PostAsync($"https://localhost:7291/api/Account/login",
+               .PostAsync($"https://localhost:5000/api/Account/login",
                Generics.GenerateStringContent(
                Generics.SerializeObj(loginDTO)));
 

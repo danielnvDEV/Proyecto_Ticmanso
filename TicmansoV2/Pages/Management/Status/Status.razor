@@ -74,7 +74,7 @@
     private async Task LoadStatuses()
     {
         loading = true;
-        statuses = await HttpClient.GetFromJsonAsync<List<StatusDTO>>("https://localhost:7291/api/Status");
+        statuses = await HttpClient.GetFromJsonAsync<List<StatusDTO>>("https://localhost:5000/api/Status");
         loading = false;
     }
 
@@ -87,7 +87,7 @@
 
     private async Task OpenEditForm(int id)
     {
-        status = await HttpClient.GetFromJsonAsync<StatusDTO>($"https://localhost:7291/api/Status/{id}");
+        status = await HttpClient.GetFromJsonAsync<StatusDTO>($"https://localhost:5000/api/Status/{id}");
 
         editingStatusId = id;
         showForm = true;
@@ -102,12 +102,12 @@
     {
         if (editingStatusId == 0)
         {
-            await HttpClient.PostAsJsonAsync("https://localhost:7291/api/Status", status);
+            await HttpClient.PostAsJsonAsync("https://localhost:5000/api/Status", status);
             Snackbar.Add("Status creado", Severity.Success);
         }
         else
         {
-            await HttpClient.PutAsJsonAsync($"https://localhost:7291/api/Status/{editingStatusId}", status);
+            await HttpClient.PutAsJsonAsync($"https://localhost:5000/api/Status/{editingStatusId}", status);
             Snackbar.Add("Status actualizado", Severity.Info);
         }
 
@@ -117,7 +117,7 @@
 
     private async Task DeleteStatus(int id)
     {
-        await HttpClient.DeleteAsync($"https://localhost:7291/api/Status/{id}");
+        await HttpClient.DeleteAsync($"https://localhost:5000/api/Status/{id}");
         Snackbar.Add("Status eliminado", Severity.Warning);
         await LoadStatuses();
     }
