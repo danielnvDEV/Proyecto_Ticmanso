@@ -150,13 +150,13 @@
         var claims = jwtToken.Claims;
         conectedUser = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
-        ticket = await httpClient.GetFromJsonAsync<TicketDTO>($"https://localhost:7291/api/Tickets/{ticketId}");
+        ticket = await httpClient.GetFromJsonAsync<TicketDTO>($"http://localhost:5000/api/Tickets/{ticketId}");
 
-        Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("https://localhost:7291/api/Status");
+        Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("http://localhost:5000/api/Status");
 
-        Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("https://localhost:7291/api/Priority");
+        Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("http://localhost:5000/api/Priority");
 
-        User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("https://localhost:7291/api/Users");
+        User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("http://localhost:5000/api/Users");
 
         await LoadChatMessages();
 
@@ -173,15 +173,15 @@
 
         if (ticket != null)
         {
-            CreationUserName = await httpClient.GetFromJsonAsync<ApplicationUserDTO>($"https://localhost:7291/api/Users/{ticket.CreationUserId}");
+            CreationUserName = await httpClient.GetFromJsonAsync<ApplicationUserDTO>($"http://localhost:5000/api/Users/{ticket.CreationUserId}");
 
-            var priority = await httpClient.GetFromJsonAsync<PriorityDTO>($"https://localhost:7291/api/Priority/{ticket.PriorityId}");
+            var priority = await httpClient.GetFromJsonAsync<PriorityDTO>($"http://localhost:5000/api/Priority/{ticket.PriorityId}");
 
-            var status = await httpClient.GetFromJsonAsync<StatusDTO>($"https://localhost:7291/api/Status/{ticket.StatusId}");
+            var status = await httpClient.GetFromJsonAsync<StatusDTO>($"http://localhost:5000/api/Status/{ticket.StatusId}");
 
             if (ticket.SupportUserId != null)
             {
-                var user = await httpClient.GetFromJsonAsync<ApplicationUserDTO>($"https://localhost:7291/api/Users/{ticket.SupportUserId}");
+                var user = await httpClient.GetFromJsonAsync<ApplicationUserDTO>($"http://localhost:5000/api/Users/{ticket.SupportUserId}");
                 if (user != null)
                 {
                     selectedAgent = user;
@@ -213,7 +213,7 @@
         ticket.PriorityId = Priorities.FirstOrDefault(p => p.Name == selectedPriority)?.Id ?? ticket.PriorityId;
         ticket.SupportUserId = selectedAgent?.Id;
 
-        var response = await httpClient.PutAsJsonAsync($"https://localhost:7291/api/Tickets/{ticketId}", ticket);
+        var response = await httpClient.PutAsJsonAsync($"http://localhost:5000/api/Tickets/{ticketId}", ticket);
 
         if (response.IsSuccessStatusCode)
         {
@@ -231,7 +231,7 @@
 
     private async Task LoadChatMessages()
     {
-        ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"https://localhost:7291/api/ChatMessages/{ticketId}");
+        ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"http://localhost:5000/api/ChatMessages/{ticketId}");
     }
 
     private string GetUserName(string userId)
@@ -263,7 +263,7 @@
                     TicketId = ticketId
                 };
 
-            var response = await httpClient.PostAsJsonAsync($"https://localhost:7291/api/ChatMessages", message);
+            var response = await httpClient.PostAsJsonAsync($"http://localhost:5000/api/ChatMessages", message);
 
                 NewMessage = string.Empty;
 

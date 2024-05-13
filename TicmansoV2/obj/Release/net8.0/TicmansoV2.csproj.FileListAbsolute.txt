@@ -1740,6 +1740,7 @@ Y:\TFG\TicmansoV2\obj\Release\net8.0\TicmansoV2.pdb
 Y:\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Azure.Core.wasm
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Azure.Identity.wasm
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\blazor.boot.json
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\blazor.webassembly.js
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Blazored.LocalStorage.wasm
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\cs\Microsoft.CodeAnalysis.CSharp.resources.wasm
@@ -2066,6 +2067,10 @@ Y:\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Xml.XmlSerializer.wasm
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Xml.XPath.wasm
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Xml.XPath.XDocument.wasm
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\TicmansoV2.pdb
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\TicmansoV2.Shared.pdb
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\TicmansoV2.Shared.wasm
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\TicmansoV2.wasm
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\tr\Microsoft.CodeAnalysis.CSharp.resources.wasm
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.wasm
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\tr\Microsoft.CodeAnalysis.resources.wasm
@@ -2079,23 +2084,9 @@ Y:\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.wasm
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\zh-Hant\Microsoft.CodeAnalysis.resources.wasm
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.wasm
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\icudt_EFIGS.dat.gz
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\icudt_CJK.dat.gz
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.js.map.gz
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\blazor.webassembly.js.gz
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.native.wasm.gz
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.runtime.js.map.gz
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.js.gz
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\icudt_no_CJK.dat.gz
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.runtime.8.0.4.ogva3chynz.js.gz
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.native.8.0.4.rkw194kvb3.js.gz
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\blazor.boot.json
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\TicmansoV2.pdb
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\TicmansoV2.Shared.pdb
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\TicmansoV2.Shared.wasm
-\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\TicmansoV2.wasm
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Drawing.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.Extensions.Diagnostics.wasm.gz
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\icudt_EFIGS.dat.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Resources.Writer.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Net.ServicePoint.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Http.Features.wasm.gz
@@ -2104,6 +2095,7 @@ Y:\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Drawing.Common.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.AspNetCore.SignalR.Common.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\MudBlazor.wasm.gz
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\icudt_CJK.dat.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Net.NameResolution.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Forms.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.Extensions.Features.wasm.gz
@@ -2187,6 +2179,7 @@ Y:\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.IO.FileSystem.Watcher.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.Extensions.Identity.Stores.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.AspNetCore.SignalR.Protocols.Json.wasm.gz
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.js.map.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Windows.Extensions.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Transactions.Local.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\cs\Microsoft.CodeAnalysis.CSharp.resources.wasm.gz
@@ -2200,6 +2193,8 @@ Y:\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\es\Microsoft.CodeAnalysis.Workspaces.resources.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Diagnostics.Contracts.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Authentication.Abstractions.wasm.gz
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\blazor.webassembly.js.gz
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.native.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Configuration.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.CodeAnalysis.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Web.wasm.gz
@@ -2288,6 +2283,7 @@ Y:\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Xml.XmlSerializer.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Threading.Tasks.Parallel.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Core.wasm.gz
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.runtime.js.map.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.WebAssembly.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Numerics.Vectors.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.wasm.gz
@@ -2295,6 +2291,8 @@ Y:\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\ko\Microsoft.CodeAnalysis.CSharp.resources.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.Net.Http.Headers.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\TicmansoV2.wasm.gz
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.js.gz
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\icudt_no_CJK.dat.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Diagnostics.Tools.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Security.Cryptography.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.Extensions.DependencyModel.wasm.gz
@@ -2317,6 +2315,7 @@ Y:\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.CodeDom.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.ComponentModel.TypeConverter.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Threading.Tasks.wasm.gz
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.runtime.8.0.4.ogva3chynz.js.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.IO.Pipelines.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Mono.TextTemplating.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.Composition.AttributedModel.wasm.gz
@@ -2351,6 +2350,7 @@ Y:\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.Win32.SystemEvents.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.Extensions.DependencyInjection.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.IdentityModel.Tokens.wasm.gz
+\\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\dotnet.native.8.0.4.rkw194kvb3.js.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\System.IO.Compression.Brotli.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.AspNetCore.SignalR.Client.Core.wasm.gz
 \\192.168.1.100\2tb\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Cryptography.KeyDerivation.wasm.gz

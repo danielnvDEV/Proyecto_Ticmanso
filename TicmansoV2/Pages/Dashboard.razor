@@ -17,20 +17,21 @@
 <AuthorizeView Roles="User">
     <Authorized >
         <h1 class="d-flex justify-content-center mt-10">Bienvenido @context.User.Identity.Name!</h1>
-            <MudContainer class="d-flex justify-content-center">   
-                <a href="/myTickets">
-                    <MudCard Class="pa-4">
-                        <MudIcon Icon="@Icons.Material.Filled.ListAlt" Class="mr-3" />
-                        Ver todos los tickets
-                    </MudCard>
-                </a>
-                <a href="/management/tickets/newTicket">
-                    <MudCard Class="pa-4">
-                        <MudIcon Icon="@Icons.Material.Filled.Edit" Class="mr-3" />
-                        Enviar un ticket
-                    </MudCard>
-                </a>
-            </MudContainer>                
+        <MudContainer class="DshBrdContainer d-flex justify-content-center">
+            <MudButton xs="12" sm="6" Class="pa-4" href="/myTickets"
+                       Style="box-shadow: 0 4px 6px rgba(100, 147, 181, 1), 0 1px 2px rgba(100, 147, 181, 0.5);">
+                <MudIcon Icon="@Icons.Material.Filled.ListAlt" Class="mr-3" />
+                Ver todos los tickets
+            </MudButton>
+
+            <div class="DashBoardSpacer"></div>
+
+            <MudButton xs="12" sm="6" Class="pa-4" href="/management/tickets/newTicket"
+                       Style="box-shadow: 0 4px 6px rgba(100, 147, 181, 1), 0 1px 2px rgba(100, 147, 181, 0.5);">
+                <MudIcon Icon="@Icons.Material.Filled.Edit" Class="mr-3" />
+                Enviar un ticket
+            </MudButton>
+        </MudContainer>
     </Authorized>
 </AuthorizeView>
 <AuthorizeView Roles="Admin">
@@ -132,7 +133,7 @@
     {
         using (var client = new HttpClient())
         {
-            var response = await client.GetAsync($"https://localhost:7291/api/TicektsCountByStatus/tickets/count/{supportUserId}");
+            var response = await client.GetAsync($"http://localhost:5000/api/TicektsCountByStatus/tickets/count/{supportUserId}");
 
             if (response.IsSuccessStatusCode)
             {

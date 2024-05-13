@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TicmansoV2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c0a2c3c81a1347390ef6c4885bb4fe4ab268f2d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52ec7a7314dd8b721a8912f987c2e16cdbd9cc9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("TicmansoV2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TicmansoV2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

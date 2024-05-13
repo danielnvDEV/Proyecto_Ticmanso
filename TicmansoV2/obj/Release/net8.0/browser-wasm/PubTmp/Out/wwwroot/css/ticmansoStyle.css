@@ -1,0 +1,32 @@
+﻿.loginGrid {
+    height: 100vh;
+    margin-top: 10vh;
+    padding-top: 10vh;
+}
+
+.loginLogo {
+    margin-left: auto;
+    height: 50px;
+    width: 150px;
+}
+
+.LoginCard {
+    border-radius: 1rem;
+    border-color: darkgrey;
+}
+
+.DshBrdContainer {
+    margin-top: 10vh;
+    padding-top: 10vh;
+}
+
+div.DashBoardSpacer {
+    /*    height:4vh;
+    width:5vh;*/
+    margin: 2vh;
+}
+
+.MLAppBar {
+    color: red;
+    background-color: rebeccapurple;
+}

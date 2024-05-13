@@ -83,9 +83,9 @@
         var claims = jwtToken.Claims;
         conectedUser = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
-        Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("https://localhost:7291/api/Users");
+        Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("http://localhost:5000/api/Users");
         SelectedUser = Users.FirstOrDefault();
-        Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"https://localhost:7291/api/Group/user/{conectedUser}");
+        Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"http://localhost:5000/api/Group/user/{conectedUser}");
         SelectedGroup = Groups.FirstOrDefault();
         await LoadUserChatMessages();
         await LoadGroupChatMessages();
@@ -93,11 +93,11 @@
 
     private async Task LoadUserChatMessages()
     {
-        ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"https://localhost:7291/api/ChatMessages/user/{SelectedUser.Id}");
+        ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"http://localhost:5000/api/ChatMessages/user/{SelectedUser.Id}");
     }
     private async Task LoadGroupChatMessages()
     {
-        ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"https://localhost:7291/api/ChatMessages/group/{SelectedGroup.Id}");
+        ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"http://localhost:5000/api/ChatMessages/group/{SelectedGroup.Id}");
     }
     private async void SelectUser(ApplicationUserDTO user)
     {
@@ -113,7 +113,7 @@
 
     private async void LoadGroups()
     {
-        Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"https://localhost:7291/api/Groups/user/{conectedUser}");
+        Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"http://localhost:5000/api/Groups/user/{conectedUser}");
     }
     private string GetUserName(string userId)
     {
@@ -147,7 +147,7 @@
                 };
             }
 
-            var response = await httpClient.PostAsJsonAsync($"https://localhost:7291/api/ChatMessages", message);
+            var response = await httpClient.PostAsJsonAsync($"http://localhost:5000/api/ChatMessages", message);
 
             NewMessage = string.Empty;
 

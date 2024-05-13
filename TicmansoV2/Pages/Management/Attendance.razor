@@ -79,7 +79,7 @@
     {
         try
         {
-            var response = await HttpClient.GetAsync($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}");
+            var response = await HttpClient.GetAsync($"http://localhost:5000/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}");
 
             if (response.IsSuccessStatusCode)
             {
@@ -121,7 +121,7 @@
              // EntryLongitude = longitude
         };
 
-        var response = await HttpClient.PostAsJsonAsync("https://localhost:7291/api/Attendances", attendance);
+        var response = await HttpClient.PostAsJsonAsync("http://localhost:5000/api/Attendances", attendance);
         if (response.IsSuccessStatusCode)
         {
             entryTime = attendance.EntryTime;
@@ -139,7 +139,7 @@
     private async Task EndWorkday()
     {
 
-         var responseDATE = await HttpClient.GetFromJsonAsync<AttendanceDTO>($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}");
+         var responseDATE = await HttpClient.GetFromJsonAsync<AttendanceDTO>($"http://localhost:5000/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}");
 
                 if (responseDATE != null)
                 {                  
@@ -158,7 +158,7 @@
              // DepartureLongitude = longitude
         };
 
-        var response = await HttpClient.PutAsJsonAsync($"https://localhost:7291/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}", attendance);
+        var response = await HttpClient.PutAsJsonAsync($"http://localhost:5000/api/Attendances/{currentDate:yyyy-MM-dd}/{userId}", attendance);
         if (response.IsSuccessStatusCode)
         {
             departureTime = attendance.DepartureTime;

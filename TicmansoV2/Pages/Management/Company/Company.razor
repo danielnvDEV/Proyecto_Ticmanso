@@ -84,7 +84,7 @@
     private async Task LoadCompanies()
     {
         loading = true;
-        companies = await HttpClient.GetFromJsonAsync<List<CompanyDTO>>("https://localhost:7291/api/Company");
+        companies = await HttpClient.GetFromJsonAsync<List<CompanyDTO>>("http://localhost:5000/api/Company");
         loading = false;
     }
 
@@ -97,7 +97,7 @@
 
     private async Task OpenEditForm(long id)
     {
-        company = await HttpClient.GetFromJsonAsync<CompanyDTO>($"https://localhost:7291/api/Company/{id}");
+        company = await HttpClient.GetFromJsonAsync<CompanyDTO>($"http://localhost:5000/api/Company/{id}");
         editingCompanyId = id;
         showForm = true;
     }
@@ -111,12 +111,12 @@
     {
         if (editingCompanyId == 0)
         {
-            await HttpClient.PostAsJsonAsync("https://localhost:7291/api/Company", company);
+            await HttpClient.PostAsJsonAsync("http://localhost:5000/api/Company", company);
             Snackbar.Add("Company created", Severity.Success);
         }
         else
         {
-            await HttpClient.PutAsJsonAsync($"https://localhost:7291/api/Company/{editingCompanyId}", company);
+            await HttpClient.PutAsJsonAsync($"http://localhost:5000/api/Company/{editingCompanyId}", company);
             Snackbar.Add("Company updated", Severity.Info);
         }
 
@@ -126,7 +126,7 @@
 
     private async Task DeleteCompany(int id)
     {
-        await HttpClient.DeleteAsync($"https://localhost:7291/api/Company/{id}");
+        await HttpClient.DeleteAsync($"http://localhost:5000/api/Company/{id}");
         Snackbar.Add("Company deleted", Severity.Warning);
         await LoadCompanies();
     }

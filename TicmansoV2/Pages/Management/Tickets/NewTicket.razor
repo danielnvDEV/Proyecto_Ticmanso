@@ -59,8 +59,8 @@
         userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
 
-        priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("https://localhost:7291/api/Priority");
-        statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("https://localhost:7291/api/Status");
+        priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("http://localhost:5000/api/Priority");
+        statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("http://localhost:5000/api/Status");
     }
 
 
@@ -74,7 +74,7 @@
 
         try
         {
-            var response = await httpClient.PostAsJsonAsync("https://localhost:7291/api/Tickets", ticket);
+            var response = await httpClient.PostAsJsonAsync("http://localhost:5000/api/Tickets", ticket);
 
             if (response.IsSuccessStatusCode)
             {

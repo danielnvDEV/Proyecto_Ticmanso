@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\TicmansoV2.csproj": {}
+    "Y:\\TFG\\TicmansoV2\\TicmansoV2.csproj": {}
   },
   "projects": {
-    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
+    "Y:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
+        "projectUniqueName": "Y:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
         "projectName": "TicmansoV2.Shared",
-        "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
+        "projectPath": "Y:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
         "packagesPath": "C:\\Users\\dani\\.nuget\\packages\\",
-        "outputPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\obj\\",
+        "outputPath": "Y:\\TFG\\TicmansoV2.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -74,14 +74,14 @@
         }
       }
     },
-    "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\TicmansoV2.csproj": {
+    "Y:\\TFG\\TicmansoV2\\TicmansoV2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\TicmansoV2.csproj",
+        "projectUniqueName": "Y:\\TFG\\TicmansoV2\\TicmansoV2.csproj",
         "projectName": "TicmansoV2",
-        "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\TicmansoV2.csproj",
+        "projectPath": "Y:\\TFG\\TicmansoV2\\TicmansoV2.csproj",
         "packagesPath": "C:\\Users\\dani\\.nuget\\packages\\",
-        "outputPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2\\obj\\",
+        "outputPath": "Y:\\TFG\\TicmansoV2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -98,8 +98,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
-                "projectPath": "\\\\192.168.1.100\\2tb\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj"
+              "Y:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
+                "projectPath": "Y:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj"
               }
             }
           }

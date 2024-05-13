@@ -20,7 +20,7 @@ namespace TicmansoV2.Services
         public async Task<GeneralResponse> CreateAccount(ApplicationUserDTO userDTO)
         {
             var response = await httpClient
-                 .PostAsync($"https://localhost:7291/api/Account/register",
+                 .PostAsync($"http://localhost:5000/api/Account/register",
                  Generics.GenerateStringContent(
                  Generics.SerializeObj(userDTO)));
 
@@ -37,7 +37,7 @@ namespace TicmansoV2.Services
         public async Task<LoginResponse> LoginAccount(LoginDTO loginDTO)
         {
             var response = await httpClient
-               .PostAsync($"https://localhost:5000/api/Account/login",
+               .PostAsync($"http://localhost:5000/api/Account/login",
                Generics.GenerateStringContent(
                Generics.SerializeObj(loginDTO)));
 
