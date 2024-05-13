@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< Updated upstream
   "Hash": "RbL1rjEW807qcIDyRpmX0LDHDkwWWYd0vmlaBGGWPbo=",
+=======
+  "Hash": "r5L+7F9TBIDfW1DPhqSmDyTi56BmUEU0iJK2N3l4gZI=",
+>>>>>>> Stashed changes
   "Source": "TicmansoV2",
   "BasePath": "/",
   "Mode": "Root",
@@ -13355,7 +13359,30 @@
       "OriginalItemSpec": "wwwroot\\css\\MudBlazor.min.css"
     },
     {
+<<<<<<< Updated upstream
       "Identity": "C:\\TFG\\TicmansoV2\\wwwroot\\favicon.png",
+=======
+      "Identity": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\css\\ticmansoStyle.css",
+      "SourceId": "TicmansoV2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/ticmansoStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ticmansoStyle.css"
+    },
+    {
+      "Identity": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\favicon.png",
+>>>>>>> Stashed changes
       "SourceId": "TicmansoV2",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\TFG\\TicmansoV2\\wwwroot\\",
@@ -13450,7 +13477,49 @@
       "OriginalItemSpec": "wwwroot\\images\\error404.png"
     },
     {
+<<<<<<< Updated upstream
       "Identity": "C:\\TFG\\TicmansoV2\\wwwroot\\index.html",
+=======
+      "Identity": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\images\\logo_cuadrado.png",
+      "SourceId": "TicmansoV2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/logo_cuadrado.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo_cuadrado.png"
+    },
+    {
+      "Identity": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\images\\logo_rectangulo.png",
+      "SourceId": "TicmansoV2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/logo_rectangulo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo_rectangulo.png"
+    },
+    {
+      "Identity": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\index.html",
+>>>>>>> Stashed changes
       "SourceId": "TicmansoV2",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\TFG\\TicmansoV2\\wwwroot\\",

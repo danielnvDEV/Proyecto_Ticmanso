@@ -1,7 +1,7 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-JOZWd9XYwDyrwjSB0PVTcc602GisYED21qQUCSMlGtI=",
+      "hash": "sha256-vHrcTP44gClUFoW+kxbaO\/r3KTmbMf3w70NsuNBxJvM=",
       "url": "css\/app.css"
     },
     {
@@ -15,6 +15,10 @@
     {
       "hash": "sha256-WgU9uYgRI8YpZfGRojHc4DTcl8Jer\/r8ceo9c2VuA\/Q=",
       "url": "css\/MudBlazor.min.css"
+    },
+    {
+      "hash": "sha256-lIAXQvfkdOhi+9ezEgntpTNZWPiNKp9lEMMnMxhynQE=",
+      "url": "css\/ticmansoStyle.css"
     },
     {
       "hash": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=",
@@ -37,7 +41,15 @@
       "url": "images\/error404.png"
     },
     {
-      "hash": "sha256-46zrs0ESYPV4M8sukQofmv4gCBphcLOs6P0XUvRuBs4=",
+      "hash": "sha256-b8Uhu5ymrNB4Z5jO83aEUVYqI\/h2kDVLuW\/U\/704+FU=",
+      "url": "images\/logo_cuadrado.png"
+    },
+    {
+      "hash": "sha256-+NFa3o2P5jjXoFj\/klbH77QVqfUfKSqdcZwtIo\/5ERU=",
+      "url": "images\/logo_rectangulo.png"
+    },
+    {
+      "hash": "sha256-\/bS7XAmptJzCdk+Jf+PhTT4sgS6jNhC4RTTZmLXjscs=",
       "url": "index.html"
     },
     {
@@ -1425,6 +1437,7 @@
       "url": "_framework\/TicmansoV2.Shared.pdb"
     },
     {
+<<<<<<< Updated upstream
       "hash": "sha256-wBA\/ZObQ4EGZDTjLoRx4EMzJUtrT3mMOrShs7QXT7Qs=",
       "url": "_framework\/TicmansoV2.wasm"
     },
@@ -1434,6 +1447,17 @@
     },
     {
       "hash": "sha256-T1L8MnqXRpUldk0nE0Q8I7dY5N6nDC7K7DtytAV28bk=",
+=======
+      "hash": "sha256-XhiGMD2oHr2q86f637daf3Ubg7MmSTZ41F3WoDDHtlo=",
+      "url": "_framework\/TicmansoV2.wasm"
+    },
+    {
+      "hash": "sha256-SHK17bGG7JUzbWCRvRTMnJTumSpIHEDfGkPpyF6Fcgk=",
+      "url": "_framework\/TicmansoV2.pdb"
+    },
+    {
+      "hash": "sha256-bvUjKCfjkAdpklqNZpNsOL8KTAGQXbQJwAMX1nwUtvw=",
+>>>>>>> Stashed changes
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1445,5 +1469,9 @@
       "url": "_content\/MudBlazor\/MudBlazor.min.js"
     }
   ],
+<<<<<<< Updated upstream
   "version": "1xUexZW+"
+=======
+  "version": "zbbpqiiq"
+>>>>>>> Stashed changes
 };

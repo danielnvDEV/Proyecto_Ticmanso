@@ -37,7 +37,15 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+<<<<<<< Updated upstream
       "Id": "C:\\TFG\\TicmansoV2\\wwwroot\\favicon.png",
+=======
+      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\css\\ticmansoStyle.css",
+      "PackagePath": "staticwebassets\\css\\ticmansoStyle.css"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\favicon.png",
+>>>>>>> Stashed changes
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
@@ -57,7 +65,19 @@
       "PackagePath": "staticwebassets\\images\\error404.png"
     },
     {
+<<<<<<< Updated upstream
       "Id": "C:\\TFG\\TicmansoV2\\wwwroot\\index.html",
+=======
+      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\images\\logo_cuadrado.png",
+      "PackagePath": "staticwebassets\\images\\logo_cuadrado.png"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\images\\logo_rectangulo.png",
+      "PackagePath": "staticwebassets\\images\\logo_rectangulo.png"
+    },
+    {
+      "Id": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\index.html",
+>>>>>>> Stashed changes
       "PackagePath": "staticwebassets\\index.html"
     },
     {

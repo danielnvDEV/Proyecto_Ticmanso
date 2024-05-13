@@ -16,13 +16,15 @@
 <PageTitle>Login</PageTitle>
 
 <MudContainer>
-    <MudGrid>
-        <MudItem xs="12" sm="6">
-            <EditForm Enhance Model="User" OnValidSubmit="HandleLogin">
+    <MudGrid Justify="Justify.Center" AlignContent="AlignContent.Center" Class="loginGrid d-flex">
+        <MudItem xs="12" sm="6" >
+            <EditForm Enhance Model="User" OnValidSubmit="HandleLogin" Class="LoginItem">
                 <DataAnnotationsValidator />
-                <MudCard>
+                <MudCard Square="false" Class="LoginCard rounded-lg" 
+                    Style="box-shadow: 0 4px 6px rgba(100, 147, 181, 1), 0 1px 3px rgba(100, 147, 181, 0.5);">
                     <MudCardHeader>
-                        <MudText Typo="Typo.h6">Login An Account</MudText>
+                        <MudText Typo="Typo.h6">Login</MudText>
+                        <MudImage Src="images/logo_rectangulo.png" Class="loginLogo"></MudImage>
                     </MudCardHeader>
                     <MudCardContent>
                         <MudTextField @bind-Value="User.Email"
@@ -36,7 +38,7 @@
                                       InputType="InputType.Password" />
                     </MudCardContent>
                     <MudCardActions>
-                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Login</MudButton>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Entrar</MudButton>
                     </MudCardActions>
                 </MudCard>
             </EditForm>
