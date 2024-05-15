@@ -70,13 +70,13 @@
     private async Task LoadUsers()
     {
         loading = true;
-        users = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("http://localhost:5000/api/Users");
+        users = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
         loading = false;
     }
 
     private async Task DeleteUser(ApplicationUserDTO user)
     {
-        var result = await HttpClient.DeleteAsync($"http://localhost:5000/api/Users/{user.Id}");
+        var result = await HttpClient.DeleteAsync($"api/Users/{user.Id}");
         if (result.IsSuccessStatusCode)
         {
             Snackbar.Add("Usuario eliminado correctamente", Severity.Success);
@@ -95,7 +95,7 @@
     }
     private async Task HandleValidSubmit()
     {
-        var result = await HttpClient.PutAsJsonAsync($"http://localhost:5000/api/Users/{selectedUser.Id}", selectedUser);
+        var result = await HttpClient.PutAsJsonAsync($"api/Users/{selectedUser.Id}", selectedUser);
         if (result.IsSuccessStatusCode)
         {
             Snackbar.Add("Usuario actualizado correctamente", Severity.Success);

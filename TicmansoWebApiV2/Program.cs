@@ -82,26 +82,26 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 app.UseSwagger();
-app.UseSwaggerUI(options=>
-{
-    options.SwaggerEndpoint("/swagger/v1/swagger.json","Production");
-    options.RoutePrefix = string.Empty;
-});
+app.UseSwaggerUI();/* options=>*/
+//{
+//    options.SwaggerEndpoint("/swagger/v1/swagger.json","Production");
+//    options.RoutePrefix = string.Empty;
+//});
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseCors(MyAllowSpecificOrigins);
 
-app.Use(async (context, next) =>
-{
-    if (context.Request.Path=="/") 
-    {
-        context.Response.Redirect("/swagger/index.html");
-        return;
-    }
-    await next();
-});
+//app.Use(async (context, next) =>
+//{
+//    if (context.Request.Path=="/") 
+//    {
+//        context.Response.Redirect("/swagger/index.html");
+//        return;
+//    }
+//    await next();
+//});
 
 
 app.MapControllers();

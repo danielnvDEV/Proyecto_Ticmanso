@@ -41,7 +41,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("http://localhost:5000/api/Users");
+        Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
     }
     private void Cancel()
     {
@@ -63,7 +63,7 @@
             UserGroups = SelectedUsers.Select(u => new UserGroupDTO { UserId = u.Id }).ToList()
         };
 
-        var response = await httpClient.PostAsJsonAsync("http://localhost:5000/api/Group", newGroup);
+        var response = await httpClient.PostAsJsonAsync("api/Group", newGroup);
 
         if (response.IsSuccessStatusCode)
         {

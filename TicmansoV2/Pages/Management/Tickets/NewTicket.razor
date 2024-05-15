@@ -58,9 +58,15 @@
         var claims = jwtToken.Claims;
         userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
-
-        priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("http://localhost:5000/api/Priority");
-        statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("http://localhost:5000/api/Status");
+        try
+        {
+            priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
+            statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
+        }
+        catch (HttpRequestException ex)
+        {
+            Snackbar.Add($"error de conecxión al cargar la información  : {ex.Message}", Severity.Error);
+        }
     }
 
 
@@ -74,22 +80,22 @@
 
         try
         {
-            var response = await httpClient.PostAsJsonAsync("http://localhost:5000/api/Tickets", ticket);
+            var response = await httpClient.PostAsJsonAsync("api/Tickets", ticket);
 
             if (response.IsSuccessStatusCode)
             {
-                Snackbar.Add("ticket create successfully!", Severity.Success);
+                Snackbar.Add("ticket creado satisfactoriamente!", Severity.Success);
 
             }
             else
             {
                 string errorMessage = await response.Content.ReadAsStringAsync();
-                Snackbar.Add($"create failed: {errorMessage}", Severity.Error);
+                Snackbar.Add($"no se ha podido crear el ticket: {errorMessage}", Severity.Error);
             }
         }
         catch (HttpRequestException ex)
         {
-            Snackbar.Add($"Error contacting the server: {ex.Message}", Severity.Error);
+            Snackbar.Add($"error de conecxión : {ex.Message}", Severity.Error);
         }
     }
 }

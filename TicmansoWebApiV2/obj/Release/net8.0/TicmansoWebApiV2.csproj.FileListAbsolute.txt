@@ -172,8 +172,8 @@
 \\192.168.1.100\2tb\TFG\TicmansoWebApiV2\obj\Release\net8.0\TicmansoWebApiV2.genruntimeconfig.cache
 \\192.168.1.100\2tb\TFG\TicmansoWebApiV2\obj\Release\net8.0\ref\TicmansoWebApiV2.dll
 Y:\TFG\TicmansoWebApiV2\bin\Release\net8.0\appsettings.Development.json
-Y:\TFG\TicmansoWebApiV2\bin\Release\net8.0\TicmansoWebApiV2.staticwebassets.runtime.json
 Y:\TFG\TicmansoWebApiV2\bin\Release\net8.0\appsettings.json
+Y:\TFG\TicmansoWebApiV2\bin\Release\net8.0\TicmansoWebApiV2.staticwebassets.runtime.json
 Y:\TFG\TicmansoWebApiV2\bin\Release\net8.0\TicmansoWebApiV2.exe
 Y:\TFG\TicmansoWebApiV2\bin\Release\net8.0\TicmansoWebApiV2.deps.json
 Y:\TFG\TicmansoWebApiV2\bin\Release\net8.0\TicmansoWebApiV2.runtimeconfig.json

@@ -69,7 +69,7 @@
     private async Task LoadPriorities()
     {
         loading = true;
-        priorities = await HttpClient.GetFromJsonAsync<List<PriorityDTO>>("http://localhost:5000/api/Priority");
+        priorities = await HttpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
         loading = false;
     }
 
@@ -82,7 +82,7 @@
 
     private async Task OpenEditForm(long id)
     {
-        priority = await HttpClient.GetFromJsonAsync<PriorityDTO>($"http://localhost:5000/api/Priority/{id}");
+        priority = await HttpClient.GetFromJsonAsync<PriorityDTO>($"api/Priority/{id}");
         editingPriorityId = id;
         showForm = true;
     }
@@ -96,12 +96,12 @@
     {
         if (editingPriorityId == 0)
         {
-            await HttpClient.PostAsJsonAsync("http://localhost:5000/api/Priority", priority);
+            await HttpClient.PostAsJsonAsync("api/Priority", priority);
             Snackbar.Add("Priority creado", Severity.Success);
         }
         else
         {
-            await HttpClient.PutAsJsonAsync($"http://localhost:5000/api/Priority/{editingPriorityId}", priority);
+            await HttpClient.PutAsJsonAsync($"api/Priority/{editingPriorityId}", priority);
             Snackbar.Add("Priority actualizado", Severity.Info);
         }
 
@@ -111,7 +111,7 @@
 
     private async Task DeletePriority(long id)
     {
-        await HttpClient.DeleteAsync($"http://localhost:5000/api/Priority/{id}");
+        await HttpClient.DeleteAsync($"api/Priority/{id}");
         Snackbar.Add("Priority eliminado", Severity.Warning);
         await LoadPriorities();
     }

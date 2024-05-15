@@ -72,9 +72,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>("http://localhost:5000/api/GeneralTikets");
+        ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>("api/GeneralTikets");
 
-        User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("http://localhost:5000/api/Users");
+        User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
 
     }
 

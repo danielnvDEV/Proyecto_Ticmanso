@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GfaIdXfdj+C63MemB+Yqq0xW57ez0jJDmnBdU5rz8dg=",
+  "Hash": "Wl4U3fuBYvF6OFpdgA3H1XhmsdUj9bucj7+TyPH6ThQ=",
   "Source": "TicmansoV2",
   "BasePath": "/",
   "Mode": "Root",
@@ -10674,6 +10674,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\logo_rectangulo.png"
+    },
+    {
+      "Identity": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\Thumbs.db",
+      "SourceId": "TicmansoV2",
+      "SourceType": "Discovered",
+      "ContentRoot": "Y:\\TFG\\TicmansoV2\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/Thumbs.db",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Thumbs.db"
     },
     {
       "Identity": "Y:\\TFG\\TicmansoV2\\wwwroot\\index.html",

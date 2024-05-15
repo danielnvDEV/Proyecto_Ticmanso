@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\icon-512.png"
     },
     {
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\Thumbs.db",
+      "PackagePath": "staticwebassets\\images\\Thumbs.db"
+    },
+    {
       "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\error404.png",
       "PackagePath": "staticwebassets\\images\\error404.png"
     },

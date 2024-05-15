@@ -133,7 +133,7 @@
     {
         using (var client = new HttpClient())
         {
-            var response = await client.GetAsync($"http://localhost:5000/api/TicektsCountByStatus/tickets/count/{supportUserId}");
+            var response = await client.GetAsync($"api/TicektsCountByStatus/tickets/count/{supportUserId}");
 
             if (response.IsSuccessStatusCode)
             {
