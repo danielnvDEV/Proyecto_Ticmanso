@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
        policy =>
        {
-           policy.WithOrigins("https://localhost:7174", "http://localhost:5000", "http://localhost:5001")
+           policy.WithOrigins("https://localhost:7174", "http://localhost:5000", "http://localhost:7291/api", "https://localhost:7174/teams-chat ")
 
                  .AllowAnyHeader()
                  .AllowAnyOrigin()
@@ -38,7 +38,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL3") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 

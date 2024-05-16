@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TicmansoWebApiV2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fe2f21ef62ee5df0ea67657e43007d40cd3ba3c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c33f40bad267094504f8a11b5207ef7c0bdcf6a")]
 [assembly: System.Reflection.AssemblyProductAttribute("TicmansoWebApiV2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TicmansoWebApiV2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

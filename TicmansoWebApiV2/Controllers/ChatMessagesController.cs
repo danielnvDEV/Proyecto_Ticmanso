@@ -39,6 +39,7 @@ namespace TicmansoWebApiV2.Controllers
         }
 
         // POST: api/ChatMessages
+        
         [HttpPost]
         public async Task<ActionResult<ChatMessageDTO>> PostChatMessage(ChatMessageDTO chatMessageDTO)
         {
@@ -54,8 +55,21 @@ namespace TicmansoWebApiV2.Controllers
 
             _context.ChatMessages.Add(chatMessage);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetChatMessagesByTicketId", new { ticketId = chatMessage.TicketId }, chatMessageDTO);
+            if (chatMessage.TicketId != null) {
+                return CreatedAtAction("GetChatMessagesByTicketId", new { ticketId = chatMessage.TicketId }, chatMessageDTO);
+            }
+            else
+                return CreatedAtAction("GetChatMessages", new { id = chatMessage.Id }, new ChatMessageDTO
+                {
+                    Id = chatMessage.Id,
+                    TicketId = chatMessage.TicketId,
+                    Content = chatMessage.Content,
+                    Timestamp = chatMessage.Timestamp,
+                    SenderId = chatMessage.SenderId,
+                    ReceiverId = chatMessage.ReceiverId,
+                    GroupId=chatMessage.GroupId
+                });
+            
         }
         [HttpGet("user/{userId}")]
         public async Task<ActionResult<IEnumerable<ChatMessageDTO>>> GetChatMessagesByUser(string userId)

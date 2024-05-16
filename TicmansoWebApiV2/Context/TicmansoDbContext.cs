@@ -159,6 +159,7 @@ namespace TicmansoWebApiV2.Context
                     .WithMany()
                     .HasForeignKey(e => e.ReceiverId)                   
                     .OnDelete(DeleteBehavior.Restrict);
+                entity.Property(e => e.GroupId);
             });
 
             builder.Entity<GeneralViewTicket>(entity =>

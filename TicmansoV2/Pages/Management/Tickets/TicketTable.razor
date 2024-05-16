@@ -79,9 +79,9 @@
                         <MudText><b>Usuario</b></MudText>
                         <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="filterCriteria.CreationUser">
                             <MudSelectItem Value="@((string)null)"></MudSelectItem>
-                            @foreach (var priority in User)
+                            @foreach (var user in User)
                             {
-                                <MudSelectItem Value="@priority.Name" />
+                                <MudSelectItem Value="@user.Name" />
                             }
                         </MudSelect>
                     </MudCardContent>

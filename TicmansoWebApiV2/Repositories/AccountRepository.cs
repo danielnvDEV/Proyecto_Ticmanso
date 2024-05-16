@@ -29,7 +29,7 @@ namespace TicmansoWebApiV2.Repositories
             var createUser = await userManager.CreateAsync(newUser!, userDTO.PasswordHash);
             if (!createUser.Succeeded) return new GeneralResponse(false, "Error occured.. please try again");
 
-            //Assign Default Role : Admin to first registrar; rest is user
+            
             var checkAdmin = await roleManager.FindByNameAsync("Admin");
             if (checkAdmin is null)
             {
