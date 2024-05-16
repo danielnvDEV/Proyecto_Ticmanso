@@ -10,24 +10,24 @@
 @inject ISnackbar Snackbar
 @inject NavigationManager NavManager
 @attribute [Authorize]
-<PageTitle>Administrar company</PageTitle>
+<PageTitle>Administrar compañias</PageTitle>
 <AuthorizeView Roles="Admin">
     <Authorized Context="authContext">
         <MudTable Items="@companies" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Info">
             <ToolBarContent>
-                <MudText Typo="Typo.h6">Companies</MudText>
+                <MudText Typo="Typo.h6">Compañias</MudText>
                 <MudSpacer />
                 <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" OnClick="OpenCreateForm">Create Company</MudButton>
             </ToolBarContent>
             <HeaderContent>
                 <MudTh>Id</MudTh>
-                <MudTh>Name</MudTh>
-                <MudTh>Country</MudTh>
-                <MudTh>Address</MudTh>
-                <MudTh>Postal Code</MudTh>
-                <MudTh>City</MudTh>
+                <MudTh>Nombre</MudTh>
+                <MudTh>Municipio</MudTh>
+                <MudTh>Dirección</MudTh>
+                <MudTh>Código Postal</MudTh>
+                <MudTh>Ciudad</MudTh>
                 <MudTh>CIF</MudTh>
-                <MudTh>Actions</MudTh>
+                <MudTh>Acciones</MudTh>
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="Id">@context.Id</MudTd>
@@ -46,21 +46,21 @@
 
         <MudDialog @bind-IsVisible="showForm">
             <TitleContent>
-                <MudText Typo="Typo.h6">@(editingCompanyId == 0 ? "Create Company" : "Edit Company")</MudText>
+                <MudText Typo="Typo.h6">@(editingCompanyId == 0 ? "Crear compañia" : "Editar compañia")</MudText>
             </TitleContent>
             <DialogContent>
                 <MudForm Model="@company" @ref="form">
-                    <MudTextField @bind-Value="company.Name" Label="Name" Required="true" RequiredError="Name is required" />
-                    <MudTextField @bind-Value="company.Country" Label="Country" Required="true" RequiredError="Country is required" />
-                    <MudTextField @bind-Value="company.Address" Label="Address" Required="true" RequiredError="Address is required" />
-                    <MudTextField @bind-Value="company.PostalCode" Label="Postal Code" Required="true" RequiredError="Postal Code is required" />
-                    <MudTextField @bind-Value="company.City" Label="City" Required="true" RequiredError="City is required" />
-                    <MudTextField @bind-Value="company.Cif" Label="CIF" Required="true" RequiredError="CIF is required" />
+                    <MudTextField @bind-Value="company.Name" Label="Name" Required="true" RequiredError="Nombre requerido" />
+                    <MudTextField @bind-Value="company.Country" Label="Country" Required="true" RequiredError="Municipio requerido" />
+                    <MudTextField @bind-Value="company.Address" Label="Address" Required="true" RequiredError="Dirección requerida" />
+                    <MudTextField @bind-Value="company.PostalCode" Label="Postal Code" Required="true" RequiredError="Codigo postal requerido" />
+                    <MudTextField @bind-Value="company.City" Label="City" Required="true" RequiredError="Ciudad requerida" />
+                    <MudTextField @bind-Value="company.Cif" Label="CIF" Required="true" RequiredError="CIF requerido" />
                 </MudForm>
             </DialogContent>
             <DialogActions>
-                <MudButton OnClick="CloseForm">Cancel</MudButton>
-                <MudButton Color="Color.Primary" OnClick="SaveCompany">Save</MudButton>
+                <MudButton OnClick="CloseForm">Cancelar</MudButton>
+                <MudButton Color="Color.Primary" OnClick="SaveCompany">Guardar</MudButton>
             </DialogActions>
         </MudDialog>
     </Authorized>
@@ -112,12 +112,12 @@
         if (editingCompanyId == 0)
         {
             await HttpClient.PostAsJsonAsync("api/Company", company);
-            Snackbar.Add("Company created", Severity.Success);
+            Snackbar.Add("Compañia creada", Severity.Success);
         }
         else
         {
             await HttpClient.PutAsJsonAsync($"api/Company/{editingCompanyId}", company);
-            Snackbar.Add("Company updated", Severity.Info);
+            Snackbar.Add("Compañia actualizada", Severity.Info);
         }
 
         showForm = false;
@@ -127,7 +127,7 @@
     private async Task DeleteCompany(int id)
     {
         await HttpClient.DeleteAsync($"api/Company/{id}");
-        Snackbar.Add("Company deleted", Severity.Warning);
+        Snackbar.Add("Compañia borrada", Severity.Warning);
         await LoadCompanies();
     }
 }

@@ -15,9 +15,9 @@
     <Authorized Context="authContext">
         <MudTable Items="@priorities" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Info">
             <ToolBarContent>
-                <MudText Typo="Typo.h6">Priorities</MudText>
+                <MudText Typo="Typo.h6">Prioridades</MudText>
                 <MudSpacer />
-                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" OnClick="OpenCreateForm">Crear Priority</MudButton>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" OnClick="OpenCreateForm">Crear Prioridad</MudButton>
             </ToolBarContent>
             <HeaderContent>
                 <MudTh>Id</MudTh>
@@ -36,7 +36,7 @@
 
         <MudDialog @bind-IsVisible="showForm">
             <TitleContent>
-                <MudText Typo="Typo.h6">@(editingPriorityId == 0 ? "Crear Priority" : "Editar Priority")</MudText>
+                <MudText Typo="Typo.h6">@(editingPriorityId == 0 ? "Crear Prioridad" : "Editar Prioridad")</MudText>
             </TitleContent>
             <DialogContent>
                 <MudForm Model="@priority" @ref="form">

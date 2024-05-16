@@ -36,9 +36,9 @@
                             <MudTh>Estado</MudTh>
                     </HeaderContent>
                     <RowTemplate>
-                    <MudButton Variant="Variant.Text" Size="Size.Small" OnClick="@(() => HandleTicketSelected(@context.NumTicket))">
-                        @context.NumTicket
-                    </MudButton>
+                        <MudButton Justify="Justify.Center" AlignContent="AlignContent.Center" Class="btnTT d-flex" margin="10px" Variant="Variant.Text" Size="Size.Small" OnClick="@(() => HandleTicketSelected(@context.NumTicket))">
+                            @context.NumTicket
+                        </MudButton>
                             <MudTd DataLabel="Titulo">@context.Tittle</MudTd>
                             <MudTd DataLabel="Descripción">@context.Description</MudTd>
                             <MudTd DataLabel="Usuario">@context.CreationUser</MudTd>
@@ -50,6 +50,45 @@
                             <MudTablePager/>
                         </PagerContent>
                     </MudTable>
+            </MudItem>
+            <MudItem xs="3">
+                <MudCard>
+                    <MudCardHeader Style="background-color: #e0e0e0;">
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6" Style="color: #333;">Filtros</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent>
+                            <MudText><b>Estado</b></MudText>
+                            <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="filterCriteria.Status">
+                                <MudSelectItem Value="@((string)null)"></MudSelectItem>
+                                @foreach (var status in Statuses)
+                                {
+                                    <MudSelectItem Value="@status.Name" />
+                                }
+                            </MudSelect>
+
+                            <MudText><b>Prioridad</b></MudText>
+                            <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="filterCriteria.Priority">
+                                <MudSelectItem Value="@((string)null)"></MudSelectItem>
+                                @foreach (var priority in Priorities)
+                                {
+                                    <MudSelectItem Value="@priority.Name" />
+                                }
+                            </MudSelect>
+                        <MudText><b>Usuario</b></MudText>
+                        <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="filterCriteria.CreationUser">
+                            <MudSelectItem Value="@((string)null)"></MudSelectItem>
+                            @foreach (var priority in User)
+                            {
+                                <MudSelectItem Value="@priority.Name" />
+                            }
+                        </MudSelect>
+                    </MudCardContent>
+                    <MudCardActions>
+@*                         <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="ApplyFilters">Aplicar</MudButton>
+ *@                    </MudCardActions>
+                </MudCard>
             </MudItem>
         </MudGrid>
     </Authorized>
@@ -67,13 +106,15 @@
     private List<ApplicationUserDTO> User { get; set; } = new List<ApplicationUserDTO>();
     private GeneralViewTicketDTO selectedItem1 = null;
     private HashSet<GeneralViewTicketDTO> selectedItems = new HashSet<GeneralViewTicketDTO>();
-
+    private List<PriorityDTO> Priorities { get; set; } = new List<PriorityDTO>();
+    private List<StatusDTO> Statuses { get; set; } = new List<StatusDTO>();
     private IEnumerable<GeneralViewTicketDTO> ticket = new List<GeneralViewTicketDTO>();
 
     protected override async Task OnInitializedAsync()
     {
         ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>("api/GeneralTikets");
-
+        Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
+        Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
         User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
 
     }
@@ -81,14 +122,15 @@
 
 
     private bool FilterFunc1(GeneralViewTicketDTO element) =>
-        string.IsNullOrWhiteSpace(searchString1) ||
-        element.NumTicket.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-        element.Tittle?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-        element.Description?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-        element.CreationUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-        element.SuportUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-        element.Priority?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-        element.Status?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true;
+     (string.IsNullOrWhiteSpace(filterCriteria.Status) || element.Status == filterCriteria.Status) &&
+     (string.IsNullOrWhiteSpace(filterCriteria.Priority) || element.Priority == filterCriteria.Priority) &&
+     (string.IsNullOrWhiteSpace(searchString1) ||
+         element.NumTicket.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
+         element.Tittle?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+         element.Description?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+         element.CreationUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+         element.SuportUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true);
+
 
 
 

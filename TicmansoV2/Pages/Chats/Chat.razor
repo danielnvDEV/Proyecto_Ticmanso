@@ -16,7 +16,7 @@
                 {
                     <MudListItem OnClick="@(() => SelectUser(user))">
                         <MudAvatar Color="Color.Primary">@user.UserName.Substring(0, 1)</MudAvatar>
-                        <MudText Typo="Typo.body1" Class="ml-3">@user.UserName</MudText>
+                            @user.UserName
                     </MudListItem>
                 }
             </MudList>
@@ -26,12 +26,12 @@
                 {
                     <MudListItem OnClick="@(() => SelectGroup(group))">
                         <MudAvatar Color="Color.Primary">@group.Name.Substring(0, 1)</MudAvatar>
-                        <MudText Typo="Typo.body1" Class="ml-3">@group.Name</MudText>
+                        @group.Name
                     </MudListItem>
                 }
                 <MudListItem>
                     <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="OpenCreateGroupDialog" />
-                    <MudText Typo="Typo.body1" Class="ml-3">Crear nuevo grupo</MudText>
+                    Crear nuevo grupo
                 </MudListItem>
             </MudList>  
         </MudPaper>
@@ -41,21 +41,15 @@
             <MudToolBar>
                 <MudText Typo="Typo.h6">Conversación con @SelectedUser.Name</MudText>
             </MudToolBar>
-            <MudList Style="height: 500px; overflow-y: scroll;">
+            <MudList Style="height: 690px; overflow-y: scroll;">
                 @foreach (var message in ChatMessages)
                 {
-                    <MudListItem>
-                        <MudCard Outlined="true" Class="@(message.SenderId == conectedUser ? "ml-auto" : "mr-auto")">
-                            <MudCardHeader>
-                                <CardHeaderContent>
-                                    <MudText Typo="Typo.body1"><strong>@GetUserName(message.SenderId)</strong></MudText>
-                                </CardHeaderContent>
-                            </MudCardHeader>
-                            <MudCardContent>
-                                <MudText Typo="Typo.body1">@message.Content</MudText>
-                            </MudCardContent>
-                        </MudCard>
-                    </MudListItem>
+                <div class="@(message.SenderId == conectedUser ? "d-flex justify-end" : "")">
+@*                         <MudText Typo="Typo.subtitle2"><strong>@GetUserName(message.SenderId)</strong></MudText>
+ *@
+                    <MudText Typo="Typo.caption">@message.Timestamp</MudText>
+                    <MudText Typo="Typo.body2">@message.Content</MudText>
+                </div>
                 }
             </MudList>
             <MudPaper Elevation="0" Class="d-flex mt-4">
@@ -77,6 +71,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        SelectedUser = new ApplicationUserDTO();
         var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
         var handler = new JwtSecurityTokenHandler();
         var jwtToken = handler.ReadJwtToken(token);
@@ -87,6 +82,7 @@
         SelectedUser = Users.FirstOrDefault();
         Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"api/Group/user/{conectedUser}");
         SelectedGroup = Groups.FirstOrDefault();
+
         await LoadUserChatMessages();
         await LoadGroupChatMessages();
     }

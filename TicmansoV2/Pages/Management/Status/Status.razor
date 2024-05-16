@@ -13,14 +13,14 @@
 @attribute [Authorize]
 
 
-<PageTitle>Administrar statuses</PageTitle>
+<PageTitle>Administrar estados</PageTitle>
 <AuthorizeView Roles="Admin">
     <Authorized Context="authContext">
         <MudTable Items="@statuses" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@loading" LoadingProgressColor="Color.Info">
             <ToolBarContent>
-                <MudText Typo="Typo.h6">Statuses</MudText>
+                <MudText Typo="Typo.h6">Estados</MudText>
                 <MudSpacer />
-                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" OnClick="OpenCreateForm">Crear Status</MudButton>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" OnClick="OpenCreateForm">Crear estado</MudButton>
             </ToolBarContent>
             <HeaderContent>
                 <MudTh>Id</MudTh>
@@ -39,7 +39,7 @@
 
         <MudDialog @bind-IsVisible="showForm">
             <TitleContent>
-                <MudText Typo="Typo.h6">@(editingStatusId == 0 ? "Crear Status" : "Editar Status")</MudText>
+                <MudText Typo="Typo.h6">@(editingStatusId == 0 ? "Crear estado" : "Editar estado")</MudText>
             </TitleContent>
             <DialogContent>
                 <MudForm Model="@status" @ref="form">
@@ -103,12 +103,12 @@
         if (editingStatusId == 0)
         {
             await HttpClient.PostAsJsonAsync("api/Status", status);
-            Snackbar.Add("Status creado", Severity.Success);
+            Snackbar.Add("Estado creado", Severity.Success);
         }
         else
         {
             await HttpClient.PutAsJsonAsync($"api/Status/{editingStatusId}", status);
-            Snackbar.Add("Status actualizado", Severity.Info);
+            Snackbar.Add("Estado actualizado", Severity.Info);
         }
 
         showForm = false;
@@ -117,8 +117,8 @@
 
     private async Task DeleteStatus(int id)
     {
-        await HttpClient.DeleteAsync($"https://localhost:5000/api/Status/{id}");
-        Snackbar.Add("Status eliminado", Severity.Warning);
+        await HttpClient.DeleteAsync($"api/Status/{id}");
+        Snackbar.Add("Estado eliminado", Severity.Warning);
         await LoadStatuses();
     }
 }

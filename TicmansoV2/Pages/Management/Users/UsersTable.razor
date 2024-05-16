@@ -8,18 +8,17 @@
 @attribute [Authorize]
 <AuthorizeView Roles="Admin">
     <Authorized Context="authContext">
-        <MudTable Items="@users" Hover="true" Striped="true" Loading="@loading">
+        <MudTable Items="@users" Hover="true" Striped="false" Loading="@loading">
             <HeaderContent>
                 <MudTh>Nombre</MudTh>
                 <MudTh>Email</MudTh>
                 <MudTh>Acciones
-                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/management/controlUser/createUsers"/>
+                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/management/controlUser/createUsers" Style="margin-left:2vh"/>
                 </MudTh>
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="Nombre">@context.Name</MudTd>
                 <MudTd DataLabel="Email">@context.Email</MudTd>
-                <MudTd DataLabel="Teléfono">@context.PhoneNumber</MudTd>
                 <MudTd>
                     <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(()=>EditUser(context))">Editar</MudButton>
                     <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(()=>DeleteUser(context))">Borrar</MudButton>
@@ -28,13 +27,18 @@
         </MudTable>
         @if (showEditFields)
         {
-            <h3>Editar Usuario</h3>
 
-            <EditForm Model="@selectedUser" OnValidSubmit="@HandleValidSubmit">
+            
+
+                <EditForm Model="@selectedUser" OnValidSubmit="@HandleValidSubmit" >
                 <DataAnnotationsValidator />
-                <MudGrid>
+                <MudGrid Justify="Justify.Center" AlignContent="AlignContent.Center" Class="d-flex">
+
                     <MudItem xs="12" sm="7">
-                        <MudCard>
+                        <MudCard class="cmptCentrado">
+                            <MudCardHeader>
+                                <h3>Editar Usuario</h3>
+                            </MudCardHeader>
                             <MudCardContent>
                                 <MudTextField Label="Nombre" @bind-Value="selectedUser.Name" For="@(() => selectedUser.Name)" />
                                 <MudTextField Label="Email" @bind-Value="selectedUser.Email" For="@(() => selectedUser.Email)" />
@@ -48,6 +52,7 @@
                     </MudItem>
                 </MudGrid>
             </EditForm>
+
         }
 
     </Authorized>

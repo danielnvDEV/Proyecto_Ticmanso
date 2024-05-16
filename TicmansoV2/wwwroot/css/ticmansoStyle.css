@@ -21,8 +21,7 @@
 }
 
 div.DashBoardSpacer {
-    /*    height:4vh;
-    width:5vh;*/
+
     margin: 2vh;
 }
 
@@ -30,3 +29,12 @@ div.DashBoardSpacer {
     color: red;
     background-color: rebeccapurple;
 }
+.cmptCentrado {
+    margin-top: 5vh;
+    box-shadow: 0 4px 6px rgba(100, 147, 181, 1), 0 1px 3px rgba(100, 147, 181, 0.5);
+}
+.btnTT {
+    margin-left:10px;
+    margin-top:10px;
+}
+

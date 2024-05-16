@@ -144,6 +144,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        CreationUserName = new ApplicationUserDTO();
         var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
         var handler = new JwtSecurityTokenHandler();
         var jwtToken = handler.ReadJwtToken(token);

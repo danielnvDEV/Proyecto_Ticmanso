@@ -11,19 +11,19 @@
     <Authorized Context="authContext">
         <MudCard>
             <MudCardContent>
-                <MudTextField @bind-Value="newUser.Name" Label="Name" Variant="Variant.Outlined" />
+                <MudTextField @bind-Value="newUser.Name" Label="Nombre" Variant="Variant.Outlined" />
                 <MudTextField @bind-Value="newUser.Email" Label="Email" Variant="Variant.Outlined" />
-                <MudTextField @bind-Value="password" Label="Password" Variant="Variant.Outlined" InputType="InputType.Password" />
-                <MudTextField @bind-Value="confirmPassword" Label="Confirm Password" Variant="Variant.Outlined" InputType="InputType.Password" />
+                <MudTextField @bind-Value="password" Label="Contraseña" Variant="Variant.Outlined" InputType="InputType.Password" />
+                <MudTextField @bind-Value="confirmPassword" Label="Confirmar Contraseña" Variant="Variant.Outlined" InputType="InputType.Password" />
             </MudCardContent>
             <MudCardActions>
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CreateUserAsync">Create User</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CreateUserAsync">Crear Usuario</MudButton>
             </MudCardActions>
         </MudCard>
 
         @if (showSuccessMessage)
         {
-            <MudAlert Severity="Severity.Success">User created successfully!</MudAlert>
+            <MudAlert Severity="Severity.Success">Usuario creado!</MudAlert>
         }
 
         @if (showErrorMessage)
@@ -48,7 +48,7 @@
         if (password != confirmPassword)
         {
             showErrorMessage = true;
-            errorMessage = "Passwords do not match.";
+            errorMessage = "Las contraseñas no coinciden";
             return;
         }
 

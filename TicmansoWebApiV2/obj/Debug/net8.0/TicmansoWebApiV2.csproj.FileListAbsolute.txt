@@ -690,3 +690,6 @@ Y:\TFG\TicmansoWebApiV2\obj\Debug\net8.0\refint\TicmansoWebApiV2.dll
 Y:\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.pdb
 Y:\TFG\TicmansoWebApiV2\obj\Debug\net8.0\TicmansoWebApiV2.genruntimeconfig.cache
 Y:\TFG\TicmansoWebApiV2\obj\Debug\net8.0\ref\TicmansoWebApiV2.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\bin\Debug\net8.0\MailKit.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoWebApiV2\bin\Debug\net8.0\MimeKit.dll

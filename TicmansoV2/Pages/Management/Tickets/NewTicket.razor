@@ -15,10 +15,10 @@
 <PageTitle>New ticket</PageTitle>
 <AuthorizeView>
     <Authorized Context="authContext">
-        <EditForm Model="@ticket" OnValidSubmit="HandleSubmit">
+        <h1 style="margin-top:2vh">Nuevo ticket</h1>
+        <EditForm Model="@ticket" OnValidSubmit="HandleSubmit" class="cmptCentrado">
             <DataAnnotationsValidator />
             <ValidationSummary />
-
             <MudCard>
                 <MudCardContent>
                     <MudTextField @bind-Value="ticket.Title" Label="Título" Variant="Variant.Outlined" Required="true" />
