@@ -10,6 +10,7 @@
 @using System.Threading.Tasks;
 @using Newtonsoft.Json.Linq;
 @inject IJSRuntime JSRuntime
+@inject ISnackbar Snackbar
 @attribute [Authorize]
 
 <PageTitle>Dashboard</PageTitle>
@@ -74,7 +75,7 @@
     }
 </style> 
 @code {
-    string userId;
+    string userId; 
     int status1Count;
     int status2Count;
     int status3Count;
@@ -85,7 +86,14 @@
         var jwtToken = handler.ReadJwtToken(token);
         var claims = jwtToken.Claims;
         userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-        var (status1Count, status2Count, status3Count) = await GetTicketCountsByStatus(userId);
+        try
+        {
+          var (status1Count, status2Count, status3Count) = await GetTicketCountsByStatus(userId);
+        }
+        catch(Exception e)
+        {
+            Snackbar.Add("Problemas en la contabilización de los estados", Severity.Error);
+        }
 
         _items = new List<DropItem>
     {

@@ -1,55 +1,57 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@using System.Net.Http.Json
+@using TicmansoV2.Shared
+@using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Components.Authorization
 @using System.Security.Claims
-@using Microsoft.AspNetCore.Authorization;
-@using TicmansoV2.Shared
+@using System.IdentityModel.Tokens.Jwt;
+@using MudBlazor
+@inject NavigationManager NavManager
+@inject HttpClient httpClient
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+@inject IJSRuntime JSRuntime
+
 @attribute [Authorize]
-@inject UserManager<ApplicationUserDTO> UserManager
+
+
 @page "/settings"
+
 <AuthorizeView>
     <Authorized>
         <MudCard>
+            <MudCardHeader>
+                Ajustes de usuario
+            </MudCardHeader>
             <MudCardContent>
-                <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
-                    <MudTextField T="string" Label="Nombre" @bind-Value="user.Name" Required="true" RequiredError="El nombre es requerido" />
-                    <MudTextField T="string" Label="Teléfono" @bind-Value="user.PhoneNumber"/>
-                    <MudTextField T="string" Label="Email" @bind-Value="user.Email" Required="true" RequiredError="El email es requerido" />
-                </MudForm>
+                Nombre:<br />
+                Apellidos<br />
+                Email<br />
+                Telefono<br />
+                Contraseña
             </MudCardContent>
             <MudCardActions>
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="UpdateUser">Guardar cambios</MudButton>
+                <MudButton Variant="Variant.Text" Color="Color.Primary">Editar</MudButton>
+                <MudButton Variant="Variant.Text" Color="Color.Primary">Guardar</MudButton>
             </MudCardActions>
         </MudCard>
     </Authorized>
 </AuthorizeView>
 @code {
-    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
-    private ApplicationUserDTO user = new ApplicationUserDTO();
-    bool success;
-    string[] errors = { };
-    MudForm form;
-
+    private string userId;
+    ApplicationUserDTO user = new ApplicationUserDTO();
     protected override async Task OnInitializedAsync()
     {
-        var authState = await authenticationStateTask;
-        var userId = authState.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        user = await UserManager.FindByIdAsync(userId);
+        var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
+        var handler = new JwtSecurityTokenHandler();
+        var jwtToken = handler.ReadJwtToken(token);
+        var claims = jwtToken.Claims;
+        userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+        await consultUserData(userId);
     }
 
-    private async Task UpdateUser()
+    private async Task consultUserData(string userId)
     {
-        await form.Validate();
-        if (success)
-        {
-            var result = await UserManager.UpdateAsync(user);
-            if (result.Succeeded)
-            {
-                // Mostrar mensaje de éxito
-            }
-            else
-            {
-                // Mostrar mensaje de error
-            }
-        }
+        user = await httpClient.GetFromJsonAsync<ApplicationUserDTO>("/api/Users/{userId}");
     }
 }

@@ -45,10 +45,10 @@
                     <MudToolBar>
                         <MudText Typo="Typo.h6">Conversación con @SelectedUser.Name</MudText>
                     </MudToolBar>
-                    <MudList Style="height: 690px; overflow-y: scroll;">
+                    <MudList Style="height: 60vh; overflow-y: scroll;">
                         @foreach (var message in ChatMessages)
                         {
-                            <div class="@(message.SenderId == conectedUser ? "text-align: right" : "")">
+                            <div class="@(message.SenderId == conectedUser ? "d-flex justify-end" : "")">
         @*                         <MudText Typo="Typo.subtitle2"><strong>@GetUserName(message.SenderId)</strong></MudText>
          *@
                             <MudText Typo="Typo.caption">@message.Timestamp</MudText>

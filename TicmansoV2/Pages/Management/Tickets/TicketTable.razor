@@ -10,151 +10,19 @@
 
 @inject NavigationManager NavManager
 @inject HttpClient httpClient
+@attribute [Authorize]
 
 @page "/tickets"
+
 <PageTitle>Tickets</PageTitle>
-<AuthorizeView>
-    <Authorized Context="authContext">
-        <MudGrid>
-            <MudItem xs="9" > 
-                <MudTable Items="@ticket" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" 
-                             Filter="new Func<GeneralViewTicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
-                    <ToolBarContent>                        
-                            <MudSpacer />
-                            <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" 
-                                IconSize="Size.Medium" Class="mt-0">
-                            </MudTextField>
-                    </ToolBarContent>
 
-                    <HeaderContent>
-                            <MudTh>Ticket</MudTh>
-                            <MudTh>Titulo</MudTh>
-                            <MudTh>Descripción</MudTh>
-                            <MudTh>Usuario</MudTh>        
-                            <MudTh>Agente</MudTh>
-                            <MudTh>Prioridad</MudTh>
-                            <MudTh>Estado</MudTh>
-                    </HeaderContent>
-                    <RowTemplate>
-                        <MudButton Justify="Justify.Center" AlignContent="AlignContent.Center" Class="btnTT d-flex" margin="10px" Variant="Variant.Text" Size="Size.Small" OnClick="@(() => HandleTicketSelected(@context.NumTicket))">
-                            @context.NumTicket
-                        </MudButton>
-                            <MudTd DataLabel="Titulo">@context.Tittle</MudTd>
-                            <MudTd DataLabel="Descripción">@context.Description</MudTd>
-                            <MudTd DataLabel="Usuario">@context.CreationUser</MudTd>
-                            <MudTd DataLabel="Agente">@context.SuportUser</MudTd>
-                            <MudTd DataLabel="Prioridad">@context.Priority</MudTd>
-                            <MudTd DataLabel="Estado">@context.Status</MudTd>
-                    </RowTemplate>
-                    <PagerContent>
-                            <MudTablePager/>
-                        </PagerContent>
-                    </MudTable>
-            </MudItem>
-            <MudItem xs="3">
-                <MudCard>
-                    <MudCardHeader Style="background-color: #e0e0e0;">
-                        <CardHeaderContent>
-                            <MudText Typo="Typo.h6" Style="color: #333;">Filtros</MudText>
-                        </CardHeaderContent>
-                    </MudCardHeader>
-                    <MudCardContent>
-                            <MudText><b>Estado</b></MudText>
-                            <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="filterCriteria.Status">
-                                <MudSelectItem Value="@((string)null)"></MudSelectItem>
-                                @foreach (var status in Statuses)
-                                {
-                                    <MudSelectItem Value="@status.Name" />
-                                }
-                            </MudSelect>
-
-                            <MudText><b>Prioridad</b></MudText>
-                            <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="filterCriteria.Priority">
-                                <MudSelectItem Value="@((string)null)"></MudSelectItem>
-                                @foreach (var priority in Priorities)
-                                {
-                                    <MudSelectItem Value="@priority.Name" />
-                                }
-                            </MudSelect>
-                        <MudText><b>Usuario</b></MudText>
-                        <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="filterCriteria.CreationUser">
-                            <MudSelectItem Value="@((string)null)"></MudSelectItem>
-                            @foreach (var user in User)
-                            {
-                                <MudSelectItem Value="@user.Name" />
-                            }
-                        </MudSelect>
-                    </MudCardContent>
-                    <MudCardActions>
-@*                         <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="ApplyFilters">Aplicar</MudButton>
- *@                    </MudCardActions>
-                </MudCard>
-            </MudItem>
-        </MudGrid>
+<AuthorizeView Roles="Admin">
+    <Authorized>
+        <TicmansoV2.Pages.Management.Tickets.Admin.TicketTableByAdmin/>
     </Authorized>
-    <NotAuthorized>
-        @{NavManager.NavigateTo("/");}
-    </NotAuthorized>
 </AuthorizeView>
-@code {
-    private bool dense = false;
-    private bool hover = true;
-    private bool striped = false;
-    private bool bordered = false;
-    private string searchString1 = "";
-    private ApplicationUserDTO selectedSuportUser;
-    private List<ApplicationUserDTO> User { get; set; } = new List<ApplicationUserDTO>();
-    private GeneralViewTicketDTO selectedItem1 = null;
-    private HashSet<GeneralViewTicketDTO> selectedItems = new HashSet<GeneralViewTicketDTO>();
-    private List<PriorityDTO> Priorities { get; set; } = new List<PriorityDTO>();
-    private List<StatusDTO> Statuses { get; set; } = new List<StatusDTO>();
-    private IEnumerable<GeneralViewTicketDTO> ticket = new List<GeneralViewTicketDTO>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>("api/GeneralTikets");
-        Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
-        Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
-        User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
-
-    }
-
-
-
-    private bool FilterFunc1(GeneralViewTicketDTO element) =>
-     (string.IsNullOrWhiteSpace(filterCriteria.Status) || element.Status == filterCriteria.Status) &&
-     (string.IsNullOrWhiteSpace(filterCriteria.Priority) || element.Priority == filterCriteria.Priority) &&
-     (string.IsNullOrWhiteSpace(searchString1) ||
-         element.NumTicket.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
-         element.Tittle?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-         element.Description?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-         element.CreationUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-         element.SuportUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true);
-
-
-
-
-    private GeneralViewTicketDTO filterCriteria = new GeneralViewTicketDTO();
-
-    [Parameter] public EventCallback<GeneralViewTicketDTO> OnFilterChanged { get; set; }
-
-    async Task ApplyFilters()
-    {
-        await OnFilterChanged.InvokeAsync(filterCriteria);
-    }
-    [Parameter] 
-    public EventCallback<int> OnTicketSelected { get; set; }
-
-    private void ShowTicketDetails(int ticketId)
-    {
-        OnTicketSelected.InvokeAsync(ticketId);
-    }
-
-    private long selectedTicketId;
-
-    private void HandleTicketSelected(int ticketId)
-    {
-        selectedTicketId = ticketId;
-        NavManager.NavigateTo($"/tickets/ticket/{ticketId}");
-    }
-}
+<AuthorizeView Roles="User">
+    <Authorized>
+        <TicmansoV2.Pages.Management.Tickets.User.TicketTableByUser/>
+    </Authorized>
+</AuthorizeView>

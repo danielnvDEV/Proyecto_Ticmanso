@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "Y:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {}
+    "C:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {}
   },
   "projects": {
-    "Y:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
+    "C:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Y:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
+        "projectUniqueName": "C:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
         "projectName": "TicmansoV2.Shared",
-        "projectPath": "Y:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
-        "packagesPath": "C:\\Users\\dani\\.nuget\\packages\\",
-        "outputPath": "Y:\\TFG\\TicmansoV2.Shared\\obj\\",
+        "projectPath": "C:\\TFG\\TicmansoV2.Shared\\TicmansoV2.Shared.csproj",
+        "packagesPath": "C:\\Users\\DANI\\.nuget\\packages\\",
+        "outputPath": "C:\\TFG\\TicmansoV2.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DANI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
