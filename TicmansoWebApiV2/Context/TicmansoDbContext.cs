@@ -25,6 +25,7 @@ namespace TicmansoWebApiV2.Context
         public virtual DbSet<GeneralViewTicket> GeneralViewTickets { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<UserGroup> UserGroups { get; set; }
+        public virtual DbSet<UserImage> UserImages { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
@@ -205,7 +206,28 @@ namespace TicmansoWebApiV2.Context
                 entity.Property(e => e.Description);
                 entity.Property(e => e.CreatedAt);
             });
-           OnModelCreatingPartial(builder);
+
+            builder.Entity<UserImage>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.IdUser)
+                    .HasMaxLength(450)
+                    .IsRequired();
+
+                entity.Property(e => e.FileName)
+                    .IsRequired();
+
+                entity.Property(e => e.Image)
+                    .IsRequired();
+
+                entity.HasOne(e => e.applicationUser)
+                    .WithOne()
+                    .HasForeignKey<UserImage>(e => e.IdUser)
+                    .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+            OnModelCreatingPartial(builder);
         }
     }
 

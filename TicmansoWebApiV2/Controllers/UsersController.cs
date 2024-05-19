@@ -32,7 +32,8 @@ namespace TicmansoWebApiV2.Controllers
                 CompanyId = user.Companyid,
                 Name = user.Name,
                 Email = user.Email,
-                UserName = user.UserName
+                UserName = user.UserName,
+                PhoneNumber = user.PhoneNumber,
             });
 
             return Ok(userDTOs);
@@ -55,7 +56,8 @@ namespace TicmansoWebApiV2.Controllers
                 CompanyId = user.Companyid,
                 Name = user.Name,
                 Email = user.Email,
-                UserName = user.UserName
+                UserName = user.UserName,
+                PhoneNumber = user.PhoneNumber,
             };
 
             return userDTO;
@@ -81,6 +83,7 @@ namespace TicmansoWebApiV2.Controllers
             user.Name = userDTO.Name;
             user.Email = userDTO.Email;
             user.UserName = userDTO.UserName;
+            user.PhoneNumber = userDTO.PhoneNumber;
 
             try
             {
@@ -110,7 +113,8 @@ namespace TicmansoWebApiV2.Controllers
                 Companyid = userDTO.CompanyId,
                 Name = userDTO.Name,
                 Email = userDTO.Email,
-                UserName = userDTO.UserName
+                UserName = userDTO.UserName,
+                PhoneNumber = userDTO.PhoneNumber
             };
 
             var result = await _userManager.CreateAsync(user);
@@ -123,7 +127,8 @@ namespace TicmansoWebApiV2.Controllers
                     CompanyId = user.Companyid,
                     Name = user.Name,
                     Email = user.Email,
-                    UserName = user.UserName
+                    UserName = user.UserName,
+                    PhoneNumber = user.PhoneNumber
                 };
 
                 return CreatedAtAction("GetUser", new { id = user.Id }, createdUserDTO);

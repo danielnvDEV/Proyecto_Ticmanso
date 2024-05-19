@@ -21,5 +21,13 @@ namespace TicmansoWebApiV2.Controllers
             var response = await userAccount.LoginAccount(loginDTO);
             return Ok(response);
         }
+
+        [HttpPost("change-password")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordDTO changePasswordDTO)
+        {
+            var response = await userAccount.ChangePassword(changePasswordDTO.UserId, changePasswordDTO.CurrentPassword, changePasswordDTO.NewPassword);
+            return Ok(response);
+        }
+
     }
 }

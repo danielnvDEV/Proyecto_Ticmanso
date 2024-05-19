@@ -88,5 +88,22 @@ namespace TicmansoWebApiV2.Repositories
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public async Task<GeneralResponse> ChangePassword(string userId, string currentPassword, string newPassword)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+                return new GeneralResponse(false, "User not found");
+
+            var result = await userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+            if (!result.Succeeded)
+            {
+                var errors = result.Errors.Select(e => e.Description).ToList();
+                return new GeneralResponse(false, string.Join(", ", errors));
+            }
+
+            return new GeneralResponse(true, "Password changed successfully");
+        }
+
     }
 }

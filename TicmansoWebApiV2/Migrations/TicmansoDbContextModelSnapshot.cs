@@ -481,6 +481,35 @@ namespace TicmansoWebApiV2.Migrations
                     b.ToTable("UserGroups");
                 });
 
+            modelBuilder.Entity("TicmansoWebApiV2.Context.UserImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdUser")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<byte[]>("Image")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdUser")
+                        .IsUnique();
+
+                    b.ToTable("UserImages");
+                });
+
             modelBuilder.Entity("TicmansoWebApiV2.Context.Views.GeneralViewTicket", b =>
                 {
                     b.Property<string>("CreationUser")
@@ -669,6 +698,17 @@ namespace TicmansoWebApiV2.Migrations
                     b.Navigation("Group");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TicmansoWebApiV2.Context.UserImage", b =>
+                {
+                    b.HasOne("TicmansoWebApiV2.Context.ApplicationUser", "applicationUser")
+                        .WithOne()
+                        .HasForeignKey("TicmansoWebApiV2.Context.UserImage", "IdUser")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("applicationUser");
                 });
 
             modelBuilder.Entity("TicmansoWebApiV2.Context.ApplicationUser", b =>

@@ -42,18 +42,18 @@
             </MudItem>
             <MudItem xs="8">
                 <MudPaper Elevation="0">
-                    <MudToolBar>
+                    <MudToolBar >
                         <MudText Typo="Typo.h6">Conversación con @SelectedUser.Name</MudText>
                     </MudToolBar>
                     <MudList Style="height: 60vh; overflow-y: scroll;">
                         @foreach (var message in ChatMessages)
                         {
-                            <div class="@(message.SenderId == conectedUser ? "d-flex justify-end" : "")">
-        @*                         <MudText Typo="Typo.subtitle2"><strong>@GetUserName(message.SenderId)</strong></MudText>
-         *@
-                            <MudText Typo="Typo.caption">@message.Timestamp</MudText>
-                            <MudText Typo="Typo.body2">@message.Content</MudText>
-                        </div>
+                            <div class="@(message.SenderId == conectedUser ? "d-flex justify-end " : "d-flex justify-start")">
+                                <MudCard Style="margin-bottom:1vh;border: none;box-shadow: none;">
+                                    <MudText Typo="Typo.caption">@message.Timestamp</MudText>
+                                    <MudText Typo="Typo.body1"><b>@message.Content</b></MudText>
+                                </MudCard>
+                            </div>
                         }
                     </MudList>
                     <MudPaper Elevation="0" Class="d-flex mt-4">

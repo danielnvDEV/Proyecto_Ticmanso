@@ -5,6 +5,7 @@ namespace TicmansoV2.Shared.Contracts
 {
     public interface IUserAccount
     {
+        Task<GeneralResponse> ChangePassword(string userId, string currentPassword, string newPassword);
         Task<GeneralResponse> CreateAccount(ApplicationUserDTO userDTO);
         Task<LoginResponse> LoginAccount(LoginDTO loginDTO);
     }
