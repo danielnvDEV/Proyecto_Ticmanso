@@ -13,6 +13,7 @@
         public string Status { get; set; }
 
         public string Priority { get; set; } = null!;
+        public string? PriorityColor { get; set; } = null!;
 
         public string? SuportUser { get; set; } = null!;
     }

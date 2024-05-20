@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Components.Authorization;
 @using MudBlazor
+@using MudBlazor.Utilities
 
 
 @page "/management/priorities"
@@ -22,11 +23,15 @@
             <HeaderContent>
                 <MudTh>Id</MudTh>
                 <MudTh>Nombre</MudTh>
+                <MudTh>Color</MudTh>
                 <MudTh>Acciones</MudTh>
             </HeaderContent>
             <RowTemplate Context="priorityContext">
                 <MudTd DataLabel="Id">@priorityContext.Id</MudTd>
                 <MudTd DataLabel="Nombre">@priorityContext.Name</MudTd>
+                <MudTd DataLabel="Color">
+                    <MudChip Style="@($"Background-Color:{priorityContext.Color}")" />
+                </MudTd>
                 <MudTd DataLabel="Acciones">
                     <MudButton Color="Color.Default" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Edit" OnClick="@(() => OpenEditForm(priorityContext.Id))">Editar</MudButton>
                     <MudButton Color="Color.Error" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Delete" OnClick="@(() => DeletePriority(priorityContext.Id))">Borrar</MudButton>
@@ -41,6 +46,7 @@
             <DialogContent>
                 <MudForm Model="@priority" @ref="form">
                     <MudTextField @bind-Value="priority.Name" Label="Nombre" Required="true" RequiredError="El nombre es requerido"/>
+                    <MudColorPicker @bind-Value="selectedColor" Label="Selecciona color" ColorPickerView="ColorPickerView.Spectrum" />
                 </MudForm>
             </DialogContent>
             <DialogActions>
@@ -58,8 +64,10 @@
     private PriorityDTO priority = new PriorityDTO();
     private bool loading = true;
     private bool showForm = false;
-    private long editingPriorityId = 0;
+    private int editingPriorityId = 0;
     private MudForm form;
+    private MudColor selectedColor;
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -80,12 +88,13 @@
         showForm = true;
     }
 
-    private async Task OpenEditForm(long id)
+    private async Task OpenEditForm(int id)
     {
         priority = await HttpClient.GetFromJsonAsync<PriorityDTO>($"api/Priority/{id}");
         editingPriorityId = id;
         showForm = true;
     }
+
 
     private void CloseForm()
     {
@@ -96,11 +105,13 @@
     {
         if (editingPriorityId == 0)
         {
+            priority.Color = selectedColor.ToString();
             await HttpClient.PostAsJsonAsync("api/Priority", priority);
             Snackbar.Add("Priority creado", Severity.Success);
         }
         else
         {
+            priority.Color = selectedColor.Value.ToString();
             await HttpClient.PutAsJsonAsync($"api/Priority/{editingPriorityId}", priority);
             Snackbar.Add("Priority actualizado", Severity.Info);
         }
@@ -114,5 +125,9 @@
         await HttpClient.DeleteAsync($"api/Priority/{id}");
         Snackbar.Add("Priority eliminado", Severity.Warning);
         await LoadPriorities();
+    }
+    private void UpdateColor(MudColor color)
+    {
+        selectedColor = color;
     }
 }

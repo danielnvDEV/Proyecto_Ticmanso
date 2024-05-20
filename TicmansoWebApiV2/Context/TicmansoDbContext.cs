@@ -81,6 +81,7 @@ namespace TicmansoWebApiV2.Context
                 entity.ToTable("Priorities");
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Name).IsRequired().HasMaxLength(50);
+                entity.Property(e => e.Color);
             });
 
             builder.Entity<Status>(entity =>
@@ -176,6 +177,7 @@ namespace TicmansoWebApiV2.Context
                 entity.Property(e => e.Priority)
                     .HasMaxLength(25)
                     .IsUnicode(false);
+                entity.Property(e => e.PriorityColor);
                 entity.Property(e => e.Status)
                     .HasMaxLength(20)
                     .IsUnicode(false);

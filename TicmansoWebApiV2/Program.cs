@@ -38,7 +38,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL3") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 
@@ -77,7 +77,8 @@ builder.Services.AddSwaggerGen(options =>
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 builder.Services.AddScoped<IUserAccount, AccountRepository>();
-
+builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
+    options.TokenLifespan = TimeSpan.FromHours(3));
 var app = builder.Build();
 
 app.UseHttpsRedirection();

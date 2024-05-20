@@ -156,5 +156,41 @@ namespace TicmansoWebApiV2.Controllers
         {
             return _context.Users.Any(e => e.Id == id);
         }
+
+        [HttpPost("{userId}/roles")]
+        public async Task<IActionResult> AssignRoleToUser(string userId, string roleName)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound($"User with ID '{userId}' not found.");
+            }
+
+            var result = await _userManager.AddToRoleAsync(user, roleName);
+            if (result.Succeeded)
+            {
+                return Ok($"Role '{roleName}' assigned to user '{user.UserName}' successfully.");
+            }
+
+            return BadRequest($"Failed to assign role '{roleName}' to user '{user.UserName}'. Errors: {string.Join(", ", result.Errors)}");
+        }
+
+        [HttpDelete("{userId}/roles/{roleName}")]
+        public async Task<IActionResult> RemoveRoleFromUser(string userId, string roleName)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound($"User with ID '{userId}' not found.");
+            }
+
+            var result = await _userManager.RemoveFromRoleAsync(user, roleName);
+            if (result.Succeeded)
+            {
+                return Ok($"Role '{roleName}' removed from user '{user.UserName}' successfully.");
+            }
+
+            return BadRequest($"Failed to remove role '{roleName}' from user '{user.UserName}'. Errors: {string.Join(", ", result.Errors)}");
+        }
     }
 }

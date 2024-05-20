@@ -76,13 +76,7 @@
                     </MudCardHeader>
                     <MudCardContent>
                             <MudText><b>PROPIEDADES</b></MudText>
-                            <MudText><b>Tipo</b>
-                                <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
-                                    <MudSelectItem Value="@("Cappuccino")" />
-                                    <MudSelectItem Value="@("Cafe Latte")" />
-                                    <MudSelectItem Value="@("Espresso")" />
-                                </MudSelect>
-                            </MudText>
+                            
                             <MudText><b>Estado</b>
                                 <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedStatus">
                                     @foreach (var status in Statuses)
@@ -92,12 +86,14 @@
                                 </MudSelect>
                             </MudText>
                             <MudText><b>Prioridad</b>
-                                <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedPriority">
+                                <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter"
+                                           Value="selectedPriority" ValueChanged="@((string value) => OnPriorityChanged(value))" Style="@($"color:{color}")" >
                                     @foreach (var priority in Priorities)
                                     {
-                                        <MudSelectItem Value="@priority.Name" />
+                                        <MudSelectItem Value="@priority.Name" Style="@($"color:{priority.Color}")" />
                                     }
                                 </MudSelect>
+
                             </MudText>
                             <MudText><b>Agente</b>
                                 <MudSelect T="ApplicationUserDTO" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedAgent">
@@ -131,7 +127,7 @@
     private string selectedPriority;
     private string selectedStatus;
     private string conectedUser;
-
+    string color;
     private ApplicationUserDTO selectedAgent;
     private ApplicationUserDTO CreationUserName;
     private TicketDTO ticket = new TicketDTO();
@@ -196,7 +192,7 @@
 
             }
         }
-
+        color = GetSelectedPriorityColor();
     }
 
     public void Dispose()
@@ -279,4 +275,17 @@
             Console.Write("El mensaje se ha enviado correctamente");
         }
     }
+    private string GetSelectedPriorityColor()
+    {
+        var selectedPriorityItem = Priorities.FirstOrDefault(p => p.Name == selectedPriority);
+        return selectedPriorityItem?.Color ?? "inherit";
+    }
+
+    private void OnPriorityChanged(string value)
+    {
+        selectedPriority = value;
+        GetSelectedPriorityColor();
+        StateHasChanged();
+    }
+
 }

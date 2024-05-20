@@ -6958,3 +6958,43 @@ C:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.dll
 C:\TFG\TicmansoV2\obj\Debug\net8.0\refint\TicmansoV2.dll
 C:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.pdb
 C:\TFG\TicmansoV2\obj\Debug\net8.0\ref\TicmansoV2.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Buttons.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Core.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Data.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Inputs.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Popups.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Spinner.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.SplitButtons.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Licensing.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Data.wasm.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Buttons.wasm.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.SplitButtons.wasm.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Licensing.wasm.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Spinner.wasm.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Inputs.wasm.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Core.wasm.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Popups.wasm.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Buttons.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Core.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Data.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Inputs.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Popups.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Spinner.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.SplitButtons.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Licensing.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Buttons.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Core.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Data.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Inputs.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Popups.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Spinner.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.SplitButtons.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Licensing.wasm
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\53l3mddf2c.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\ktarv75kgr.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\4szsfebsbn.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\hjghumdpwu.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\rv0l2kcpam.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\c0fl18aiiq.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\69h21yh6g7.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\872xvwyopu.gz

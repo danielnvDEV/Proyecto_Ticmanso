@@ -12,6 +12,7 @@
             <HeaderContent>
                 <MudTh>Nombre</MudTh>
                 <MudTh>Email</MudTh>
+                <MudTh>Telefono</MudTh>
                 <MudTh>Acciones
                     <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/management/controlUser/createUsers" Style="margin-left:2vh"/>
                 </MudTh>
@@ -19,6 +20,7 @@
             <RowTemplate>
                 <MudTd DataLabel="Nombre">@context.Name</MudTd>
                 <MudTd DataLabel="Email">@context.Email</MudTd>
+                <MudTd DataLabel="Telefono">@context.PhoneNumber</MudTd>
                 <MudTd>
                     <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(()=>EditUser(context))">Editar</MudButton>
                     <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(()=>DeleteUser(context))">Borrar</MudButton>
@@ -65,7 +67,7 @@
     private bool loading = true;
     private bool showEditFields = false;
     private ApplicationUserDTO selectedUser = new ApplicationUserDTO();
-
+    private List<string> roles = new List<string>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -76,6 +78,7 @@
     {
         loading = true;
         users = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+        roles = await HttpClient.GetFromJsonAsync<List<string>>("api/Roles");
         loading = false;
     }
 

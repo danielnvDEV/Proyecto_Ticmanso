@@ -52,19 +52,5 @@ namespace TicmansoV2.Services
 
         }
 
-        public async Task<GeneralResponse> ChangePassword(string userId, string currentPassword, string newPassword)
-        {
-            var changePasswordDTO = new ChangePasswordDTO
-            {
-                UserId = userId,
-                CurrentPassword = currentPassword,
-                NewPassword = newPassword
-            };
-
-            var response = await httpClient.PostAsJsonAsync("api/account/change-password", changePasswordDTO);
-            return await response.Content.ReadFromJsonAsync<GeneralResponse>();
-        }
-
-
     }
 }

@@ -43,25 +43,34 @@
     </MudItem>
 
     <MudItem xs="12" sm="8">
-        <MudCard Elevation="25">
-            <MudCardContent>
-                <MudGrid>
-                    <MudItem xs="12" sm="6">
-                        <MudTextField @bind-Value="FirstName" Label="Nombre" Variant="Variant.Outlined" Required="true" RequiredError="El nombre es requerido" />
-                        <MudTextField @bind-Value="LastName" Label="Apellidos" Variant="Variant.Outlined" Required="true" RequiredError="El apellido es requerido" Class="mt-3" />
-                        <MudNumericField @bind-Value="Phone" Label="Teléfono" Variant="Variant.Outlined" Class="mt-3"
-                                         Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Phone" AdornmentText="+34" MaxLength="9" Min="111111111"/>
-                    </MudItem>
-                    <MudItem xs="12" sm="6">
-                        <MudTextField @bind-Value="user.Email" Label="Correo electrónico" Variant="Variant.Outlined" Required="true" RequiredError="El correo electrónico es requerido" />
-                        <MudButton Variant="Variant.Filled" Color="Color.Surface" OnClick="ChangePassword" Class="mt-3">Cambiar contraseña</MudButton>
-                    </MudItem>
-                </MudGrid>
-            </MudCardContent>
-            <MudCardActions Class="pb-4 pl-4">
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Submit">Guardar</MudButton>
-            </MudCardActions>
-        </MudCard>
+        <MudForm Model="@user" @ref="@form" @bind-IsValid="@success" @bind-Errors="@errors">
+            <MudCard Elevation="25" >
+                <MudCardContent>
+                    <MudGrid>
+                        <MudItem xs="12" sm="6">
+                            <MudTextField @bind-Value="FirstName" Label="Nombre" Variant="Variant.Outlined" Required="true" RequiredError="El nombre es requerido" Disabled="@(!isEditing)" />
+                            <MudTextField @bind-Value="LastName" Label="Apellidos" Variant="Variant.Outlined" Required="true" RequiredError="El apellido es requerido" Class="mt-3" Disabled="@(!isEditing)" />
+                            <MudNumericField @bind-Value="Phone" Label="Teléfono" Variant="Variant.Outlined" Class="mt-3"
+                                             Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Phone" AdornmentText="+34" MaxLength="9" Min="111111111" Disabled="@(!isEditing)" />
+                        </MudItem>
+                        <MudItem xs="12" sm="6">
+                            <MudTextField @bind-Value="user.Email" Label="Correo electrónico" Variant="Variant.Outlined" Required="true" RequiredError="El correo electrónico es requerido" Disabled="@(!isEditing)" />
+                            <MudButton Variant="Variant.Filled" Color="Color.Surface" OnClick="ChangePassword" Class="mt-3" Disabled="@(!isEditing)">Cambiar contraseña</MudButton>
+                        </MudItem>
+                    </MudGrid>
+                </MudCardContent>
+                <MudCardActions Class="pb-4 pl-4">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => isEditing = true)" Disabled="@isEditing">Editar</MudButton>
+                    @if (isEditing)
+                    {
+                        <div class="d-flex justify-end">
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Submit())">Guardar cambios</MudButton>
+                            <MudButton Variant="Variant.Filled" Color="Color.Default" OnClick="@(() => isEditing = false)">Cancelar</MudButton>
+                        </div>
+                    }
+                </MudCardActions>            
+            </MudCard>
+        </MudForm>
     </MudItem>
 </MudGrid>
 
@@ -164,13 +173,7 @@
 
     private async Task ChangePassword()
     {
-        var dialog = DialogService.Show<ChangePasswordDialog>("Cambiar contraseña");
-        var result = await dialog.Result;
 
-        if (!result.Cancelled)
-        {
-            Snackbar.Add("Contraseña actualizada", Severity.Success);
-        }
     }
 
     private async Task Submit()
@@ -179,18 +182,25 @@
 
         if (success)
         {
-            user.Name = $"{FirstName} {LastName}".Trim();
-            user.PhoneNumber = Phone.ToString();
-            var response = await httpClient.PutAsJsonAsync($"/api/Users/{userId}", user);
-            if (response.IsSuccessStatusCode)
+            if (user != null)
             {
-                Snackbar.Add("Cambios guardados", Severity.Success);
+                user.Name = $"{FirstName} {LastName}".Trim();
+                user.PhoneNumber = Phone?.ToString();
 
-                isEditing = false;
+                var response = await httpClient.PutAsJsonAsync($"/api/Users/{userId}", user);
+                if (response.IsSuccessStatusCode)
+                {
+                    Snackbar.Add("Cambios guardados", Severity.Success);
+                    isEditing = false;
+                }
+                else
+                {
+                    Snackbar.Add("No se ha podido guardar los cambios", Severity.Error);
+                }
             }
             else
             {
-                Snackbar.Add("No se ha podido guardar los cambios", Severity.Error);
+                Snackbar.Add("El objeto de usuario no está inicializado", Severity.Error);
             }
         }
     }

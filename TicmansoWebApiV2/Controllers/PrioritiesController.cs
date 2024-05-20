@@ -30,7 +30,8 @@ namespace TicmansoV2.Controllers
                 .Select(s => new PriorityDTO
                 {
                     Id = s.Id,
-                    Name = s.Name
+                    Name = s.Name,
+                    Color = s.Color,
                 })
                 .ToListAsync();
         }
@@ -45,7 +46,8 @@ namespace TicmansoV2.Controllers
                 .Select(s => new PriorityDTO
                 {
                     Id = s.Id,
-                    Name = s.Name
+                    Name = s.Name,
+                    Color = s.Color,
                 })
                 .FirstOrDefaultAsync();
 
@@ -61,7 +63,8 @@ namespace TicmansoV2.Controllers
         {
             var priority = new Priority
             {
-                Name = PriorityDTO.Name
+                Name = PriorityDTO.Name, 
+                Color = PriorityDTO.Color
             };
 
             _context.Priorities.Add(priority);
@@ -70,7 +73,8 @@ namespace TicmansoV2.Controllers
             return CreatedAtAction("GetPriority", new { id = priority.Id }, new PriorityDTO
             {
                 Id = priority.Id,
-                Name = priority.Name
+                Name = priority.Name,
+                Color = priority.Color,
             });
         }
 
@@ -83,6 +87,7 @@ namespace TicmansoV2.Controllers
             if (Priority == null) return NotFound();
 
             Priority.Name = PriorityDTO.Name;
+            Priority.Color = PriorityDTO.Color;
 
             _context.Priorities.Update(Priority);
             await _context.SaveChangesAsync();
