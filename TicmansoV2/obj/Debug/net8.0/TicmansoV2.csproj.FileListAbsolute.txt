@@ -6998,3 +6998,43 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\c0fl18aiiq.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\69h21yh6g7.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\872xvwyopu.gz
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Buttons.wasm
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Core.wasm
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Data.wasm
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Inputs.wasm
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Popups.wasm
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Spinner.wasm
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.SplitButtons.wasm
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Licensing.wasm
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Buttons.wasm.gz
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Data.wasm.gz
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Licensing.wasm.gz
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.SplitButtons.wasm.gz
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Popups.wasm.gz
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Core.wasm.gz
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Spinner.wasm.gz
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Syncfusion.Blazor.Inputs.wasm.gz
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Buttons.dll
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Core.dll
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Data.dll
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Inputs.dll
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Popups.dll
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.Spinner.dll
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Blazor.SplitButtons.dll
+Y:\TFG\TicmansoV2\bin\Debug\net8.0\Syncfusion.Licensing.dll
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Buttons.wasm
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Core.wasm
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Data.wasm
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Inputs.wasm
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Popups.wasm
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.Spinner.wasm
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Blazor.SplitButtons.wasm
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Syncfusion.Licensing.wasm
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\compressed\a9eti4afzu.gz
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\compressed\rwwxkdbi8y.gz
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\compressed\gz2fbrq8ry.gz
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\compressed\vq3rk0vq83.gz
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\compressed\rrlg1b501c.gz
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\compressed\rxy3imylo1.gz
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\compressed\mwjy0rk2y7.gz
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\compressed\kolodxm4lx.gz

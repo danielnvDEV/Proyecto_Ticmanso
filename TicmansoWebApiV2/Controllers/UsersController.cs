@@ -157,7 +157,7 @@ namespace TicmansoWebApiV2.Controllers
             return _context.Users.Any(e => e.Id == id);
         }
 
-        [HttpPost("{userId}/roles")]
+        [HttpPost("{userId}/roles/{roleName}")]
         public async Task<IActionResult> AssignRoleToUser(string userId, string roleName)
         {
             var user = await _userManager.FindByIdAsync(userId);
@@ -166,14 +166,27 @@ namespace TicmansoWebApiV2.Controllers
                 return NotFound($"User with ID '{userId}' not found.");
             }
 
-            var result = await _userManager.AddToRoleAsync(user, roleName);
-            if (result.Succeeded)
+            // Verificar si el usuario tiene el rol "admin"
+            if (await _userManager.IsInRoleAsync(user, "admin"))
+            {
+                // Eliminar el rol "admin" del usuario
+                var removeResult = await _userManager.RemoveFromRoleAsync(user, "admin");
+                if (!removeResult.Succeeded)
+                {
+                    return BadRequest($"Failed to remove 'admin' role from user '{user.UserName}'. Errors: {string.Join(", ", removeResult.Errors)}");
+                }
+            }
+
+            // Asignar el nuevo rol al usuario
+            var addResult = await _userManager.AddToRoleAsync(user, roleName);
+            if (addResult.Succeeded)
             {
                 return Ok($"Role '{roleName}' assigned to user '{user.UserName}' successfully.");
             }
 
-            return BadRequest($"Failed to assign role '{roleName}' to user '{user.UserName}'. Errors: {string.Join(", ", result.Errors)}");
+            return BadRequest($"Failed to assign role '{roleName}' to user '{user.UserName}'. Errors: {string.Join(", ", addResult.Errors)}");
         }
+
 
         [HttpDelete("{userId}/roles/{roleName}")]
         public async Task<IActionResult> RemoveRoleFromUser(string userId, string roleName)
@@ -192,5 +205,27 @@ namespace TicmansoWebApiV2.Controllers
 
             return BadRequest($"Failed to remove role '{roleName}' from user '{user.UserName}'. Errors: {string.Join(", ", result.Errors)}");
         }
+
+        [HttpGet("users-with-roles")]
+        public async Task<ActionResult<IEnumerable<UserWithRoleDTO>>> GetUsersWithRoles()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            var usersWithRoles = new List<UserWithRoleDTO>();
+
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                var userWithRole = new UserWithRoleDTO
+                {
+                    UserId = user.Id,
+                    Role = roles.FirstOrDefault()
+                };
+                usersWithRoles.Add(userWithRole);
+            }
+
+            return Ok(usersWithRoles);
+        }
+
+
     }
 }

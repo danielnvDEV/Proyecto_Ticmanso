@@ -1,4 +1,5 @@
 ﻿@page "/management/controlUser"
+@using Microsoft.AspNetCore.Identity
 @using TicmansoV2.Shared
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Components.Authorization;
@@ -13,6 +14,7 @@
                 <MudTh>Nombre</MudTh>
                 <MudTh>Email</MudTh>
                 <MudTh>Telefono</MudTh>
+                <MudTh>Rol</MudTh>
                 <MudTh>Acciones
                     <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/management/controlUser/createUsers" Style="margin-left:2vh"/>
                 </MudTh>
@@ -21,6 +23,7 @@
                 <MudTd DataLabel="Nombre">@context.Name</MudTd>
                 <MudTd DataLabel="Email">@context.Email</MudTd>
                 <MudTd DataLabel="Telefono">@context.PhoneNumber</MudTd>
+                <MudTd DataLabel="Rol">@GetUserRole(context.Id)</MudTd>
                 <MudTd>
                     <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(()=>EditUser(context))">Editar</MudButton>
                     <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(()=>DeleteUser(context))">Borrar</MudButton>
@@ -44,6 +47,12 @@
                             <MudCardContent>
                                 <MudTextField Label="Nombre" @bind-Value="selectedUser.Name" For="@(() => selectedUser.Name)" />
                                 <MudTextField Label="Email" @bind-Value="selectedUser.Email" For="@(() => selectedUser.Email)" />
+                                <MudSelect Label="Rol" @bind-Value="selectedRole" For="@(() => selectedRole)">
+                                    @foreach (var role in roles)
+                                    {
+                                        <MudSelectItem Value="@role.Name">@role.Name</MudSelectItem>
+                                    }
+                                </MudSelect>
                                 <MudTextField Label="Teléfono" @bind-Value="selectedUser.PhoneNumber" For="@(() => selectedUser.PhoneNumber)" />
                             </MudCardContent>
                             <MudCardActions>
@@ -67,20 +76,44 @@
     private bool loading = true;
     private bool showEditFields = false;
     private ApplicationUserDTO selectedUser = new ApplicationUserDTO();
-    private List<string> roles = new List<string>();
+    private List<IdentityRole> roles = new List<IdentityRole>();
+    private string selectedRole;
+    private List<UserWithRoleDTO> userRole = new List<UserWithRoleDTO>();
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadUsers();       
+        await LoadUsers();
+        await LoadUserRoles();
+        try
+        {
+            roles = await HttpClient.GetFromJsonAsync<List<IdentityRole>>("api/Roles");
+        }
+        catch (Exception)
+        {
+
+            Console.WriteLine("cositas");
+        }
+
+    }
+
+    private async Task LoadUserRoles()
+    {
+        userRole = await HttpClient.GetFromJsonAsync<List<UserWithRoleDTO>>("/api/Users/users-with-roles");
     }
 
     private async Task LoadUsers()
     {
         loading = true;
-        users = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
-        roles = await HttpClient.GetFromJsonAsync<List<string>>("api/Roles");
+        users = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");        
         loading = false;
     }
+
+    private string GetUserRole(string userId)
+    {
+        var userWithRole = userRole.FirstOrDefault(u => u.UserId == userId);
+        return userWithRole?.Role ?? string.Empty;
+    }
+
 
     private async Task DeleteUser(ApplicationUserDTO user)
     {
@@ -104,15 +137,20 @@
     private async Task HandleValidSubmit()
     {
         var result = await HttpClient.PutAsJsonAsync($"api/Users/{selectedUser.Id}", selectedUser);
-        if (result.IsSuccessStatusCode)
+
+        var result2 = await HttpClient.PostAsync($"api/Users/{selectedUser.Id}/roles/{selectedRole}", null);
+
+        if (result.IsSuccessStatusCode && result2.IsSuccessStatusCode)
         {
             Snackbar.Add("Usuario actualizado correctamente", Severity.Success);
             await LoadUsers();
+            await LoadUserRoles();
             showEditFields = false;
         }
         else
         {
             Snackbar.Add("Error al actualizar el usuario", Severity.Error);
+            await LoadUserRoles();
         }
     }
 
