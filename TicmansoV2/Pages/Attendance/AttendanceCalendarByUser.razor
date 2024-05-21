@@ -1,4 +1,4 @@
-﻿
+﻿@page "/control/attendance"
 @using System.IdentityModel.Tokens.Jwt
 @using System.Security.Claims
 @using TicmansoV2.Shared
@@ -14,31 +14,90 @@
 @inject NavigationManager NavManager
 @attribute [Authorize]
 
-<MudDatePicker Label="Seleccionar mes"
-               OpenTo="OpenTo.Month"
-               HelperText="Selecciona un mes para ver las asistencias"
-               AdornmentColor="Color.Primary"
-              />
-
+<MudGrid>
+    <MudItem xs="12" sm="9">
+        <MudTable Items="@usersAtendance" Hover="true" Striped="false" Class="cmptCentrado">
+            <HeaderContent>
+                <MudTh>Usuario</MudTh>
+                <MudTh>Dia</MudTh>
+                <MudTh>Hora entrada</MudTh>
+                <MudTh>Hora salida</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Nombre"> 
+                    @{var userName = User.FirstOrDefault(u => u.Id == context.UserId)?.Name;} @userName 
+                </MudTd>
+                <MudTd DataLabel="Dia">@context.EntryTime.Date.ToString("dd/MM/yyyy")</MudTd>
+                <MudTd DataLabel="Hora entrada">@context.EntryTime.ToString("HH:mm:ss")</MudTd>
+                <MudTd DataLabel="Hora salida">@context.DepartureTime?.ToString("HH:mm:ss")</MudTd>
+            </RowTemplate>
+        </MudTable>
+    </MudItem>
+    <MudItem xs="12" sm="3">
+        <MudCard Class="cmptCentrado">
+            <MudCardHeader>
+                <MudText Typo="Typo.h6" Style="color: #333;">Filtros</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudDatePicker Label="Selecciona un dia"
+                               HelperText="Selecciona un dia para ver las asistencias"
+                               AdornmentColor="Color.Primary"
+                               @bind-Date="selectedDate" />
+                <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" 
+                           Label="Selecciona un usuario" @bind-Value="selectedUser"
+                           HelperText="Selecciona un usuario para ver las asistencias">
+                    <MudSelectItem Value="@((string)null)"></MudSelectItem>
+                    @foreach (var user in User)
+                    {
+                        <MudSelectItem Value="@user.Name" />
+                    }
+                </MudSelect>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="ApplyFilters">Aplicar Filtros</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="DeleteFilters">Borrar Filtros</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudGrid>
 @code {
-    private List<AttendanceDTO>_attendances;
+    private DateTime? selectedDate;
+    private string selectedUser;
+    private List<AttendanceDTO> usersAtendance;
+    private List<ApplicationUserDTO> User { get; set; } = new List<ApplicationUserDTO>();
+
+    private async Task LoadUsersData()
+    {
+        usersAtendance = await HttpClient.GetFromJsonAsync<List<AttendanceDTO>>($"api/Attendances");
+        User = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+    }
 
     protected override async Task OnInitializedAsync()
     {
-        // Obtener las asistencias del usuario desde la API o base de datos
-        _attendances = await GetAttendancesForUser("userId");
+        await LoadUsersData();
     }
 
-    private async Task<List<AttendanceDTO>> GetAttendancesForUser(string userId)
+    private async Task DeleteFilters()
     {
-        return _attendances;
+        selectedDate = null;
+        selectedUser = null;
+        await LoadUsersData();
+    }
 
+    private void ApplyFilters()
+    {
+        var filterData = usersAtendance;
+        if (selectedDate.HasValue)
+        {
+            filterData = filterData.Where(x => x.EntryTime.Date == selectedDate.Value.Date).ToList();
+            
+        }
+        if (!string.IsNullOrEmpty(selectedUser))
+        {
+            filterData = filterData.Where(x => x.UserId == selectedUser).ToList();
+            
+        }
+
+        usersAtendance = filterData;
     }
 }
-
-<style>
-    .attendance-cell {
-        background-color: #e0f2f1;
-        font-weight: bold;
-    }
-</style>

@@ -7,6 +7,7 @@
 @inject ISnackbar Snackbar
 @inject NavigationManager NavManager
 @attribute [Authorize]
+
 <AuthorizeView Roles="Admin">
     <Authorized Context="authContext">
         <MudTable Items="@users" Hover="true" Striped="false" Loading="@loading">
@@ -32,9 +33,6 @@
         </MudTable>
         @if (showEditFields)
         {
-
-            
-
                 <EditForm Model="@selectedUser" OnValidSubmit="@HandleValidSubmit" >
                 <DataAnnotationsValidator />
                 <MudGrid Justify="Justify.Center" AlignContent="AlignContent.Center" Class="d-flex">
@@ -63,9 +61,7 @@
                     </MudItem>
                 </MudGrid>
             </EditForm>
-
         }
-
     </Authorized>
     <NotAuthorized>
         @{NavManager.NavigateTo("/");}

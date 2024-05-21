@@ -31,7 +31,10 @@
                         </MudDrawerHeader>
                         <MudNavMenu>
                             <MudNavLink Href="/teams-chat">Chats</MudNavLink>
-                            <MudNavLink Href="/attendance">Fichaje</MudNavLink>
+                            <MudNavGroup Title="Fichaje" Expanded="true">
+                                <MudNavLink Href="/attendance">Mi jornadas</MudNavLink>
+                                <MudNavLink Href="/control/attendance">Consultar jornadas</MudNavLink>
+                            </MudNavGroup>
                             <MudNavLink Href="/tickets">Tickets</MudNavLink>
                             <MudNavLink Href="/dashboard">Panel de control</MudNavLink>
                             <MudNavGroup Title="Configuración" Expanded="true">

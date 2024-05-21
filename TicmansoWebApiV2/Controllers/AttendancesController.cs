@@ -23,7 +23,7 @@ namespace TicmansoWebApiV2.Controllers
         // GET: api/Attendance/2023-04-16/1
         [HttpGet("{date}/{userId}")]
         [Produces("application/json")]
-        public ActionResult<AttendanceDTO> GetAttendance(DateTime date, string userId)
+        public ActionResult<AttendanceDTO> GetAttendanceByUser(DateTime date, string userId)
         {
             var attendance = _context.Attendances
                 .Where(a => a.Date == date && a.UserId == userId)
@@ -40,6 +40,54 @@ namespace TicmansoWebApiV2.Controllers
             if (attendance == null) return NotFound("No se ha encontrado jornada para este usuario");
 
             return attendance;
+        }
+
+        // GET: api/Attendance/byDate/2023-04-16
+        [HttpGet("{date}")]
+        [Produces("application/json")]
+        public ActionResult<IEnumerable<AttendanceDTO>> GetAttendancesByDate(DateTime date)
+        {
+            var attendances = _context.Attendances
+                .Where(a => a.Date == date)
+                .Select(a => new AttendanceDTO
+                {
+                    Date = a.Date,
+                    EntryTime = a.EntryTime,
+                    DepartureTime = a.DepartureTime,
+                    UserId = a.UserId
+                })
+                .AsEnumerable()
+                .ToList();
+
+            if (!attendances.Any())
+            {
+                return NotFound("No se encontraron registros de asistencia para la fecha especificada.");
+            }
+
+            return attendances;
+        }
+
+        [HttpGet]
+        [Produces("application/json")]
+        public ActionResult<IEnumerable<AttendanceDTO>> GetAttendances()
+        {
+            var attendances = _context.Attendances                
+                .Select(a => new AttendanceDTO
+                {
+                    Date = a.Date,
+                    EntryTime = a.EntryTime,
+                    DepartureTime = a.DepartureTime,
+                    UserId = a.UserId
+                })
+                .AsEnumerable()
+                .ToList();
+
+            if (!attendances.Any())
+            {
+                return NotFound("No se encontraron registros de asistencia para la fecha especificada.");
+            }
+
+            return attendances;
         }
 
         // PUT: api/Attendance/2023-04-16/1
@@ -87,7 +135,7 @@ namespace TicmansoWebApiV2.Controllers
             _context.Attendances.Add(attendance);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAttendance), new { date = attendance.Date, userId = attendance.UserId }, attendanceDTO);
+            return CreatedAtAction(nameof(GetAttendanceByUser), new { date = attendance.Date, userId = attendance.UserId }, attendanceDTO);
         }
 
         // DELETE: api/Attendance/2023-04-16/1  

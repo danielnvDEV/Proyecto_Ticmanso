@@ -1,28 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\",
+  "WorkspaceRootPath": "Y:\\TFG\\TicmansoV2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\pages\\attendance\\attendance.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\pages\\attendance\\attendance.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\attendance\\attendance.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\wwwroot\\css\\ticmansostyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:wwwroot\\css\\ticmansostyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\pages\\settings\\settings.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\settings\\settings.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansowebapiv2\\context\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\pages\\attendance\\attendancecalendarbyuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\pages\\attendance\\attendancecalendarbyuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\attendance\\attendancecalendarbyuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansowebapiv2\\controllers\\attendancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\wwwroot\\css\\ticmansostyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:wwwroot\\css\\ticmansostyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,84 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 55,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Settings.razor",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Pages\\Settings\\Settings.razor",
-              "RelativeDocumentMoniker": "Pages\\Settings\\Settings.razor",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Pages\\Settings\\Settings.razor",
-              "RelativeToolTip": "Pages\\Settings\\Settings.razor",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAACwAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-21T13:37:57.728Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ticmansoStyle.css",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\css\\ticmansoStyle.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\ticmansoStyle.css",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\wwwroot\\css\\ticmansoStyle.css",
-              "RelativeToolTip": "wwwroot\\css\\ticmansoStyle.css",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAAB8AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-05-21T07:55:01.384Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AttendancesController.cs",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
-              "RelativeToolTip": "..\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T06:52:23.513Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AttendanceCalendarByUser.razor",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Pages\\Attendance\\AttendanceCalendarByUser.razor",
-              "RelativeDocumentMoniker": "Pages\\Attendance\\AttendanceCalendarByUser.razor",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Pages\\Attendance\\AttendanceCalendarByUser.razor",
-              "RelativeToolTip": "Pages\\Attendance\\AttendanceCalendarByUser.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAFAAAA",
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Layout\\MainLayout.razor",
+              "ToolTip": "Y:\\TFG\\TicmansoV2\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Layout\\MainLayout.razor",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACMAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-21T06:50:57.657Z",
+              "WhenOpened": "2024-05-21T20:17:53.878Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Attendance.cs",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Context\\Attendance.cs",
-              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Context\\Attendance.cs",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoWebApiV2\\Context\\Attendance.cs",
-              "RelativeToolTip": "..\\TicmansoWebApiV2\\Context\\Attendance.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T06:45:31.564Z",
+              "DocumentIndex": 2,
+              "Title": "AttendanceCalendarByUser.razor",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Pages\\Attendance\\AttendanceCalendarByUser.razor",
+              "RelativeDocumentMoniker": "Pages\\Attendance\\AttendanceCalendarByUser.razor",
+              "ToolTip": "Y:\\TFG\\TicmansoV2\\Pages\\Attendance\\AttendanceCalendarByUser.razor",
+              "RelativeToolTip": "Pages\\Attendance\\AttendanceCalendarByUser.razor",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACcAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T17:55:50.287Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Attendance.razor",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Pages\\Attendance\\Attendance.razor",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Pages\\Attendance\\Attendance.razor",
               "RelativeDocumentMoniker": "Pages\\Attendance\\Attendance.razor",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Pages\\Attendance\\Attendance.razor",
+              "ToolTip": "Y:\\TFG\\TicmansoV2\\Pages\\Attendance\\Attendance.razor",
               "RelativeToolTip": "Pages\\Attendance\\Attendance.razor",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAADQAAAAtAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAC8AAAB6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-21T06:40:57.634Z",
+              "WhenOpened": "2024-05-21T16:47:11.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ticmansoStyle.css",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\wwwroot\\css\\ticmansoStyle.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\ticmansoStyle.css",
+              "ToolTip": "Y:\\TFG\\TicmansoV2\\wwwroot\\css\\ticmansoStyle.css",
+              "RelativeToolTip": "wwwroot\\css\\ticmansoStyle.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-21T17:15:39.606Z",
               "EditorCaption": ""
             }
           ]

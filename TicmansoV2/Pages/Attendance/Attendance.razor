@@ -6,10 +6,13 @@
 @using Microsoft.JSInterop
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Components.Authorization;
+@using MudBlazor
+
 @inject HttpClient HttpClient
 @inject IJSRuntime JSRuntime
 @inject ISnackbar Snackbar
 @inject NavigationManager NavManager
+
 @attribute [Authorize]
 <PageTitle>Attendance</PageTitle>
 <AuthorizeView>
@@ -41,47 +44,27 @@
             </MudCard>
         </MudItem>
         <MudGrid>
-            <MudItem xs="12" sm="4">
-                <MudDatePicker @bind-Date="date" PickerVariant="PickerVariant.Static" class="cmptCentrado">
+            <MudItem xs="12" sm="2">
+                <MudDatePicker @bind-Date="date" PickerVariant="PickerVariant.Static" class="cmptCentrado" Rounded="true">
                     <PickerActions>
                         <MudButton Class="mr-auto align-self-start" OnClick="Today">Hoy</MudButton>
                         <MudButton Class="mr-auto align-self-end" OnClick="LoadAttendanceUserData">Comprobar jornada</MudButton>
                     </PickerActions>
                 </MudDatePicker>
             </MudItem>
-            <MudItem xs="12" sm="8" >
-                <MudCard Class="cmptCentrado">
-                    <MudCardContent>
+            <MudItem xs="12" sm="10" Class="cmptCentrado">
                         <MudText>
-                            Hora de entrada: @if (entryTimeInfo.ToString("HH:mm:ss") == null)
-                            {
-                                @NoData
-                                ;
-                            }
-                            else
-                            {
-                                @entryTimeInfo.ToString("HH:mm:ss")
-                                ;
-                            }
+                            Hora de entrada:
+                            @if(entryTimeInfo.ToString("HH:mm:ss") == null){@NoData;}
+                            else{@entryTimeInfo.ToString("HH:mm:ss");}
                         </MudText>
                         <MudText>
-                            Hora de salida: @if (departureTimeInfo?.ToString("HH:mm:ss") == null)
-                            {
-                                @NoData
-                                ;
-                            }
-                            else
-                            {
-                                @departureTimeInfo?.ToString("HH:mm:ss")
-                                ;
-                            }
-                        </MudText>
-                    </MudCardContent>
-                </MudCard>                
-            </MudItem>
-        </MudGrid>
-        
-
+                            Hora de salida: 
+                            @if(departureTimeInfo?.ToString("HH:mm:ss") == null){@NoData;}
+                            else{@departureTimeInfo?.ToString("HH:mm:ss");}
+                        </MudText>               
+            </MudItem>           
+        </MudGrid>        
     </Authorized>
     <NotAuthorized>
         @{NavManager.NavigateTo("/");}
@@ -95,9 +78,10 @@
     private DateTime entryTimeInfo;
     private DateTime? departureTimeInfo;
     DateTime? date = DateTime.Today;
-    MudDatePicker _picker;
+    MudDatePicker _picker = new ();
     private string userId;
     private AttendanceDTO attendace = new AttendanceDTO();
+    private List<AttendanceDTO> usersAtendance = new List<AttendanceDTO>();
     private double entryLatitude;
     private double entryLongitude;
     private double? departureLatitude;
@@ -110,14 +94,19 @@
 
     protected override async Task OnInitializedAsync()
     {
+
         await GetUserId();
         await LoadAttendance();
         // await GetLocation();
     }
+
+
+
     private async Task Today()
     {
         await _picker.GoToDate(DateTime.Today);
     }
+
     private async Task GetUserId()
     {
         var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
