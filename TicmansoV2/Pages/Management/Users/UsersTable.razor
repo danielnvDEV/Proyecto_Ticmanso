@@ -140,7 +140,7 @@
 
         var result2 = await HttpClient.PostAsync($"api/Users/{selectedUser.Id}/roles/{selectedRole}", null);
 
-        if (result.IsSuccessStatusCode && result2.IsSuccessStatusCode)
+        if (result.IsSuccessStatusCode)
         {
             Snackbar.Add("Usuario actualizado correctamente", Severity.Success);
             await LoadUsers();
@@ -150,8 +150,11 @@
         else
         {
             Snackbar.Add("Error al actualizar el usuario", Severity.Error);
+            await LoadUsers();
             await LoadUserRoles();
         }
+        await LoadUsers();
+        await LoadUserRoles();
     }
 
     private void CancelEdit()

@@ -1,0 +1,44 @@
+﻿
+@using System.IdentityModel.Tokens.Jwt
+@using System.Security.Claims
+@using TicmansoV2.Shared
+@using System.Globalization
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using MudBlazor
+
+@inject HttpClient HttpClient
+@inject IJSRuntime JSRuntime
+@inject ISnackbar Snackbar
+@inject NavigationManager NavManager
+@attribute [Authorize]
+
+<MudDatePicker Label="Seleccionar mes"
+               OpenTo="OpenTo.Month"
+               HelperText="Selecciona un mes para ver las asistencias"
+               AdornmentColor="Color.Primary"
+              />
+
+@code {
+    private List<AttendanceDTO>_attendances;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Obtener las asistencias del usuario desde la API o base de datos
+        _attendances = await GetAttendancesForUser("userId");
+    }
+
+    private async Task<List<AttendanceDTO>> GetAttendancesForUser(string userId)
+    {
+        return _attendances;
+
+    }
+}
+
+<style>
+    .attendance-cell {
+        background-color: #e0f2f1;
+        font-weight: bold;
+    }
+</style>
