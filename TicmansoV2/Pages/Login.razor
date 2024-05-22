@@ -48,13 +48,22 @@
 
 @code {
     public LoginDTO User { get; set; } = new();
+    
+    string userId;
 
     protected override async Task OnInitializedAsync()
     {
         var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
         if (!string.IsNullOrEmpty(token))
         {
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(token);
+            var claims = jwtToken.Claims;
+
+            userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
             NavigationManager.NavigateTo("/dashboard");
+
         }
     }
     async Task HandleLogin()

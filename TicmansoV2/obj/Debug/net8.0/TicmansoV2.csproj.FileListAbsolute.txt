@@ -2078,8 +2078,6 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\zh-Hant\Microsoft.CodeAnalysis.resources.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.wasm
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\blazor.boot.json
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.4.hvfv86nc9h.js
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.4.47a7k7tler.js
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\TicmansoV2.pdb
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\TicmansoV2.Shared.pdb
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\TicmansoV2.Shared.wasm
@@ -2129,7 +2127,6 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.wasm.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\System.Runtime.Serialization.Primitives.wasm.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Extensions.DependencyModel.wasm.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.4.47a7k7tler.js.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.DataProtection.Abstractions.wasm.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Extensions.Configuration.FileExtensions.wasm.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Microsoft.SqlServer.Server.wasm.gz
@@ -2274,7 +2271,6 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.wasm.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\System.Security.Cryptography.ProtectedData.wasm.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\de\Microsoft.CodeAnalysis.resources.wasm.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.4.hvfv86nc9h.js.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\it\Microsoft.CodeAnalysis.CSharp.resources.wasm.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\System.Numerics.Vectors.wasm.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.wasm.gz
@@ -3459,15 +3455,6 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\gwaycltb47.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\3qd5823lrd.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\krttte4u2t.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\zy9871qeqp.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\ui363zbohl.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\hvfv86nc9h.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\vkr4pnml0g.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\47a7k7tler.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\gz9ar2bgao.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\2v2edrfg6i.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\got5ryjqhy.gz
-C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\56u9ttgfjz.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\k9bif8i72a.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\mbusvir16x.gz
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\0rshan0zzy.gz
@@ -7038,3 +7025,16 @@ Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.dll
 Y:\TFG\TicmansoV2\obj\Debug\net8.0\refint\TicmansoV2.dll
 Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.pdb
 Y:\TFG\TicmansoV2\obj\Debug\net8.0\ref\TicmansoV2.dll
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.5.9q9rwwc5oe.js
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.5.qmw9a3i84r.js
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.5.9q9rwwc5oe.js.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.5.qmw9a3i84r.js.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\ccgtwjzy5g.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\9lr1x9sdvu.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\9q9rwwc5oe.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\18s7mi2204.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\qmw9a3i84r.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\860mnua81m.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\in6x4uvrc0.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\c43ve331p4.gz
+C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\compressed\peyx0r6q7y.gz

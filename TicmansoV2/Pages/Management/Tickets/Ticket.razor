@@ -66,49 +66,51 @@
                         <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="SendMessage">Enviar</MudButton>
                     </MudCardActions>
                 </MudCard>
-            </MudItem>               
-            <MudItem xs="3">
-                <MudCard>
-                    <MudCardHeader Style="background-color: #e0e0e0;">
-                        <CardHeaderContent>
-                                <MudText Typo="Typo.h6" Style="color: #333;">Informacion</MudText>
-                        </CardHeaderContent>
-                    </MudCardHeader>
-                    <MudCardContent>
-                            <MudText><b>PROPIEDADES</b></MudText>
+            </MudItem> 
+            <AuthorizeView Roles="Admin"> 
+                <MudItem xs="3">
+                    <MudCard>
+                        <MudCardHeader Style="background-color: #e0e0e0;">
+                            <CardHeaderContent>
+                                    <MudText Typo="Typo.h6" Style="color: #333;">Informacion</MudText>
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudCardContent>
+                                <MudText><b>PROPIEDADES</b></MudText>
                             
-                            <MudText><b>Estado</b>
-                                <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedStatus">
-                                    @foreach (var status in Statuses)
-                                    {
-                                        <MudSelectItem Value="@status.Name" />
-                                    }
-                                </MudSelect>
-                            </MudText>
-                            <MudText><b>Prioridad</b>
-                                <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter"
-                                           Value="selectedPriority" ValueChanged="@((string value) => OnPriorityChanged(value))" Style="@($"color:{color}")" >
-                                    @foreach (var priority in Priorities)
-                                    {
-                                        <MudSelectItem Value="@priority.Name" Style="@($"color:{priority.Color}")" />
-                                    }
-                                </MudSelect>
+                                <MudText><b>Estado</b>
+                                    <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedStatus">
+                                        @foreach (var status in Statuses)
+                                        {
+                                            <MudSelectItem Value="@status.Name" />
+                                        }
+                                    </MudSelect>
+                                </MudText>
+                                <MudText><b>Prioridad</b>
+                                    <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter"
+                                               Value="selectedPriority" ValueChanged="@((string value) => OnPriorityChanged(value))" Style="@($"color:{color}")" >
+                                        @foreach (var priority in Priorities)
+                                        {
+                                            <MudSelectItem Value="@priority.Name" Style="@($"color:{priority.Color}")" />
+                                        }
+                                    </MudSelect>
 
-                            </MudText>
-                            <MudText><b>Agente</b>
-                                <MudSelect T="ApplicationUserDTO" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedAgent">
-                                    @foreach (var u in User)
-                                    {
-                                        <MudSelectItem Value="@u">@u.Name</MudSelectItem>
-                                    }
-                                </MudSelect>
-                            </MudText>
-                    </MudCardContent>
-                    <MudCardActions>
-                            <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="UpdateTicketAsync">Actualizar</MudButton>
-                    </MudCardActions>
-                </MudCard>
-            </MudItem>
+                                </MudText>
+                                <MudText><b>Agente</b>
+                                    <MudSelect T="ApplicationUserDTO" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedAgent">
+                                        @foreach (var u in User)
+                                        {
+                                            <MudSelectItem Value="@u">@u.Name</MudSelectItem>
+                                        }
+                                    </MudSelect>
+                                </MudText>
+                        </MudCardContent>
+                        <MudCardActions>
+                                <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="UpdateTicketAsync">Actualizar</MudButton>
+                        </MudCardActions>
+                    </MudCard>
+                </MudItem>
+            </AuthorizeView>
         </MudGrid>
         }
         else

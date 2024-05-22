@@ -69,6 +69,29 @@ namespace TicmansoV2.Controllers
             return ticket;
         }
 
+        [HttpGet("users/{userId}")]
+        public async Task<ActionResult<IEnumerable<TicketDTO>>> GetTickets(string userId)
+        {
+            var tickets = await _context.Tickets
+                .Where(t => t.CreationUserId == userId)
+                .Select(t=>new TicketDTO
+                {
+                    Id = t.Id,
+                    Title = t.Title,
+                    Description = t.Description,
+                    CreationDate = t.CreationDate,
+                    ChangedDate = t.ChangedDate,
+                    CloseDate = t.CloseDate,
+                    CreationUserId = t.CreationUserId,
+                    SupportUserId = t.SupportUserId ?? null,
+                    PriorityId = t.PriorityId,
+                    StatusId = t.StatusId
+                })
+                .ToListAsync();
+
+            return tickets;
+        }
+
         // PUT: api/Tickets/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTicket(int id, TicketDTO ticketDTO)

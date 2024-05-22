@@ -63,5 +63,29 @@ namespace TicmansoWebApiV2.Controllers.Views
 
             return ticket;
         }
+        
+        [HttpGet("User/{userId}")]
+        [Produces("application/json")]
+        public async Task<ActionResult<IEnumerable<GeneralViewTicketDTO>>> GetGeneralViewTicket(string userId)
+        {
+            var ticket = await _dbContext.Tickets
+                .Where(t => t.CreationUserId == userId)
+                .Select(t => new GeneralViewTicketDTO
+                {
+                    NumTicket = t.Id,
+                    Tittle = t.Title,
+                    Description = t.Description,
+                    CreationUser = t.CreationUser.Name,
+                    SuportUser = t.SupportUser.Name,
+                    Status = t.Status.Name,
+                    Priority = t.Priority.Name,
+
+                })
+                .ToListAsync();
+
+            if (ticket == null) return NotFound();
+
+            return ticket;
+        }
     }
 }
