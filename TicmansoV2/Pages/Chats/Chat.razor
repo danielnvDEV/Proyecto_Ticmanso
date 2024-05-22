@@ -12,15 +12,24 @@
 <AuthorizeView>
     <Authorized Context="authContext">
         <MudGrid>
-            <MudItem xs="4">
+            <MudItem xs="3">
                 <MudPaper Elevation="0">
                     <MudList Clickable="true">
                         <MudListSubheader>Usuarios</MudListSubheader>
                         @foreach (var user in Users)
                         {
+                            
                             <MudListItem OnClick="@(() => SelectUser(user))">
-                                <MudAvatar Color="Color.Primary">@user.UserName.Substring(0, 1)</MudAvatar>
-                                    @user.UserName
+
+                                @if (imageBytes != null)
+                                {
+                                    <MudAvatar Image="@($"data:image/jpeg;base64,{Convert.ToBase64String(imageBytes)}")" Alt="@user.UserName" Width="40" Height="40" Class="rounded-circle" />
+                                }
+                                else
+                                {
+                                    <MudAvatar Color="Color.Primary">@user.UserName.Substring(0, 1)</MudAvatar>
+                                }
+                                @user.UserName
                             </MudListItem>
                         }
                     </MudList>
@@ -40,31 +49,75 @@
                     </MudList>  
                 </MudPaper>
             </MudItem>
-            <MudItem xs="8">
-                <MudPaper Elevation="0">
+            <MudItem xs="9">
+                <MudPaper Elevation="0" >
                     <MudToolBar >
                         <MudText Typo="Typo.h6">Conversación con @SelectedUser.Name</MudText>
                     </MudToolBar>
-                    <MudList Style="height: 60vh; overflow-y: scroll;">
+                    <MudList id="messages-container" Style="height: 75vh; overflow-y: scroll;">
                         @foreach (var message in ChatMessages)
                         {
-                            <div class="@(message.SenderId == conectedUser ? "d-flex justify-end " : "d-flex justify-start")">
-                                <MudCard Style="margin-bottom:1vh;border: none;box-shadow: none;">
-                                    <MudText Typo="Typo.caption">@message.Timestamp</MudText>
-                                    <MudText Typo="Typo.body1"><b>@message.Content</b></MudText>
+                            <div  class="@(message.SenderId == conectedUser ? "sent-message" : "received-message")">
+                            <MudCard Style="margin-bottom:1vh; border: none; box-shadow: none;height: auto;">
+                                    <MudText>@message.Content</MudText>
+                                    <MudText Typo="Typo.caption" Style="color: black; font-size: 0.5rem;">@message.Timestamp</MudText>
                                 </MudCard>
                             </div>
                         }
                     </MudList>
                     <MudPaper Elevation="0" Class="d-flex mt-4">
-                        <MudTextField @bind-Value="NewMessage" Placeholder="Escribe un mensaje..." Variant="Variant.Outlined" Class="flex-grow-1"></MudTextField>
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SendMessage" Class="ml-2">Enviar</MudButton>
+                        <MudTextField @bind-Value="NewMessage" Placeholder="Escribe un mensaje..." Variant="Variant.Outlined" Class="flex-grow-1" Style="border-radius: 20px;"></MudTextField>
+                        <MudIconButton Icon="@Icons.Material.Filled.Send" Variant="Variant.Filled" Color="Color.Primary" OnClick="SendMessage" Class="ml-2" Style="border-radius: 50%; width: 40px; height: 40px; min-width: unset;"></MudIconButton>
                     </MudPaper>
                 </MudPaper>
             </MudItem>
         </MudGrid>
 </Authorized>
 </AuthorizeView>
+<style>
+    .sent-message {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+        .sent-message .mud-card {
+            background-color: #7f63cc;
+            color:white;
+            border-radius: 13px 0 13px 13px;
+            max-width: 70%;
+            margin-right:2vh;
+            padding:0.5vh;
+            overflow-y: auto;
+            word-wrap: break-word;
+        }
+
+    .received-message {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+        .received-message .mud-card {
+            background-color: #dcdae3;
+            border-radius: 0 13px 13px 13px;
+            max-width: 70%;
+            margin-left: 2vh;
+            padding: 0.5vh;
+            overflow-y: auto;
+            word-wrap: break-word;
+        }
+
+    #messages-container {
+        scroll-behavior: smooth;
+    }   
+</style>
+<script>
+    function scrollToBottom(elementId) {
+        var element = document.getElementById(elementId);
+        if (element) {
+            element.scrollTop = element.scrollHeight;
+        }
+    }
+</script>
 @code {
     private List<ApplicationUserDTO>? Users { get; set; } = new List<ApplicationUserDTO>();
     private ApplicationUserDTO? SelectedUser { get; set; }
@@ -73,6 +126,7 @@
     private string? conectedUser { get; set; }
     private List<GroupDTO> Groups { get; set; } = new List<GroupDTO>();
     private GroupDTO SelectedGroup { get; set; }
+    private byte[] imageBytes;
 
     protected override async Task OnInitializedAsync()
     {
@@ -86,19 +140,30 @@
         Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
         SelectedUser = Users.FirstOrDefault();
         Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"api/Group/user/{conectedUser}");
-        //SelectedGroup = Groups.FirstOrDefault();
 
-        //await LoadUserChatMessages();
-        //await LoadGroupChatMessages();
+        foreach (var user in Users)
+        {
+            imageBytes = await LoadUserImage(user.Id);
+        }
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("scrollToBottom", "messages-container");
+        }
+    }
     private async Task LoadUserChatMessages()
     {
         ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"api/ChatMessages/user/{SelectedUser.Id}");
+        await OnAfterRenderAsync(true);
+        StateHasChanged();
     }
     private async Task LoadGroupChatMessages()
     {
         ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"api/ChatMessages/group/{SelectedGroup.Id}");
+        StateHasChanged();
     }
     private async void SelectUser(ApplicationUserDTO user)
     {
@@ -114,7 +179,16 @@
 
     private async void LoadGroups()
     {
-        Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"api/Groups/user/{conectedUser}");
+        try
+        {
+            Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"api/Groups/user/{conectedUser}");
+        }
+        catch (Exception)
+        {
+
+            Snackbar.Add("Error al cargar la lista de grupos");
+        }
+        
     }
     private string GetUserName(string userId)
     {
@@ -183,4 +257,13 @@
         }
     }
 
+    private async Task<byte[]> LoadUserImage(string userId)
+    {
+        var response = await HttpClient.GetAsync($"api/UserImage/GetUserImage/{userId}");
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadAsByteArrayAsync();
+        }
+        return null;
+    }
 }

@@ -15,65 +15,68 @@
 
 
 @page "/settings"
-<MudGrid>
-    <MudItem xs="12" sm="4">
-        <MudCard Elevation="25">
-            <MudCardContent Class="d-flex flex-column align-items-center">
-                @if (imageBytes != null)
-                {
-                    <MudAvatar Image="@($"data:image/jpeg;base64,{Convert.ToBase64String(imageBytes)}")" Style="height:195px; width:195px;">
-                    </MudAvatar>
-                }
-                else
-                {
-                    <MudAvatar Image="@selectedImage" Height="190" />
-                }
+<AuthorizeView>
+    <Authorized Context="authContext">
+        <MudGrid>
+            <MudItem xs="12" sm="4">
+                <MudCard Elevation="25">
+                    <MudCardContent Class="d-flex flex-column align-items-center">
+                        @if (imageBytes != null)
+                        {
+                            <MudAvatar Image="@($"data:image/jpeg;base64,{Convert.ToBase64String(imageBytes)}")" Style="height:195px; width:195px;">
+                            </MudAvatar>
+                        }
+                        else
+                        {
+                            <MudAvatar Image="@selectedImage" Height="190" />
+                        }
 
-            </MudCardContent>
-            <MudCardActions Class="d-flex flex-column align-items-center">
-                <MudFileUpload T="IBrowserFile" Accept=".jpg, .jpeg, .png" Class="mt-3" OnFilesChanged="UploadFiles">
-                    <ButtonTemplate>
-                        <MudButton HtmlTag="label" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.CloudUpload" for="@context">
-                            Cargar imagen
-                        </MudButton>
-                    </ButtonTemplate>
-                </MudFileUpload>
-            </MudCardActions>
-        </MudCard>
-    </MudItem>
+                    </MudCardContent>
+                    <MudCardActions Class="d-flex flex-column align-items-center">
+                        <MudFileUpload T="IBrowserFile" Accept=".jpg, .jpeg, .png" Class="mt-3" OnFilesChanged="UploadFiles">
+                            <ButtonTemplate>
+                                <MudButton HtmlTag="label" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.CloudUpload" for="@context">
+                                    Cargar imagen
+                                </MudButton>
+                            </ButtonTemplate>
+                        </MudFileUpload>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
 
-    <MudItem xs="12" sm="8">
-        <MudForm Model="@user" @ref="@form" @bind-IsValid="@success" @bind-Errors="@errors">
-            <MudCard Elevation="25" >
-                <MudCardContent>
-                    <MudGrid>
-                        <MudItem xs="12" sm="6">
-                            <MudTextField @bind-Value="FirstName" Label="Nombre" Variant="Variant.Outlined" Required="true" RequiredError="El nombre es requerido" Disabled="@(!isEditing)" />
-                            <MudTextField @bind-Value="LastName" Label="Apellidos" Variant="Variant.Outlined" Required="true" RequiredError="El apellido es requerido" Class="mt-3" Disabled="@(!isEditing)" />
-                            <MudNumericField @bind-Value="Phone" Label="Teléfono" Variant="Variant.Outlined" Class="mt-3"
-                                             Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Phone" AdornmentText="+34" MaxLength="9" Min="111111111" Disabled="@(!isEditing)" />
-                        </MudItem>
-                        <MudItem xs="12" sm="6">
-                            <MudTextField @bind-Value="user.Email" Label="Correo electrónico" Variant="Variant.Outlined" Required="true" RequiredError="El correo electrónico es requerido" Disabled="@(!isEditing)" />
-                            <MudButton Variant="Variant.Filled" Color="Color.Surface" OnClick="ChangePassword" Class="mt-3" Disabled="@(!isEditing)">Cambiar contraseña</MudButton>
-                        </MudItem>
-                    </MudGrid>
-                </MudCardContent>
-                <MudCardActions Class="pb-4 pl-4">
-                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => isEditing = true)" Disabled="@isEditing">Editar</MudButton>
-                    @if (isEditing)
-                    {
-                        <div class="d-flex justify-end">
-                            <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Submit())">Guardar cambios</MudButton>
-                            <MudButton Variant="Variant.Filled" Color="Color.Default" OnClick="@(() => isEditing = false)">Cancelar</MudButton>
-                        </div>
-                    }
-                </MudCardActions>            
-            </MudCard>
-        </MudForm>
-    </MudItem>
-</MudGrid>
-
+            <MudItem xs="12" sm="8">
+                <MudForm Model="@user" @ref="@form" @bind-IsValid="@success" @bind-Errors="@errors">
+                    <MudCard Elevation="25" >
+                        <MudCardContent>
+                            <MudGrid>
+                                <MudItem xs="12" sm="6">
+                                    <MudTextField @bind-Value="FirstName" Label="Nombre" Variant="Variant.Outlined" Required="true" RequiredError="El nombre es requerido" Disabled="@(!isEditing)" />
+                                    <MudTextField @bind-Value="LastName" Label="Apellidos" Variant="Variant.Outlined" Required="true" RequiredError="El apellido es requerido" Class="mt-3" Disabled="@(!isEditing)" />
+                                    <MudNumericField @bind-Value="Phone" Label="Teléfono" Variant="Variant.Outlined" Class="mt-3"
+                                                     Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Phone" AdornmentText="+34" MaxLength="9" Min="111111111" Disabled="@(!isEditing)" />
+                                </MudItem>
+                                <MudItem xs="12" sm="6">
+                                    <MudTextField @bind-Value="user.Email" Label="Correo electrónico" Variant="Variant.Outlined" Required="true" RequiredError="El correo electrónico es requerido" Disabled="@(!isEditing)" />
+                                    <MudButton Variant="Variant.Filled" Color="Color.Surface" OnClick="ChangePassword" Class="mt-3" Disabled="@(!isEditing)">Cambiar contraseña</MudButton>
+                                </MudItem>
+                            </MudGrid>
+                        </MudCardContent>
+                        <MudCardActions Class="pb-4 pl-4">
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => isEditing = true)" Disabled="@isEditing">Editar</MudButton>
+                            @if (isEditing)
+                            {
+                                <div class="d-flex justify-end">
+                                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Submit())">Guardar cambios</MudButton>
+                                    <MudButton Variant="Variant.Filled" Color="Color.Default" OnClick="@(() => isEditing = false)">Cancelar</MudButton>
+                                </div>
+                            }
+                        </MudCardActions>            
+                    </MudCard>
+                </MudForm>
+            </MudItem>
+        </MudGrid>
+    </Authorized>
+</AuthorizeView>
 @code {
     bool isEditing = false;
     private string selectedImage;
