@@ -19,6 +19,25 @@ namespace TicmansoWebApiV2.Controllers
             _context = context;            
         }
 
+        [HttpGet("GetAllUserImages")]
+        public async Task<IActionResult> GetAllUserImages()
+        {
+            var userImages = await _context.UserImages.ToListAsync();
+
+            if (userImages.Count > 0)
+            {
+                var imageList = userImages.Select(ui => new
+                {
+                    UserId = ui.IdUser,
+                    Image = Convert.ToBase64String(ui.Image)
+                }).ToList();
+
+                return Ok(imageList);
+            }
+
+            return NotFound("No se han encontrado imagenes");
+        }
+
         [HttpPut]
         public async Task<IActionResult> UploadUserImage([FromBody] UserImageDTO imageDTO)
         {
@@ -67,6 +86,18 @@ namespace TicmansoWebApiV2.Controllers
             return NotFound();
         }
 
+        [HttpDelete("DeleteUserImage/{userId}")]
+        public async Task<IActionResult> DeleteUserImage(string userId)
+        {
+            var userImage = await _context.UserImages.FirstOrDefaultAsync(u => u.IdUser == userId);
+            if (userImage != null)
+            {
+                _context.UserImages.Remove(userImage);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            return NotFound();
+        }
     }
 }
 

@@ -18,33 +18,51 @@
 <AuthorizeView>
     <Authorized Context="authContext">
         <MudGrid>
-            <MudItem xs="12" sm="4">
+            <MudItem xs="12" sm="12">
                 <MudCard Elevation="25">
-                    <MudCardContent Class="d-flex flex-column align-items-center">
-                        @if (imageBytes != null)
-                        {
-                            <MudAvatar Image="@($"data:image/jpeg;base64,{Convert.ToBase64String(imageBytes)}")" Style="height:195px; width:195px;">
-                            </MudAvatar>
-                        }
-                        else
-                        {
-                            <MudAvatar Image="@selectedImage" Height="190" />
-                        }
+                    <MudCardContent Class="d-flex">
+                        <MudItem Class="d-flex align-items-start" xs="4" sm="4">
+                            <MudText >
+                                Foto de perfil del usuario
+                            </MudText>
+                        </MudItem>
 
+                        <MudItem Class="d-flex align-items-end ml-12" xs="4" sm="4">
+                            @if (imageBytes != null)
+                            {
+                                <MudAvatar Image="@($"data:image/jpeg;base64,{Convert.ToBase64String(imageBytes)}")" Style="height:195px; width:195px;">
+                                </MudAvatar>
+                            }
+                            else
+                            {
+                                <MudAvatar Image="@selectedImage" Style="height:195px; width:195px;" />
+                            }
+                        </MudItem>
+                        <MudItem Class="d-flex align-items-center ml-6" xs="4" sm="4">
+                            <MudFileUpload T="IBrowserFile" Accept=".jpg, .jpeg, .png" Class="mt-3" OnFilesChanged="UploadFiles">
+                                <ButtonTemplate>
+                                    <MudButton HtmlTag="label" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.CloudUpload" for="@context">
+                                        Cargar imagen
+                                    </MudButton>
+                                </ButtonTemplate>
+                            </MudFileUpload>
+                            <MudIconButton HtmlTag="label" Color="Color.Error" Class="mt-3" Icon="@Icons.Material.Filled.DeleteForever" OnClick="DeleteUserImage" />
+                        </MudItem>
                     </MudCardContent>
-                    <MudCardActions Class="d-flex flex-column align-items-center">
+                    @* <MudCardActions Class="d-flex align-items-end">
                         <MudFileUpload T="IBrowserFile" Accept=".jpg, .jpeg, .png" Class="mt-3" OnFilesChanged="UploadFiles">
-                            <ButtonTemplate>
+                            <ButtonTemplate>                           
                                 <MudButton HtmlTag="label" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.CloudUpload" for="@context">
                                     Cargar imagen
                                 </MudButton>
                             </ButtonTemplate>
                         </MudFileUpload>
-                    </MudCardActions>
+                        <MudIconButton HtmlTag="label" Color="Color.Error" Class="mt-3" Icon="@Icons.Material.Filled.DeleteForever" OnClick="DeleteUserImage" />
+                    </MudCardActions> *@
                 </MudCard>
             </MudItem>
 
-            <MudItem xs="12" sm="8">
+            <MudItem xs="12" sm="12">
                 <MudForm Model="@user" @ref="@form" @bind-IsValid="@success" @bind-Errors="@errors">
                     <MudCard Elevation="25" >
                         <MudCardContent>
@@ -149,6 +167,18 @@
             return await response.Content.ReadAsByteArrayAsync();
         }
         return null;
+    }
+
+    private async Task DeleteUserImage()
+    {
+        var response = await HttpClient.DeleteAsync($"api/UserImage/DeleteUserImage/{userId}");
+        if (response.IsSuccessStatusCode)
+        {
+            Snackbar.Add("Foto de perfil eliminada");
+            imageBytes = await LoadUserImage(userId);
+        }
+        else
+            Snackbar.Add("No se pudo eliminar en estos momentos su foto de perfil");
     }
 
     private async Task UploadFiles(InputFileChangeEventArgs e)

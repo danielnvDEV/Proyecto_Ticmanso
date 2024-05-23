@@ -28,42 +28,64 @@
     <Authorized >
         <div class="page">
             <MudLayout class="p-0">
-                    <MudAppBar Elevation="1">
+                    <MudAppBar Elevation="1" Style="background-color:#395886">
                         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
                         <MudSpacer />
                         <MudIconButton Icon="@Icons.Material.Filled.InsertComment" Color="Color.Inherit" Href="/management/tickets/newTicket" />
                         <MudIconButton ml-2 Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Href="/dashboard" />
-                        @if (imageBytes != null)
-                        {
-                            <MudAvatar Image="@($"data:image/jpeg;base64,{Convert.ToBase64String(imageBytes)}")" Style="height:19px; width:19px;">
-                            </MudAvatar>
-                        }
-                        else
-                        {
-                            <MudAvatar Image="@selectedImage" Height="19" />
-                        }
+
+                        <MudMenu FullWidth="true" ActivationEvent="@MouseEvent.MouseOver" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" Style="margin:auto;">
+                            <ActivatorContent>
+                                @if (imageBytes != null)
+                                {
+                                    <MudAvatar Class="ml-3" Image="@($"data:image/jpeg;base64,{Convert.ToBase64String(imageBytes)}")" Style="height:35px; width:35px;">
+                                    </MudAvatar>
+                                }
+                                else
+                                {
+                                    <MudAvatar ml-2 Image="@selectedImage" Height="19" />
+                                }
+                            </ActivatorContent>
+                            <ChildContent>
+                            <MudMenuItem><b>@userName</b></MudMenuItem>
+                                <MudMenuItem>@userEmail</MudMenuItem>
+                            <MudDivider />
+                                <MudMenuItem>
+                                    <MudNavLink Href="/settings" Icon="@Icons.Material.Filled.Build">Perfil</MudNavLink>                                
+                                </MudMenuItem>
+                                <MudMenuItem>
+                                    <MudNavLink OnClick="Logout" Icon="@Icons.Material.Filled.Block">Salir</MudNavLink>
+                                </MudMenuItem>
+                            </ChildContent>
+                        </MudMenu>
+
+
                     </MudAppBar>
-                    <MudDrawer @bind-Open="@open" Elevation="1">
+                <MudDrawer @bind-Open="@open" Elevation="1" Style="Background-color:#F0F3FA">
                         <MudDrawerHeader>
                             <MudText Typo="Typo.h6">Ticmanso</MudText>
                         </MudDrawerHeader>
                         <MudNavMenu>
                             <MudNavLink Href="/dashboard" Icon="@Icons.Material.Filled.Dashboard">Panel de control</MudNavLink>
                             <MudNavLink Href="/teams-chat" Icon="@Icons.Material.Filled.Drafts">Chats</MudNavLink>
+                                <MudDivider />
                             <MudNavGroup Title="Fichaje" Expanded="true" Icon="@Icons.Material.Filled.CalendarMonth">
                                 <MudNavLink Href="/attendance" Icon="@Icons.Material.Filled.CalendarToday">Mi jornadas</MudNavLink>
                                 <MudNavLink Href="/control/attendance" Icon="@Icons.Material.Filled.EditCalendar">Consultar jornadas</MudNavLink>
                             </MudNavGroup>
+                        <MudDivider />
                         <MudNavGroup Title="Tickets" Expanded="true" Icon="@Icons.Material.Filled.AirplaneTicket">
                                 <MudNavLink Href="/myTickets">Mis tickets</MudNavLink>
                                 <MudNavLink Href="/tickets">Tickets</MudNavLink>
                             </MudNavGroup>
+                        <MudDivider />
                             <MudNavGroup Title="Configuración" Expanded="true" Icon="@Icons.Material.Filled.Settings">
                                 <MudNavLink Href="/management/controlUser" Icon="@Icons.Material.Filled.People">Usuarios</MudNavLink>
                                 <MudNavLink Href="/management/statuses">Estados</MudNavLink>
-                                <MudNavLink Href="/management/priorities">Prioridades</MudNavLink>
+                            <MudNavLink Href="/management/priorities" Icon="@Icons.Material.Filled.AccessTime">Prioridades</MudNavLink>
                             <MudNavLink Href="/management/companies" Icon="@Icons.Material.Filled.Business">Compañias</MudNavLink>
                             </MudNavGroup>
+                        <MudDivider />
                             <MudNavLink Href="/settings" Icon="@Icons.Material.Filled.Build">Ajustes</MudNavLink>
                             <MudNavLink OnClick="Logout" Icon="@Icons.Material.Filled.Block">LogOut</MudNavLink>
                         </MudNavMenu>
@@ -113,9 +135,11 @@
 {
     private string selectedImage;
     bool open = false;
+    bool preserveOpenState = false;
+    DrawerClipMode clipMode = DrawerClipMode.Never;
 
     [CascadingParameter] string userId { get; set; } = "";
-
+    string userName, userEmail;
     void ToggleDrawer()
     {
         open = !open;
@@ -153,11 +177,13 @@
         try
         {
             userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            userName = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+            userEmail = claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
         }
         catch (HttpIOException e)
         {
             Snackbar.Add("No se ha podido cargar la informacion correctamente", Severity.Error);
         }
-       await LoadUserImage(userId);
+         imageBytes = await LoadUserImage(userId);
     }
 }

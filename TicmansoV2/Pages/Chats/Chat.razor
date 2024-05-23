@@ -11,7 +11,7 @@
 @inject IDialogService DialogService
 <AuthorizeView>
     <Authorized Context="authContext">
-        <MudGrid>
+        <MudGrid Style="Background-color:#F0F3FA">
             <MudItem xs="3">
                 <MudPaper Elevation="0">
                     <MudList Clickable="true">
@@ -23,11 +23,11 @@
 
                                 @if (imageBytes != null)
                                 {
-                                    <MudAvatar Image="@($"data:image/jpeg;base64,{Convert.ToBase64String(imageBytes)}")" Alt="@user.UserName" Width="40" Height="40" Class="rounded-circle" />
+                                    <MudAvatar Image="@($"data:image/jpeg;base64,{imageBytes}")" Alt="@user.UserName" Width="40" Height="40" Class="rounded-circle" />
                                 }
                                 else
                                 {
-                                    <MudAvatar Color="Color.Primary">@user.UserName.Substring(0, 1)</MudAvatar>
+                                    <MudAvatar Style="background-color:#395886;">@user.UserName.Substring(0, 1)</MudAvatar>
                                 }
                                 @user.UserName
                             </MudListItem>
@@ -49,8 +49,8 @@
                     </MudList>  
                 </MudPaper>
             </MudItem>
-            <MudItem xs="9">
-                <MudPaper Elevation="0" >
+            <MudItem xs="9" Style="Background-color:#F0F3FA">
+                <MudPaper Elevation="0" Style="Background-color:#F0F3FA">
                     <MudToolBar >
                         <MudText Typo="Typo.h6">Conversación con @SelectedUser.Name</MudText>
                     </MudToolBar>
@@ -60,7 +60,7 @@
                             <div  class="@(message.SenderId == conectedUser ? "sent-message" : "received-message")">
                             <MudCard Style="margin-bottom:1vh; border: none; box-shadow: none;height: auto;">
                                     <MudText>@message.Content</MudText>
-                                    <MudText Typo="Typo.caption" Style="color: black; font-size: 0.5rem;">@message.Timestamp</MudText>
+                                    <MudText Typo="Typo.caption" Style="color: black; font-size: 1vh;">@message.Timestamp</MudText>
                                 </MudCard>
                             </div>
                         }
@@ -81,7 +81,7 @@
     }
 
         .sent-message .mud-card {
-            background-color: #7f63cc;
+            background-color: #628ECB;
             color:white;
             border-radius: 13px 0 13px 13px;
             max-width: 70%;
@@ -97,7 +97,7 @@
     }
 
         .received-message .mud-card {
-            background-color: #dcdae3;
+            background-color: #B1C9EF;
             border-radius: 0 13px 13px 13px;
             max-width: 70%;
             margin-left: 2vh;
@@ -125,8 +125,10 @@
     private string? NewMessage { get; set; }
     private string? conectedUser { get; set; }
     private List<GroupDTO> Groups { get; set; } = new List<GroupDTO>();
+    private List<UserImageDTO> userImages { get; set; } = new List<UserImageDTO>();
     private GroupDTO SelectedGroup { get; set; }
     private byte[] imageBytes;
+    private string image;
 
     protected override async Task OnInitializedAsync()
     {
@@ -140,10 +142,16 @@
         Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
         SelectedUser = Users.FirstOrDefault();
         Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"api/Group/user/{conectedUser}");
+        var userImages = await httpClient.GetFromJsonAsync<List<UserImageDTO>>($"api/UserImage/GetAllUserImages");
 
+        // Asignar las imágenes de usuario a cada usuario en la lista Users
         foreach (var user in Users)
         {
-            imageBytes = await LoadUserImage(user.Id);
+            var userImage = userImages.FirstOrDefault(ui => ui.IdUser == user.Id);
+            if (userImage != null)
+            {
+                imageBytes = userImage.Image;
+            }
         }
     }
 
@@ -188,7 +196,7 @@
 
             Snackbar.Add("Error al cargar la lista de grupos");
         }
-        
+
     }
     private string GetUserName(string userId)
     {
@@ -224,13 +232,13 @@
             try 
             { 
                 var response = await httpClient.PostAsJsonAsync($"api/ChatMessages", message); 
-                
+
             }
             catch (Exception e)
             {
                 Console.Write("el mensaje se ha guardado correctamente aunque haya sido bloqueado por el CORS");
             }
-            
+
 
             NewMessage = string.Empty;
 
@@ -253,7 +261,7 @@
         {
             var newGroup = (GroupDTO)result.Data;
             Groups.Add(newGroup);
-             LoadGroups();
+            LoadGroups();
         }
     }
 
@@ -262,7 +270,8 @@
         var response = await HttpClient.GetAsync($"api/UserImage/GetUserImage/{userId}");
         if (response.IsSuccessStatusCode)
         {
-            return await response.Content.ReadAsByteArrayAsync();
+            imageBytes = await response.Content.ReadAsByteArrayAsync();
+            return imageBytes;
         }
         return null;
     }
