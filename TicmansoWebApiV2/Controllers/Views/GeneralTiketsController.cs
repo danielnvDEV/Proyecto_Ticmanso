@@ -87,5 +87,27 @@ namespace TicmansoWebApiV2.Controllers.Views
 
             return ticket;
         }
+
+        [HttpGet("GetLast5")]
+        [Produces("application/json")]
+        public async Task<ActionResult<IEnumerable<GeneralViewTicketDTO>>> GetLast5Tickets()
+        {
+            var tickets = await _dbContext.Tickets
+                .OrderByDescending(t => t.Id)
+                .Take(5)
+                .Select(t => new GeneralViewTicketDTO
+                {
+                    NumTicket = t.Id,
+                    Tittle = t.Title,
+                    Description = t.Description,
+                    CreationUser = t.CreationUser.Name,
+                    SuportUser = t.SupportUser.Name,
+                    Status = t.Status.Name,
+                    Priority = t.Priority.Name
+                })
+                .ToListAsync();
+
+            return tickets;
+        }
     }
 }

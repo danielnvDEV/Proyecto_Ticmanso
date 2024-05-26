@@ -7,5 +7,6 @@ namespace TicmansoV2.Shared.Contracts
     {
         Task<GeneralResponse> CreateAccount(ApplicationUserDTO userDTO);
         Task<LoginResponse> LoginAccount(LoginDTO loginDTO);
+        Task<ChangePasswordResponse> ChangePassword(ChangePasswordDTO changePasswordDTO);
     }
 }

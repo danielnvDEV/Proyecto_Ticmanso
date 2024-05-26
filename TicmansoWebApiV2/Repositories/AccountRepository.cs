@@ -87,6 +87,25 @@ namespace TicmansoWebApiV2.Repositories
                 signingCredentials: credentials
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);
-        }    
+        }
+
+        public async Task<ChangePasswordResponse> ChangePassword(ChangePasswordDTO changePasswordDTO)
+        {
+            var user = await userManager.FindByEmailAsync(changePasswordDTO.Email);
+            if (user == null)
+            {
+                return new ChangePasswordResponse(false, "Usuario no encontrado");
+            }
+
+            var result = await userManager.ChangePasswordAsync(user, changePasswordDTO.CurrentPassword, changePasswordDTO.NewPassword);
+            if (result.Succeeded)
+            {
+                return new ChangePasswordResponse(true, "Se ha cambiado la contrasena correctamente");
+            }
+            else
+            {
+                return new ChangePasswordResponse(false, "Ha ocurrido un error, por favor inténtelo más tarde");
+            }
+        }
     }
 }

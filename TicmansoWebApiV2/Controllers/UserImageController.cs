@@ -33,6 +33,7 @@ namespace TicmansoWebApiV2.Controllers
                 }).ToList();
 
                 return Ok(imageList);
+
             }
 
             return NotFound("No se han encontrado imagenes");

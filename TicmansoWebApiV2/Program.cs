@@ -21,8 +21,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
        policy =>
        {
-           policy.WithOrigins("https://localhost:7174", "http://localhost:5000", "http://localhost:7291/api", "https://localhost:7174/teams-chat ")
-
+           policy.WithOrigins("https://localhost:7174", "http://localhost:5000", "http://localhost:7291/api", "https://localhost:7174/teams-chat",
+                   "https://www.ticmanso.com", "http://www.ticmanso.com")
+                 
                  .AllowAnyHeader()
                  .AllowAnyOrigin()
                  .AllowAnyMethod();
@@ -38,7 +39,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL3") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 
@@ -82,8 +83,17 @@ builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
 var app = builder.Build();
 
 app.UseHttpsRedirection();
-app.UseSwagger();
-app.UseSwaggerUI();
+
+
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    });
+}
+
 app.UseRouting();
 
 app.UseAuthentication();
@@ -91,6 +101,7 @@ app.UseAuthorization();
 app.UseCors(MyAllowSpecificOrigins);
 
 
+app.MapSwagger();
 app.UseStaticFiles();
 
 app.MapControllers();
@@ -98,7 +109,7 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<TicmansoDbContext>();
-    dbContext.Database.Migrate();
+    //dbContext.Database.Migrate();
 
 
     var services = scope.ServiceProvider;

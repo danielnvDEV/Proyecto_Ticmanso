@@ -13,8 +13,9 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://www.nascasadani.duckdns.org:7291") });
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:7291") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://www.ticmanso.com:7291") });
+//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:7291") });
+//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5000") });
 
 builder.Services.AddMudServices();
 builder.Services.AddOptions();

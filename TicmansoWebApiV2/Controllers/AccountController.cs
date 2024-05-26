@@ -24,10 +24,12 @@ namespace TicmansoWebApiV2.Controllers
             return Ok(response);
         }
 
-        //[HttpGet("forgot-password")]
-        //public IActionResult ForgotPassword() 
-        //{
-        //    return View();       
-        //}
+        [HttpPost("change-password")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordDTO changePasswordDTO)
+        {
+            var response = await userAccount.ChangePassword(changePasswordDTO);
+            return Ok(response);
+        }
+
     }
 }

@@ -62,7 +62,7 @@ a, .btn-link {
 }
 
     .blazor-error-boundary::after {
-        content: "An error has occurred."
+        content: "Ha ocurrido un error en el funcionamiento, pongase en contacto con el administrador."
     }
 
 .loading-progress {
@@ -79,12 +79,14 @@ a, .btn-link {
         stroke-width: 0.6rem;
         transform-origin: 50% 50%;
         transform: rotate(-90deg);
+        background-color: #395886;
     }
 
         .loading-progress circle:last-child {
             stroke: #1b6ec2;
             stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
             transition: stroke-dasharray 0.05s ease-in-out;
+            background-color: #395886;
         }
 
 .loading-progress-text {

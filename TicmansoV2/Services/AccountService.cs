@@ -1,4 +1,5 @@
 ﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Identity;
 using System.Net.Http;
 using System.Net.Http.Json;
 using TicmansoV2.Shared;
@@ -51,6 +52,25 @@ namespace TicmansoV2.Services
             return Generics.DeserializeJsonString<LoginResponse>(apiResponse); 
 
         }
+
+        public async Task<ChangePasswordResponse> ChangePassword(ChangePasswordDTO changePasswordDTO)
+        {
+            var response = await httpClient
+                .PostAsync($"api/Account/change-password",
+                Generics.GenerateStringContent(
+                Generics.SerializeObj(changePasswordDTO)));
+
+            
+            if (!response.IsSuccessStatusCode)
+                return new ChangePasswordResponse(false, "Ha ocurrido un error, por favor inténtelo más tarde");
+
+            // Leer el contenido de la respuesta
+            var apiResponse = await response.Content.ReadAsStringAsync();
+
+            // Deserializar la respuesta en un objeto ChangePasswordResponse
+            return Generics.DeserializeJsonString<ChangePasswordResponse>(apiResponse);
+        }
+
 
     }
 }

@@ -5,6 +5,7 @@
 @using System.Security.Claims
 @using System.IdentityModel.Tokens.Jwt;
 @using MudBlazor
+@using TicmansoV2.Pages.Settings
 @inject NavigationManager NavManager
 @inject HttpClient httpClient
 @inject IDialogService DialogService
@@ -26,7 +27,6 @@
                                 Foto de perfil del usuario
                             </MudText>
                         </MudItem>
-
                         <MudItem Class="d-flex align-items-end ml-12" xs="4" sm="4">
                             @if (imageBytes != null)
                             {
@@ -38,33 +38,27 @@
                                 <MudAvatar Image="@selectedImage" Style="height:195px; width:195px;" />
                             }
                         </MudItem>
-                        <MudItem Class="d-flex align-items-center ml-6" xs="4" sm="4">
-                            <MudFileUpload T="IBrowserFile" Accept=".jpg, .jpeg, .png" Class="mt-3" OnFilesChanged="UploadFiles">
+                        <MudItem Class="d-flex flex-column align-items-start justify-center" xs="4" sm="4">
+                            <MudFileUpload T="IBrowserFile" Accept=".jpg, .jpeg, .png" Class="mt-3" MaximumFileSize="5242880" OnFilesChanged="UploadFiles">
                                 <ButtonTemplate>
                                     <MudButton HtmlTag="label" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.CloudUpload" for="@context">
                                         Cargar imagen
                                     </MudButton>
                                 </ButtonTemplate>
                             </MudFileUpload>
-                            <MudIconButton HtmlTag="label" Color="Color.Error" Class="mt-3" Icon="@Icons.Material.Filled.DeleteForever" OnClick="DeleteUserImage" />
+                                <MudButton Variant="Variant.Filled" Color="Color.Error" Class="d-flex align-items-center mt-3" StartIcon="@Icons.Material.Filled.DeleteForever" OnClick="DeleteUserImage">
+                                    Borrar imagen
+                                </MudButton>                           
                         </MudItem>
                     </MudCardContent>
-                    @* <MudCardActions Class="d-flex align-items-end">
-                        <MudFileUpload T="IBrowserFile" Accept=".jpg, .jpeg, .png" Class="mt-3" OnFilesChanged="UploadFiles">
-                            <ButtonTemplate>                           
-                                <MudButton HtmlTag="label" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.CloudUpload" for="@context">
-                                    Cargar imagen
-                                </MudButton>
-                            </ButtonTemplate>
-                        </MudFileUpload>
-                        <MudIconButton HtmlTag="label" Color="Color.Error" Class="mt-3" Icon="@Icons.Material.Filled.DeleteForever" OnClick="DeleteUserImage" />
-                    </MudCardActions> *@
                 </MudCard>
             </MudItem>
-
             <MudItem xs="12" sm="12">
                 <MudForm Model="@user" @ref="@form" @bind-IsValid="@success" @bind-Errors="@errors">
                     <MudCard Elevation="25" >
+                        <MudCardHeader>
+                            <MudText>Datos de perfil del usuario</MudText>
+                        </MudCardHeader>
                         <MudCardContent>
                             <MudGrid>
                                 <MudItem xs="12" sm="6">
@@ -80,14 +74,19 @@
                             </MudGrid>
                         </MudCardContent>
                         <MudCardActions Class="pb-4 pl-4">
-                            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => isEditing = true)" Disabled="@isEditing">Editar</MudButton>
+                            
                             @if (isEditing)
                             {
                                 <div class="d-flex justify-end">
                                     <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Submit())">Guardar cambios</MudButton>
-                                    <MudButton Variant="Variant.Filled" Color="Color.Default" OnClick="@(() => isEditing = false)">Cancelar</MudButton>
+                                    <MudButton Variant="Variant.Filled" Color="Color.Default" OnClick="@(() => isEditing = false)" Class="ml-3">Cancelar</MudButton>
                                 </div>
                             }
+                            else
+                            {
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => isEditing = true)" Disabled="@isEditing">Editar</MudButton>
+                            }
+                            
                         </MudCardActions>            
                     </MudCard>
                 </MudForm>
@@ -102,7 +101,6 @@
     UserImageDTO imageDTO;
     [Parameter]
     public string userId { get; set; }
-
     ApplicationUserDTO user = new ApplicationUserDTO();
     bool success;
     string[] errors = { };
@@ -118,8 +116,9 @@
         var claims = jwtToken.Claims;
         try
         {
-            userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;            
-        } catch (HttpIOException e)
+            userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;               
+        } 
+        catch (HttpIOException e)
         {
             Snackbar.Add("No se ha podido cargar la informacion correctamente", Severity.Error);
         }
@@ -132,7 +131,15 @@
 
     private async Task ConsultUserData(string userId)
     {
-        user = await httpClient.GetFromJsonAsync<ApplicationUserDTO>($"/api/Users/{userId}");
+        try
+        {
+            user = await httpClient.GetFromJsonAsync<ApplicationUserDTO>($"/api/Users/{userId}");
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("No se ha podido cargar los datos del usuario");
+        }
+        
 
         string[] nameParts = user.Name.Split(' ');
         FirstName = nameParts[0];
@@ -161,24 +168,41 @@
 
     private async Task<byte[]> LoadUserImage(string userId)
     {
-        var response = await HttpClient.GetAsync($"api/UserImage/GetUserImage/{userId}");
-        if (response.IsSuccessStatusCode)
+        try
         {
-            return await response.Content.ReadAsByteArrayAsync();
+            var response = await HttpClient.GetAsync($"api/UserImage/GetUserImage/{userId}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsByteArrayAsync();
+            }
+        
         }
+        catch (Exception)
+        {            
+            Snackbar.Add("No se ha podido cargar la imagen del usuario");
+        }
+        
         return null;
     }
 
     private async Task DeleteUserImage()
     {
-        var response = await HttpClient.DeleteAsync($"api/UserImage/DeleteUserImage/{userId}");
-        if (response.IsSuccessStatusCode)
+        try
         {
-            Snackbar.Add("Foto de perfil eliminada");
-            imageBytes = await LoadUserImage(userId);
+            var response = await HttpClient.DeleteAsync($"api/UserImage/DeleteUserImage/{userId}");
+            if (response.IsSuccessStatusCode)
+            {
+                Snackbar.Add("Foto de perfil eliminada");
+                imageBytes = await LoadUserImage(userId);
+            }
+            else
+                Snackbar.Add("No se pudo eliminar en estos momentos su foto de perfil");
         }
-        else
-            Snackbar.Add("No se pudo eliminar en estos momentos su foto de perfil");
+        catch (Exception)
+        {
+            Snackbar.Add("No se ha podido borrar la imagen del usuario");
+        }
+
     }
 
     private async Task UploadFiles(InputFileChangeEventArgs e)
@@ -197,7 +221,16 @@
                 Image = buffer
             };
 
-            var response = await httpClient.PutAsJsonAsync($"/api/UserImage", imageDTO);
+
+            try
+            {
+                var response = await httpClient.PutAsJsonAsync($"/api/UserImage", imageDTO);
+            }
+            catch (Exception)
+            {
+                Snackbar.Add("No se ha podido guardar la imagen del usuario");
+            }
+           
 
             await ConsultUserData(userId);
         }   
@@ -206,8 +239,14 @@
 
     private async Task ChangePassword()
     {
+        var parameters = new DialogParameters();
+        parameters.Add("UserId", userId);
+
+        var dialog = DialogService.Show<ChangePasswordDialog>("Cambiar contraseña", parameters);
+        var result = await dialog.Result;
 
     }
+
 
     private async Task Submit()
     {

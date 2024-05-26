@@ -33,33 +33,15 @@
                         <MudSpacer />
                         <MudIconButton Icon="@Icons.Material.Filled.InsertComment" Color="Color.Inherit" Href="/management/tickets/newTicket" />
                         <MudIconButton ml-2 Icon="@Icons.Material.Filled.Home" Color="Color.Inherit" Href="/dashboard" />
-
-                        <MudMenu FullWidth="true" ActivationEvent="@MouseEvent.MouseOver" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" Style="margin:auto;">
-                            <ActivatorContent>
                                 @if (imageBytes != null)
                                 {
-                                    <MudAvatar Class="ml-3" Image="@($"data:image/jpeg;base64,{Convert.ToBase64String(imageBytes)}")" Style="height:35px; width:35px;">
+                                    <MudAvatar Class="ml-3" Href="/dashboard" Image="@($"data:image/jpeg;base64,{Convert.ToBase64String(imageBytes)}")" Style="height:35px; width:35px;" @onclick="RedirectSettings">
                                     </MudAvatar>
                                 }
                                 else
                                 {
-                                    <MudAvatar ml-2 Image="@selectedImage" Height="19" />
+                                    <MudAvatar ml-2 Image="@selectedImage" Height="19" @onclick="RedirectSettings" />
                                 }
-                            </ActivatorContent>
-                            <ChildContent>
-                            <MudMenuItem><b>@userName</b></MudMenuItem>
-                                <MudMenuItem>@userEmail</MudMenuItem>
-                            <MudDivider />
-                                <MudMenuItem>
-                                    <MudNavLink Href="/settings" Icon="@Icons.Material.Filled.Build">Perfil</MudNavLink>                                
-                                </MudMenuItem>
-                                <MudMenuItem>
-                                    <MudNavLink OnClick="Logout" Icon="@Icons.Material.Filled.Block">Salir</MudNavLink>
-                                </MudMenuItem>
-                            </ChildContent>
-                        </MudMenu>
-
-
                     </MudAppBar>
                 <MudDrawer @bind-Open="@open" Elevation="1" Style="Background-color:#F0F3FA">
                         <MudDrawerHeader>
@@ -147,6 +129,10 @@
     void Login()
     {
         NavManager.NavigateTo("/");
+    }
+    void RedirectSettings()
+    {
+        NavManager.NavigateTo("/settings");
     }
 
     private async Task Logout()

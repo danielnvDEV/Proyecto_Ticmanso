@@ -92,6 +92,30 @@ namespace TicmansoV2.Controllers
             return tickets;
         }
 
+        [HttpGet("last5")]
+        public async Task<ActionResult<IEnumerable<TicketDTO>>> GetLast5Tickets()
+        {
+            var tickets = await _context.Tickets
+                .OrderByDescending(t => t.CreationDate)
+                .Take(5)
+                .Select(t => new TicketDTO
+                {
+                    Id = t.Id,
+                    Title = t.Title,
+                    Description = t.Description,
+                    CreationDate = t.CreationDate,
+                    ChangedDate = t.ChangedDate,
+                    CloseDate = t.CloseDate,
+                    CreationUserId = t.CreationUserId,
+                    SupportUserId = t.SupportUserId ?? null,
+                    PriorityId = t.PriorityId,
+                    StatusId = t.StatusId
+                })
+                .ToListAsync();
+
+            return tickets;
+        }
+
         // PUT: api/Tickets/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTicket(int id, TicketDTO ticketDTO)

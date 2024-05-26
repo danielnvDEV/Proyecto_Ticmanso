@@ -11,44 +11,52 @@
 @inject IDialogService DialogService
 <AuthorizeView>
     <Authorized Context="authContext">
-        <MudGrid Style="Background-color:#F0F3FA">
-            <MudItem xs="3">
-                <MudPaper Elevation="0">
-                    <MudList Clickable="true">
-                        <MudListSubheader>Usuarios</MudListSubheader>
-                        @foreach (var user in Users)
-                        {
-                            
-                            <MudListItem OnClick="@(() => SelectUser(user))">
+        <MudGrid Style="Background-color:white">
+            <MudItem xs="3" >
+@*                 <MudDrawer @bind-Open="@open" ClipMode="DrawerClipMode.Always" Breakpoint="Breakpoint.Sm" PreserveOpenState="true">
+ *@                    <MudPaper Elevation="0" Style="Background-color:#F0F3FA">
+                        <MudList Clickable="true">
+                            <MudListSubheader>Usuarios</MudListSubheader>
+                            @foreach (var user in Users)
+                            {
+                                if (user.Id != conectedUser)
+                                {
+                                    <MudListItem OnClick="@(() => SelectUser(user))">
+                                        @{
+                                            var userImage = userImages.FirstOrDefault(ui => ui.IdUser == user.Id);
+                                            if (userImage != null)
+                                            {
+                                                var imageUrl = $"data:image/jpeg;base64,{userImage.Image}";
+                                                <MudAvatar Image="@imageUrl" Alt="@user.UserName" Width="40" Height="40" Class="rounded-circle" />
+                                            }
+                                            else
+                                            {
+                                                <MudAvatar Style="background-color:#395886;color:aliceblue">@user.UserName.Substring(0, 1)</MudAvatar>
+                                            }
+                                        }
+                                        @user.UserName
+                                    </MudListItem>
+                                }
+                            }                           
+                        </MudList>
+                        <MudList Clickable="true">
+                            <MudListSubheader>Grupos</MudListSubheader>
+                            @foreach (var group in Groups)
+                            {
+                                <MudListItem OnClick="@(() => SelectGroup(group))">
+                                    <MudAvatar Style="background-color:#395886;color:aliceblue">@group.Name.Substring(0, 1)</MudAvatar>
+                                    @group.Name
+                                </MudListItem>
+                            }
+                            <MudListItem>
+                                <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="OpenCreateGroupDialog" />
+                                Crear nuevo grupo
+                            </MudListItem>
+                        </MudList>
+                    </MudPaper>
+@*                 </MudDrawer>
+ *@            </MudItem>            
 
-                                @if (imageBytes != null)
-                                {
-                                    <MudAvatar Image="@($"data:image/jpeg;base64,{imageBytes}")" Alt="@user.UserName" Width="40" Height="40" Class="rounded-circle" />
-                                }
-                                else
-                                {
-                                    <MudAvatar Style="background-color:#395886;">@user.UserName.Substring(0, 1)</MudAvatar>
-                                }
-                                @user.UserName
-                            </MudListItem>
-                        }
-                    </MudList>
-                    <MudList Clickable="true">
-                        <MudListSubheader>Grupos</MudListSubheader>
-                        @foreach (var group in Groups)
-                        {
-                            <MudListItem OnClick="@(() => SelectGroup(group))">
-                                <MudAvatar Color="Color.Primary">@group.Name.Substring(0, 1)</MudAvatar>
-                                @group.Name
-                            </MudListItem>
-                        }
-                        <MudListItem>
-                            <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="OpenCreateGroupDialog" />
-                            Crear nuevo grupo
-                        </MudListItem>
-                    </MudList>  
-                </MudPaper>
-            </MudItem>
             <MudItem xs="9" Style="Background-color:#F0F3FA">
                 <MudPaper Elevation="0" Style="Background-color:#F0F3FA">
                     <MudToolBar >
@@ -65,9 +73,9 @@
                             </div>
                         }
                     </MudList>
-                    <MudPaper Elevation="0" Class="d-flex mt-4">
+                    <MudPaper Elevation="0" Class="d-flex mt-4 align-items-start justify-center" Style="Background-color:#F0F3FA">
                         <MudTextField @bind-Value="NewMessage" Placeholder="Escribe un mensaje..." Variant="Variant.Outlined" Class="flex-grow-1" Style="border-radius: 20px;"></MudTextField>
-                        <MudIconButton Icon="@Icons.Material.Filled.Send" Variant="Variant.Filled" Color="Color.Primary" OnClick="SendMessage" Class="ml-2" Style="border-radius: 50%; width: 40px; height: 40px; min-width: unset;"></MudIconButton>
+                        <MudIconButton Icon="@Icons.Material.Filled.Send" Variant="Variant.Filled" Color="Color.Primary" OnClick="SendMessage" Class="ml-2 mt-3" Style="border-radius: 50%; width: 40px; height: 40px; min-width: unset;"></MudIconButton>
                     </MudPaper>
                 </MudPaper>
             </MudItem>
@@ -129,6 +137,7 @@
     private GroupDTO SelectedGroup { get; set; }
     private byte[] imageBytes;
     private string image;
+    bool open = true;
 
     protected override async Task OnInitializedAsync()
     {
@@ -143,46 +152,38 @@
         SelectedUser = Users.FirstOrDefault();
         Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"api/Group/user/{conectedUser}");
         var userImages = await httpClient.GetFromJsonAsync<List<UserImageDTO>>($"api/UserImage/GetAllUserImages");
-
-        // Asignar las imágenes de usuario a cada usuario en la lista Users
-        foreach (var user in Users)
-        {
-            var userImage = userImages.FirstOrDefault(ui => ui.IdUser == user.Id);
-            if (userImage != null)
-            {
-                imageBytes = userImage.Image;
-            }
-        }
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected void OnAfterRenderAsync()
     {
-        if (firstRender)
-        {
-            await JSRuntime.InvokeVoidAsync("scrollToBottom", "messages-container");
-        }
+             JSRuntime.InvokeVoidAsync("scrollToBottom", "messages-container");
     }
     private async Task LoadUserChatMessages()
     {
         ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"api/ChatMessages/user/{SelectedUser.Id}");
-        await OnAfterRenderAsync(true);
+        OnAfterRenderAsync();
         StateHasChanged();
     }
     private async Task LoadGroupChatMessages()
     {
         ChatMessages = await httpClient.GetFromJsonAsync<List<ChatMessageDTO>>($"api/ChatMessages/group/{SelectedGroup.Id}");
+        OnAfterRenderAsync();
         StateHasChanged();
     }
     private async void SelectUser(ApplicationUserDTO user)
     {
         SelectedUser = user;
         await LoadUserChatMessages();
+        OnAfterRenderAsync();
+        StateHasChanged();
     }
 
     private async void SelectGroup(GroupDTO group)
     {
         SelectedGroup = group;
         await LoadGroupChatMessages();
+        OnAfterRenderAsync();
+        StateHasChanged();
     }
 
     private async void LoadGroups()

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using TicmansoV2.Shared;
 using TicmansoWebApiV2;
 using TicmansoWebApiV2.Context;
@@ -101,6 +102,22 @@ namespace TicmansoV2.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        [HttpGet("Count/User/{userId}")]
+        public async Task<ActionResult<IEnumerable<StatusCountDTO>>> GetStatusesWithTicketCount( string userId)
+        {
+            var statuses = await _context.Statuses
+                .Select(s => new StatusCountDTO
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    TicketCount = _context.Tickets
+                        .Count(t => t.StatusId == s.Id && t.SupportUserId == userId)
+                })
+                .ToListAsync();
+
+            return Ok(statuses);
         }
     }
 }

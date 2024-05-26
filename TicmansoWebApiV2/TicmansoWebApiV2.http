@@ -1,4 +1,4 @@
-@TicmansoWebApiV2_HostAddress = http://localhost:5295
+@TicmansoWebApiV2_HostAddress = http://localhost:7291
 
 GET {{TicmansoWebApiV2_HostAddress}}/weatherforecast/
 Accept: application/json

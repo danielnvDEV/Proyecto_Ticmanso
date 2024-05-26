@@ -9,8 +9,11 @@
 @using System.Net.Http;
 @using System.Threading.Tasks;
 @using Newtonsoft.Json.Linq;
+@using TicmansoV2.Shared
+@using TicmansoV2.Shared.Views
 @inject IJSRuntime JSRuntime
 @inject ISnackbar Snackbar
+@inject HttpClient httpClient
 @attribute [Authorize]
 
 <PageTitle>Dashboard</PageTitle>
@@ -37,48 +40,93 @@
 </AuthorizeView>
 <AuthorizeView Roles="Admin">
     <Authorized Context="authContext">
-        <MudDropContainer context="dropcontext" T="DropItem" Items="_items" ItemsSelector="@((item,dropzone) => item.Identifier == dropzone)" ItemDropped="ItemUpdated" Class="d-flex flex-wrap flex-grow-1">
-            <ChildContent>
-                <MudDropZone T="DropItem" Identifier="Drop Zone 1" Class="dropZone rounded  pa-2 ma-4 flex-grow-1" MaxItems="1">
-
-                </MudDropZone>
-
-                <MudDropZone T="DropItem" Identifier="Drop Zone 2" Class="dropZone rounded pa-2 ma-4 flex-grow-1" MaxItems="1">
-
-                </MudDropZone>
-
-                <MudDropZone T="DropItem" Identifier="Drop Zone 3" Class="dropZone rounded pa-2 ma-4 flex-grow-1" MaxItems="1">
-
-                </MudDropZone>
-
-                <MudDropZone T="DropItem" Identifier="Drop Zone 4" Class="dropZone rounded pa-2 ma-4 flex-grow-1" MaxItems="1">
-
-                </MudDropZone>
-
-                <MudDropZone T="DropItem" Identifier="Drop Zone 5" Class="dropZone rounded pa-2 ma-4 flex-grow-1" MaxItems="1">
-
-                </MudDropZone>
-
-            </ChildContent>
-                <ItemRenderer>
-                <MudPaper Elevation="2" Class="mud-background-grey-lighten1 pa-2 ma-2 d-flex justify-center align-center" Style="border: 1px solid #ccc; border-radius: 4px;">
-                    <MudText>@context.Name (@context.Count)</MudText>
-                    </MudPaper>
-                </ItemRenderer>
-        </MudDropContainer>
+        <MudGrid  xs="12" sm="12">
+            <MudItem xs="12" Class="d-flex align-content-start flex-wrap flex-grow-1 gap-4 justify-center mt-5">
+                @foreach (var status in statuses)
+                {
+                    <MudItem Style="background-color:white; margin:1vh; padding:2vh" Class="d-flex justify-center align-center cmptCentrado">
+                        <MudText Align="Align.Center">@status.Name : @status.TicketCount</MudText> 
+                    </MudItem>
+                }
+            </MudItem>
+        </MudGrid>
+        <MudGrid xs="12" sm="12">
+            <MudItem xs="12" sm="7">
+                <MudText Class="d-flex mt-5"><b>Tickets recientes</b></MudText>
+                <MudTable Items="@Tickets" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info" Class="cmptCentrado">
+                    <HeaderContent>
+                        <MudTh>Número de Ticket</MudTh>
+                        <MudTh>Título</MudTh>
+                        <MudTh>Descripción</MudTh>
+                        <MudTh>Usuario de Creación</MudTh>
+                        <MudTh>Usuario de Soporte</MudTh>
+                        <MudTh>Estado</MudTh>
+                        <MudTh>Prioridad</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Número de Ticket">@context.NumTicket</MudTd>
+                        <MudTd DataLabel="Título">
+                            @if (context.Tittle.Length > 30)
+                            {
+                                @($"{context.Tittle.Substring(0, 30)}...")
+                            }
+                            else
+                            {
+                                @context.Tittle
+                            }
+                        </MudTd>
+                        <MudTd DataLabel="Descripción">
+                            @if (context.Description.Length > 30)
+                            {
+                                @($"{context.Description.Substring(0, 30)}...")
+                            }
+                            else
+                            {
+                                @context.Description
+                            }
+                        </MudTd>
+                        <MudTd DataLabel="Usuario de Creación">@context.CreationUser</MudTd>
+                        <MudTd DataLabel="Usuario de Soporte">@context.SuportUser</MudTd>
+                        <MudTd DataLabel="Estado">@context.Status</MudTd>
+                        <MudTd DataLabel="Prioridad">@context.Priority</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            </MudItem>
+            <MudItem xs="12" sm="5">
+                <MudText Class="d-flex mt-5"><b>Accesos directos</b></MudText>
+                <MudCard Class="cmptCentrado">
+                    <MudLink Href="/teams-chat" Style="color:black; text-decoration:none;">
+                        <MudCardContent>
+                            <MudIcon Icon="@Icons.Material.Filled.Drafts" Color="Color.Dark"></MudIcon>&nbsp  Chats
+                        </MudCardContent>                        
+                    </MudLink>
+                    <MudLink Href="/attendance" Style="color:black; text-decoration:none;">
+                        <MudCardContent>
+                            <MudIcon Icon="@Icons.Material.Filled.CalendarToday" Color="Color.Dark"></MudIcon>&nbsp  Mi jornada
+                        </MudCardContent>
+                    </MudLink>
+                    <MudLink Href="/tickets" Style="color:black; text-decoration:none;">
+                        <MudCardContent class="d-flex justify-start">
+                            <img src="/images/ticket.png" width="22" height="22" />&nbsp Tickets
+                        </MudCardContent>
+                    </MudLink>
+                    <MudLink Href="/settings" Style="color:black; text-decoration:none;">
+                        <MudCardContent>
+                            <MudIcon Icon="@Icons.Material.Filled.Build" Color="Color.Dark"></MudIcon>&nbsp  Ajustes
+                        </MudCardContent>
+                    </MudLink>
+                </MudCard>               
+            </MudItem>
+        </MudGrid>
     </Authorized>
 </AuthorizeView>
-<style>
-    .dropZone {
-        border: 1px solid #B0BEC5;
-        border-radius: 4px;
-    }
-</style> 
+
 @code {
-    string userId; 
-    int status1Count;
-    int status2Count;
-    int status3Count;
+    string userId = ""; 
+    private bool _loading = true;
+    private List<GeneralViewTicketDTO> Tickets = new List<GeneralViewTicketDTO>();
+    private List<StatusCountDTO> statuses = new List<StatusCountDTO>();
+
     protected override async Task OnInitializedAsync()
     {
         var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
@@ -88,77 +136,14 @@
         userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
         try
         {
-          var (status1Count, status2Count, status3Count) = await GetTicketCountsByStatus(userId);
+            statuses = await httpClient.GetFromJsonAsync<List<StatusCountDTO>>($"api/Status/Count/User/{userId}");
+            Tickets = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>("api/GeneralTikets/GetLast5");
+            _loading = false;
         }
         catch(Exception e)
         {
-            Snackbar.Add("Problemas en la contabilización de los estados", Severity.Error);
-        }
-
-        _items = new List<DropItem>
-    {
-        new DropItem(){ Name = "Resueltos:", Identifier = "Drop Zone 1", Count = status1Count },
-        new DropItem(){ Name = "Abiertos", Identifier = "Drop Zone 2", Count = status2Count },
-        new DropItem(){ Name = "Pendientes", Identifier = "Drop Zone 3", Count = status3Count },
-        new DropItem(){ Name = "Cerrados", Identifier = "Drop Zone 4", Count = 0 },
-    };
-
-
+            Snackbar.Add("Problemas en la carga de datos inicial", Severity.Error);
+            Console.WriteLine(e);
+        }                
     }
-    private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
-    {
-        var sourceItem = _items.FirstOrDefault(i => i.Identifier == dropItem.Item.Identifier);
-        var destinationItem = _items.FirstOrDefault(i => i.Identifier == dropItem.DropzoneIdentifier);
-
-        if (destinationItem != null)
-        {
-            var tempIdentifier = sourceItem.Identifier;
-            sourceItem.Identifier = destinationItem.Identifier;
-            destinationItem.Identifier = tempIdentifier;
-        }
-        else
-        {
-            sourceItem.Identifier = dropItem.DropzoneIdentifier;
-        }
-    }
-
-    private List<DropItem> _items = new()
-    {
-        new DropItem(){ Name = "Resueltos:", Identifier = "Drop Zone 1"},
-        new DropItem(){ Name = "Abiertos", Identifier = "Drop Zone 2" },
-        new DropItem(){ Name = "Pendientes", Identifier = "Drop Zone 3" },
-        new DropItem(){ Name = "Cerrados", Identifier = "Drop Zone 4" },
-    };
-
-    public class DropItem
-    {
-        public string Name { get; init; }
-        public string Identifier { get; set; }
-        public int Count { get; set; }
-    }
-   
-    public async Task<(int, int, int)> GetTicketCountsByStatus(string supportUserId)
-    {
-        using (var client = new HttpClient())
-        {
-            var response = await client.GetAsync($"api/TicektsCountByStatus/tickets/count/{supportUserId}");
-
-            if (response.IsSuccessStatusCode)
-            {
-                var json = await response.Content.ReadAsStringAsync();
-                var result = JObject.Parse(json);
-
-                int status1Count = (int)result["status1Count"];
-                int status2Count = (int)result["status2Count"];
-                int status3Count = (int)result["status3Count"];
-
-                return (status1Count, status2Count, status3Count);
-            }
-            else
-            {
-                throw new Exception($"Error al obtener los conteos de tickets: {response.StatusCode}");
-            }
-        }
-    }
-
 }

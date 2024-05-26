@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\TicmansoV2.styles.css"
     },
     {
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\_favicon.png",
+      "PackagePath": "staticwebassets\\_favicon.png"
+    },
+    {
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\_icon-192.png",
+      "PackagePath": "staticwebassets\\_icon-192.png"
+    },
+    {
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\_icon-512.png",
+      "PackagePath": "staticwebassets\\_icon-512.png"
+    },
+    {
       "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\css\\MudBlazor.min.css",
       "PackagePath": "staticwebassets\\css\\MudBlazor.min.css"
     },
@@ -49,20 +61,32 @@
       "PackagePath": "staticwebassets\\icon-512.png"
     },
     {
-      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\Thumbs.db",
-      "PackagePath": "staticwebassets\\images\\Thumbs.db"
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\_logo_cuadrado.png",
+      "PackagePath": "staticwebassets\\images\\_logo_cuadrado.png"
+    },
+    {
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\_logo_rectangulo.png",
+      "PackagePath": "staticwebassets\\images\\_logo_rectangulo.png"
     },
     {
       "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\error404.png",
       "PackagePath": "staticwebassets\\images\\error404.png"
     },
     {
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
       "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\logo_cuadrado.png",
       "PackagePath": "staticwebassets\\images\\logo_cuadrado.png"
     },
     {
-      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\logo_rectangulo.png",
-      "PackagePath": "staticwebassets\\images\\logo_rectangulo.png"
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\ticket.png",
+      "PackagePath": "staticwebassets\\images\\ticket.png"
+    },
+    {
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\ticket_2067046.png",
+      "PackagePath": "staticwebassets\\images\\ticket_2067046.png"
     },
     {
       "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\index.html",
@@ -71,6 +95,10 @@
     {
       "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\manifest.webmanifest",
       "PackagePath": "staticwebassets\\manifest.webmanifest"
+    },
+    {
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },
     {
       "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\service-worker.js",

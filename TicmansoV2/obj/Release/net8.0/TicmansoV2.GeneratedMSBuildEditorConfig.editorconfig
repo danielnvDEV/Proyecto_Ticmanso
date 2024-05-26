@@ -30,6 +30,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[Y:/TFG/TicmansoV2/Pages/Attendance/Attendance.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXR0ZW5kYW5jZVxBdHRlbmRhbmNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/TFG/TicmansoV2/Pages/Attendance/AttendanceCalendarByUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXR0ZW5kYW5jZVxBdHRlbmRhbmNlQ2FsZW5kYXJCeVVzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [Y:/TFG/TicmansoV2/Pages/Chats/Chat.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhdHNcQ2hhdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,10 +54,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/TFG/TicmansoV2/Pages/Management/Attendance.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxBdHRlbmRhbmNlLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [Y:/TFG/TicmansoV2/Pages/Management/Company/Company.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxDb21wYW55XENvbXBhbnkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -62,8 +66,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxTdGF0dXNcU3RhdHVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/TFG/TicmansoV2/Pages/Management/Tickets/MyTickets.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxUaWNrZXRzXE15VGlja2V0cy5yYXpvcg==
+[Y:/TFG/TicmansoV2/Pages/Management/Tickets/Admin/TicketTableByAdmin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxUaWNrZXRzXEFkbWluXFRpY2tldFRhYmxlQnlBZG1pbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [Y:/TFG/TicmansoV2/Pages/Management/Tickets/NewTicket.razor]
@@ -78,6 +82,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxUaWNrZXRzXFRpY2tldFRhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[Y:/TFG/TicmansoV2/Pages/Management/Tickets/User/MyTickets.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxUaWNrZXRzXFVzZXJcTXlUaWNrZXRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [Y:/TFG/TicmansoV2/Pages/Management/Users/CreateUser.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxVc2Vyc1xDcmVhdGVVc2VyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -86,8 +94,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlbWVudFxVc2Vyc1xVc2Vyc1RhYmxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/TFG/TicmansoV2/Pages/Settings.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ3MucmF6b3I=
+[Y:/TFG/TicmansoV2/Pages/Settings/ChangePasswordDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ3NcQ2hhbmdlUGFzc3dvcmREaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Y:/TFG/TicmansoV2/Pages/Settings/Settings.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2V0dGluZ3NcU2V0dGluZ3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [Y:/TFG/TicmansoV2/_Imports.razor]
