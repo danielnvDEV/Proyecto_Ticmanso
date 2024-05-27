@@ -56,4 +56,13 @@
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Content Update="wwwroot\NewUserEmail.html">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\Templates\NewUserEmail.html">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
 </Project>

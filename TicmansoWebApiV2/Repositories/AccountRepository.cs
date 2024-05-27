@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using TicmansoV2.Shared;
 using TicmansoV2.Shared.Contracts;
@@ -10,9 +12,11 @@ using static TicmansoV2.Shared.ServiceResponses;
 
 namespace TicmansoWebApiV2.Repositories
 {
-    public class AccountRepository(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration config) : IUserAccount
+    public class AccountRepository(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration config, HttpContextAccessor httpContextAccessor) : IUserAccount
     {
-    
+        private readonly HttpContext _httpContext;
+
+
         public async Task<GeneralResponse> CreateAccount(ApplicationUserDTO userDTO)
         {
             if (userDTO is null) return new GeneralResponse(false, "Model is empty");
@@ -106,6 +110,31 @@ namespace TicmansoWebApiV2.Repositories
             {
                 return new ChangePasswordResponse(false, "Ha ocurrido un error, por favor inténtelo más tarde");
             }
+        }
+
+        public async Task<GeneralResponse> ForgotPassword(string email)
+        {
+            var user = await userManager.FindByEmailAsync(email);
+            if (user == null)
+                return new GeneralResponse(false, "Usuario no encontrado");
+
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            var urlHelper = new UrlHelper(_httpContext);
+            var resetLink = UrlHelper.Action("ResetPassword", "Account", new { email = email, token = token });
+            return new GeneralResponse(true, "Se ha enviado un correo electrónico con las instrucciones para restablecer la contraseña");
+        }
+
+        public async Task<GeneralResponse> ResetPassword(ResetPasswordDTO resetPasswordDTO)
+        {
+            var user = await userManager.FindByEmailAsync(resetPasswordDTO.Email);
+            if (user == null)
+                return new GeneralResponse(false, "Usuario no encontrado");
+
+            var result = await userManager.ResetPasswordAsync(user, resetPasswordDTO.Token, resetPasswordDTO.NewPassword);
+            if (result.Succeeded)
+                return new GeneralResponse(true, "La contraseña se ha restablecido correctamente");
+            else
+                return new GeneralResponse(false, "Ha ocurrido un error al restablecer la contraseña");
         }
     }
 }

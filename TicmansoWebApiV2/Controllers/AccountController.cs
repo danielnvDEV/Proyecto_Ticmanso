@@ -31,5 +31,18 @@ namespace TicmansoWebApiV2.Controllers
             return Ok(response);
         }
 
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            var response = await userAccount.ForgotPassword(email);
+            return Ok(response);
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordDTO resetPasswordDTO)
+        {
+            var response = await userAccount.ResetPassword(resetPasswordDTO);
+            return Ok(response);
+        }
     }
 }

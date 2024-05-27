@@ -3,8 +3,11 @@
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Components.Authorization;
 
+@inject HttpClient httpClient
 @inject IUserAccount AccountRepository
+@inject IEmailSender EmailSender
 @inject NavigationManager NavManager
+
 @page "/management/controlUser/createUsers"
 @attribute [Authorize]
 <AuthorizeView Roles="Admin">
@@ -37,6 +40,7 @@
 </AuthorizeView>
 @code {
     private ApplicationUserDTO newUser = new ApplicationUserDTO();
+    private EmailDTO emailData = new EmailDTO();
     private string password = string.Empty;
     private string confirmPassword = string.Empty;
     private bool showSuccessMessage = false;
@@ -59,6 +63,34 @@
         {
             showSuccessMessage = true;
             showErrorMessage = false;
+
+            // string templatePath = "https://localhost:7174/NewUserEmail.html";
+            // string templateContent = File.ReadAllText(templatePath);
+
+            // string body = templateContent
+            // .Replace("{{UserName}}", newUser.Name)
+            // .Replace("{{Email}}", newUser.Email)
+            // .Replace("{{Password}}", password);
+
+
+
+            emailData.ToEmail = newUser.Email;
+            emailData.Subject = "Datos de acceso al portal Ticmanso";
+            emailData.Body = $"<h1>Bienvenido al portal Ticmanso</h1><p>Estimado {newUser.Name},</p><p>Aquí están tus datos de acceso al portal:</p><ul><li>Email: {newUser.Email}</li><li>Contraseña: {password}</li></ul><p>Gracias por registrarte.</p>";
+
+
+            var responser = await httpClient.PostAsJsonAsync($"api/Email", emailData);
+
+            if (responser.IsSuccessStatusCode)
+            {
+                Snackbar.Add("Se ha mandado el correo con la informacion");
+            }
+            else
+            {
+                Snackbar.Add("Ha ocurrido un error");
+                
+            }
+
             newUser = new ApplicationUserDTO();
             password = string.Empty;
             confirmPassword = string.Empty;
@@ -69,5 +101,9 @@
             showErrorMessage = true;
             errorMessage = response.Message;
         }
+    }
+    private async Task SendEmail(string email, string subject, string message)
+    {
+        await EmailSender.SendEmailAsync(email, subject, message);
     }
 }

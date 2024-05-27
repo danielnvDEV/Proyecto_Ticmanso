@@ -6,6 +6,7 @@ using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System;
+using System.Configuration;
 using System.Data.Entity;
 using System.Text;
 using TicmansoV2.Shared;
@@ -39,7 +40,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL3") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 
@@ -80,6 +81,9 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddScoped<IUserAccount, AccountRepository>();
 builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
     options.TokenLifespan = TimeSpan.FromHours(3));
+builder.Services.AddHttpContextAccessor();
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+//builder.Services.AddTransient<IEmailSender, EmailSender>();
 var app = builder.Build();
 
 app.UseHttpsRedirection();

@@ -27,15 +27,12 @@ namespace TicmansoV2.Services
                  Generics.GenerateStringContent(
                  Generics.SerializeObj(userDTO)));
 
-            //Read Response
             if (!response.IsSuccessStatusCode)
                 return new GeneralResponse(false, "Ha ocurrido un error, por favor intentelo más tarde");
 
             var apiResponse = await response.Content.ReadAsStringAsync();
             return Generics.DeserializeJsonString<GeneralResponse>(apiResponse);
-        }
-
-        
+        }        
 
         public async Task<LoginResponse> LoginAccount(LoginDTO loginDTO)
         {
@@ -43,8 +40,7 @@ namespace TicmansoV2.Services
                .PostAsync($"api/Account/login",
                Generics.GenerateStringContent(
                Generics.SerializeObj(loginDTO)));
-
-            //Read Response
+          
             if (!response.IsSuccessStatusCode)
                 return new LoginResponse(false, null!, "Ha ocurrido un error, por favor intentelo más tarde");
 
@@ -63,14 +59,36 @@ namespace TicmansoV2.Services
             
             if (!response.IsSuccessStatusCode)
                 return new ChangePasswordResponse(false, "Ha ocurrido un error, por favor inténtelo más tarde");
-
-            // Leer el contenido de la respuesta
+            
             var apiResponse = await response.Content.ReadAsStringAsync();
-
-            // Deserializar la respuesta en un objeto ChangePasswordResponse
+            
             return Generics.DeserializeJsonString<ChangePasswordResponse>(apiResponse);
         }
 
+        public async Task<GeneralResponse> ForgotPassword(string email)
+        {
+            var response = await httpClient
+                .PostAsync($"api/Account/forgot-password?email={email}", null);
 
+            if (!response.IsSuccessStatusCode)
+                return new GeneralResponse(false, "Ha ocurrido un error, por favor inténtelo más tarde");
+
+            var apiResponse = await response.Content.ReadAsStringAsync();
+            return Generics.DeserializeJsonString<GeneralResponse>(apiResponse);
+        }
+
+        public async Task<GeneralResponse> ResetPassword(ResetPasswordDTO resetPasswordDTO)
+        {
+            var response = await httpClient
+                .PostAsync($"api/Account/reset-password",
+                Generics.GenerateStringContent(
+                Generics.SerializeObj(resetPasswordDTO)));
+
+            if (!response.IsSuccessStatusCode)
+                return new GeneralResponse(false, "Ha ocurrido un error, por favor inténtelo más tarde");
+
+            var apiResponse = await response.Content.ReadAsStringAsync();
+            return Generics.DeserializeJsonString<GeneralResponse>(apiResponse);
+        }
     }
 }

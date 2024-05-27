@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://ticmanso.com:7291",
+      "applicationUrl": "http://localhost:7291",
       "sslPort": 44337
     }
   },
@@ -14,7 +14,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://ticmanso.com:7291",
+      "applicationUrl": "http://localhost:7291",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
       }
@@ -24,7 +24,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://ticmanso.com:7291",
+      "applicationUrl": "http://localhost:7291",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
       }
