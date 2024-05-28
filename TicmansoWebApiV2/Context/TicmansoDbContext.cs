@@ -112,6 +112,7 @@ namespace TicmansoWebApiV2.Context
                 entity.HasOne(e => e.CreationUser)
                     .WithMany(u => u.CreatedTickets)
                     .HasForeignKey(e => e.CreationUserId)
+                    //.OnDelete(DeleteBehavior.Restrict)
                     .IsRequired();
 
                 entity.HasOne(e => e.SupportUser)

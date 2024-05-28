@@ -41,7 +41,7 @@
                         <MudTd DataLabel="Descripción">
                             @if (context.Description.Length > 40)
                             {
-                                @($"{context.Description.Substring(0, 50)}...")
+                                @($"{context.Description.Substring(0, 40)}...")
                             }
                             else
                             {

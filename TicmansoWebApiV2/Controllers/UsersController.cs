@@ -134,7 +134,7 @@ namespace TicmansoWebApiV2.Controllers
                 return CreatedAtAction("GetUser", new { id = user.Id }, createdUserDTO);
             }
 
-            return BadRequest(result.Errors);
+            return BadRequest();
         }
 
         // DELETE: api/Users/5
@@ -147,9 +147,10 @@ namespace TicmansoWebApiV2.Controllers
                 return NotFound();
             }
 
-            await _userManager.DeleteAsync(user);
+          var result =   await _userManager.DeleteAsync(user);
+            await _context.SaveChangesAsync();
 
-            return NoContent();
+            return BadRequest(result.Errors);
         }
 
         private bool UserExists(string id)

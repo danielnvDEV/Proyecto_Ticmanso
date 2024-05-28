@@ -113,7 +113,16 @@
 
     private async Task DeleteUser(ApplicationUserDTO user)
     {
-        var result = await HttpClient.DeleteAsync($"api/Users/{user.Id}");
+        var result = new HttpResponseMessage();
+        try
+        {
+            result = await HttpClient.DeleteAsync($"api/Users/{user.Id}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            Snackbar.Add("Error al eliminar el usuario", Severity.Error);
+        }
         if (result.IsSuccessStatusCode)
         {
             Snackbar.Add("Usuario eliminado correctamente", Severity.Success);

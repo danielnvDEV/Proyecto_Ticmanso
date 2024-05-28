@@ -68,8 +68,17 @@
 
     private async Task LoadUsersData()
     {
-        usersAtendance = await HttpClient.GetFromJsonAsync<List<AttendanceDTO>>($"api/Attendances");
-        User = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+        try
+        {
+            usersAtendance = await HttpClient.GetFromJsonAsync<List<AttendanceDTO>>($"api/Attendances");
+            User = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+        }
+        catch (Exception e)
+        {
+
+            Snackbar.Add("No se ha podido cargar la información del usuario");
+        }
+        
     }
 
     protected override async Task OnInitializedAsync()

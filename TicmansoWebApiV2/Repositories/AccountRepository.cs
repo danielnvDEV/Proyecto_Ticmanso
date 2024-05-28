@@ -1,20 +1,35 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using TicmansoV2.Shared;
 using TicmansoV2.Shared.Contracts;
 using TicmansoWebApiV2.Context;
+
 using static TicmansoV2.Shared.ServiceResponses;
+using System.Net.Http;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Http.Extensions;
+using TicmansoWebApiV2.Controllers;
 
 namespace TicmansoWebApiV2.Repositories
 {
-    public class AccountRepository(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration config, HttpContextAccessor httpContextAccessor) : IUserAccount
+    public class AccountRepository(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration config, IActionContextAccessor _actionContextAccessor,IHttpContextAccessor httpContextAccessor
+        , LinkGenerator linkGenerator, EmailController emailController) : IUserAccount
+        
     {
         private readonly HttpContext _httpContext;
+        private readonly IUrlHelperFactory urlHelperFactory;
+        IHttpContextAccessor _httpContextAccessor;
+        private readonly IUrlHelper UrlHelper;
+        private readonly HttpClient httpClient;
+        //private readonly EmailController emailController;
 
 
         public async Task<GeneralResponse> CreateAccount(ApplicationUserDTO userDTO)
@@ -33,7 +48,7 @@ namespace TicmansoWebApiV2.Repositories
             var createUser = await userManager.CreateAsync(newUser!, userDTO.PasswordHash);
             if (!createUser.Succeeded) return new GeneralResponse(false, "Error occured.. please try again");
 
-            
+
             var checkAdmin = await roleManager.FindByNameAsync("Admin");
             if (checkAdmin is null)
             {
@@ -118,9 +133,58 @@ namespace TicmansoWebApiV2.Repositories
             if (user == null)
                 return new GeneralResponse(false, "Usuario no encontrado");
 
-            var token = await userManager.GeneratePasswordResetTokenAsync(user);
-            var urlHelper = new UrlHelper(_httpContext);
-            var resetLink = UrlHelper.Action("ResetPassword", "Account", new { email = email, token = token });
+            var token = "";
+
+            try
+            {
+                token = await userManager.GeneratePasswordResetTokenAsync(user);
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+            }
+            var actionContext = _actionContextAccessor.ActionContext;
+            
+            var resetLink = "";
+                      
+            var urlHelper = new UrlHelper(actionContext);
+
+            try
+            {
+                var httpContext = new DefaultHttpContext();
+                httpContext.Request.Scheme = "https";
+                httpContext.Request.Host = new HostString("localhost:7174");
+                //httpContext.Request.PathBase = "/reset-password";
+
+                resetLink = linkGenerator.GetUriByAction(
+                               httpContext,
+                               //page: "/reset-password",
+                               action: "ResetPassword",
+                               controller: "Account",
+                               values: new { email, token });
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+            }
+            
+
+            EmailDTO emailData = new EmailDTO();
+
+            emailData.Body = $"<p>Hola {user.UserName},</p><p>Para restablecer tu contraseña, haz clic en el siguiente enlace:</p><p><a href='{resetLink}'>Restablecer contraseña</a></p>";
+            emailData.Subject = "Pasos a seguir para restablecer la contraseña";
+            emailData.ToEmail = email;
+            
+            try
+            {
+              var apiResponse = await emailController.SendEmail(emailData);
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+            }
+            
+
             return new GeneralResponse(true, "Se ha enviado un correo electrónico con las instrucciones para restablecer la contraseña");
         }
 

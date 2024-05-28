@@ -147,11 +147,19 @@
         var jwtToken = handler.ReadJwtToken(token);
         var claims = jwtToken.Claims;
         conectedUser = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-
-        Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
-        SelectedUser = Users.FirstOrDefault();
-        Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"api/Group/user/{conectedUser}");
-        var userImages = await httpClient.GetFromJsonAsync<List<UserImageDTO>>($"api/UserImage/GetAllUserImages");
+        var userImages = new List<UserImageDTO>();
+        try
+        {
+            Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+            SelectedUser = Users.FirstOrDefault();
+            Groups = await httpClient.GetFromJsonAsync<List<GroupDTO>>($"api/Group/user/{conectedUser}");
+            userImages = await httpClient.GetFromJsonAsync<List<UserImageDTO>>($"api/UserImage/GetAllUserImages");
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Error en la carga inicial de la informacion");
+        }
+        
     }
 
     protected void OnAfterRenderAsync()

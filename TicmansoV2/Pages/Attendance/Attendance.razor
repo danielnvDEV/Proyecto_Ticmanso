@@ -40,14 +40,14 @@
                     }
                     else
                     {
-                        <MudText Style="background-color:forestgreen; color:aliceblue;">Jornada finalizada.</MudText>
+                        <MudText>Jornada finalizada.</MudText>
                     }
                 </MudCardActions>
             </MudCard>
         </MudItem>
         <MudGrid>
             <MudItem xs="12" sm="4">
-                <MudDatePicker @bind-Date="date" PickerVariant="PickerVariant.Static" class="cmptCentrado" Rounded="true">
+                <MudDatePicker @ref="_picker" @bind-Date="date" PickerVariant="PickerVariant.Static" class="cmptCentrado" Rounded="true">
                     <PickerActions>
                         <MudButton Class="mr-auto align-self-start" OnClick="Today">Hoy</MudButton>
                         <MudButton Class="mr-auto align-self-end" OnClick="LoadAttendanceUserData">Comprobar jornada</MudButton>
@@ -139,7 +139,17 @@
 
     private async Task LoadAttendanceUserData()
     {
-        var response = await HttpClient.GetAsync($"api/Attendances/{date:yyyy-MM-dd}/{userId}");
+        var response = new HttpResponseMessage();
+
+        try
+        {
+            response = await HttpClient.GetAsync($"api/Attendances/{date:yyyy-MM-dd}/{userId}");
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("No se ha podido cargar la informacion del usuario", Severity.Error);
+        }
+        
         if (response.IsSuccessStatusCode)
         {
             var attendanceDto = await response.Content.ReadFromJsonAsync<AttendanceDTO>();
@@ -201,8 +211,16 @@
              // EntryLatitude = latitude,
              // EntryLongitude = longitude
         };
-
-        var response = await HttpClient.PostAsJsonAsync("api/Attendances", attendance);
+        var response = new HttpResponseMessage();
+        try
+        {
+            response = await HttpClient.PostAsJsonAsync("api/Attendances", attendance);
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("No se ha podido iniciar la jornada", Severity.Error);
+        }
+         
         if (response.IsSuccessStatusCode)
         {
             entryTime = attendance.EntryTime;
@@ -220,8 +238,17 @@
 
     private async Task EndWorkday()
     {
+        var responseDATE = new AttendanceDTO();
 
-        var responseDATE = await HttpClient.GetFromJsonAsync<AttendanceDTO>($"api/Attendances/{currentDate:yyyy-MM-dd}/{userId}");
+        try
+        {
+            responseDATE = await HttpClient.GetFromJsonAsync<AttendanceDTO>($"api/Attendances/{currentDate:yyyy-MM-dd}/{userId}");
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("No se ha podido recojer la jornada", Severity.Error);
+        }
+
 
         if (responseDATE != null)
         {                  
@@ -239,8 +266,16 @@
              // DepartureLatitude = latitude,
              // DepartureLongitude = longitude
         };
-
-        var response = await HttpClient.PutAsJsonAsync($"api/Attendances/{currentDate:yyyy-MM-dd}/{userId}", attendance);
+        var response = new HttpResponseMessage();
+        try
+        {
+            response = await HttpClient.PutAsJsonAsync($"api/Attendances/{currentDate:yyyy-MM-dd}/{userId}", attendance);
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("No se ha podido finalizar la jornada", Severity.Error);
+        }
+         
         if (response.IsSuccessStatusCode)
         {
             departureTime = attendance.DepartureTime;
