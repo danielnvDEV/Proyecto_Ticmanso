@@ -13,7 +13,9 @@
 @using TicmansoV2.Shared.Views
 @inject IJSRuntime JSRuntime
 @inject ISnackbar Snackbar
+@inject NavigationManager NavManager
 @inject HttpClient httpClient
+
 @attribute [Authorize]
 
 <PageTitle>Dashboard</PageTitle>
@@ -53,7 +55,7 @@
         <MudGrid xs="12" sm="12">
             <MudItem xs="12" sm="7">
                 <MudText Class="d-flex mt-5"><b>Tickets recientes</b></MudText>
-                <MudTable Items="@Tickets" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info" Class="cmptCentrado">
+                <MudTable Items="@Tickets" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info" Class="cmptCentrado" RowClick="@OnRowClick">
                     <HeaderContent>
                         <MudTh>Número de Ticket</MudTh>
                         <MudTh>Título</MudTh>
@@ -126,6 +128,8 @@
     private bool _loading = true;
     private List<GeneralViewTicketDTO> Tickets = new List<GeneralViewTicketDTO>();
     private List<StatusCountDTO> statuses = new List<StatusCountDTO>();
+    private long selectedTicketId;
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -145,5 +149,17 @@
             Snackbar.Add("Problemas en la carga de datos inicial", Severity.Error);
             Console.WriteLine(e);
         }                
+    }
+
+    private void OnRowClick(TableRowClickEventArgs<GeneralViewTicketDTO> args)
+    {
+        var clickedTicket = args.Item;
+        HandleTicketSelected(clickedTicket.NumTicket);
+    }
+
+    private void HandleTicketSelected(int ticketId)
+    {
+        selectedTicketId = ticketId;
+        NavManager.NavigateTo($"/tickets/ticket/{ticketId}");
     }
 }

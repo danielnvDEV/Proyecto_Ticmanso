@@ -13,8 +13,8 @@
 
 <MudGrid>
     <MudItem xs="9">
-        <MudTable Items="@ticket" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped"
-                  Filter="new Func<GeneralViewTicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
+        <MudTable Items="@ticket" T="GeneralViewTicketDTO" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped"
+          Filter="new Func<GeneralViewTicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1" OnRowClick="@OnRowClick">
             <ToolBarContent>
                 <MudSpacer />
                 <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
@@ -30,15 +30,9 @@
                 <MudTh>Agente</MudTh>
                 <MudTh>Prioridad</MudTh>
                 <MudTh>Estado</MudTh>
-            </HeaderContent>
-           
+            </HeaderContent>           
             <RowTemplate>
-                 <div style="padding: 2vh 0" onclick="@(() => HandleTicketSelected(@context.NumTicket))">
-
-               
-                <MudButton Justify="Justify.Center" AlignContent="AlignContent.Center" Class="btnTT d-flex" margin="10px" Variant="Variant.Text" Size="Size.Small" >
-                    @context.NumTicket
-                </MudButton>
+                <MudTd DataLabel="Titulo">@context.NumTicket</MudTd>
                 <MudTd DataLabel="Titulo">@context.Tittle</MudTd>
                 <MudTd DataLabel="Descripción">
                     @if (context.Description.Length > 40)
@@ -53,8 +47,7 @@
                 <MudTd DataLabel="Usuario">@context.CreationUser</MudTd>
                 <MudTd DataLabel="Agente">@context.SuportUser</MudTd>
                 <MudTd DataLabel="Prioridad">@context.Priority</MudTd>
-                <MudTd DataLabel="Estado">@context.Status</MudTd>
-                </div>
+                <MudTd DataLabel="Estado">@context.Status</MudTd>                
             </RowTemplate>
             <PagerContent>
                 <MudTablePager />
@@ -127,10 +120,18 @@
 
     protected override async Task OnInitializedAsync()
     {
-        ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>("api/GeneralTikets");
-        Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
-        Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
-        User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+        try
+        {
+            ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>("api/GeneralTikets");
+            Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
+            Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
+            User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Ha ocurrido un error al obtener los datos");
+        }
+
 
     }
 
@@ -166,6 +167,12 @@
     }
 
     private long selectedTicketId;
+
+    private void OnRowClick(TableRowClickEventArgs<GeneralViewTicketDTO> args)
+    {
+        var clickedTicket = args.Item;
+        HandleTicketSelected(clickedTicket.NumTicket);
+    }
 
     private void HandleTicketSelected(int ticketId)
     {
