@@ -45,7 +45,8 @@
                     </MudAppBar>
                 <MudDrawer @bind-Open="@open" Elevation="1" Style="Background-color:#F0F3FA">
                         <MudDrawerHeader>
-                            <MudText Typo="Typo.h6">Ticmanso</MudText>
+                            @* <MudText Typo="Typo.h6">Ticmanso</MudText> *@
+                        <MudImage Src="images/logo.png" Style="width:220px;height:55px;"></MudImage>
                         </MudDrawerHeader>
                         <MudNavMenu>
                             <MudNavLink Href="/dashboard" Icon="@Icons.Material.Filled.Dashboard">Panel de control</MudNavLink>

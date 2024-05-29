@@ -44,7 +44,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL3") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 
@@ -89,8 +89,10 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddScoped<IUserAccount, AccountRepository>();
 builder.Services.AddScoped< IUrlHelper, UrlHelper>();
 builder.Services.AddScoped<EmailController>();
+
 builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
-    options.TokenLifespan = TimeSpan.FromHours(3));
+    options.TokenLifespan = TimeSpan.FromHours(1));
+
 builder.Services.AddHttpContextAccessor();
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 

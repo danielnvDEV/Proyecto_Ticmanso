@@ -2,6 +2,9 @@
 @using TicmansoV2.Shared.Contracts
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Components.Authorization;
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@using System.Text;
 
 @inject HttpClient httpClient
 @inject IUserAccount AccountRepository
@@ -12,26 +15,33 @@
 @attribute [Authorize]
 <AuthorizeView Roles="Admin">
     <Authorized Context="authContext">
-        <MudCard>
-            <MudCardContent>
-                <MudTextField @bind-Value="newUser.Name" Label="Nombre" Variant="Variant.Outlined" />
-                <MudTextField @bind-Value="newUser.Email" Label="Email" Variant="Variant.Outlined" />
-                <MudTextField @bind-Value="password" Label="Contraseña" Variant="Variant.Outlined" InputType="InputType.Password" />
-                <MudTextField @bind-Value="confirmPassword" Label="Confirmar Contraseña" Variant="Variant.Outlined" InputType="InputType.Password" />
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CreateUserAsync">Crear Usuario</MudButton>
-            </MudCardActions>
-        </MudCard>
+        <MudGrid>
+            <MudItem xs="12" sm="7">
+                <MudCard>
+                    <MudCardContent>
+                        <MudTextField @bind-Value="newUser.Name" Label="Nombre" Variant="Variant.Outlined" />
+                        <MudTextField @bind-Value="newUser.Email" Label="Email" Variant="Variant.Outlined" />
+                        <MudTextField @bind-Value="password" Label="Contraseña" Variant="Variant.Outlined" InputType="InputType.Password" />
+                        <MudTextField @bind-Value="confirmPassword" Label="Confirmar Contraseña" Variant="Variant.Outlined" InputType="InputType.Password" />
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CreateUserAsync">Crear Usuario</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" sm="5">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="GeneratePass">Generate Password</MudButton>
+            </MudItem>
+        </MudGrid>
 
         @if (showSuccessMessage)
         {
-            <MudAlert Severity="Severity.Success">Usuario creado!</MudAlert>
+            Snackbar.Add("Usuario creado!", Severity.Success);
         }
 
         @if (showErrorMessage)
-        {
-            <MudAlert Severity="Severity.Error">@errorMessage</MudAlert>
+        {            
+            Snackbar.Add("Error al crear el usuario!", Severity.Error);
         }
     </Authorized>
     <NotAuthorized>
@@ -47,14 +57,55 @@
     private bool showErrorMessage = false;
     private string errorMessage = string.Empty;
 
+    private void GeneratePass()
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=[{]};:<>|./?";
+        Random rnd = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 8; i++)
+        {
+            sb.Append(chars[rnd.Next(chars.Length)]);
+        }
+        password = sb.ToString();
+        confirmPassword = password;
+        StateHasChanged();
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            return false;
+
+        try
+        {           
+            var emailAddressAttribute = new EmailAddressAttribute();
+            if (!emailAddressAttribute.IsValid(email))
+                return false;
+            
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase);
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+
     private async Task CreateUserAsync()
     {
         if (password != confirmPassword)
         {
-            showErrorMessage = true;
-            errorMessage = "Las contraseñas no coinciden";
+            Snackbar.Add("Las contraseñas no coinciden", Severity.Warning);
             return;
         }
+
+        if (!IsValidEmail(newUser.Email))
+        {
+            Snackbar.Add("El email no tiene un formato valido",Severity.Warning);
+            return;
+        }
+
 
         newUser.PasswordHash = password;
         var response = await AccountRepository.CreateAccount(newUser);
@@ -64,17 +115,9 @@
             showSuccessMessage = true;
             showErrorMessage = false;
 
-            // string templatePath = "https://localhost:7174/NewUserEmail.html";
-            // string templateContent = File.ReadAllText(templatePath);
-
-            // string body = templateContent
-            // .Replace("{{UserName}}", newUser.Name)
-            // .Replace("{{Email}}", newUser.Email)
-            // .Replace("{{Password}}", password);
-
             emailData.ToEmail = newUser.Email;
             emailData.Subject = "Datos de acceso al portal Ticmanso";
-            emailData.Body = $"<h1>Bienvenido al portal Ticmanso</h1><p>Estimado {newUser.Name},</p><p>Aquí están tus datos de acceso al portal:</p><ul><li>Email: {newUser.Email}</li><li>Contraseña: {password}</li></ul><p>Gracias por registrarte.</p>";
+            emailData.Body = $"<h1>Bienvenido al portal Ticmanso</h1><p>Estimado {newUser.Name},</p><p>Aquí están tus datos de acceso al portal:</p><ul><li>Email: {newUser.Email}</li><li>Contraseña: {password}</li></ul><a href='https://localhost:7174'><p>Ir al portal.</p></a>";
 
 
             var responser = await httpClient.PostAsJsonAsync($"api/Email", emailData);

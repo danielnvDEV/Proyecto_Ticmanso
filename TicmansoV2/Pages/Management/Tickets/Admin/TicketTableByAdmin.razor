@@ -31,8 +31,12 @@
                 <MudTh>Prioridad</MudTh>
                 <MudTh>Estado</MudTh>
             </HeaderContent>
+           
             <RowTemplate>
-                <MudButton Justify="Justify.Center" AlignContent="AlignContent.Center" Class="btnTT d-flex" margin="10px" Variant="Variant.Text" Size="Size.Small" OnClick="@(() => HandleTicketSelected(@context.NumTicket))">
+                 <div style="padding: 2vh 0" onclick="@(() => HandleTicketSelected(@context.NumTicket))">
+
+               
+                <MudButton Justify="Justify.Center" AlignContent="AlignContent.Center" Class="btnTT d-flex" margin="10px" Variant="Variant.Text" Size="Size.Small" >
                     @context.NumTicket
                 </MudButton>
                 <MudTd DataLabel="Titulo">@context.Tittle</MudTd>
@@ -50,6 +54,7 @@
                 <MudTd DataLabel="Agente">@context.SuportUser</MudTd>
                 <MudTd DataLabel="Prioridad">@context.Priority</MudTd>
                 <MudTd DataLabel="Estado">@context.Status</MudTd>
+                </div>
             </RowTemplate>
             <PagerContent>
                 <MudTablePager />
