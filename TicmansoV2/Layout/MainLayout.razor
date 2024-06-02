@@ -156,7 +156,18 @@
 
     private async Task<byte[]> LoadUserImage(string userId)
     {
-        var response = await HttpClient.GetAsync($"api/UserImage/GetUserImage/{userId}");
+        var response = new HttpResponseMessage();
+        try
+        {
+            response = await HttpClient.GetAsync($"api/UserImage/GetUserImage/{userId}");
+        }
+        catch (Exception)
+        {
+            
+            throw;
+        }
+
+        
         if (response.IsSuccessStatusCode)
         {
             return await response.Content.ReadAsByteArrayAsync();

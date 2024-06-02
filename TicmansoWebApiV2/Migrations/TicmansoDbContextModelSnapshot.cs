@@ -535,6 +535,9 @@ namespace TicmansoWebApiV2.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(25)");
 
+                    b.Property<string>("PriorityColor")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(20)

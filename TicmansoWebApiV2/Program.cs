@@ -44,7 +44,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 
@@ -100,15 +100,9 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
-{
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-    });
-}
+    app.UseSwaggerUI();
+
 
 app.UseRouting();
 

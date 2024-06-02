@@ -39,7 +39,7 @@ namespace TicmansoWebApiV2.Controllers
         }
 
         // POST: api/ChatMessages
-        
+        // 
         [HttpPost]
         public async Task<ActionResult<ChatMessageDTO>> PostChatMessage(ChatMessageDTO chatMessageDTO)
         {
@@ -71,6 +71,7 @@ namespace TicmansoWebApiV2.Controllers
                 });
             
         }
+
         [HttpGet("user/{userId}")]
         public async Task<ActionResult<IEnumerable<ChatMessageDTO>>> GetChatMessagesByUser(string userId)
         {

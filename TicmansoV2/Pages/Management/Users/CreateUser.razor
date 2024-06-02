@@ -16,8 +16,8 @@
 <AuthorizeView Roles="Admin">
     <Authorized Context="authContext">
         <MudGrid>
-            <MudItem xs="12" sm="7">
-                <MudCard>
+            <MudItem xs="12" sm="12">
+                <MudCard >
                     <MudCardContent>
                         <MudTextField @bind-Value="newUser.Name" Label="Nombre" Variant="Variant.Outlined" />
                         <MudTextField @bind-Value="newUser.Email" Label="Email" Variant="Variant.Outlined" />
@@ -26,11 +26,9 @@
                     </MudCardContent>
                     <MudCardActions>
                         <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="CreateUserAsync">Crear Usuario</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="GeneratePass">Generar contraseña</MudButton>
                     </MudCardActions>
                 </MudCard>
-            </MudItem>
-            <MudItem xs="12" sm="5">
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="GeneratePass">Generate Password</MudButton>
             </MudItem>
         </MudGrid>
 
@@ -81,7 +79,7 @@
             var emailAddressAttribute = new EmailAddressAttribute();
             if (!emailAddressAttribute.IsValid(email))
                 return false;
-            
+
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase);
         }
@@ -119,8 +117,16 @@
             emailData.Subject = "Datos de acceso al portal Ticmanso";
             emailData.Body = $"<h1>Bienvenido al portal Ticmanso</h1><p>Estimado {newUser.Name},</p><p>Aquí están tus datos de acceso al portal:</p><ul><li>Email: {newUser.Email}</li><li>Contraseña: {password}</li></ul><a href='https://localhost:7174'><p>Ir al portal.</p></a>";
 
-
-            var responser = await httpClient.PostAsJsonAsync($"api/Email", emailData);
+            var responser = new HttpResponseMessage();
+            try
+            {
+                responser = await httpClient.PostAsJsonAsync($"api/Email", emailData);
+            }
+            catch (Exception)
+            {
+                Snackbar.Add("Ha ocurrido un error al enviarl el email al usuario");
+            }
+            
 
             if (responser.IsSuccessStatusCode)
             {

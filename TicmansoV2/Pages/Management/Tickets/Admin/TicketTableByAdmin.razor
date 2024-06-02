@@ -17,7 +17,7 @@
           Filter="new Func<GeneralViewTicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1" OnRowClick="@OnRowClick">
             <ToolBarContent>
                 <MudSpacer />
-                <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                <MudTextField @bind-Value="searchString1" Placeholder="Buscar" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
                               IconSize="Size.Medium" Class="mt-0">
                 </MudTextField>
             </ToolBarContent>
@@ -50,7 +50,7 @@
                 <MudTd DataLabel="Estado">@context.Status</MudTd>                
             </RowTemplate>
             <PagerContent>
-                <MudTablePager />
+                <MudTablePager AllItemsText="Cosa"/>
             </PagerContent>
         </MudTable>
     </MudItem>

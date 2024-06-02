@@ -5,7 +5,7 @@ using TicmansoWebApiV2.Context.Views;
 
 namespace TicmansoWebApiV2.Context
 {
-    public partial class TicmansoDbContext : IdentityDbContext<ApplicationUser>
+    public partial class TicmansoDbContext : IdentityDbContext<ApplicationUser> 
     {
         public TicmansoDbContext() 
         { 
@@ -28,7 +28,10 @@ namespace TicmansoWebApiV2.Context
         public virtual DbSet<UserImage> UserImages { get; set; }
 
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
+        {
+            optionsBuilder.UseSqlServer("Server=SRV-DN;DataBase=TicmansoV2;Persist Security Info=True;User ID=BlazorAdmin;Password=m#Ilw8g35p>FJ&0;Trust Server Certificate=True;");
+        }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
         protected override void OnModelCreating(ModelBuilder builder)

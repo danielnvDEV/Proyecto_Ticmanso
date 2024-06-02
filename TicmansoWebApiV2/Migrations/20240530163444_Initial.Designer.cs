@@ -12,8 +12,8 @@ using TicmansoWebApiV2.Context;
 namespace TicmansoWebApiV2.Migrations
 {
     [DbContext(typeof(TicmansoDbContext))]
-    [Migration("20240519113148_userimgid")]
-    partial class userimgid
+    [Migration("20240530163444_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -389,6 +389,10 @@ namespace TicmansoWebApiV2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -533,6 +537,9 @@ namespace TicmansoWebApiV2.Migrations
                         .HasMaxLength(25)
                         .IsUnicode(false)
                         .HasColumnType("varchar(25)");
+
+                    b.Property<string>("PriorityColor")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()
