@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace TicmansoWebApiV2.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class RolesController : ControllerBase

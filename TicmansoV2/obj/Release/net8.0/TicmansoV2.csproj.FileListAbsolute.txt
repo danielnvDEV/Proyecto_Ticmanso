@@ -5300,3 +5300,5 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Release\net8.0\refint\TicmansoV2.dll
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Release\net8.0\TicmansoV2.pdb
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Release\net8.0\ref\TicmansoV2.dll
+Y:\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\NewUserEmail.html
+Y:\TFG\TicmansoV2\bin\Release\net8.0\wwwroot\Templates\NewUserEmail.html

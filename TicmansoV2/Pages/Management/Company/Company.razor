@@ -31,13 +31,13 @@
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="Id">@context.Id</MudTd>
-                <MudTd DataLabel="Name">@context.Name</MudTd>
-                <MudTd DataLabel="Country">@context.Country</MudTd>
-                <MudTd DataLabel="Address">@context.Address</MudTd>
-                <MudTd DataLabel="Postal Code">@context.PostalCode</MudTd>
-                <MudTd DataLabel="City">@context.City</MudTd>
+                <MudTd DataLabel="Nombre">@context.Name</MudTd>
+                <MudTd DataLabel="Pais">@context.Country</MudTd>
+                <MudTd DataLabel="Dirección">@context.Address</MudTd>
+                <MudTd DataLabel="Código Postal">@context.PostalCode</MudTd>
+                <MudTd DataLabel="Ciudad">@context.City</MudTd>
                 <MudTd DataLabel="CIF">@context.Cif</MudTd>
-                <MudTd DataLabel="Actions">
+                <MudTd DataLabel="Acciones">
                     <MudButton Color="Color.Default" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Edit" OnClick="@(() => OpenEditForm(context.Id))">Editar</MudButton>
                     <MudButton Color="Color.Error" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Delete" OnClick="@(() => DeleteCompany(context.Id))">Borrar</MudButton>
                 </MudTd>
@@ -50,11 +50,11 @@
             </TitleContent>
             <DialogContent>
                 <MudForm Model="@company" @ref="form">
-                    <MudTextField @bind-Value="company.Name" Label="Name" Required="true" RequiredError="Nombre requerido" />
-                    <MudTextField @bind-Value="company.Country" Label="Country" Required="true" RequiredError="Municipio requerido" />
-                    <MudTextField @bind-Value="company.Address" Label="Address" Required="true" RequiredError="Dirección requerida" />
-                    <MudTextField @bind-Value="company.PostalCode" Label="Postal Code" Required="true" RequiredError="Codigo postal requerido" />
-                    <MudTextField @bind-Value="company.City" Label="City" Required="true" RequiredError="Ciudad requerida" />
+                    <MudTextField @bind-Value="company.Name" Label="Nombre" Required="true" RequiredError="Nombre requerido" />
+                    <MudTextField @bind-Value="company.Country" Label="Pais" Required="true" RequiredError="Municipio requerido" />
+                    <MudTextField @bind-Value="company.Address" Label="Dirección" Required="true" RequiredError="Dirección requerida" />
+                    <MudTextField @bind-Value="company.PostalCode" Label="Código Postal" Required="true" RequiredError="Codigo postal requerido" />
+                    <MudTextField @bind-Value="company.City" Label="Ciudad" Required="true" RequiredError="Ciudad requerida" />
                     <MudTextField @bind-Value="company.Cif" Label="CIF" Required="true" RequiredError="CIF requerido" />
                 </MudForm>
             </DialogContent>

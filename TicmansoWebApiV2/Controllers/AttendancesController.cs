@@ -14,10 +14,12 @@ namespace TicmansoWebApiV2.Controllers
     public class AttendancesController : ControllerBase
     {
         private readonly TicmansoDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public AttendancesController(TicmansoDbContext context)
+        public AttendancesController(TicmansoDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: api/Attendance/2023-04-16/1
@@ -84,7 +86,7 @@ namespace TicmansoWebApiV2.Controllers
 
             if (!attendances.Any())
             {
-                return NotFound("No se encontraron registros de asistencia para la fecha especificada.");
+                return NotFound("No se encontraron registros de asistencia ");
             }
 
             return attendances;

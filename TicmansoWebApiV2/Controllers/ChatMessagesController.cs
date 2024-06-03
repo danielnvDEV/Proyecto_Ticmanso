@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 using TicmansoV2.Shared;
 using TicmansoWebApiV2.Context;
 
@@ -13,10 +14,12 @@ namespace TicmansoWebApiV2.Controllers
     public class ChatMessagesController : ControllerBase
     {
         private readonly TicmansoDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public ChatMessagesController(TicmansoDbContext context)
+        public ChatMessagesController(TicmansoDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: api/ChatMessages/5
@@ -54,6 +57,7 @@ namespace TicmansoWebApiV2.Controllers
             };
 
             _context.ChatMessages.Add(chatMessage);
+
             await _context.SaveChangesAsync();
             if (chatMessage.TicketId != null) {
                 return CreatedAtAction("GetChatMessagesByTicketId", new { ticketId = chatMessage.TicketId }, chatMessageDTO);

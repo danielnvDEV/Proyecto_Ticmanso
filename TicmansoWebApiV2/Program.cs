@@ -27,10 +27,10 @@ builder.Services.AddCors(options =>
        policy =>
        {
            policy.WithOrigins("https://localhost:7174", "http://localhost:5000", "http://localhost:7291", "https://localhost:7174/teams-chat",
-                   "https://www.ticmanso.com", "http://www.ticmanso.com", "http://danielnv-001-site1.atempurl.com", 
-                   "https://danielnv-001-site1.atempurl.com")                 
+                   "https://www.ticmanso.com:7174", "http://www.ticmanso.com:7174", "http://danielnv-001-site1.atempurl.com",
+                   "https://danielnv-001-site1.atempurl.com", "http://localhost:5119")
                  .AllowAnyHeader()
-                 .AllowAnyOrigin()
+                 //.AllowAnyOrigin()
                  .AllowAnyMethod();
                  
        });
@@ -44,7 +44,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL4") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL2") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 
@@ -102,7 +102,7 @@ builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Emai
 
 var app = builder.Build();
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -143,7 +143,7 @@ using (var scope = app.Services.CreateScope())
         {
             UserName = adminEmail,
             Email = adminEmail,
-            Name = "Administrador"
+            Name = "Administrador Ticmanso"
         };
         await userManager.CreateAsync(adminUser, "AdminPassword1!");
         await userManager.AddToRoleAsync(adminUser, "Admin");

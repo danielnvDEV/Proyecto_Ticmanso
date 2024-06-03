@@ -152,8 +152,8 @@ namespace TicmansoWebApiV2.Repositories
             try
             {
                 var httpContext = new DefaultHttpContext();
-                httpContext.Request.Scheme = "https";
-                httpContext.Request.Host = new HostString("localhost:7174");
+                httpContext.Request.Scheme = "http";
+                httpContext.Request.Host = new HostString("ticmanso.com:7174");
                 //httpContext.Request.PathBase = "/reset-password";
 
                 resetLink = linkGenerator.GetUriByAction(

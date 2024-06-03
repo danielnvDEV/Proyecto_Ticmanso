@@ -20,7 +20,7 @@
                 <MudCard >
                     <MudCardContent>
                         <MudTextField @bind-Value="newUser.Name" Label="Nombre" Variant="Variant.Outlined" />
-                        <MudTextField @bind-Value="newUser.Email" Label="Email" Variant="Variant.Outlined" />
+                        <MudTextField @bind-Value="newUser.Email" Label="Email" Variant="Variant.Outlined" Validation="@(new EmailAddressAttribute() {ErrorMessage = "El email no tiene un formato valido"})" />
                         <MudTextField @bind-Value="password" Label="Contraseña" Variant="Variant.Outlined" InputType="InputType.Password" />
                         <MudTextField @bind-Value="confirmPassword" Label="Confirmar Contraseña" Variant="Variant.Outlined" InputType="InputType.Password" />
                     </MudCardContent>
@@ -80,8 +80,8 @@
             if (!emailAddressAttribute.IsValid(email))
                 return false;
 
-            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase);
+           
+            return true;
         }
         catch
         {
@@ -104,7 +104,7 @@
             return;
         }
 
-
+        newUser.UserName = newUser.Email;
         newUser.PasswordHash = password;
         var response = await AccountRepository.CreateAccount(newUser);
 
@@ -115,7 +115,7 @@
 
             emailData.ToEmail = newUser.Email;
             emailData.Subject = "Datos de acceso al portal Ticmanso";
-            emailData.Body = $"<h1>Bienvenido al portal Ticmanso</h1><p>Estimado {newUser.Name},</p><p>Aquí están tus datos de acceso al portal:</p><ul><li>Email: {newUser.Email}</li><li>Contraseña: {password}</li></ul><a href='https://localhost:7174'><p>Ir al portal.</p></a>";
+            emailData.Body = $"<h1>Bienvenido al portal Ticmanso</h1><p>Estimado {newUser.Name},</p><p>Aquí están tus datos de acceso al portal:</p><ul><li>Email: {newUser.Email}</li><li>Contraseña: {password}</li></ul><a href='https://www.ticmanso.com:7174'><p>Ir al portal.</p></a>";
 
             var responser = new HttpResponseMessage();
             try
@@ -124,13 +124,16 @@
             }
             catch (Exception)
             {
-                Snackbar.Add("Ha ocurrido un error al enviarl el email al usuario");
+                Snackbar.Add("Ha ocurrido un error al enviar el email al usuario");
             }
             
 
             if (responser.IsSuccessStatusCode)
             {
+                Snackbar.Add("Usuario creado", Severity.Success);
                 Snackbar.Add("Se ha mandado el correo con la informacion");
+                NavigationManager.NavigateTo("/management/controlUser");
+
             }
             else
             {
@@ -141,6 +144,7 @@
             newUser = new ApplicationUserDTO();
             password = string.Empty;
             confirmPassword = string.Empty;
+
         }
         else
         {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,16 +8,19 @@ using TicmansoWebApiV2.Context;
 
 namespace TicmansoWebApiV2.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class UserImageController : ControllerBase
     {
         private readonly TicmansoDbContext _context;
+        private readonly IConfiguration _configuration;
 
 
-        public UserImageController(TicmansoDbContext context)
+        public UserImageController(TicmansoDbContext context, IConfiguration configuration)
         {
-            _context = context;            
+            _context = context;
+            _configuration = configuration;
         }
 
         [HttpGet("GetAllUserImages")]

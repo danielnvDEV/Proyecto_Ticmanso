@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TicmansoV2.Shared;
@@ -6,6 +7,7 @@ using TicmansoWebApiV2.Context;
 
 namespace TicmansoWebApiV2.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class GroupController : ControllerBase

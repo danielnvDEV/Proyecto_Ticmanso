@@ -9,9 +9,11 @@ using MimeKit;
 using Microsoft.Extensions.Options;
 using MimeKit.Text;
 using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Cors;
 
 namespace TicmansoWebApiV2.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class EmailController : ControllerBase

@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "TicmansoV2",
   "resources": {
-    "hash": "sha256-7WwmhE7g57N88AQ9gNtOprqLG2I4fRkpvouCbpse7oE=",
+    "hash": "sha256-7hPKXq8hIaEabXBcgMecP91DsMZXgu32vK/wFUTIr0M=",
     "jsModuleNative": {
       "dotnet.native.8.0.5.4kwnt3h70x.js": "sha256-V/UzJOrDAh7HZ2ERVqqXTbEhugPemBV+Fiya/nJte80="
     },
@@ -9,7 +9,7 @@
       "dotnet.runtime.8.0.5.gongq8hbow.js": "sha256-5oi05+Ql/1JzyAphppAHmbRquli4a3/0XLMa8mQDKn8="
     },
     "wasmNative": {
-      "dotnet.native.wasm": "sha256-GyrFO5jW51qE6vyL87NbyTC7IeH201lFH52ddbTyaJU="
+      "dotnet.native.wasm": "sha256-mpyeWJM/Wanl3u1qAnaC1UlNC5I9lZkUL2TceAPK2zk="
     },
     "icu": {
       "icudt_CJK.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -29,7 +29,7 @@
       "Microsoft.AspNetCore.Authorization.wasm": "sha256-M66iz5NEEUCjj+fg624DDM3zQtilfbjvktdBhfl6zr0=",
       "Microsoft.AspNetCore.Components.Authorization.wasm": "sha256-bGrN8W5Vi92EBPjgp95vpFF/lGV2HzNi+42GAiB5X5w=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-CDp3zxyr3E1ud+nA8SVrkdNFyKFPs80Nxr6xtYA3CO0=",
-      "Microsoft.AspNetCore.Components.wasm": "sha256-Pi4NyzBTQDujlC2biCv4jy/5rR5HHRjS5zrqWXB9+ts=",
+      "Microsoft.AspNetCore.Components.wasm": "sha256-q0hWnwOJ8Xcf6Emgd8SKY0nrQKSFAOlL50ymTfsrxGQ=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-JVUHRdYdAS1bf/tytyj60f0RCXHfYRzW7oNrWBEnk0k=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-yxQX6WMr4OvnLmSBXhB38L6SG3XJ3cY6xuBnKr5WQxs=",
       "Microsoft.AspNetCore.Connections.Abstractions.wasm": "sha256-opHVk97A7DzSppz/t+nJCiFpRhIjLB/DvQGJUJ5rtSU=",
@@ -94,7 +94,7 @@
       "Microsoft.SqlServer.Server.wasm": "sha256-Fig+5hq00gGQlXAgSnyFlUlWyhlx9f+yPJb4INt3gNc=",
       "Microsoft.Win32.Primitives.wasm": "sha256-ekY/CVPQYksJpxzlJBg0OQ5Bcg9yZXJzecnlb4xpCJ0=",
       "Microsoft.Win32.Registry.wasm": "sha256-caw+u9+FrwEfaDwZGu9LH9ZUmlgL2xnDbb8JPLaJs0Y=",
-      "MudBlazor.wasm": "sha256-wiuGYAOzfcMukAbyZS4qsvTDpfO0U86hnOIzoFyn0+M=",
+      "MudBlazor.wasm": "sha256-rrgchHZ8AVyWfjnalMiXGUNzCi26aWAxd1NG8kK38Bo=",
       "netstandard.wasm": "sha256-jg91cJ4haSaTf7teOtbPjXeb/xiHR2zdAVkME1YfeCU=",
       "Newtonsoft.Json.wasm": "sha256-GlXMWKvDs45M2pACoR3Y4Qh8mcrOZGljqmvJY+6JZ5s=",
       "Syncfusion.Blazor.Buttons.wasm": "sha256-goc8MuwBdiQizWc4XL4twwnfhuKwcsA5ShfO3RxV6cc=",
@@ -112,12 +112,12 @@
       "System.Collections.NonGeneric.wasm": "sha256-lfWMJA9NMH/tM0zkhv7N0HYgrU1+tWh1lap3jxk6rRc=",
       "System.Collections.Specialized.wasm": "sha256-mPkR4+FKPHBUUQxbh771sD539eEqhLMd/l+NwN88AMk=",
       "System.Collections.wasm": "sha256-LzCqZwtmNyrUP3Mk3YpodEAvIhibypPkoDXVPCajh0E=",
-      "System.ComponentModel.Annotations.wasm": "sha256-pBCSW1rT6pNaCc2iM6nZoAA07GNW+JTmhvq0JbN7Ebc=",
+      "System.ComponentModel.Annotations.wasm": "sha256-tBto3f8Xf//f/b/uceG4IvcPe/LS0W3bVWgydOHxCKU=",
       "System.ComponentModel.Primitives.wasm": "sha256-lDaF/LshYMPcs0POp6O1i8saCPfjJOK+DNwg3dRQR+0=",
       "System.ComponentModel.TypeConverter.wasm": "sha256-y8kWBiThut+Dz7Vmk2q4YLlRbv+lLm3phwzFVuIMr5E=",
       "System.ComponentModel.wasm": "sha256-o0xh0BY9T/JwgAIADsmnfubHQGQvjqPu7M5tMrQZvVE=",
       "System.Configuration.ConfigurationManager.wasm": "sha256-+PLYdcVZv3KxeaVwz0s4UYBHOGGP8xo3I8tCkSLGWjU=",
-      "System.Console.wasm": "sha256-UK0VH4As5PSLGBTEkmN+tY3ci0Iy6idCDhOhqlkx6xw=",
+      "System.Console.wasm": "sha256-PLVcp8tY1tbd1JHfZjKisoMhVb6XcqReVDh41Sa1nGI=",
       "System.Data.Common.wasm": "sha256-ZwpH3XQqlZ+syACibuN4P46ytk3ypYDx2Vtj9Vy4V/Q=",
       "System.Data.SqlClient.wasm": "sha256-N3fbR0caH3tcrBvf4ebBRGjfb8cWA+CWrYDzEV5L+zw=",
       "System.Diagnostics.DiagnosticSource.wasm": "sha256-KkjrFDW2gR5AvsAEWspSk8lVlrrlFWMRppT+u5U4KVk=",
@@ -197,8 +197,8 @@
       "System.Xml.ReaderWriter.wasm": "sha256-exmk/+O16Ms93ds7+wOAV0Zf+qVn78JANwitB+T3VCI=",
       "System.Xml.XDocument.wasm": "sha256-VTvfbfrIXPwUHHSbVNL55Ix/+HgaVg2yv7ggkxDgIm0=",
       "System.Xml.XmlSerializer.wasm": "sha256-lNQqYx7SAqgcRQDYa151JUsyGLPs54wiLQArQcwDuO0=",
-      "TicmansoV2.Shared.wasm": "sha256-1kWfe0NONt2Y/umHT0Yr3POji/n6UEABuqyWUcsn+6Y=",
-      "TicmansoV2.wasm": "sha256-G4qe+wncrIfmW54f1qqIFlNca6jqf+E0AKsNXTA3aRI="
+      "TicmansoV2.Shared.wasm": "sha256-tHy5k4D5g0sHrNF7LC0BMDOQ+0dczv/jnUP2j2GkcH8=",
+      "TicmansoV2.wasm": "sha256-OxxWAjiATqgVt7sKuLIIcQajsySkRnoq/FOxUQWZpLs="
     }
   },
   "debugLevel": 0,

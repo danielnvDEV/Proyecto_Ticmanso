@@ -1,10 +1,19 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\",
+  "WorkspaceRootPath": "Y:\\TFG\\TicmansoV2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|c:\\users\\danielnavacerrada\\onedrive - provimad sl\\escritorio\\tfg\\ticmansov2\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\pages\\attendance\\attendance.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\attendance\\attendance.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|y:\\tfg\\ticmansowebapiv2\\controllers\\attendancescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|y:\\tfg\\ticmansowebapiv2\\controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|y:\\tfg\\ticmansowebapiv2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,15 +28,52 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Services\\AccountService.cs",
-              "RelativeDocumentMoniker": "Services\\AccountService.cs",
-              "ToolTip": "C:\\Users\\DanielNavacerrada\\OneDrive - Provimad SL\\Escritorio\\TFG\\TicmansoV2\\Services\\AccountService.cs",
-              "RelativeToolTip": "Services\\AccountService.cs",
-              "ViewState": "AQIAAEQAAAAAAAAAAAAIwAkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T14:11:17.342Z",
+              "Title": "Attendance.razor",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Pages\\Attendance\\Attendance.razor",
+              "RelativeDocumentMoniker": "Pages\\Attendance\\Attendance.razor",
+              "ToolTip": "Y:\\TFG\\TicmansoV2\\Pages\\Attendance\\Attendance.razor",
+              "RelativeToolTip": "Pages\\Attendance\\Attendance.razor",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAAIwAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T20:41:14.283Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StatusController.cs",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoWebApiV2\\Controllers\\StatusController.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Controllers\\StatusController.cs",
+              "ToolTip": "Y:\\TFG\\TicmansoWebApiV2\\Controllers\\StatusController.cs",
+              "RelativeToolTip": "..\\TicmansoWebApiV2\\Controllers\\StatusController.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAwwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:35:28.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AttendancesController.cs",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
+              "ToolTip": "Y:\\TFG\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
+              "RelativeToolTip": "..\\TicmansoWebApiV2\\Controllers\\AttendancesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:34:01.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoWebApiV2\\Program.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Program.cs",
+              "ToolTip": "Y:\\TFG\\TicmansoWebApiV2\\Program.cs",
+              "RelativeToolTip": "..\\TicmansoWebApiV2\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:23:36.782Z"
             }
           ]
         }

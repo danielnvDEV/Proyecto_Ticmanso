@@ -63,7 +63,7 @@
 @code {
     private DateTime? selectedDate;
     private string selectedUser;
-    private List<AttendanceDTO> usersAtendance;
+    private List<AttendanceDTO> usersAtendance = new List<AttendanceDTO>();
     private List<ApplicationUserDTO> User { get; set; } = new List<ApplicationUserDTO>();
 
     private async Task LoadUsersData()
