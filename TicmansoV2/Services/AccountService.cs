@@ -1,5 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Identity;
+using MudBlazor;
 using System.Net.Http;
 using System.Net.Http.Json;
 using TicmansoV2.Shared;
@@ -36,10 +37,19 @@ namespace TicmansoV2.Services
 
         public async Task<LoginResponse> LoginAccount(LoginDTO loginDTO)
         {
-            var response = await httpClient
+            var response = new HttpResponseMessage();
+            try
+            {
+                response = await httpClient
                .PostAsync($"api/Account/login",
                Generics.GenerateStringContent(
                Generics.SerializeObj(loginDTO)));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("No se ha podido realizar el inicio de sesion",Severity.Error);
+            }
+             
           
             if (!response.IsSuccessStatusCode)
                 return new LoginResponse(false, null!, "Ha ocurrido un error, por favor intentelo más tarde");

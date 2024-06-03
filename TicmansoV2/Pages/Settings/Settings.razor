@@ -139,11 +139,20 @@
         {
             Snackbar.Add("No se ha podido cargar los datos del usuario");
         }
+        string[] nameParts;
+        try
+        {
+            nameParts = user.Name.Split(' ');
+            FirstName = nameParts[0];
+            LastName = string.Join(" ", nameParts.Skip(1));
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("No se ha podido cargar el nombre del usuario");
+        }
         
 
-        string[] nameParts = user.Name.Split(' ');
-        FirstName = nameParts[0];
-        LastName = string.Join(" ", nameParts.Skip(1));
+
 
         if (int.TryParse(user.PhoneNumber, out int parsedPhone))
         {

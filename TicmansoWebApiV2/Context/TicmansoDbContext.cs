@@ -30,7 +30,8 @@ namespace TicmansoWebApiV2.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
         {
-            optionsBuilder.UseSqlServer("Server=SRV-DN;DataBase=TicmansoV2;Persist Security Info=True;User ID=BlazorAdmin;Password=m#Ilw8g35p>FJ&0;Trust Server Certificate=True;");
+            //optionsBuilder.UseSqlServer("Server=SRV-DN;DataBase=TicmansoV2;Persist Security Info=True;User ID=BlazorAdmin;Password=m#Ilw8g35p>FJ&0;Trust Server Certificate=True;");
+            optionsBuilder.UseSqlServer("Server=sql8010.site4now.net;DataBase=db_aa966a_danielnv;Persist Security Info=True;User ID=db_aa966a_danielnv_admin;Password=HiA7GZB3BzbFjv#;Trust Server Certificate=True;");
         }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 

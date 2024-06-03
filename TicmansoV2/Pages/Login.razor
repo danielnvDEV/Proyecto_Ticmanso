@@ -50,7 +50,7 @@
 @code {
     public LoginDTO User { get; set; } = new();
     string userId;
-
+    
     protected override async Task OnInitializedAsync()
     {
         var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");

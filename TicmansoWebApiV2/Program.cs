@@ -27,8 +27,8 @@ builder.Services.AddCors(options =>
        policy =>
        {
            policy.WithOrigins("https://localhost:7174", "http://localhost:5000", "http://localhost:7291", "https://localhost:7174/teams-chat",
-                   "https://www.ticmanso.com", "http://www.ticmanso.com")
-                 
+                   "https://www.ticmanso.com", "http://www.ticmanso.com", "http://danielnv-001-site1.atempurl.com", 
+                   "https://danielnv-001-site1.atempurl.com")                 
                  .AllowAnyHeader()
                  .AllowAnyOrigin()
                  .AllowAnyMethod();
@@ -44,7 +44,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<TicmansoDbContext>(options =>
 { 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL") ??
+        options.UseSqlServer(builder.Configuration.GetConnectionString("StringSQL4") ??
         throw new InvalidOperationException("Connection String is not found"));
 });
 
@@ -86,9 +86,13 @@ builder.Services.AddSwaggerGen(options =>
 
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
+
 builder.Services.AddScoped<IUserAccount, AccountRepository>();
 builder.Services.AddScoped< IUrlHelper, UrlHelper>();
 builder.Services.AddScoped<EmailController>();
+
+builder.Services.AddMvc();
+builder.Services.AddControllersWithViews();
 
 builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
     options.TokenLifespan = TimeSpan.FromHours(1));
@@ -98,10 +102,11 @@ builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Emai
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
+app.MapSwagger();
 
 
 app.UseRouting();
@@ -110,8 +115,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseCors(MyAllowSpecificOrigins);
 
-
-app.MapSwagger();
 app.UseStaticFiles();
 
 app.MapControllers();
@@ -119,7 +122,7 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<TicmansoDbContext>();
-    dbContext.Database.Migrate();
+    //dbContext.Database.Migrate();
 
 
     var services = scope.ServiceProvider;
