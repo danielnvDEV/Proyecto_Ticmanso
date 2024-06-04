@@ -3,9 +3,11 @@
 @using TicmansoV2.Shared
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Components.Authorization;
+@using TicmansoV2.Shared.Contracts
 @inject HttpClient HttpClient
 @inject ISnackbar Snackbar
 @inject NavigationManager NavManager
+@inject IUserAccount AccountRepository
 @attribute [Authorize]
 
 <AuthorizeView Roles="Admin">
@@ -113,25 +115,17 @@
 
     private async Task DeleteUser(ApplicationUserDTO user)
     {
-        var result = new HttpResponseMessage();
+              
         try
         {
-            result = await HttpClient.DeleteAsync($"api/Users/{user.Id}");
+            var respone = await AccountRepository.DeleteAccount(user.Id);
+            Snackbar.Add("Usuario borrado correctamente", Severity.Success);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            Snackbar.Add("Error al eliminar el usuario", Severity.Error);
+            Snackbar.Add("Error al borrar al usuario", Severity.Error);
         }
-        if (result.IsSuccessStatusCode)
-        {
-            Snackbar.Add("Usuario eliminado correctamente", Severity.Success);
-            await LoadUsers();
-        }
-        else
-        {
-            Snackbar.Add("Error al eliminar el usuario", Severity.Error);
-        }
+        
     }
 
     private void EditUser(ApplicationUserDTO user)

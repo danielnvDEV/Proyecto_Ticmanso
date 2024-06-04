@@ -34,7 +34,7 @@ namespace TicmansoWebApiV2.Repositories
 
         public async Task<GeneralResponse> CreateAccount(ApplicationUserDTO userDTO)
         {
-            if (userDTO is null) return new GeneralResponse(false, "Model is empty");
+            if (userDTO is null) return new GeneralResponse(false, "Rellene el formulario");
             var newUser = new ApplicationUser()
             {
                 Name = userDTO.Name,
@@ -43,10 +43,10 @@ namespace TicmansoWebApiV2.Repositories
                 UserName = userDTO.Email
             };
             var user = await userManager.FindByEmailAsync(newUser.Email);
-            if (user is not null) return new GeneralResponse(false, "User registered already");
+            if (user is not null) return new GeneralResponse(false, "Este usuario ya está registrado");
 
             var createUser = await userManager.CreateAsync(newUser!, userDTO.PasswordHash);
-            if (!createUser.Succeeded) return new GeneralResponse(false, "Error occured.. please try again");
+            if (!createUser.Succeeded) return new GeneralResponse(false, "Ha ocurrido un error");
 
 
             var checkAdmin = await roleManager.FindByNameAsync("Admin");
@@ -54,7 +54,7 @@ namespace TicmansoWebApiV2.Repositories
             {
                 await roleManager.CreateAsync(new IdentityRole() { Name = "Admin" });
                 await userManager.AddToRoleAsync(newUser, "Admin");
-                return new GeneralResponse(true, "Account Created");
+                return new GeneralResponse(true, "Cuenta creada");
             }
             else
             {
@@ -63,27 +63,27 @@ namespace TicmansoWebApiV2.Repositories
                     await roleManager.CreateAsync(new IdentityRole() { Name = "User" });
 
                 await userManager.AddToRoleAsync(newUser, "User");
-                return new GeneralResponse(true, "Account Created");
+                return new GeneralResponse(true, "Cuenta creada");
             }
         }
 
         public async Task<LoginResponse> LoginAccount(LoginDTO loginDTO)
         {
             if (loginDTO == null)
-                return new LoginResponse(false, null!, "Login container is empty");
+                return new LoginResponse(false, null!, "Rellene los datos de inicio de sesión");
 
             var getUser = await userManager.FindByEmailAsync(loginDTO.Email);
             if (getUser is null)
-                return new LoginResponse(false, null!, "User not found");
+                return new LoginResponse(false, null!, "Usuario no encontrado");
 
             bool checkUserPasswords = await userManager.CheckPasswordAsync(getUser, loginDTO.Password);
             if (!checkUserPasswords)
-                return new LoginResponse(false, null!, "Invalid email/password");
+                return new LoginResponse(false, null!, "Fallo en el Email/Contraseña");
 
             var getUserRole = await userManager.GetRolesAsync(getUser);
             var userSession = new UserSession(getUser.Id, getUser.Name, getUser.Email, getUserRole.First(), getUser.Company?.ToString() ?? string.Empty);
             string token = GenerateToken(userSession);
-            return new LoginResponse(true, token!, "Login completed");
+            return new LoginResponse(true, token!, "Inicio de sesión completado");
         }
 
         private string GenerateToken(UserSession user)
@@ -152,7 +152,7 @@ namespace TicmansoWebApiV2.Repositories
             try
             {
                 var httpContext = new DefaultHttpContext();
-                httpContext.Request.Scheme = "http";
+                httpContext.Request.Scheme = "https";
                 httpContext.Request.Host = new HostString("ticmanso.com:7174");
                 //httpContext.Request.PathBase = "/reset-password";
 
@@ -199,6 +199,26 @@ namespace TicmansoWebApiV2.Repositories
                 return new GeneralResponse(true, "La contraseña se ha restablecido correctamente");
             else
                 return new GeneralResponse(false, "Ha ocurrido un error al restablecer la contraseña");
+        }
+
+        public async Task<GeneralResponse> DeleteAccount(string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+                return new GeneralResponse(false, "Usuario no encontrado");
+            try
+            {
+                var result = await userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                    return new GeneralResponse(true, "Se ha eliminado el usuario correctamente");
+                else
+                    return new GeneralResponse(false, "Ha ocurrido un error al eliminar el usuario");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return new GeneralResponse(false, "Ha ocurrido un error al eliminar el usuario");
         }
     }
 }

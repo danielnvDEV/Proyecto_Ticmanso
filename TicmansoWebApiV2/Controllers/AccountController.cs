@@ -6,8 +6,7 @@ using TicmansoV2.Shared;
 using TicmansoV2.Shared.Contracts;
 
 namespace TicmansoWebApiV2.Controllers
-{
-    [EnableCors]
+{    
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController(IUserAccount userAccount) : ControllerBase
@@ -44,6 +43,13 @@ namespace TicmansoWebApiV2.Controllers
         public async Task<IActionResult> ResetPassword(ResetPasswordDTO resetPasswordDTO)
         {
             var response = await userAccount.ResetPassword(resetPasswordDTO);
+            return Ok(response);
+        }
+
+        [HttpDelete("delete-account/{userId}")]
+        public async Task<IActionResult> DeleteAccount(string userId)
+        {
+            var response = await userAccount.DeleteAccount(userId);
             return Ok(response);
         }
     }

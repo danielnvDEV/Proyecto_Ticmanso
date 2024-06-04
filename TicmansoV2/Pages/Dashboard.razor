@@ -55,7 +55,9 @@
         <MudGrid xs="12" sm="12">
             <MudItem xs="12" sm="7">
                 <MudText Class="d-flex mt-5"><b>Tickets recientes</b></MudText>
-                <MudTable Items="@Tickets" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info" Class="cmptCentrado" RowClick="@OnRowClick">
+                <MudTable Items="@Tickets" T="GeneralViewTicketDTO" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading"
+                          LoadingProgressColor="Color.Info" Class="cmptCentrado" @bind-SelectedItem="selectedItem1" OnRowClick="@OnRowClick">
+
                     <HeaderContent>
                         <MudTh>Número de Ticket</MudTh>
                         <MudTh>Título</MudTh>
@@ -68,9 +70,9 @@
                     <RowTemplate>
                         <MudTd DataLabel="Número de Ticket">@context.NumTicket</MudTd>
                         <MudTd DataLabel="Título">
-                            @if (context.Tittle.Length > 30)
+                            @if (context.Tittle.Length > 20)
                             {
-                                @($"{context.Tittle.Substring(0, 30)}...")
+                                @($"{context.Tittle.Substring(0, 20)}...")
                             }
                             else
                             {
@@ -78,9 +80,9 @@
                             }
                         </MudTd>
                         <MudTd DataLabel="Descripción">
-                            @if (context.Description.Length > 30)
+                            @if (context.Description.Length > 20)
                             {
-                                @($"{context.Description.Substring(0, 30)}...")
+                                @($"{context.Description.Substring(0, 20)}...")
                             }
                             else
                             {
@@ -128,8 +130,7 @@
     private bool _loading = true;
     private List<GeneralViewTicketDTO> Tickets = new List<GeneralViewTicketDTO>();
     private List<StatusCountDTO> statuses = new List<StatusCountDTO>();
-    private long selectedTicketId;
-
+    private GeneralViewTicketDTO selectedItem1 = null;
 
     protected override async Task OnInitializedAsync()
     {
@@ -150,6 +151,16 @@
             Console.WriteLine(e);
         }                
     }
+
+    [Parameter]
+    public EventCallback<int> OnTicketSelected { get; set; }
+
+    private void ShowTicketDetails(int ticketId)
+    {
+        OnTicketSelected.InvokeAsync(ticketId);
+    }
+
+    private long selectedTicketId;
 
     private void OnRowClick(TableRowClickEventArgs<GeneralViewTicketDTO> args)
     {

@@ -148,6 +148,7 @@ namespace TicmansoWebApiV2.Controllers
             }
 
           var result =   await _userManager.DeleteAsync(user);
+
             await _context.SaveChangesAsync();
 
             return BadRequest(result.Errors);

@@ -10,6 +10,7 @@ namespace TicmansoV2.Shared.Contracts
         Task<ChangePasswordResponse> ChangePassword(ChangePasswordDTO changePasswordDTO);
         Task<GeneralResponse> ForgotPassword(string email);
         Task<GeneralResponse> ResetPassword(ResetPasswordDTO resetPasswordDTO);
+        Task<GeneralResponse> DeleteAccount(string userId);
 
     }
 }

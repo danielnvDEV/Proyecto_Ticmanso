@@ -60,10 +60,17 @@
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=[{]};:<>|./?";
         Random rnd = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 8; i++)
+                
+        sb.Append(chars[rnd.Next(26)]);      
+        sb.Append(chars[rnd.Next(26, 52)]);        
+        sb.Append(chars[rnd.Next(52, 62)]);        
+        sb.Append(chars[rnd.Next(62, chars.Length)]);
+        
+        for (int i = 0; i < 4; i++)
         {
             sb.Append(chars[rnd.Next(chars.Length)]);
         }
+
         password = sb.ToString();
         confirmPassword = password;
         StateHasChanged();
@@ -115,36 +122,36 @@
 
             emailData.ToEmail = newUser.Email;
             emailData.Subject = "Datos de acceso al portal Ticmanso";
-            emailData.Body = $"<h1>Bienvenido al portal Ticmanso</h1><p>Estimado {newUser.Name},</p><p>Aquí están tus datos de acceso al portal:</p><ul><li>Email: {newUser.Email}</li><li>Contraseña: {password}</li></ul><a href='https://www.ticmanso.com:7174'><p>Ir al portal.</p></a>";
+            emailData.Body = $"<h1>Bienvenido al portal Ticmanso</h1><p>Estimado {newUser.Name},</p><p>Aquí están tus datos de acceso al portal:</p><ul><li>Email: {newUser.Email}</li><li>Contraseña: {password}</li></ul><a href='https://www.ticmanso.com:7174/'><p>Ir al portal.</p></a>";
 
             var responser = new HttpResponseMessage();
             try
             {
                 responser = await httpClient.PostAsJsonAsync($"api/Email", emailData);
+
+
+                if (responser.IsSuccessStatusCode)
+                {
+                    Snackbar.Add("Usuario creado", Severity.Success);
+                    Snackbar.Add("Se ha mandado el correo con la información");
+                    NavigationManager.NavigateTo("/management/controlUser");
+
+                }
+                else
+                {
+                    Snackbar.Add("Ha ocurrido un error");
+
+                }
+
+                newUser = new ApplicationUserDTO();
+                password = string.Empty;
+                confirmPassword = string.Empty;
+
             }
             catch (Exception)
             {
                 Snackbar.Add("Ha ocurrido un error al enviar el email al usuario");
-            }
-            
-
-            if (responser.IsSuccessStatusCode)
-            {
-                Snackbar.Add("Usuario creado", Severity.Success);
-                Snackbar.Add("Se ha mandado el correo con la informacion");
-                NavigationManager.NavigateTo("/management/controlUser");
-
-            }
-            else
-            {
-                Snackbar.Add("Ha ocurrido un error");
-                
-            }
-
-            newUser = new ApplicationUserDTO();
-            password = string.Empty;
-            confirmPassword = string.Empty;
-
+            }           
         }
         else
         {

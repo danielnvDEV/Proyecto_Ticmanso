@@ -12,6 +12,7 @@
 @inject IJSRuntime JSRuntime
 @inject AuthenticationStateProvider AuthStateProvider
 @inject NavigationManager NavManager
+@inject ISnackbar Snackbar
 
 <PageTitle>Iniciar sesión</PageTitle>
 
@@ -50,7 +51,7 @@
 @code {
     public LoginDTO User { get; set; } = new();
     string userId;
-    
+
     protected override async Task OnInitializedAsync()
     {
         var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
@@ -66,16 +67,18 @@
         var (flag, token, message) = await AccountRepository.LoginAccount(User);
         if (flag)
         {
-            string customMessage = $"{message}{Environment.NewLine}{token}";
-            await JSRuntime.InvokeVoidAsync("alert", customMessage);
+            // string customMessage = $"{message}{Environment.NewLine}{token}";
+            // await JSRuntime.InvokeVoidAsync("alert", customMessage);
+            // await 
             User = new();
-
+            Snackbar.Add(message, Severity.Info);
             var customAuthStateProvider = (CustomAuthenticationStateProvider)AuthStateProvider;
             await customAuthStateProvider.UpdateAuthenticationState(token);
             NavManager.NavigateTo("/dashboard", forceLoad: true);
         }
 
         await JSRuntime.InvokeVoidAsync("alert", message);
+        
         return;
     }
 

@@ -13,12 +13,13 @@
 @inject NavigationManager NavManager
 @attribute [Authorize]
 @page "/myTickets"
+
 <AuthorizeView>
     <Authorized Context="authContext">
         <MudGrid>
             <MudItem xs="9">
-                <MudTable Items="@ticket" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped"
-                          Filter="new Func<GeneralViewTicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
+                <MudTable Items="@ticket" T="GeneralViewTicketDTO" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped"
+                          Filter="new Func<GeneralViewTicketDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1" OnRowClick="@OnRowClick">
                     <ToolBarContent>
                         <MudSpacer />
                         <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
@@ -34,10 +35,17 @@
                         <MudTh>Estado</MudTh>
                     </HeaderContent>
                     <RowTemplate>
-                        <MudButton Justify="Justify.Center" AlignContent="AlignContent.Center" Class="btnTT d-flex" margin="10px" Variant="Variant.Text" Size="Size.Small" OnClick="@(() => HandleTicketSelected(@context.NumTicket))">
-                            @context.NumTicket
-                        </MudButton>
-                        <MudTd DataLabel="Titulo">@context.Tittle</MudTd>
+                        <MudTd DataLabel="Número de ticket">@context.NumTicket</MudTd>
+                        <MudTd DataLabel="Titulo">
+                            @if (context.Tittle.Length > 40)
+                            {
+                                @($"{context.Tittle.Substring(0, 40)}...")
+                            }
+                            else
+                            {
+                                @context.Tittle
+                            }
+                        </MudTd>
                         <MudTd DataLabel="Descripción">
                             @if (context.Description.Length > 40)
                             {
@@ -91,10 +99,6 @@
                             }
                         </MudSelect>
                     </MudCardContent>
-                    <MudCardActions>
-                        @*<MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="ApplyFilters">Aplicar</MudButton>
-                        *@
-                    </MudCardActions>
                 </MudCard>
             </MudItem>
         </MudGrid>
@@ -130,30 +134,26 @@
         User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
 
     }
-
-
-
     private bool FilterFunc1(GeneralViewTicketDTO element) =>
-     (string.IsNullOrWhiteSpace(filterCriteria.Status) || element.Status == filterCriteria.Status) &&
-     (string.IsNullOrWhiteSpace(filterCriteria.Priority) || element.Priority == filterCriteria.Priority) &&
-     (string.IsNullOrWhiteSpace(searchString1) ||
-         element.NumTicket.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
-         element.Tittle?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-         element.Description?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-         element.CreationUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
-         element.SuportUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true);
+         (string.IsNullOrWhiteSpace(filterCriteria.Status) || element.Status == filterCriteria.Status) &&
+         (string.IsNullOrWhiteSpace(filterCriteria.Priority) || element.Priority == filterCriteria.Priority) &&
+         (string.IsNullOrWhiteSpace(searchString1) ||
+             element.NumTicket.ToString().Contains(searchString1, StringComparison.OrdinalIgnoreCase) ||
+             element.Tittle?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+             element.Description?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+             element.CreationUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true ||
+             element.SuportUser?.Contains(searchString1, StringComparison.OrdinalIgnoreCase) == true);
 
 
 
 
     private GeneralViewTicketDTO filterCriteria = new GeneralViewTicketDTO();
 
-    [Parameter] public EventCallback<GeneralViewTicketDTO> OnFilterChanged { get; set; }
+    [Parameter] 
+    public EventCallback OnFilterChanged { get; set; }
 
-    async Task ApplyFilters()
-    {
-        await OnFilterChanged.InvokeAsync(filterCriteria);
-    }
+    async Task ApplyFilters() => await OnFilterChanged.InvokeAsync(filterCriteria);
+
     [Parameter]
     public EventCallback<int> OnTicketSelected { get; set; }
 
@@ -163,6 +163,12 @@
     }
 
     private long selectedTicketId;
+
+    private void OnRowClick(TableRowClickEventArgs<GeneralViewTicketDTO> args)
+    {
+        var clickedTicket = args.Item;
+        HandleTicketSelected(clickedTicket.NumTicket);
+    }
 
     private void HandleTicketSelected(int ticketId)
     {

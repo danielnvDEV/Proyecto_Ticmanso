@@ -1,4 +1,5 @@
-﻿using Blazored.LocalStorage;
+﻿using Azure;
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Identity;
 using MudBlazor;
 using System.Net.Http;
@@ -97,6 +98,14 @@ namespace TicmansoV2.Services
             if (!response.IsSuccessStatusCode)
                 return new GeneralResponse(false, "Ha ocurrido un error, por favor inténtelo más tarde");
 
+            var apiResponse = await response.Content.ReadAsStringAsync();
+            return Generics.DeserializeJsonString<GeneralResponse>(apiResponse);
+        }
+
+        public async Task<GeneralResponse> DeleteAccount(string userId)
+        {
+            var response = await httpClient
+                .DeleteAsync($"api/Account/delete-account/{userId}");
             var apiResponse = await response.Content.ReadAsStringAsync();
             return Generics.DeserializeJsonString<GeneralResponse>(apiResponse);
         }

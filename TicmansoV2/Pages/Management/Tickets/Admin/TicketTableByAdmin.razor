@@ -20,7 +20,6 @@
                               IconSize="Size.Medium" Class="mt-0">
                 </MudTextField>
             </ToolBarContent>
-
             <HeaderContent>
                 <MudTh>Ticket</MudTh>
                 <MudTh>Titulo</MudTh>
@@ -157,6 +156,7 @@
     {
         await OnFilterChanged.InvokeAsync(filterCriteria);
     }
+
     [Parameter]
     public EventCallback<int> OnTicketSelected { get; set; }
 
