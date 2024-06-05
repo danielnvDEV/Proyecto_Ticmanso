@@ -18,8 +18,9 @@
                 <MudTh>Email</MudTh>
                 <MudTh>Telefono</MudTh>
                 <MudTh>Rol</MudTh>
-                <MudTh>Acciones
-                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/management/controlUser/createUsers" Style="margin-left:2vh"/>
+                <MudTh>
+                    Acciones
+                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" Href="/management/controlUser/createUsers" Style="margin-left:2vh" />
                 </MudTh>
             </HeaderContent>
             <RowTemplate>
@@ -27,7 +28,7 @@
                 <MudTd DataLabel="Email">@context.Email</MudTd>
                 <MudTd DataLabel="Telefono">@context.PhoneNumber</MudTd>
                 <MudTd DataLabel="Rol">@GetUserRole(context.Id)</MudTd>
-                <MudTd>
+                <MudTd DataLabel="Acciones" icon="@Icons.Material.Outlined.GroupAdd" Color="@Color.Tertiary" href="/management/controlUser/createUsers">
                     <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="@(()=>EditUser(context))">Editar</MudButton>
                     <MudButton Variant="Variant.Outlined" Color="Color.Error" OnClick="@(()=>DeleteUser(context))">Borrar</MudButton>
                 </MudTd>
@@ -35,7 +36,7 @@
         </MudTable>
         @if (showEditFields)
         {
-                <EditForm Model="@selectedUser" OnValidSubmit="@HandleValidSubmit" >
+            <EditForm Model="@selectedUser" OnValidSubmit="@HandleValidSubmit">
                 <DataAnnotationsValidator />
                 <MudGrid Justify="Justify.Center" AlignContent="AlignContent.Center" Class="d-flex">
 
@@ -66,7 +67,9 @@
         }
     </Authorized>
     <NotAuthorized>
-        @{NavManager.NavigateTo("/");}
+        @{
+            NavManager.NavigateTo("/");
+        }
     </NotAuthorized>
 </AuthorizeView>
 @code {
@@ -80,30 +83,52 @@
 
     protected override async Task OnInitializedAsync()
     {
+
         await LoadUsers();
         await LoadUserRoles();
+        await LoadRoles();
+    }
+
+    private async Task LoadRoles()
+    {
         try
         {
             roles = await HttpClient.GetFromJsonAsync<List<IdentityRole>>("api/Roles");
         }
         catch (Exception)
         {
-
-            Console.WriteLine("Los roles estan tardando en cargar");
+            Snackbar.Add("Error al cargar los roles", Severity.Error);
         }
-
+        
     }
 
     private async Task LoadUserRoles()
     {
-        userRole = await HttpClient.GetFromJsonAsync<List<UserWithRoleDTO>>("/api/Users/users-with-roles");
+        try
+        {
+            userRole = await HttpClient.GetFromJsonAsync<List<UserWithRoleDTO>>("/api/Users/users-with-roles");
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Error al cargar rol por usuario", Severity.Error);
+        }
+       
     }
 
     private async Task LoadUsers()
     {
-        loading = true;
-        users = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");        
-        loading = false;
+        try
+        {
+            loading = true;
+            users = await HttpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+            loading = false;
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Error cargar los usuarios", Severity.Error);
+        }
+
+
     }
 
     private string GetUserRole(string userId)
@@ -115,23 +140,41 @@
 
     private async Task DeleteUser(ApplicationUserDTO user)
     {
-              
+        string[] partes = user.Email.Split("@");
+        string newEmail = partes[0] + "@" + "UsuarioEliminado.com";
+        user.Email = newEmail;
+        user.UserName = newEmail;
         try
         {
-            var respone = await AccountRepository.DeleteAccount(user.Id);
-            Snackbar.Add("Usuario borrado correctamente", Severity.Success);
+            var result = await HttpClient.PutAsJsonAsync($"api/Users/{user.Id}", user);
+
+            if (result.IsSuccessStatusCode)
+            {
+                Snackbar.Add("Usuario actualizado correctamente", Severity.Success);
+                await LoadUsers();
+                await LoadUserRoles();
+            }
+            else
+            {
+                Snackbar.Add("Error al eliminar el usuario", Severity.Error);
+                await LoadUsers();
+                await LoadUserRoles();
+            }
         }
         catch (Exception e)
         {
-            Snackbar.Add("Error al borrar al usuario", Severity.Error);
+            Snackbar.Add("Error al eliminar el usuario", Severity.Error);
+            await LoadUsers();
+            await LoadUserRoles();
         }
-        
+
     }
 
-    private void EditUser(ApplicationUserDTO user)
+    private async Task EditUser(ApplicationUserDTO user)
     {
         selectedUser = user;
         showEditFields = true;
+
     }
     private async Task HandleValidSubmit()
     {

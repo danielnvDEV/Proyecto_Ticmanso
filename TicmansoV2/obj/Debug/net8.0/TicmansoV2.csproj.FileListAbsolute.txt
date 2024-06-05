@@ -5260,6 +5260,13 @@ C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\obj\Debug\net8.0\ref\TicmansoV2.dll
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\Templates\NewUserEmail.html
 C:\Users\DanielNavacerrada\OneDrive - Provimad SL\Escritorio\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\NewUserEmail.html
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.csproj.AssemblyReference.cache
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.GeneratedMSBuildEditorConfig.editorconfig
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.AssemblyInfoInputs.cache
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.AssemblyInfo.cs
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.csproj.CoreCompileInputs.cache
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.MvcApplicationPartsAssemblyInfo.cache
+Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.sourcelink.json
 Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Azure.Core.wasm
 Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\Azure.Identity.wasm
 Y:\TFG\TicmansoV2\bin\Debug\net8.0\wwwroot\_framework\blazor.boot.json
@@ -6323,13 +6330,6 @@ Y:\TFG\TicmansoV2\bin\Debug\net8.0\icudt_EFIGS.dat
 Y:\TFG\TicmansoV2\bin\Debug\net8.0\icudt_no_CJK.dat
 Y:\TFG\TicmansoV2\bin\Debug\net8.0\TicmansoV2.Shared.dll
 Y:\TFG\TicmansoV2\bin\Debug\net8.0\TicmansoV2.Shared.pdb
-Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.csproj.AssemblyReference.cache
-Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.GeneratedMSBuildEditorConfig.editorconfig
-Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.AssemblyInfoInputs.cache
-Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.AssemblyInfo.cs
-Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.csproj.CoreCompileInputs.cache
-Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.MvcApplicationPartsAssemblyInfo.cache
-Y:\TFG\TicmansoV2\obj\Debug\net8.0\TicmansoV2.sourcelink.json
 Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Azure.Core.wasm
 Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Azure.Identity.wasm
 Y:\TFG\TicmansoV2\obj\Debug\net8.0\webcil\Blazored.LocalStorage.wasm

@@ -15,7 +15,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://www.ticmanso.com:7291") });
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://danielnv-001-site1.atempurl.com") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://ticmanso-001-site1.ltempurl.com") });
 //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5000") });
 
 builder.Services.AddMudServices();

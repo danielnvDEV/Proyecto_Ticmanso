@@ -153,7 +153,7 @@ namespace TicmansoWebApiV2.Repositories
             {
                 var httpContext = new DefaultHttpContext();
                 httpContext.Request.Scheme = "https";
-                httpContext.Request.Host = new HostString("ticmanso.com:7174");
+                httpContext.Request.Host = new HostString("clientewebtic-001-site1.etempurl.com");
                 //httpContext.Request.PathBase = "/reset-password";
 
                 resetLink = linkGenerator.GetUriByAction(

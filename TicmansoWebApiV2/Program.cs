@@ -28,7 +28,7 @@ builder.Services.AddCors(options =>
        {
            policy.WithOrigins("https://localhost:7174", "http://localhost:5000", "http://localhost:7291", "https://localhost:7174/teams-chat",
                    "https://www.ticmanso.com:7174", "http://www.ticmanso.com:7174", "http://danielnv-001-site1.atempurl.com",
-                   "https://danielnv-001-site1.atempurl.com", "http://localhost:5119")
+                   "https://danielnv-001-site1.atempurl.com", "http://localhost:5119", "https://clientewebtic-001-site1.etempurl.com", "http://clientewebtic-001-site1.etempurl.com")
                  .AllowAnyHeader()
                  //.AllowAnyOrigin()
                  .AllowAnyMethod();
