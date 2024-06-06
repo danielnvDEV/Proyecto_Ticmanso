@@ -21,9 +21,19 @@
     <Authorized>
         <TicketTableByAdmin/>
     </Authorized>
+    <NotAuthorized>
+        @{
+            NavManager.NavigateTo("/");
+        }
+    </NotAuthorized>
 </AuthorizeView>
 <AuthorizeView Roles="User">
     <Authorized>
         <MyTickets/>
     </Authorized>
+    <NotAuthorized>
+        @{
+            NavManager.NavigateTo("/");
+        }
+    </NotAuthorized>
 </AuthorizeView>

@@ -122,7 +122,7 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<TicmansoDbContext>();
-    //dbContext.Database.Migrate();
+    dbContext.Database.Migrate();
 
 
     var services = scope.ServiceProvider;

@@ -76,9 +76,17 @@
 
     private async Task LoadPriorities()
     {
-        loading = true;
-        priorities = await HttpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
-        loading = false;
+        try
+        {
+            loading = true;
+            priorities = await HttpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
+            loading = false;
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
+        }
+
     }
 
     private void OpenCreateForm()
@@ -90,9 +98,17 @@
 
     private async Task OpenEditForm(int id)
     {
-        priority = await HttpClient.GetFromJsonAsync<PriorityDTO>($"api/Priority/{id}");
-        editingPriorityId = id;
-        showForm = true;
+        try
+        {
+            priority = await HttpClient.GetFromJsonAsync<PriorityDTO>($"api/Priority/{id}");
+            editingPriorityId = id;
+            showForm = true;
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
+        }
+
     }
 
 
@@ -103,28 +119,45 @@
 
     private async Task SavePriority()
     {
-        if (editingPriorityId == 0)
+        try
         {
-            priority.Color = selectedColor.ToString();
-            await HttpClient.PostAsJsonAsync("api/Priority", priority);
-            Snackbar.Add("Priority creado", Severity.Success);
+            if (editingPriorityId == 0)
+            {
+                priority.Color = selectedColor.ToString();
+                await HttpClient.PostAsJsonAsync("api/Priority", priority);
+                Snackbar.Add("Priority creado", Severity.Success);
+            }
+            else
+            {
+                priority.Color = selectedColor.Value.ToString();
+                await HttpClient.PutAsJsonAsync($"api/Priority/{editingPriorityId}", priority);
+                Snackbar.Add("Priority actualizado", Severity.Info);
+            }
+
+            showForm = false;
+            await LoadPriorities();
         }
-        else
+        catch (Exception)
         {
-            priority.Color = selectedColor.Value.ToString();
-            await HttpClient.PutAsJsonAsync($"api/Priority/{editingPriorityId}", priority);
-            Snackbar.Add("Priority actualizado", Severity.Info);
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
         }
 
-        showForm = false;
-        await LoadPriorities();
     }
 
     private async Task DeletePriority(long id)
     {
-        await HttpClient.DeleteAsync($"api/Priority/{id}");
-        Snackbar.Add("Priority eliminado", Severity.Warning);
-        await LoadPriorities();
+
+        try
+        {
+            await HttpClient.DeleteAsync($"api/Priority/{id}");
+            Snackbar.Add("Priority eliminado", Severity.Warning);
+            await LoadPriorities();
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
+        }
+
     }
     private void UpdateColor(MudColor color)
     {

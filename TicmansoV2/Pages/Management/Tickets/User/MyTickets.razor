@@ -127,11 +127,18 @@
         var claims = jwtToken.Claims;
         conectedUser = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
+        try
+        {
+            ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>($"api/GeneralTikets/User/{conectedUser}");
+            Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
+            Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
+            User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Ha ocurrido un error en la carga de datos inicial", Severity.Info);
+        }
 
-        ticket = await httpClient.GetFromJsonAsync<List<GeneralViewTicketDTO>>($"api/GeneralTikets/User/{conectedUser}");
-        Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
-        Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
-        User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
 
     }
     private bool FilterFunc1(GeneralViewTicketDTO element) =>

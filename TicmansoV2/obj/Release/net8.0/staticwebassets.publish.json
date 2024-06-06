@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SgQqhjRTKJ6MkyJMmHwHyJJTzYw82L18AnFfxPJmHHM=",
+  "Hash": "ujxKgjo5UA7iG+NDtW/8VQzBP422f7uZl5VMdAlO7ss=",
   "Source": "TicmansoV2",
   "BasePath": "/",
   "Mode": "Root",
@@ -11814,6 +11814,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ticket_2067046.png"
+    },
+    {
+      "Identity": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\ticketsICON.png",
+      "SourceId": "TicmansoV2",
+      "SourceType": "Discovered",
+      "ContentRoot": "Y:\\TFG\\TicmansoV2\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/ticketsICON.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ticketsICON.png"
     },
     {
       "Identity": "Y:\\TFG\\TicmansoV2\\wwwroot\\index.html",

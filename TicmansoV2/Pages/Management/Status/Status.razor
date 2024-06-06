@@ -73,9 +73,17 @@
 
     private async Task LoadStatuses()
     {
-        loading = true;
-        statuses = await HttpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
-        loading = false;
+        try
+        {
+            loading = true;
+            statuses = await HttpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
+            loading = false;
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
+        }
+
     }
 
     private void OpenCreateForm()
@@ -87,10 +95,17 @@
 
     private async Task OpenEditForm(int id)
     {
-        status = await HttpClient.GetFromJsonAsync<StatusDTO>($"api/Status/{id}");
+        try
+        {
+            status = await HttpClient.GetFromJsonAsync<StatusDTO>($"api/Status/{id}");
+            editingStatusId = id;
+            showForm = true;
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
+        }
 
-        editingStatusId = id;
-        showForm = true;
     }
 
     private void CloseForm()
@@ -100,25 +115,41 @@
 
     private async Task SaveStatus()
     {
-        if (editingStatusId == 0)
+        try
         {
-            await HttpClient.PostAsJsonAsync("api/Status", status);
-            Snackbar.Add("Estado creado", Severity.Success);
+            if (editingStatusId == 0)
+            {
+                await HttpClient.PostAsJsonAsync("api/Status", status);
+                Snackbar.Add("Estado creado", Severity.Success);
+            }
+            else
+            {
+                await HttpClient.PutAsJsonAsync($"api/Status/{editingStatusId}", status);
+                Snackbar.Add("Estado actualizado", Severity.Info);
+            }
+
+            showForm = false;
+            await LoadStatuses();
         }
-        else
+        catch (Exception)
         {
-            await HttpClient.PutAsJsonAsync($"api/Status/{editingStatusId}", status);
-            Snackbar.Add("Estado actualizado", Severity.Info);
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
         }
 
-        showForm = false;
-        await LoadStatuses();
     }
 
     private async Task DeleteStatus(int id)
     {
-        await HttpClient.DeleteAsync($"api/Status/{id}");
-        Snackbar.Add("Estado eliminado", Severity.Warning);
-        await LoadStatuses();
+        try
+        {
+            await HttpClient.DeleteAsync($"api/Status/{id}");
+            Snackbar.Add("Estado eliminado", Severity.Warning);
+            await LoadStatuses();
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
+        }
+
     }
 }

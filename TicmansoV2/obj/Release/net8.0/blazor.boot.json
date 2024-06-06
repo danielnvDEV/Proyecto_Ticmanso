@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "TicmansoV2",
   "resources": {
-    "hash": "sha256-8NxUhS7OxlVNu6gCzwUSb6twR3hQFP8m316t9KHfMiQ=",
+    "hash": "sha256-dlw3M1bSwg/8P2DiLAh7LaIAp6JQx9dkHcVNsOA1bu8=",
     "jsModuleNative": {
       "dotnet.native.8.0.5.ew1vqrwwsw.js": "sha256-boyHe+0RMZDkzBKGhsrnXPhPg3oZ6UqJnTUzngJPjNY="
     },
@@ -305,11 +305,11 @@
       "netstandard.wasm": "sha256-TbMssdnuTiKq1gjTPkpgROAuWN0uhvPnagvWR+wAgNs=",
       "System.Private.CoreLib.wasm": "sha256-sscg+Efk8ROPq+q4IVmhShzITuoOYvB8Bsc+Mp9vcSM=",
       "TicmansoV2.Shared.wasm": "sha256-EGIOY5zUp7PI+eL9wjd7BfR8kD6cHF/C8T6YAqx/aeg=",
-      "TicmansoV2.wasm": "sha256-ZGkpGJp9p4nARqEPERrL7/uf2D9VxpyHfLu0U0MtPYE="
+      "TicmansoV2.wasm": "sha256-qSOE66tpclVyG9S3JCJVVIe8FONBYjSCeL0WpTizP7I="
     },
     "pdb": {
       "TicmansoV2.Shared.pdb": "sha256-ymlhjyzVuaXQD9eYo2tOh4AW/wKGixS9eMApuUx2oCU=",
-      "TicmansoV2.pdb": "sha256-AG79lF9cFFOCjiNlO65HUQdBLpe8IYLEEELHt+L/lww="
+      "TicmansoV2.pdb": "sha256-dlBbuZp+vw/9QMelkFzYoZEa33XpLkrc8uu6umiclOs="
     },
     "satelliteResources": {
       "cs": {

@@ -97,6 +97,10 @@
       "PackagePath": "staticwebassets\\images\\ticket_2067046.png"
     },
     {
+      "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\images\\ticketsICON.png",
+      "PackagePath": "staticwebassets\\images\\ticketsICON.png"
+    },
+    {
       "Id": "Y:\\TFG\\TicmansoV2\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

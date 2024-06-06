@@ -88,7 +88,7 @@
                 <MudText><b>Agente</b></MudText>
                 <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="filterCriteria.SuportUser">
                     <MudSelectItem Value="@((string)null)"></MudSelectItem>
-                    @foreach (var user in User)
+                    @foreach (var user in User.Where(u => userRole.Any(r => r.UserId == u.Id && r.Role == "Admin")))
                     {
                         <MudSelectItem Value="@user.Name" />
                     }
@@ -115,6 +115,7 @@
     private List<PriorityDTO> Priorities { get; set; } = new List<PriorityDTO>();
     private List<StatusDTO> Statuses { get; set; } = new List<StatusDTO>();
     private IEnumerable<GeneralViewTicketDTO> ticket = new List<GeneralViewTicketDTO>();
+    private List<UserWithRoleDTO> userRole = new List<UserWithRoleDTO>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -124,6 +125,7 @@
             Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
             Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
             User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+            await LoadUserRoles();
         }
         catch (Exception)
         {
@@ -178,4 +180,18 @@
         selectedTicketId = ticketId;
         NavManager.NavigateTo($"/tickets/ticket/{ticketId}");
     }
+
+    private async Task LoadUserRoles()
+    {
+        try
+        {
+            userRole = await HttpClient.GetFromJsonAsync<List<UserWithRoleDTO>>("/api/Users/users-with-roles");
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Error al cargar rol por usuario", Severity.Error);
+        }
+
+    }
+
 }

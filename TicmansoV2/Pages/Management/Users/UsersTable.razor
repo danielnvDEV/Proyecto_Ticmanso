@@ -83,7 +83,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-
         await LoadUsers();
         await LoadUserRoles();
         await LoadRoles();
@@ -99,7 +98,7 @@
         {
             Snackbar.Add("Error al cargar los roles", Severity.Error);
         }
-        
+
     }
 
     private async Task LoadUserRoles()
@@ -112,7 +111,7 @@
         {
             Snackbar.Add("Error al cargar rol por usuario", Severity.Error);
         }
-       
+
     }
 
     private async Task LoadUsers()
@@ -137,7 +136,6 @@
         return userWithRole?.Role ?? string.Empty;
     }
 
-
     private async Task DeleteUser(ApplicationUserDTO user)
     {
         string[] partes = user.Email.Split("@");
@@ -151,8 +149,17 @@
             if (result.IsSuccessStatusCode)
             {
                 Snackbar.Add("Usuario actualizado correctamente", Severity.Success);
-                await LoadUsers();
-                await LoadUserRoles();
+
+                // var response = await AccountRepository.ChangePassword("model");
+
+
+                // if (response.IsSuccessStatusCode)
+                // {
+                //     Snackbar.Add("Usuario actualizado correctamente", Severity.Success);
+                //     await LoadUsers();
+                //     await LoadUserRoles();
+                // }
+
             }
             else
             {
@@ -176,27 +183,36 @@
         showEditFields = true;
 
     }
+
     private async Task HandleValidSubmit()
     {
-        var result = await HttpClient.PutAsJsonAsync($"api/Users/{selectedUser.Id}", selectedUser);
-
-        var result2 = await HttpClient.PostAsync($"api/Users/{selectedUser.Id}/roles/{selectedRole}", null);
-
-        if (result.IsSuccessStatusCode)
+        try
         {
-            Snackbar.Add("Usuario actualizado correctamente", Severity.Success);
+            var result = await HttpClient.PutAsJsonAsync($"api/Users/{selectedUser.Id}", selectedUser);
+
+            var result2 = await HttpClient.PostAsync($"api/Users/{selectedUser.Id}/roles/{selectedRole}", null);
+
+            if (result.IsSuccessStatusCode)
+            {
+                Snackbar.Add("Usuario actualizado correctamente", Severity.Success);
+                await LoadUsers();
+                await LoadUserRoles();
+                showEditFields = false;
+            }
+            else
+            {
+                Snackbar.Add("Error al actualizar el usuario", Severity.Error);
+                await LoadUsers();
+                await LoadUserRoles();
+            }
             await LoadUsers();
             await LoadUserRoles();
-            showEditFields = false;
         }
-        else
+        catch (Exception)
         {
-            Snackbar.Add("Error al actualizar el usuario", Severity.Error);
-            await LoadUsers();
-            await LoadUserRoles();
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
         }
-        await LoadUsers();
-        await LoadUserRoles();
+
     }
 
     private void CancelEdit()

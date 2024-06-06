@@ -19,10 +19,10 @@
 <AuthorizeView>
     <Authorized Context="authContext">
         <MudGrid>
-            <MudItem xs="12" sm="5">
+            <MudItem xs="12" sm="12">
                 <MudCard Elevation="25">
                     <MudCardContent Class="d-flex">
-                        <MudItem Class="d-flex align-items-start" xs="6" sm="4">
+                        <MudItem Class="d-flex align-items-start" xs="12" sm="4">
                             <MudText>
                                 Foto de perfil del usuario
                             </MudText>
@@ -53,7 +53,7 @@
                     </MudCardContent>
                 </MudCard>
             </MudItem>
-            <MudItem xs="12" sm="7">
+            <MudItem xs="12" sm="12">
                 <MudForm Model="@user" @ref="@form" @bind-IsValid="@success" @bind-Errors="@errors">
                     <MudCard Elevation="25" >
                         <MudCardHeader>
@@ -237,29 +237,37 @@
         var file = e.File;
         if (file != null)
         {
-            var buffer = new byte[file.Size];
-            await file.OpenReadStream().ReadAsync(buffer);
-
-
-            imageDTO = new UserImageDTO
-            {
-                FileName = file.Name,
-                IdUser = userId,
-                Image = buffer
-            };
-
-
             try
             {
-                var response = await httpClient.PutAsJsonAsync($"/api/UserImage", imageDTO);
+                var buffer = new byte[file.Size];
+                await file.OpenReadStream().ReadAsync(buffer);
+
+
+                imageDTO = new UserImageDTO
+                    {
+                        FileName = file.Name,
+                        IdUser = userId,
+                        Image = buffer
+                    };
+
+
+                try
+                {
+                    var response = await httpClient.PutAsJsonAsync($"/api/UserImage", imageDTO);
+                }
+                catch (Exception)
+                {
+                    Snackbar.Add("No se ha podido guardar la imagen del usuario");
+                }
+
+
+                await ConsultUserData(userId);
             }
             catch (Exception)
             {
-                Snackbar.Add("No se ha podido guardar la imagen del usuario");
+                Snackbar.Add("La imagen no es valida, seleccione otra");
             }
-           
-
-            await ConsultUserData(userId);
+            
         }   
 
     }
@@ -281,26 +289,34 @@
 
         if (success)
         {
-            if (user != null)
+            try
             {
-                user.Name = $"{FirstName} {LastName}".Trim();
-                user.PhoneNumber = Phone?.ToString();
-
-                var response = await httpClient.PutAsJsonAsync($"/api/Users/{userId}", user);
-                if (response.IsSuccessStatusCode)
+                if (user != null)
                 {
-                    Snackbar.Add("Cambios guardados", Severity.Success);
-                    isEditing = false;
+                    user.Name = $"{FirstName} {LastName}".Trim();
+                    user.PhoneNumber = Phone?.ToString();
+
+                    var response = await httpClient.PutAsJsonAsync($"/api/Users/{userId}", user);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Snackbar.Add("Cambios guardados", Severity.Success);
+                        isEditing = false;
+                    }
+                    else
+                    {
+                        Snackbar.Add("No se ha podido guardar los cambios", Severity.Error);
+                    }
                 }
                 else
                 {
-                    Snackbar.Add("No se ha podido guardar los cambios", Severity.Error);
+                    Snackbar.Add("El objeto de usuario no está inicializado", Severity.Error);
                 }
             }
-            else
+            catch (Exception)
             {
-                Snackbar.Add("El objeto de usuario no está inicializado", Severity.Error);
+                Snackbar.Add("Ha ocurrido un error", Severity.Info);
             }
+
         }
     }
 

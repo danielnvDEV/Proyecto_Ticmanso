@@ -41,7 +41,16 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+
+        try
+        {
+            Users = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+        }
+        catch (Exception)
+        {
+            Snackbar.Add($"Error al cargar la lista de usuarios", Severity.Error);
+        }
+        
     }
     private void Cancel()
     {
@@ -63,16 +72,25 @@
             UserGroups = SelectedUsers.Select(u => new UserGroupDTO { UserId = u.Id }).ToList()
         };
 
-        var response = await httpClient.PostAsJsonAsync("api/Group", newGroup);
-
-        if (response.IsSuccessStatusCode)
+        try
         {
-            MudDialog.Close(DialogResult.Ok(newGroup));
-             Snackbar.Add($"El grupo se ha creado correctamente", Severity.Success);
+            var response = await httpClient.PostAsJsonAsync("api/Group", newGroup);
+
+            if (response.IsSuccessStatusCode)
+            {
+                MudDialog.Close(DialogResult.Ok(newGroup));
+                Snackbar.Add($"El grupo se ha creado correctamente", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add($"Error al crear el grupo", Severity.Error);
+            }
         }
-        else
-        {           
+        catch (Exception e)
+        {
             Snackbar.Add($"Error al crear el grupo", Severity.Error);
         }
+
+
     }
 }

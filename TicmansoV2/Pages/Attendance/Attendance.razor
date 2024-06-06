@@ -139,30 +139,29 @@
 
     private async Task LoadAttendanceUserData()
     {
-        var response = new HttpResponseMessage();
-
+        
         try
         {
-            response = await HttpClient.GetAsync($"api/Attendances/{date:yyyy-MM-dd}/{userId}");
+           var response = await HttpClient.GetAsync($"api/Attendances/{date:yyyy-MM-dd}/{userId}");
+       
+            if (response.IsSuccessStatusCode)
+            {
+                var attendanceDto = await response.Content.ReadFromJsonAsync<AttendanceDTO>();
+
+                if (attendanceDto != null)
+                {
+                    entryTimeInfo = attendanceDto.EntryTime;
+                    departureTimeInfo = attendanceDto.DepartureTime;
+                }
+            }
+            else
+            {
+                Snackbar.Add("No hay registros para la fecha y el usuario especificados.", Severity.Info);
+            }
         }
         catch (Exception)
         {
             Snackbar.Add("No se ha podido cargar la informacion del usuario", Severity.Error);
-        }
-        
-        if (response.IsSuccessStatusCode)
-        {
-            var attendanceDto = await response.Content.ReadFromJsonAsync<AttendanceDTO>();
-
-            if (attendanceDto != null)
-            {
-                entryTimeInfo = attendanceDto.EntryTime;
-                departureTimeInfo = attendanceDto.DepartureTime;
-            }
-        }
-        else
-        {
-            Snackbar.Add("No hay registros para la fecha y el usuario especificados.", Severity.Info);
         }
     }
 

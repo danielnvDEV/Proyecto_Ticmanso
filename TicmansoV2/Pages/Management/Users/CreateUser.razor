@@ -92,6 +92,7 @@
         }
         catch
         {
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
             return false;
         }
     }
@@ -99,69 +100,85 @@
 
     private async Task CreateUserAsync()
     {
-        if (password != confirmPassword)
+        try
         {
-            Snackbar.Add("Las contraseñas no coinciden", Severity.Warning);
-            return;
-        }
-
-        if (!IsValidEmail(newUser.Email))
-        {
-            Snackbar.Add("El email no tiene un formato valido",Severity.Warning);
-            return;
-        }
-
-        newUser.UserName = newUser.Email;
-        newUser.PasswordHash = password;
-        var response = await AccountRepository.CreateAccount(newUser);
-
-        if (response.Flag)
-        {
-            showSuccessMessage = true;
-            showErrorMessage = false;
-
-            emailData.ToEmail = newUser.Email;
-            emailData.Subject = "Datos de acceso al portal Ticmanso";
-            emailData.Body = $"<h1>Bienvenido al portal Ticmanso</h1><p>Estimado {newUser.Name},</p><p>Aquí están tus datos de acceso al portal:</p><ul><li>Email: {newUser.Email}</li><li>Contraseña: {password}</li></ul><a href='https://www.ticmanso.com:7174/'><p>Ir al portal.</p></a>";
-
-            var responser = new HttpResponseMessage();
-            try
+            if (password != confirmPassword)
             {
-                responser = await httpClient.PostAsJsonAsync($"api/Email", emailData);
-
-
-                if (responser.IsSuccessStatusCode)
-                {
-                    Snackbar.Add("Usuario creado", Severity.Success);
-                    Snackbar.Add("Se ha mandado el correo con la información");
-                    NavigationManager.NavigateTo("/management/controlUser");
-
-                }
-                else
-                {
-                    Snackbar.Add("Ha ocurrido un error");
-
-                }
-
-                newUser = new ApplicationUserDTO();
-                password = string.Empty;
-                confirmPassword = string.Empty;
-
+                Snackbar.Add("Las contraseñas no coinciden", Severity.Warning);
+                return;
             }
-            catch (Exception)
+
+            if (!IsValidEmail(newUser.Email))
             {
-                Snackbar.Add("Ha ocurrido un error al enviar el email al usuario");
-            }           
+                Snackbar.Add("El email no tiene un formato valido", Severity.Warning);
+                return;
+            }
+
+            newUser.UserName = newUser.Email;
+            newUser.PasswordHash = password;
+            var response = await AccountRepository.CreateAccount(newUser);
+
+            if (response.Flag)
+            {
+                showSuccessMessage = true;
+                showErrorMessage = false;
+
+                emailData.ToEmail = newUser.Email;
+                emailData.Subject = "Datos de acceso al portal Ticmanso";
+                emailData.Body = $"<h1>Bienvenido al portal Ticmanso</h1><p>Estimado {newUser.Name},</p><p>Aquí están tus datos de acceso al portal:</p><ul><li>Email: {newUser.Email}</li><li>Contraseña: {password}</li></ul><a href='https://www.ticmanso.com:7174/'><p>Ir al portal.</p></a>";
+
+                var responser = new HttpResponseMessage();
+                try
+                {
+                    responser = await httpClient.PostAsJsonAsync($"api/Email", emailData);
+
+
+                    if (responser.IsSuccessStatusCode)
+                    {
+                        Snackbar.Add("Usuario creado", Severity.Success);
+                        Snackbar.Add("Se ha mandado el correo con la información");
+                        NavigationManager.NavigateTo("/management/controlUser");
+
+                    }
+                    else
+                    {
+                        Snackbar.Add("Ha ocurrido un error");
+
+                    }
+
+                    newUser = new ApplicationUserDTO();
+                    password = string.Empty;
+                    confirmPassword = string.Empty;
+
+                }
+                catch (Exception)
+                {
+                    Snackbar.Add("Ha ocurrido un error al enviar el email al usuario");
+                }
+            }
+            else
+            {
+                showSuccessMessage = false;
+                showErrorMessage = true;
+                errorMessage = response.Message;
+            }
         }
-        else
+        catch (Exception)
         {
-            showSuccessMessage = false;
-            showErrorMessage = true;
-            errorMessage = response.Message;
+            Snackbar.Add("Ha ocurrido un error al crear al usuario", Severity.Error);
         }
+        
     }
     private async Task SendEmail(string email, string subject, string message)
     {
-        await EmailSender.SendEmailAsync(email, subject, message);
+        try
+        {
+            await EmailSender.SendEmailAsync(email, subject, message);
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Ha ocurrido un error al enviar el email al usuario");
+        }
+        
     }
 }

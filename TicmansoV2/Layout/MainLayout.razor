@@ -57,14 +57,14 @@
                                 <MudNavLink Href="/control/attendance" Icon="@Icons.Material.Filled.EditCalendar">Consultar jornadas</MudNavLink>
                             </MudNavGroup>
                         <MudDivider />
-                        <MudNavGroup Title="Tickets" Expanded="true">
-                                <MudNavLink Href="/myTickets">Mis tickets</MudNavLink>
-                                <MudNavLink Href="/tickets">Tickets</MudNavLink>
-                            </MudNavGroup>
+                        <MudNavGroup Icon="@Icons.Material.Filled.StickyNote2" Title="Tickets" Expanded="true">
+                            <MudNavLink Href="/myTickets" Class="d-flex justify-start"><img src="/images/ticket.png" width="22" height="22" />&nbsp Mis tickets</MudNavLink>
+                            <MudNavLink Href="/tickets" Class="d-flex justify-start"> <img src="/images/ticketsICON.png" width="22" height="22"/>&nbsp Tickets</MudNavLink>
+                        </MudNavGroup>
                         <MudDivider />
                             <MudNavGroup Title="Configuración" Expanded="true" Icon="@Icons.Material.Filled.Settings">
                                 <MudNavLink Href="/management/controlUser" Icon="@Icons.Material.Filled.People">Usuarios</MudNavLink>
-                                <MudNavLink Href="/management/statuses">Estados</MudNavLink>
+                            <MudNavLink Href="/management/statuses" Icon="@Icons.Material.Filled.Flag">Estados</MudNavLink>
                             <MudNavLink Href="/management/priorities" Icon="@Icons.Material.Filled.AccessTime">Prioridades</MudNavLink>
                             <MudNavLink Href="/management/companies" Icon="@Icons.Material.Filled.Business">Compañias</MudNavLink>
                             </MudNavGroup>
@@ -109,7 +109,7 @@
                         <MudNavLink Href="/dashboard" Icon="@Icons.Material.Filled.Dashboard">Panel de control</MudNavLink>
                         <MudNavLink Href="/teams-chat" Icon="@Icons.Material.Filled.Drafts">Chats</MudNavLink>
                         <MudNavLink Href="/attendance" Icon="@Icons.Material.Filled.CalendarToday">Fichaje</MudNavLink>
-                        <MudNavLink Href="/myTickets" >Tickets</MudNavLink>                       
+                        <MudNavLink Href="/myTickets"><img src="/images/ticketsICON.png" width="22" height="22" Class="minus" />&nbsp&nbsp Tickets</MudNavLink>
                         <MudNavLink Href="/Settings" Icon="@Icons.Material.Filled.Build">Ajustes</MudNavLink>
                         <MudNavLink OnClick="OpenDialog" Icon="@Icons.Material.Filled.Block">Salir</MudNavLink>
                     </MudNavMenu>
@@ -123,6 +123,12 @@
         </div>
     </Authorized>
 </AuthorizeView>
+<style>
+    .minus{
+        margin:-12;
+    }
+</style>
+
 @code
 {
     private string selectedImage;

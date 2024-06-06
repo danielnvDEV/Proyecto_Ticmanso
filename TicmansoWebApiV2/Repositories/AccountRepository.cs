@@ -29,7 +29,6 @@ namespace TicmansoWebApiV2.Repositories
         IHttpContextAccessor _httpContextAccessor;
         private readonly IUrlHelper UrlHelper;
         private readonly HttpClient httpClient;
-        //private readonly EmailController emailController;
 
 
         public async Task<GeneralResponse> CreateAccount(ApplicationUserDTO userDTO)
@@ -154,11 +153,9 @@ namespace TicmansoWebApiV2.Repositories
                 var httpContext = new DefaultHttpContext();
                 httpContext.Request.Scheme = "https";
                 httpContext.Request.Host = new HostString("clientewebtic-001-site1.etempurl.com");
-                //httpContext.Request.PathBase = "/reset-password";
 
                 resetLink = linkGenerator.GetUriByAction(
                                httpContext,
-                               //page: "/reset-password",
                                action: "ResetPassword",
                                controller: "Account",
                                values: new { email, token });

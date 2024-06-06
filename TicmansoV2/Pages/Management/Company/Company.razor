@@ -83,9 +83,17 @@
 
     private async Task LoadCompanies()
     {
-        loading = true;
-        companies = await HttpClient.GetFromJsonAsync<List<CompanyDTO>>("api/Company");
-        loading = false;
+        try
+        {
+            loading = true;
+            companies = await HttpClient.GetFromJsonAsync<List<CompanyDTO>>("api/Company");
+            loading = false;
+        }
+        catch (Exception)
+        {
+            Snackbar.Add($"Error al cargar los datos", Severity.Error);
+        }
+
     }
 
     private void OpenCreateForm()
@@ -97,9 +105,17 @@
 
     private async Task OpenEditForm(long id)
     {
-        company = await HttpClient.GetFromJsonAsync<CompanyDTO>($"api/Company/{id}");
-        editingCompanyId = id;
-        showForm = true;
+        try
+        {
+            company = await HttpClient.GetFromJsonAsync<CompanyDTO>($"api/Company/{id}");
+            editingCompanyId = id;
+            showForm = true;
+        }
+        catch (Exception)
+        {
+            Snackbar.Add($"Error al cargar los datos", Severity.Error);
+        }
+
     }
 
     private void CloseForm()
@@ -109,26 +125,46 @@
 
     private async Task SaveCompany()
     {
-        if (editingCompanyId == 0)
+        try
         {
-            await HttpClient.PostAsJsonAsync("api/Company", company);
-            Snackbar.Add("Compañia creada", Severity.Success);
+            if (editingCompanyId == 0)
+            {
+                await HttpClient.PostAsJsonAsync("api/Company", company);
+                Snackbar.Add("Compañia creada", Severity.Success);
+            }
+            else
+            {
+                await HttpClient.PutAsJsonAsync($"api/Company/{editingCompanyId}", company);
+                Snackbar.Add("Compañia actualizada", Severity.Info);
+            }
+
+            showForm = false;
+            await LoadCompanies();
         }
-        else
+        catch (Exception)
         {
-            await HttpClient.PutAsJsonAsync($"api/Company/{editingCompanyId}", company);
-            Snackbar.Add("Compañia actualizada", Severity.Info);
+            Snackbar.Add("Ha ocurrido un error", Severity.Info);
         }
 
-        showForm = false;
-        await LoadCompanies();
     }
 
     private async Task DeleteCompany(int id)
     {
-        await HttpClient.DeleteAsync($"api/Company/{id}");
-        Snackbar.Add("Compañia borrada", Severity.Warning);
-        await LoadCompanies();
+        try
+        {
+            var result =  await HttpClient.DeleteAsync($"api/Company/{id}");
+            if (result.IsSuccessStatusCode)
+            {
+                Snackbar.Add("Compañia borrada", Severity.Warning);
+                await LoadCompanies();
+            }
+
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Compañia borrada", Severity.Warning);
+        }
+
     }
 }
 
