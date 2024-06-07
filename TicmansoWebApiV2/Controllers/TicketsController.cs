@@ -38,9 +38,7 @@ namespace TicmansoV2.Controllers
                    SupportUserId = t.SupportUserId ?? null,
                    PriorityId = t.PriorityId,
                    StatusId = t.StatusId
-               })
-
-               .ToListAsync();
+               }).ToListAsync();
         }
 
         // GET: api/Tickets/5

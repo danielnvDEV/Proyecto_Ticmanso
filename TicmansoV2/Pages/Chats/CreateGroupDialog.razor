@@ -30,7 +30,7 @@
 @code {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 
-    [Parameter] public List<ApplicationUserDTO> Users { get; set; }
+    [Parameter] public List<ApplicationUserDTO> Users { get; set; } = new List<ApplicationUserDTO>();
 
     private string GroupName { get; set; }
     private string GroupDescription { get; set; }

@@ -24,7 +24,7 @@
                     <MudTextField @bind-Value="ticket.Title" Label="Título" Variant="Variant.Outlined" Required="true" MaxLength="100" />
                     <MudTextField @bind-Value="ticket.Description" Label="Descripción" Variant="Variant.Outlined" Required="true" Lines="5" />
 
-                    <MudSelect T="int" Label="Prioridad" Variant="Variant.Outlined" Required="true" @bind-Value="ticket.PriorityId">
+                    <MudSelect T="int" Label="Prioridad" Variant="Variant.Outlined" Required="true" @bind-Value="ticket.PriorityId" >
                         @foreach (var priority in priorities)
                         {
                             <MudSelectItem Value="@priority.Id">@priority.Name</MudSelectItem>

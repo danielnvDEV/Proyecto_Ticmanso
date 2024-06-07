@@ -46,15 +46,15 @@
                                 <h3>Editar Usuario</h3>
                             </MudCardHeader>
                             <MudCardContent>
-                                <MudTextField Label="Nombre" @bind-Value="selectedUser.Name" For="@(() => selectedUser.Name)" />
-                                <MudTextField Label="Email" @bind-Value="selectedUser.Email" For="@(() => selectedUser.Email)" />
+                                <MudTextField Label="Nombre" @bind-Value="selectedUser.Name" For="@(() => selectedUser.Name)" Required="true" RequiredError="El nombre es requerido" />
+                                <MudTextField Label="Email" @bind-Value="selectedUser.Email" For="@(() => selectedUser.Email)" Required="true" RequiredError="El email es requerido" />
                                 <MudSelect Label="Rol" @bind-Value="selectedRole" For="@(() => selectedRole)">
                                     @foreach (var role in roles)
                                     {
-                                        <MudSelectItem Value="@role.Name">@role.Name</MudSelectItem>
+                                        <MudSelectItem Value="role"></MudSelectItem>
                                     }
                                 </MudSelect>
-                                <MudTextField Label="Teléfono" @bind-Value="selectedUser.PhoneNumber" For="@(() => selectedUser.PhoneNumber)" />
+                                <MudNumericField Label="Teléfono" @bind-Value="selectedUser.PhoneNumber" T="string" MaxLength="9" Validation="@(new Func<string, string>(ValidatePhoneNumber))" />
                             </MudCardContent>
                             <MudCardActions>
                                 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Guardar Cambios</MudButton>
@@ -77,7 +77,7 @@
     private bool loading = true;
     private bool showEditFields = false;
     private ApplicationUserDTO selectedUser = new ApplicationUserDTO();
-    private List<IdentityRole> roles = new List<IdentityRole>();
+    private List<String> roles = new List<String>();
     private string selectedRole;
     private List<UserWithRoleDTO> userRole = new List<UserWithRoleDTO>();
 
@@ -92,7 +92,7 @@
     {
         try
         {
-            roles = await HttpClient.GetFromJsonAsync<List<IdentityRole>>("api/Roles");
+            roles = ["Admin","User"];
         }
         catch (Exception)
         {
@@ -220,4 +220,14 @@
         showEditFields = false;
     }
 
+    private string ValidatePhoneNumber(string phoneNumber)
+    {
+        if (string.IsNullOrWhiteSpace(phoneNumber))
+            return null;
+
+        if (phoneNumber.Length != 9 || !phoneNumber.All(char.IsDigit))
+            return "El número de teléfono debe tener 9 dígitos.";
+
+        return null;
+    }
 }

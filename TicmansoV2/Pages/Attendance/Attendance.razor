@@ -14,76 +14,95 @@
 @inject NavigationManager NavManager
 
 @attribute [Authorize]
-<PageTitle>Attendance</PageTitle>
+
+<PageTitle>Jornada Laboral</PageTitle>
 <AuthorizeView>
     <Authorized Context="authContext">
-        <MudItem Class="cmptCentrado">
-            <MudCard>
-                <MudCardHeader>
-                    <MudText Typo="Typo.h6">Fichar</MudText>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudText>Fecha: @currentDate.ToString("dd/MM/yyyy")</MudText>
-                    <MudText>Hora de entrada:@if (entryTime.ToString("HH:mm:ss") == null || entryTime.ToString("HH:mm:ss") == "00:00:00"){@NoDataH;}
-                        else{@entryTime.ToString("HH:mm:ss");}
-                    </MudText>
-                    <MudText>Hora de salida: @departureTime?.ToString("HH:mm:ss")</MudText>
-                </MudCardContent>
-                <MudCardActions>
-                    @if (d == 1)
-                    {
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="StartWorkday" Disabled="@IsDisable">Iniciar jornada</MudButton>                    
-                    }
-                    else if (departureTime == null)
-                    {
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="EndWorkday">Finalizar jornada</MudButton>
-                    }
-                    else
-                    {
-                        <MudText>Jornada finalizada.</MudText>
-                    }
-                </MudCardActions>
-            </MudCard>
-        </MudItem>
         <MudGrid>
+            <MudItem xs="12" sm="4">
+                <MudCard Class="cmptCentrado">
+                    <MudCardHeader>
+                        <MudText Typo="Typo.h6">Fichar</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText>Fecha: @currentDate.ToString("dd/MM/yyyy")</MudText>
+                        <MudText>
+                            Hora de entrada:@if (entryTime.ToString("HH:mm:ss") == null || entryTime.ToString("HH:mm:ss") == "00:00:00")
+                            {
+                                @NoDataH
+                                ;
+                            }
+                            else
+                            {
+                                @entryTime.ToString("HH:mm:ss")
+                                ;
+                            }
+                        </MudText>
+                        <MudText>Hora de salida: @departureTime?.ToString("HH:mm:ss")</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        @if (d == 1)
+                        {
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="StartWorkday" Disabled="@IsDisable">Iniciar jornada</MudButton>
+                        }
+                        else if (departureTime == null)
+                        {
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="EndWorkday">Finalizar jornada</MudButton>
+                        }
+                        else
+                        {
+                            <MudText>Jornada finalizada.</MudText>
+                        }
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
             <MudItem xs="12" sm="4">
                 <MudDatePicker @ref="_picker" @bind-Date="date" PickerVariant="PickerVariant.Static" class="cmptCentrado" Rounded="true">
                     <PickerActions>
                         <MudButton Class="mr-auto align-self-start" OnClick="Today">Hoy</MudButton>
                         <MudButton Class="mr-auto align-self-end" OnClick="LoadAttendanceUserData">Comprobar jornada</MudButton>
                     </PickerActions>
-                </MudDatePicker>
+                </MudDatePicker>                   
+            </MudItem>   
+            <MudItem xs="12" sm="4">
+                @if (visible == true)
+                {
+                    <MudItem Class="cmptCentrado" Style="background-color:white;">
+                        <MudItem>
+                            <MudText Class="d-flex align-items-center justify-content-center ">
+                                <p Class="mt-5 p-2">
+                                    Hora de entrada: @if (entryTimeInfo.ToString("HH:mm:ss") == null || entryTimeInfo.ToString("HH:mm:ss") == "00:00:00")
+                                    {
+                                        @NoData
+                                        ;
+                                    }
+                                    else
+                                    {
+                                        @entryTimeInfo.ToString("HH:mm:ss")
+                                        ;
+                                    }
+                                </p>                               
+                            </MudText>
+                        </MudItem>
+                        <MudItem>
+                            <MudText Class="d-flex align-items-center justify-content-center">
+                                <p Class="mt-5 p-2">
+                                    Hora de salida: @if (departureTimeInfo?.ToString("HH:mm:ss") == null)
+                                    {
+                                        @NoData
+                                        ;
+                                    }
+                                    else
+                                    {
+                                        @departureTimeInfo?.ToString("HH:mm:ss")
+                                        ;
+                                    }
+                                </p>                                
+                            </MudText>
+                        </MudItem>                        
+                    </MudItem>
+                }
             </MudItem>
-            <MudItem xs="12" sm="8" >
-                <MudCard Class="cmptCentrado">
-                    <MudText>
-                        Hora de entrada:
-                        @if (entryTimeInfo.ToString("HH:mm:ss") == null || entryTimeInfo.ToString("HH:mm:ss") == "00:00:00")
-                        {
-                            @NoData
-                            ;
-                        }
-                        else
-                        {
-                            @entryTimeInfo.ToString("HH:mm:ss")
-                            ;
-                        }
-                    </MudText>
-                    <MudText>
-                        Hora de salida:
-                        @if (departureTimeInfo?.ToString("HH:mm:ss") == null)
-                        {
-                            @NoData
-                            ;
-                        }
-                        else
-                        {
-                            @departureTimeInfo?.ToString("HH:mm:ss")
-                            ;
-                        }
-                    </MudText>
-                </MudCard>                                     
-            </MudItem>           
         </MudGrid>        
     </Authorized>
     <NotAuthorized>
@@ -112,12 +131,14 @@
     private bool IsDisable;
     private string NoData = "No se han encontrado registros";
     private string NoDataH = "";
+    private bool visible;
 
     protected override async Task OnInitializedAsync()
     {
 
         await GetUserId();
         await LoadAttendance();
+        visible = false;
         // await GetLocation();
     }
 
@@ -139,11 +160,11 @@
 
     private async Task LoadAttendanceUserData()
     {
-        
+
         try
         {
-           var response = await HttpClient.GetAsync($"api/Attendances/{date:yyyy-MM-dd}/{userId}");
-       
+            var response = await HttpClient.GetAsync($"api/Attendances/{date:yyyy-MM-dd}/{userId}");
+            visible = true;
             if (response.IsSuccessStatusCode)
             {
                 var attendanceDto = await response.Content.ReadFromJsonAsync<AttendanceDTO>();

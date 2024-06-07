@@ -12,7 +12,7 @@
                         var authState = context.User;
                         if (authState?.Identity?.IsAuthenticated != true)
                         {
-                            NavManager.NavigateTo("/");
+                            NavManager.NavigateTo("/", forceLoad: true);
                         }
                         else
                         {

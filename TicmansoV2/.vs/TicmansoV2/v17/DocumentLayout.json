@@ -3,28 +3,23 @@
   "WorkspaceRootPath": "Y:\\TFG\\TicmansoV2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\pages\\management\\users\\createuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\management\\users\\createuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{529BDC62-81E3-4126-9971-702D60141F01}|..\\TicmansoWebApiV2\\TicmansoWebApiV2.csproj|y:\\tfg\\ticmansowebapiv2\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\pages\\management\\tickets\\ticket.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\management\\tickets\\ticket.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\pages\\management\\tickets\\admin\\tickettablebyadmin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\management\\tickets\\admin\\tickettablebyadmin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\pages\\management\\users\\userstable.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\management\\users\\userstable.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|y:\\tfg\\ticmansov2\\pages\\settings\\settings.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AAB66A40-EB5C-4BC9-AC61-FFEA9131C656}|TicmansoV2.csproj|solutionrelative:pages\\settings\\settings.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,85 +29,68 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "Layout\\MainLayout.razor",
-              "ToolTip": "Y:\\TFG\\TicmansoV2\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "Layout\\MainLayout.razor",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAYwG8AAACKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T20:57:18.574Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Dashboard.razor",
-              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Pages\\Dashboard.razor",
-              "RelativeDocumentMoniker": "Pages\\Dashboard.razor",
-              "ToolTip": "Y:\\TFG\\TicmansoV2\\Pages\\Dashboard.razor",
-              "RelativeToolTip": "Pages\\Dashboard.razor",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAHAAAABEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T20:43:09.778Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "App.razor",
-              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\App.razor",
-              "RelativeDocumentMoniker": "App.razor",
-              "ToolTip": "Y:\\TFG\\TicmansoV2\\App.razor",
-              "RelativeToolTip": "App.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T20:40:47.687Z",
-              "EditorCaption": ""
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoWebApiV2\\Repositories\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "..\\TicmansoWebApiV2\\Repositories\\AccountRepository.cs",
+              "ToolTip": "Y:\\TFG\\TicmansoWebApiV2\\Repositories\\AccountRepository.cs",
+              "RelativeToolTip": "..\\TicmansoWebApiV2\\Repositories\\AccountRepository.cs",
+              "ViewState": "AQIAAIgAAAAAAAAAAAAcwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T21:30:06.593Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TicketTableByAdmin.razor",
-              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\Admin\\TicketTableByAdmin.razor",
-              "RelativeDocumentMoniker": "Pages\\Management\\Tickets\\Admin\\TicketTableByAdmin.razor",
-              "ToolTip": "Y:\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\Admin\\TicketTableByAdmin.razor",
-              "RelativeToolTip": "Pages\\Management\\Tickets\\Admin\\TicketTableByAdmin.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAF4AAAAcAAAA",
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Services\\AccountService.cs",
+              "RelativeDocumentMoniker": "Services\\AccountService.cs",
+              "ToolTip": "Y:\\TFG\\TicmansoV2\\Services\\AccountService.cs",
+              "RelativeToolTip": "Services\\AccountService.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T21:29:46.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateUser.razor",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Pages\\Management\\Users\\CreateUser.razor",
+              "RelativeDocumentMoniker": "Pages\\Management\\Users\\CreateUser.razor",
+              "ToolTip": "Y:\\TFG\\TicmansoV2\\Pages\\Management\\Users\\CreateUser.razor",
+              "RelativeToolTip": "Pages\\Management\\Users\\CreateUser.razor",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABAAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T19:54:58.322Z",
+              "WhenOpened": "2024-06-07T21:28:55.027Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "UsersTable.razor",
-              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Pages\\Management\\Users\\UsersTable.razor",
-              "RelativeDocumentMoniker": "Pages\\Management\\Users\\UsersTable.razor",
-              "ToolTip": "Y:\\TFG\\TicmansoV2\\Pages\\Management\\Users\\UsersTable.razor",
-              "RelativeToolTip": "Pages\\Management\\Users\\UsersTable.razor",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAFEAAAAEAAAA",
+              "Title": "TicketTableByAdmin.razor",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\Admin\\TicketTableByAdmin.razor",
+              "RelativeDocumentMoniker": "Pages\\Management\\Tickets\\Admin\\TicketTableByAdmin.razor",
+              "ToolTip": "Y:\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\Admin\\TicketTableByAdmin.razor",
+              "RelativeToolTip": "Pages\\Management\\Tickets\\Admin\\TicketTableByAdmin.razor",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAAAF4AAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T19:54:43.951Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-07T21:22:29.559Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Settings.razor",
-              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Pages\\Settings\\Settings.razor",
-              "RelativeDocumentMoniker": "Pages\\Settings\\Settings.razor",
-              "ToolTip": "Y:\\TFG\\TicmansoV2\\Pages\\Settings\\Settings.razor",
-              "RelativeToolTip": "Pages\\Settings\\Settings.razor",
-              "ViewState": "AQIAABwAAAAAAAAAAAAgwAsBAABFAAAA",
+              "DocumentIndex": 3,
+              "Title": "Ticket.razor",
+              "DocumentMoniker": "Y:\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\Ticket.razor",
+              "RelativeDocumentMoniker": "Pages\\Management\\Tickets\\Ticket.razor",
+              "ToolTip": "Y:\\TFG\\TicmansoV2\\Pages\\Management\\Tickets\\Ticket.razor",
+              "RelativeToolTip": "Pages\\Management\\Tickets\\Ticket.razor",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAmwGgAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T19:49:12.722Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-07T21:20:40.527Z"
             }
           ]
         }

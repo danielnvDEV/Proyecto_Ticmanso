@@ -64,8 +64,8 @@
                                 <MudItem xs="12" sm="6">
                                     <MudTextField @bind-Value="FirstName" Label="Nombre" Variant="Variant.Outlined" Required="true" RequiredError="El nombre es requerido" Disabled="@(!isEditing)" />
                                     <MudTextField @bind-Value="LastName" Label="Apellidos" Variant="Variant.Outlined" Required="true" RequiredError="El apellido es requerido" Class="mt-3" Disabled="@(!isEditing)" />
-                                    <MudNumericField @bind-Value="Phone" Label="Teléfono" Variant="Variant.Outlined" Class="mt-3"
-                                                     Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Phone" AdornmentText="+34" MaxLength="9" Min="111111111" Disabled="@(!isEditing)" />
+                                    <MudNumericField @bind-Value="Phone" Label="Teléfono" Variant="Variant.Outlined" Class="mt-3" Validation="@(new Func<string, string>(ValidatePhoneNumber))"
+                                                     Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Phone" AdornmentText="+34" MaxLength="9"  Disabled="@(!isEditing)" />
                                 </MudItem>
                                 <MudItem xs="12" sm="6">
                                     <MudTextField @bind-Value="user.Email" Label="Correo electrónico" Variant="Variant.Outlined" Required="true" RequiredError="El correo electrónico es requerido" Disabled="@(!isEditing)" />
@@ -168,7 +168,7 @@
         {
             Snackbar.Add("No se ha podido cargar el nombre del usuario");
         }
-        
+
 
 
 
@@ -202,13 +202,13 @@
             {
                 return await response.Content.ReadAsByteArrayAsync();
             }
-        
+
         }
         catch (Exception)
         {            
             Snackbar.Add("No se ha podido cargar la imagen del usuario");
         }
-        
+
         return null;
     }
 
@@ -234,42 +234,54 @@
 
     private async Task UploadFiles(InputFileChangeEventArgs e)
     {
-        var file = e.File;
-        if (file != null)
+        try
         {
-            try
+            var file = e.File;
+            if (file != null)
             {
-                var buffer = new byte[file.Size];
-                await file.OpenReadStream().ReadAsync(buffer);
+                try
+                {
+                    var buffer = new byte[file.Size];
+                    await file.OpenReadStream().ReadAsync(buffer);
 
 
-                imageDTO = new UserImageDTO
+                    imageDTO = new UserImageDTO
                     {
-                        FileName = file.Name,
-                        IdUser = userId,
-                        Image = buffer
+                            FileName = file.Name,
+                            IdUser = userId,
+                            Image = buffer
                     };
 
 
-                try
-                {
-                    var response = await httpClient.PutAsJsonAsync($"/api/UserImage", imageDTO);
+                    try
+                    {
+                        var response = await httpClient.PutAsJsonAsync($"/api/UserImage", imageDTO);
+
+
+                        Snackbar.Add("Se va a recargar la pagina para aplicar la nueva imagen");
+
+
+                        NavManager.Refresh(true);
+                    }
+                    catch (Exception)
+                    {
+                        Snackbar.Add("No se ha podido guardar la imagen del usuario");
+                    }
+
+
+                    await ConsultUserData(userId);
                 }
                 catch (Exception)
                 {
-                    Snackbar.Add("No se ha podido guardar la imagen del usuario");
+                    Snackbar.Add("La imagen no es valida, seleccione otra");
                 }
 
-
-                await ConsultUserData(userId);
             }
-            catch (Exception)
-            {
-                Snackbar.Add("La imagen no es valida, seleccione otra");
-            }
-            
-        }   
-
+        }
+        catch (Exception)
+        {
+            Snackbar.Add("Ha ocurrido un error al modificar la imagen");
+        }
     }
 
     private async Task ChangePassword()
@@ -319,5 +331,14 @@
 
         }
     }
+    private string ValidatePhoneNumber(string phoneNumber)
+    {
+        if (string.IsNullOrWhiteSpace(phoneNumber))
+            return null;
 
+        if (phoneNumber.Length != 9 || !phoneNumber.All(char.IsDigit))
+            return "El número de teléfono debe tener 9 dígitos.";
+
+        return null;
+    }
 }

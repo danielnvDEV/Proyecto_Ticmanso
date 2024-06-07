@@ -55,7 +55,7 @@
                     <MudTextField @bind-Value="company.Address" Label="Dirección" Required="true" RequiredError="Dirección requerida" />
                     <MudTextField @bind-Value="company.PostalCode" Label="Código Postal" Required="true" RequiredError="Codigo postal requerido" />
                     <MudTextField @bind-Value="company.City" Label="Ciudad" Required="true" RequiredError="Ciudad requerida" />
-                    <MudTextField @bind-Value="company.Cif" Label="CIF" Required="true" RequiredError="CIF requerido" />
+                    <MudTextField @bind-Value="company.Cif" Label="CIF" Required="true" RequiredError="CIF requerido" MaxLength="9"/>
                 </MudForm>
             </DialogContent>
             <DialogActions>

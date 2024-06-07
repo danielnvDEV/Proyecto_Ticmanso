@@ -11,54 +11,94 @@
 @inject IDialogService DialogService
 <AuthorizeView>
     <Authorized Context="authContext">
-        <MudGrid Style="Background-color:white">
-            <MudItem xs="3" >
-                        <MudPaper Elevation="0" Style="Background-color:#F0F3FA">
+        <MudGrid Style="Background-color: #F0F3FA">
+            <MudItem xs="12" sm="3" >
+                <MudPaper Elevation="0" Style="Background-color:#F0F3FA; border-right:1px solid;border-color:#D5DEEF ;">
                         <MudList Clickable="true">
-                            <MudListSubheader>Usuarios</MudListSubheader>
-                            @foreach (var user in Users)
-                            {
-                                if (user.Id != conectedUser)
-                                {
-                                    <MudListItem OnClick="@(() => SelectUser(user))">
-                                        @{
-                                            var userImage = userImages.FirstOrDefault(ui => ui.IdUser == user.Id);
-                                            if (userImage != null)
-                                            {
-                                                var imageUrl = $"data:image/jpeg;base64,{userImage.Image}";
-                                                <MudAvatar Image="@imageUrl" Alt="@user.UserName" Width="40" Height="40" Class="rounded-circle" />
-                                            }
-                                            else
-                                            {
-                                                <MudAvatar Style="background-color:#395886;color:aliceblue">@user.UserName.Substring(0, 1)</MudAvatar>
-                                            }
+                            <MudListItem Icon="@Icons.Material.Filled.Person" Text="Usuarios" InitiallyExpanded="true">
+                                <NestedList>
+                                    @foreach (var user in Users)
+                                    {
+                                    if (user.Id != conectedUser && !user.Email.Contains("UsuarioEliminado"))
+                                        {
+                                            <MudListItem OnClick="@(() => SelectUser(user))">
+                                                @{
+                                                    var userImage = userImages.FirstOrDefault(ui => ui.IdUser == user.Id);
+                                                    if (userImage != null)
+                                                    {
+                                                        var imageUrl = $"data:image/jpeg;base64,{userImage.Image}";
+                                                        <MudAvatar Image="@imageUrl" Alt="@user.UserName" Width="40" Height="40" Class="rounded-circle" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <MudAvatar Style="background-color:#395886;color:aliceblue">@user.UserName.Substring(0, 1)</MudAvatar>
+                                                    }
+                                                }
+                                                @user.UserName
+                                            </MudListItem>
                                         }
-                                        @user.UserName
-                                    </MudListItem>
-                                }
-                            }                           
-                        </MudList>
-                        <MudList Clickable="true">
-                            <MudListSubheader>Grupos</MudListSubheader>
-                            @foreach (var group in Groups)
-                            {
-                                <MudListItem OnClick="@(() => SelectGroup(group))">
-                                    <MudAvatar Style="background-color:#395886;color:aliceblue">@group.Name.Substring(0, 1)</MudAvatar>
-                                    @group.Name
+                                    }
+                                </NestedList>
+                            </MudListItem>
+                            <MudListItem Icon="@Icons.Material.Filled.Groups2" Text="Grupos" InitiallyExpanded="true">
+                                <NestedList>
+                                    @foreach (var group in Groups)
+                                    {
+                                        <MudListItem OnClick="@(() => SelectGroup(group))">
+                                            <MudAvatar Style="background-color:#395886;color:aliceblue">@group.Name.Substring(0, 1)</MudAvatar>
+                                            @group.Name
+                                        </MudListItem>
+                                    }
+                                <MudListItem>
+                                    <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="OpenCreateGroupDialog" />
+                                    Crear nuevo grupo
                                 </MudListItem>
-                            }
-                            <MudListItem>
-                                <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Primary" OnClick="OpenCreateGroupDialog" />
-                                Crear nuevo grupo
+                                </NestedList>
+                            </MudListItem>
+                            <MudListItem Icon="@Icons.Material.Filled.PersonOff" Text="Usuarios eliminados" InitiallyExpanded="true">
+                                <NestedList>
+                                    @foreach (var user in Users)
+                                    {
+                                        if (user.Id != conectedUser && user.Email.Contains("UsuarioEliminado"))
+                                        {
+                                            <MudListItem OnClick="@(() => SelectUser(user))">
+                                                @{
+                                                    var userImage = userImages.FirstOrDefault(ui => ui.IdUser == user.Id);
+                                                    if (userImage != null)
+                                                    {
+                                                        var imageUrl = $"data:image/jpeg;base64,{userImage.Image}";
+                                                        <MudAvatar Image="@imageUrl" Alt="@user.UserName" Width="40" Height="40" Class="rounded-circle" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <MudAvatar Style="background-color:#395886;color:aliceblue">@user.UserName.Substring(0, 1)</MudAvatar>
+                                                    }
+                                                }
+                                                @user.UserName
+                                            </MudListItem>
+                                        }
+                                    }
+                                </NestedList>
                             </MudListItem>
                         </MudList>
                     </MudPaper>
                </MudItem>            
 
-            <MudItem xs="9" Style="Background-color:#F0F3FA">
+            <MudItem xs="12" sm="9" Style="Background-color:#F0F3FA">
                 <MudPaper Elevation="0" Style="Background-color:#F0F3FA">
-                    <MudToolBar >
-                        <MudText Typo="Typo.h6">Conversación con @SelectedUser.Name</MudText>
+                    <MudToolBar>
+                        @if (SelectedGroup != null)
+                        {
+                            <MudText Typo="Typo.h6">Conversación con @SelectedGroup.Name</MudText>
+                        }
+                        else if (SelectedUser != null)
+                        {
+                            <MudText Typo="Typo.h6">Conversación con @SelectedUser.Name</MudText>
+                        }
+                        else
+                        {
+                            <MudText Typo="Typo.h6">Conversación</MudText>
+                        }
                     </MudToolBar>
                     <MudList id="messages-container" Style="height: 75vh; overflow-y: scroll;">
                         @foreach (var message in ChatMessages)
@@ -140,6 +180,8 @@
     protected override async Task OnInitializedAsync()
     {
         SelectedUser = new ApplicationUserDTO();
+        SelectedGroup = new GroupDTO();
+
         var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
         var handler = new JwtSecurityTokenHandler();
         var jwtToken = handler.ReadJwtToken(token);
@@ -193,17 +235,20 @@
         }
 
     }
-    private async void SelectUser(ApplicationUserDTO user)
+
+    private async Task SelectUser(ApplicationUserDTO user)
     {
         SelectedUser = user;
+        SelectedGroup = null;
         await LoadUserChatMessages();
         OnAfterRenderAsync();
         StateHasChanged();
     }
 
-    private async void SelectGroup(GroupDTO group)
+    private async Task SelectGroup(GroupDTO group)
     {
         SelectedGroup = group;
+        SelectedUser = null;
         await LoadGroupChatMessages();
         OnAfterRenderAsync();
         StateHasChanged();

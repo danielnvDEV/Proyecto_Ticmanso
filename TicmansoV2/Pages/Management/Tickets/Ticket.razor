@@ -72,7 +72,7 @@
                     <MudCard>
                         <MudCardHeader Style="background-color: #e0e0e0;">
                             <CardHeaderContent>
-                                    <MudText Typo="Typo.h6" Style="color: #333;">Informacion</MudText>
+                                    <MudText Typo="Typo.h6" Style="color: #333;">Información</MudText>
                             </CardHeaderContent>
                         </MudCardHeader>
                         <MudCardContent>
@@ -100,7 +100,7 @@
                                     <MudSelect T="ApplicationUserDTO" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" @bind-Value="selectedAgent">
                                         @foreach (var user in User.Where(u => userRole.Any(r => r.UserId == u.Id && r.Role == "Admin")))
                                         {
-                                            <MudSelectItem Value="@user.Name" />
+                                            <MudSelectItem Value="@user" />
                                         }
                                     </MudSelect>
                                 </MudText>
@@ -110,6 +110,35 @@
                         </MudCardActions>
                     </MudCard>
                 </MudItem>
+            </AuthorizeView>
+            <AuthorizeView Roles="User">
+                    <MudItem xs="3">
+                        <MudCard>
+                            <MudCardHeader Style="background-color: #e0e0e0;">
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h6" Style="color: #333;">Información</MudText>
+                                </CardHeaderContent>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText><b>PROPIEDADES</b></MudText>
+                                <br />
+                                <MudText>
+                                    <b>Prioridad</b>
+                                    <MudSelect T="string" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter"
+                                               Value="selectedPriority" ValueChanged="@((string value) => OnPriorityChanged(value))" Style="@($"color:{color}")">
+                                        @foreach (var priority in Priorities)
+                                        {
+                                            <MudSelectItem Value="@priority.Name" Style="@($"color:{priority.Color}")" />
+                                        }
+                                    </MudSelect>
+
+                                </MudText>                               
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="UpdateTicketAsync">Actualizar</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
             </AuthorizeView>
         </MudGrid>
         }
@@ -146,21 +175,22 @@
         try
         {
             CreationUserName = new ApplicationUserDTO();
-                var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
-                var handler = new JwtSecurityTokenHandler();
-                var jwtToken = handler.ReadJwtToken(token);
-                var claims = jwtToken.Claims;
-                conectedUser = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var token = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "token");
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(token);
+            var claims = jwtToken.Claims;
+            conectedUser = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
-                ticket = await httpClient.GetFromJsonAsync<TicketDTO>($"api/Tickets/{ticketId}");
+            ticket = await httpClient.GetFromJsonAsync<TicketDTO>($"api/Tickets/{ticketId}");
 
-                Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
+            Statuses = await httpClient.GetFromJsonAsync<List<StatusDTO>>("api/Status");
 
-                Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
+            Priorities = await httpClient.GetFromJsonAsync<List<PriorityDTO>>("api/Priority");
 
-                User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
+            User = await httpClient.GetFromJsonAsync<List<ApplicationUserDTO>>("api/Users");
 
-                await LoadChatMessages();
+            await LoadChatMessages();
+            await LoadUserRoles();
 
                 timer = new System.Timers.Timer(1000);
                 timer.Elapsed += async (sender, e) =>
